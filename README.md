@@ -31,7 +31,9 @@ $apiUrl = 'https://api.exavault.com';
 
 ##### Authenticating #####
 
-Once your API key is in place, you will likely want to authenticate so that you can begin uploading and downloading files, creating users, and all that other fun stuff.
+Once your API key is in place, you will likely want to authenticate so
+that you can begin uploading and downloading files, creating users,
+and all that other fun stuff.
 
 ```php
 // create a new instance of the ExaVault API library class
@@ -54,7 +56,9 @@ if ($loginSuccess) {
 
 ##### Uploading a file #####
 
-Uploading is a bit more complicated, as it first requires obtaining an appropriate upload URL and then making a separate HTTP request to upload the file to the correct upload URL.
+Uploading is a bit more complicated, as it first requires obtaining an
+appropriate upload URL from the API and then making a separate HTTP
+request to upload the file to your account's storage server.
 
 ```php
 // set the local and remote paths
@@ -109,8 +113,9 @@ if ($uploadResults->success) {
 }
 ```
 
-##### Downloading a file #####
-Downloading, like the upload process, first requires obtaining an appropriate download URL and then making a separate HTTP request to the API.
+##### Downloading a file ##### Downloading, like the upload process,
+first requires obtaining an appropriate download URL and then making a
+separate HTTP request to your account's storage server.
 
 ```php
 // set the filename
@@ -154,9 +159,12 @@ if($downloadResults->success) {
     // Whoopsie, there was an error.
 }
 ```
+
 ##### Logging Out #####
 
-Logging out of the API is very simple. The only thing that is required is to check to see if we were logged in in the first place; if yes, then log out.
+Logging out of the API is very simple. The only thing that is required
+is to check to see if we were logged in in the first place; if yes,
+then log out.
 
 ```php
 // logout only if login was successful
