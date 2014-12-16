@@ -1,7 +1,7 @@
 evapi-php
 =========
 
-evapi-php is an API client written in Python for connecting to the
+evapi-php is an API client written in PHP for connecting to the
 ExaVault API. The ExaVault API is a REST-like API providing operations
 for file and user management, and supports both ``POST`` and ``GET``
 requests.
