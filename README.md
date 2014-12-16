@@ -113,9 +113,11 @@ if ($uploadResults->success) {
 }
 ```
 
-##### Downloading a file ##### Downloading, like the upload process,
-first requires obtaining an appropriate download URL and then making a
-separate HTTP request to your account's storage server.
+##### Downloading a file #####
+
+Downloading, like the upload process, first requires obtaining an
+appropriate download URL and then making a separate HTTP request to
+your account's storage server.
 
 ```php
 // set the filename
