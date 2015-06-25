@@ -14,25 +14,25 @@ class Account {
         'username' => 'string',
         'maxUsers' => 'int',
         'userCount' => 'int',
-        'masterAccount' => 'Account',
+        'masterAccount' => 'User',
         'status' => 'int',
         'branding' => 'bool',
         'customDomain' => 'bool',
         'planCode' => 'string',
-        'diskQuotaLimit' => 'string',
-        'bandwidthQuotaLimit' => 'string',
-        'diskQuotaUsed' => 'string',
-        'bandwidthQuotaUsed' => 'string',
-        'quotaNoticeEnabled' => 'string',
-        'quotaNoticeThreshold' => 'string',
+        'diskQuotaLimit' => 'int',
+        'bandwidthQuotaLimit' => 'int',
+        'diskQuotaUsed' => 'int',
+        'bandwidthQuotaUsed' => 'int',
+        'quotaNoticeEnabled' => 'int',
+        'quotaNoticeThreshold' => 'int',
         'redirect' => 'string',
         'secureOnly' => 'bool',
         'complexPasswords' => 'bool',
         'showReferralLinks' => 'bool',
         'externalDomains' => 'string',
         'freeTrial' => 'bool',
-        'appliedPromotion' => 'string',
-        'clientId' => 'string',
+        'appliedTrial' => 'string',
+        'clientId' => 'int',
         'created' => 'string',
         'modified' => 'string'
 
@@ -42,25 +42,25 @@ class Account {
     public $username; // string
     public $maxUsers; // int
     public $userCount; // int
-    public $masterAccount; // Account
+    public $masterAccount; // User
     public $status; // int
     public $branding; // bool
     public $customDomain; // bool
     public $planCode; // string
-    public $diskQuotaLimit; // string
-    public $bandwidthQuotaLimit; // string
-    public $diskQuotaUsed; // string
-    public $bandwidthQuotaUsed; // string
-    public $quotaNoticeEnabled; // string
-    public $quotaNoticeThreshold; // string
+    public $diskQuotaLimit; // int
+    public $bandwidthQuotaLimit; // int
+    public $diskQuotaUsed; // int
+    public $bandwidthQuotaUsed; // int
+    public $quotaNoticeEnabled; // int
+    public $quotaNoticeThreshold; // int
     public $redirect; // string
     public $secureOnly; // bool
     public $complexPasswords; // bool
     public $showReferralLinks; // bool
     public $externalDomains; // string
     public $freeTrial; // bool
-    public $appliedPromotion; // string
-    public $clientId; // string
+    public $appliedTrial; // string
+    public $clientId; // int
     public $created; // string
     public $modified; // string
     }

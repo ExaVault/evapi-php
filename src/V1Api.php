@@ -21,36 +21,35 @@ class V1Api {
 
     public function authenticateUser($username, $password) {
 
-        //parse inputs
+        // parse inputs
         $resourcePath = "/v1/authenticateUser";
-        $resourcePath = str_replace("{format}", "json", $resourcePath);
-        $method = "GET";
+        $method = "POST";
         $queryParams = array();
         $headerParams = array();
         $headerParams['Accept'] = '(mediaType,application/json)';
-        $headerParams['Content-Type'] = '';
 
-        if($username !== null) {
-            $queryParams['username'] = $this->apiClient->toQueryValue($username);
-        }
-        if($password !== null) {
-            $queryParams['password'] = $this->apiClient->toQueryValue($password);
-        }
-        //make the API Call
-        if (! isset($body)) {
-            $body = null;
-        }
-        $response = $this->apiClient->callAPI($resourcePath, $method,
-                                              $queryParams, $body,
-                                              $headerParams);
+        // EV NOTE: the content type must be
+        // "application/x-www-form-urlencoded" for POST data
+        $headerParams['Content-Type'] = 'application/x-www-form-urlencoded';
 
+        // EV NOTE: specify the "body" as form data
+        if (!isset($body)) {            
+            $body = array();
+            $body['username'] = $username;
+            $body['password'] = $password;
+            }
 
-        if(! $response){
+        // make the API Call
+        $response = $this->apiClient->callAPI(
+            $resourcePath, $method, $queryParams, $body, $headerParams
+        );
+
+        if (!$response) {
             return null;
         }
 
-        $responseObject = $this->apiClient->deserialize($response,
-                                                        'AuthResponse');
+        $responseObject = $this->apiClient->deserialize($response, 'AuthResponse');
+
         return $responseObject;
 
         }
@@ -64,36 +63,35 @@ class V1Api {
 
     public function checkFilesExist($access_token, $filePaths) {
 
-        //parse inputs
+        // parse inputs
         $resourcePath = "/v1/checkFilesExist";
-        $resourcePath = str_replace("{format}", "json", $resourcePath);
-        $method = "GET";
+        $method = "POST";
         $queryParams = array();
         $headerParams = array();
         $headerParams['Accept'] = '(mediaType,application/json)';
-        $headerParams['Content-Type'] = '';
 
-        if($access_token !== null) {
-            $queryParams['access_token'] = $this->apiClient->toQueryValue($access_token);
-        }
-        if($filePaths !== null) {
-            $queryParams['filePaths'] = $this->apiClient->toQueryValue($filePaths);
-        }
-        //make the API Call
-        if (! isset($body)) {
-            $body = null;
-        }
-        $response = $this->apiClient->callAPI($resourcePath, $method,
-                                              $queryParams, $body,
-                                              $headerParams);
+        // EV NOTE: the content type must be
+        // "application/x-www-form-urlencoded" for POST data
+        $headerParams['Content-Type'] = 'application/x-www-form-urlencoded';
 
+        // EV NOTE: specify the "body" as form data
+        if (!isset($body)) {            
+            $body = array();
+            $body['access_token'] = $access_token;
+            $body['filePaths'] = $filePaths;
+            }
 
-        if(! $response){
+        // make the API Call
+        $response = $this->apiClient->callAPI(
+            $resourcePath, $method, $queryParams, $body, $headerParams
+        );
+
+        if (!$response) {
             return null;
         }
 
-        $responseObject = $this->apiClient->deserialize($response,
-                                                        'ExistingResourcesResponse');
+        $responseObject = $this->apiClient->deserialize($response, 'ExistingResourcesResponse');
+
         return $responseObject;
 
         }
@@ -108,39 +106,36 @@ class V1Api {
 
     public function copyResources($access_token, $filePaths, $destinationPath) {
 
-        //parse inputs
+        // parse inputs
         $resourcePath = "/v1/copyResources";
-        $resourcePath = str_replace("{format}", "json", $resourcePath);
-        $method = "GET";
+        $method = "POST";
         $queryParams = array();
         $headerParams = array();
         $headerParams['Accept'] = '(mediaType,application/json)';
-        $headerParams['Content-Type'] = '';
 
-        if($access_token !== null) {
-            $queryParams['access_token'] = $this->apiClient->toQueryValue($access_token);
-        }
-        if($filePaths !== null) {
-            $queryParams['filePaths'] = $this->apiClient->toQueryValue($filePaths);
-        }
-        if($destinationPath !== null) {
-            $queryParams['destinationPath'] = $this->apiClient->toQueryValue($destinationPath);
-        }
-        //make the API Call
-        if (! isset($body)) {
-            $body = null;
-        }
-        $response = $this->apiClient->callAPI($resourcePath, $method,
-                                              $queryParams, $body,
-                                              $headerParams);
+        // EV NOTE: the content type must be
+        // "application/x-www-form-urlencoded" for POST data
+        $headerParams['Content-Type'] = 'application/x-www-form-urlencoded';
 
+        // EV NOTE: specify the "body" as form data
+        if (!isset($body)) {            
+            $body = array();
+            $body['access_token'] = $access_token;
+            $body['filePaths'] = $filePaths;
+            $body['destinationPath'] = $destinationPath;
+            }
 
-        if(! $response){
+        // make the API Call
+        $response = $this->apiClient->callAPI(
+            $resourcePath, $method, $queryParams, $body, $headerParams
+        );
+
+        if (!$response) {
             return null;
         }
 
-        $responseObject = $this->apiClient->deserialize($response,
-                                                        'ModifiedResourcesResponse');
+        $responseObject = $this->apiClient->deserialize($response, 'ModifiedResourcesResponse');
+
         return $responseObject;
 
         }
@@ -155,39 +150,158 @@ class V1Api {
 
     public function createFolder($access_token, $folderName, $path) {
 
-        //parse inputs
+        // parse inputs
         $resourcePath = "/v1/createFolder";
-        $resourcePath = str_replace("{format}", "json", $resourcePath);
-        $method = "GET";
+        $method = "POST";
         $queryParams = array();
         $headerParams = array();
         $headerParams['Accept'] = '(mediaType,application/json)';
-        $headerParams['Content-Type'] = '';
 
-        if($access_token !== null) {
-            $queryParams['access_token'] = $this->apiClient->toQueryValue($access_token);
-        }
-        if($folderName !== null) {
-            $queryParams['folderName'] = $this->apiClient->toQueryValue($folderName);
-        }
-        if($path !== null) {
-            $queryParams['path'] = $this->apiClient->toQueryValue($path);
-        }
-        //make the API Call
-        if (! isset($body)) {
-            $body = null;
-        }
-        $response = $this->apiClient->callAPI($resourcePath, $method,
-                                              $queryParams, $body,
-                                              $headerParams);
+        // EV NOTE: the content type must be
+        // "application/x-www-form-urlencoded" for POST data
+        $headerParams['Content-Type'] = 'application/x-www-form-urlencoded';
 
+        // EV NOTE: specify the "body" as form data
+        if (!isset($body)) {            
+            $body = array();
+            $body['access_token'] = $access_token;
+            $body['folderName'] = $folderName;
+            $body['path'] = $path;
+            }
 
-        if(! $response){
+        // make the API Call
+        $response = $this->apiClient->callAPI(
+            $resourcePath, $method, $queryParams, $body, $headerParams
+        );
+
+        if (!$response) {
             return null;
         }
 
-        $responseObject = $this->apiClient->deserialize($response,
-                                                        'Response');
+        $responseObject = $this->apiClient->deserialize($response, 'Response');
+
+        return $responseObject;
+
+        }
+    /**
+     * createNotification
+     * Creates a new Notification object
+     * access_token, string: Access token required to make the API call (required)
+     * path, string: Full path of file/folder where notification is set. (required)
+     * action, string: Type of action to filter on: 'upload', 'download', 'delete', 'all' (required)
+     * usernames, string: User type to filter on: 'notice_user_all', 'notice_user_all_recipients', 'notice_user_all_users' (required)
+     * sendEmail, bool: Set to true if the user should be notified by email when the notification is triggered. (required)
+     * emails, array[string]: Email addresses to send notification to. If not specified, sends to owner by default. (optional)
+     * @return Response
+     */
+
+    public function createNotification($access_token, $path, $action, $usernames, $sendEmail, $emails=null) {
+
+        // parse inputs
+        $resourcePath = "/v1/createNotification";
+        $method = "POST";
+        $queryParams = array();
+        $headerParams = array();
+        $headerParams['Accept'] = '(mediaType,application/json)';
+
+        // EV NOTE: the content type must be
+        // "application/x-www-form-urlencoded" for POST data
+        $headerParams['Content-Type'] = 'application/x-www-form-urlencoded';
+
+        // EV NOTE: specify the "body" as form data
+        if (!isset($body)) {            
+            $body = array();
+            $body['access_token'] = $access_token;
+            $body['path'] = $path;
+            $body['action'] = $action;
+            $body['usernames'] = $usernames;
+            $body['sendEmail'] = $sendEmail;
+            $body['emails'] = $emails;
+            }
+
+        // make the API Call
+        $response = $this->apiClient->callAPI(
+            $resourcePath, $method, $queryParams, $body, $headerParams
+        );
+
+        if (!$response) {
+            return null;
+        }
+
+        $responseObject = $this->apiClient->deserialize($response, 'Response');
+
+        return $responseObject;
+
+        }
+    /**
+     * createShare
+     * Create a new Share object
+     * access_token, string: Access token required to make the API call (required)
+     * type, string: The type of share to create: shared_folder, send, receive. (required)
+     * name, string: Name of the Share. (required)
+     * filePaths, array[string]: Array of strings containing the file paths to share. (required)
+     * subject, string: Share message subject (for email invitations). (optional)
+     * message, string: Share message contents (for email invitations). (optional)
+     * emails, array[string]: Array of strings for email recipients (for email invitations). (optional)
+     * ccEmail, string: Specifies a CC email recipient. (optional)
+     * requireEmail, bool: Requires a user's email to access (defaults to false if not specified). (optional)
+     * accessMode, string: Type of permissions share recipients have (upload, download, modify). Defaults to download if no option specified. (optional)
+     * embed, bool: Allows user to embed a widget with the share. Defaults to false if not specified. (optional)
+     * isPublic, bool: True if share has a public URL, otherwise defaults to false (optional)
+     * password, string: If not null, value of password is required to access this Share (optional)
+     * expiration, string: The date the current Share should expire, formatted YYYY-mm-dd (optional)
+     * hasNotification, bool: True if the user should be notified about activity on this Share. (optional)
+     * notificationEmails, array[string]: An array of recipients who should receive notification emails. (optional)
+     * fileDropCreateFolders, bool: If true, all receive folder submissions will be uploaded separate folders (only applicable for Receive folder types) (optional)
+     * @return Response
+     */
+
+    public function createShare($access_token, $type, $name, $filePaths, $subject=null, $message=null, $emails=null, $ccEmail=null, $requireEmail=null, $accessMode=null, $embed=null, $isPublic=null, $password=null, $expiration=null, $hasNotification=null, $notificationEmails=null, $fileDropCreateFolders=null) {
+
+        // parse inputs
+        $resourcePath = "/v1/createShare";
+        $method = "POST";
+        $queryParams = array();
+        $headerParams = array();
+        $headerParams['Accept'] = '(mediaType,application/json)';
+
+        // EV NOTE: the content type must be
+        // "application/x-www-form-urlencoded" for POST data
+        $headerParams['Content-Type'] = 'application/x-www-form-urlencoded';
+
+        // EV NOTE: specify the "body" as form data
+        if (!isset($body)) {            
+            $body = array();
+            $body['access_token'] = $access_token;
+            $body['type'] = $type;
+            $body['name'] = $name;
+            $body['filePaths'] = $filePaths;
+            $body['subject'] = $subject;
+            $body['message'] = $message;
+            $body['emails'] = $emails;
+            $body['ccEmail'] = $ccEmail;
+            $body['requireEmail'] = $requireEmail;
+            $body['accessMode'] = $accessMode;
+            $body['embed'] = $embed;
+            $body['isPublic'] = $isPublic;
+            $body['password'] = $password;
+            $body['expiration'] = $expiration;
+            $body['hasNotification'] = $hasNotification;
+            $body['notificationEmails'] = $notificationEmails;
+            $body['fileDropCreateFolders'] = $fileDropCreateFolders;
+            }
+
+        // make the API Call
+        $response = $this->apiClient->callAPI(
+            $resourcePath, $method, $queryParams, $body, $headerParams
+        );
+
+        if (!$response) {
+            return null;
+        }
+
+        $responseObject = $this->apiClient->deserialize($response, 'Response');
+
         return $responseObject;
 
         }
@@ -200,73 +314,98 @@ class V1Api {
      * email, string: The user's email address (required)
      * password, string: The user's password (required)
      * role, string: The user's role, i.e: 'user' or 'admin' (required)
-     * permissions, array[string]: An array of permissions for the user. The following values are supported: upload, download, delete, modify, list, changePassword, share, notification (required)
+     * permissions, string: A CSV string of user permissions. The following values are supported: upload, download, delete, modify, list, changePassword, share, notification. (required)
      * nickname, string: The user's nickname (optional)
+     * expiration, string: The date when the user should expire, formatted YYYY-mm-dd (optional)
      * locked, bool: If true, the user's account is locked by default (optional)
      * welcomeEmail, bool: If true, send a user email upon creation (optional)
      * timeZone, string: The user's timezone, used for accurate time display within SWFT. See &lt;a href='https://php.net/manual/en/timezones.php' target='blank'&gt;this page&lt;/a&gt; for allowed values (required)
      * @return Response
      */
 
-    public function createUser($access_token, $username, $destinationFolder, $email, $password, $role, $permissions, $nickname=null, $locked=null, $welcomeEmail=null, $timeZone) {
+    public function createUser($access_token, $username, $destinationFolder, $email, $password, $role, $permissions, $nickname=null, $expiration=null, $locked=null, $welcomeEmail=null, $timeZone) {
 
-        //parse inputs
+        // parse inputs
         $resourcePath = "/v1/createUser";
-        $resourcePath = str_replace("{format}", "json", $resourcePath);
-        $method = "GET";
+        $method = "POST";
         $queryParams = array();
         $headerParams = array();
         $headerParams['Accept'] = '(mediaType,application/json)';
-        $headerParams['Content-Type'] = '';
 
-        if($access_token !== null) {
-            $queryParams['access_token'] = $this->apiClient->toQueryValue($access_token);
-        }
-        if($username !== null) {
-            $queryParams['username'] = $this->apiClient->toQueryValue($username);
-        }
-        if($destinationFolder !== null) {
-            $queryParams['destinationFolder'] = $this->apiClient->toQueryValue($destinationFolder);
-        }
-        if($email !== null) {
-            $queryParams['email'] = $this->apiClient->toQueryValue($email);
-        }
-        if($password !== null) {
-            $queryParams['password'] = $this->apiClient->toQueryValue($password);
-        }
-        if($role !== null) {
-            $queryParams['role'] = $this->apiClient->toQueryValue($role);
-        }
-        if($permissions !== null) {
-            $queryParams['permissions'] = $this->apiClient->toQueryValue($permissions);
-        }
-        if($timeZone !== null) {
-            $queryParams['timeZone'] = $this->apiClient->toQueryValue($timeZone);
-        }
-        if($nickname !== null) {
-            $queryParams['nickname'] = $this->apiClient->toQueryValue($nickname);
-        }
-        if($locked !== null) {
-            $queryParams['locked'] = $this->apiClient->toQueryValue($locked);
-        }
-        if($welcomeEmail !== null) {
-            $queryParams['welcomeEmail'] = $this->apiClient->toQueryValue($welcomeEmail);
-        }
-        //make the API Call
-        if (! isset($body)) {
-            $body = null;
-        }
-        $response = $this->apiClient->callAPI($resourcePath, $method,
-                                              $queryParams, $body,
-                                              $headerParams);
+        // EV NOTE: the content type must be
+        // "application/x-www-form-urlencoded" for POST data
+        $headerParams['Content-Type'] = 'application/x-www-form-urlencoded';
 
+        // EV NOTE: specify the "body" as form data
+        if (!isset($body)) {            
+            $body = array();
+            $body['access_token'] = $access_token;
+            $body['username'] = $username;
+            $body['destinationFolder'] = $destinationFolder;
+            $body['email'] = $email;
+            $body['password'] = $password;
+            $body['role'] = $role;
+            $body['permissions'] = $permissions;
+            $body['nickname'] = $nickname;
+            $body['expiration'] = $expiration;
+            $body['locked'] = $locked;
+            $body['welcomeEmail'] = $welcomeEmail;
+            $body['timeZone'] = $timeZone;
+            }
 
-        if(! $response){
+        // make the API Call
+        $response = $this->apiClient->callAPI(
+            $resourcePath, $method, $queryParams, $body, $headerParams
+        );
+
+        if (!$response) {
             return null;
         }
 
-        $responseObject = $this->apiClient->deserialize($response,
-                                                        'Response');
+        $responseObject = $this->apiClient->deserialize($response, 'Response');
+
+        return $responseObject;
+
+        }
+    /**
+     * deleteNotification
+     * Deletes a Notification by ID
+     * access_token, string: Access token required to make the API call (required)
+     * id, int: ID of the Notification to delete. (required)
+     * @return Response
+     */
+
+    public function deleteNotification($access_token, $id) {
+
+        // parse inputs
+        $resourcePath = "/v1/deleteNotification";
+        $method = "POST";
+        $queryParams = array();
+        $headerParams = array();
+        $headerParams['Accept'] = '(mediaType,application/json)';
+
+        // EV NOTE: the content type must be
+        // "application/x-www-form-urlencoded" for POST data
+        $headerParams['Content-Type'] = 'application/x-www-form-urlencoded';
+
+        // EV NOTE: specify the "body" as form data
+        if (!isset($body)) {            
+            $body = array();
+            $body['access_token'] = $access_token;
+            $body['id'] = $id;
+            }
+
+        // make the API Call
+        $response = $this->apiClient->callAPI(
+            $resourcePath, $method, $queryParams, $body, $headerParams
+        );
+
+        if (!$response) {
+            return null;
+        }
+
+        $responseObject = $this->apiClient->deserialize($response, 'Response');
+
         return $responseObject;
 
         }
@@ -275,41 +414,82 @@ class V1Api {
      * Delete the specified files/folders
      * access_token, string: Access token required to make the API call (required)
      * filePaths, array[string]: Array containing paths of the files or folder to delete (required)
-     * @return FilesResponse
+     * @return DeletedResourcesResponse
      */
 
     public function deleteResources($access_token, $filePaths) {
 
-        //parse inputs
+        // parse inputs
         $resourcePath = "/v1/deleteResources";
-        $resourcePath = str_replace("{format}", "json", $resourcePath);
-        $method = "GET";
+        $method = "POST";
         $queryParams = array();
         $headerParams = array();
         $headerParams['Accept'] = '(mediaType,application/json)';
-        $headerParams['Content-Type'] = '';
 
-        if($access_token !== null) {
-            $queryParams['access_token'] = $this->apiClient->toQueryValue($access_token);
-        }
-        if($filePaths !== null) {
-            $queryParams['filePaths'] = $this->apiClient->toQueryValue($filePaths);
-        }
-        //make the API Call
-        if (! isset($body)) {
-            $body = null;
-        }
-        $response = $this->apiClient->callAPI($resourcePath, $method,
-                                              $queryParams, $body,
-                                              $headerParams);
+        // EV NOTE: the content type must be
+        // "application/x-www-form-urlencoded" for POST data
+        $headerParams['Content-Type'] = 'application/x-www-form-urlencoded';
 
+        // EV NOTE: specify the "body" as form data
+        if (!isset($body)) {            
+            $body = array();
+            $body['access_token'] = $access_token;
+            $body['filePaths'] = $filePaths;
+            }
 
-        if(! $response){
+        // make the API Call
+        $response = $this->apiClient->callAPI(
+            $resourcePath, $method, $queryParams, $body, $headerParams
+        );
+
+        if (!$response) {
             return null;
         }
 
-        $responseObject = $this->apiClient->deserialize($response,
-                                                        'FilesResponse');
+        $responseObject = $this->apiClient->deserialize($response, 'DeletedResourcesResponse');
+
+        return $responseObject;
+
+        }
+    /**
+     * deleteShare
+     * Deletes a Share by ID
+     * access_token, string: Access token required to make the API call (required)
+     * id, int: ID of the Share to delete. (required)
+     * @return Response
+     */
+
+    public function deleteShare($access_token, $id) {
+
+        // parse inputs
+        $resourcePath = "/v1/deleteShare";
+        $method = "POST";
+        $queryParams = array();
+        $headerParams = array();
+        $headerParams['Accept'] = '(mediaType,application/json)';
+
+        // EV NOTE: the content type must be
+        // "application/x-www-form-urlencoded" for POST data
+        $headerParams['Content-Type'] = 'application/x-www-form-urlencoded';
+
+        // EV NOTE: specify the "body" as form data
+        if (!isset($body)) {            
+            $body = array();
+            $body['access_token'] = $access_token;
+            $body['id'] = $id;
+            }
+
+        // make the API Call
+        $response = $this->apiClient->callAPI(
+            $resourcePath, $method, $queryParams, $body, $headerParams
+        );
+
+        if (!$response) {
+            return null;
+        }
+
+        $responseObject = $this->apiClient->deserialize($response, 'Response');
+
         return $responseObject;
 
         }
@@ -323,36 +503,35 @@ class V1Api {
 
     public function deleteUser($access_token, $username) {
 
-        //parse inputs
+        // parse inputs
         $resourcePath = "/v1/deleteUser";
-        $resourcePath = str_replace("{format}", "json", $resourcePath);
-        $method = "GET";
+        $method = "POST";
         $queryParams = array();
         $headerParams = array();
         $headerParams['Accept'] = '(mediaType,application/json)';
-        $headerParams['Content-Type'] = '';
 
-        if($access_token !== null) {
-            $queryParams['access_token'] = $this->apiClient->toQueryValue($access_token);
-        }
-        if($username !== null) {
-            $queryParams['username'] = $this->apiClient->toQueryValue($username);
-        }
-        //make the API Call
-        if (! isset($body)) {
-            $body = null;
-        }
-        $response = $this->apiClient->callAPI($resourcePath, $method,
-                                              $queryParams, $body,
-                                              $headerParams);
+        // EV NOTE: the content type must be
+        // "application/x-www-form-urlencoded" for POST data
+        $headerParams['Content-Type'] = 'application/x-www-form-urlencoded';
 
+        // EV NOTE: specify the "body" as form data
+        if (!isset($body)) {            
+            $body = array();
+            $body['access_token'] = $access_token;
+            $body['username'] = $username;
+            }
 
-        if(! $response){
+        // make the API Call
+        $response = $this->apiClient->callAPI(
+            $resourcePath, $method, $queryParams, $body, $headerParams
+        );
+
+        if (!$response) {
             return null;
         }
 
-        $responseObject = $this->apiClient->deserialize($response,
-                                                        'Response');
+        $responseObject = $this->apiClient->deserialize($response, 'Response');
+
         return $responseObject;
 
         }
@@ -365,33 +544,34 @@ class V1Api {
 
     public function getAccount($access_token) {
 
-        //parse inputs
+        // parse inputs
         $resourcePath = "/v1/getAccount";
-        $resourcePath = str_replace("{format}", "json", $resourcePath);
-        $method = "GET";
+        $method = "POST";
         $queryParams = array();
         $headerParams = array();
         $headerParams['Accept'] = '(mediaType,application/json)';
-        $headerParams['Content-Type'] = '';
 
-        if($access_token !== null) {
-            $queryParams['access_token'] = $this->apiClient->toQueryValue($access_token);
-        }
-        //make the API Call
-        if (! isset($body)) {
-            $body = null;
-        }
-        $response = $this->apiClient->callAPI($resourcePath, $method,
-                                              $queryParams, $body,
-                                              $headerParams);
+        // EV NOTE: the content type must be
+        // "application/x-www-form-urlencoded" for POST data
+        $headerParams['Content-Type'] = 'application/x-www-form-urlencoded';
 
+        // EV NOTE: specify the "body" as form data
+        if (!isset($body)) {            
+            $body = array();
+            $body['access_token'] = $access_token;
+            }
 
-        if(! $response){
+        // make the API Call
+        $response = $this->apiClient->callAPI(
+            $resourcePath, $method, $queryParams, $body, $headerParams
+        );
+
+        if (!$response) {
             return null;
         }
 
-        $responseObject = $this->apiClient->deserialize($response,
-                                                        'AccountResponse');
+        $responseObject = $this->apiClient->deserialize($response, 'AccountResponse');
+
         return $responseObject;
 
         }
@@ -404,33 +584,34 @@ class V1Api {
 
     public function getCurrentUser($access_token) {
 
-        //parse inputs
+        // parse inputs
         $resourcePath = "/v1/getCurrentUser";
-        $resourcePath = str_replace("{format}", "json", $resourcePath);
-        $method = "GET";
+        $method = "POST";
         $queryParams = array();
         $headerParams = array();
         $headerParams['Accept'] = '(mediaType,application/json)';
-        $headerParams['Content-Type'] = '';
 
-        if($access_token !== null) {
-            $queryParams['access_token'] = $this->apiClient->toQueryValue($access_token);
-        }
-        //make the API Call
-        if (! isset($body)) {
-            $body = null;
-        }
-        $response = $this->apiClient->callAPI($resourcePath, $method,
-                                              $queryParams, $body,
-                                              $headerParams);
+        // EV NOTE: the content type must be
+        // "application/x-www-form-urlencoded" for POST data
+        $headerParams['Content-Type'] = 'application/x-www-form-urlencoded';
 
+        // EV NOTE: specify the "body" as form data
+        if (!isset($body)) {            
+            $body = array();
+            $body['access_token'] = $access_token;
+            }
 
-        if(! $response){
+        // make the API Call
+        $response = $this->apiClient->callAPI(
+            $resourcePath, $method, $queryParams, $body, $headerParams
+        );
+
+        if (!$response) {
             return null;
         }
 
-        $responseObject = $this->apiClient->deserialize($response,
-                                                        'UserResponse');
+        $responseObject = $this->apiClient->deserialize($response, 'UserResponse');
+
         return $responseObject;
 
         }
@@ -445,39 +626,36 @@ class V1Api {
 
     public function getDownloadFileUrl($access_token, $filePaths, $downloadName=null) {
 
-        //parse inputs
+        // parse inputs
         $resourcePath = "/v1/getDownloadFileUrl";
-        $resourcePath = str_replace("{format}", "json", $resourcePath);
-        $method = "GET";
+        $method = "POST";
         $queryParams = array();
         $headerParams = array();
         $headerParams['Accept'] = '(mediaType,application/json)';
-        $headerParams['Content-Type'] = '';
 
-        if($access_token !== null) {
-            $queryParams['access_token'] = $this->apiClient->toQueryValue($access_token);
-        }
-        if($filePaths !== null) {
-            $queryParams['filePaths'] = $this->apiClient->toQueryValue($filePaths);
-        }
-        if($downloadName !== null) {
-            $queryParams['downloadName'] = $this->apiClient->toQueryValue($downloadName);
-        }
-        //make the API Call
-        if (! isset($body)) {
-            $body = null;
-        }
-        $response = $this->apiClient->callAPI($resourcePath, $method,
-                                              $queryParams, $body,
-                                              $headerParams);
+        // EV NOTE: the content type must be
+        // "application/x-www-form-urlencoded" for POST data
+        $headerParams['Content-Type'] = 'application/x-www-form-urlencoded';
 
+        // EV NOTE: specify the "body" as form data
+        if (!isset($body)) {            
+            $body = array();
+            $body['access_token'] = $access_token;
+            $body['filePaths'] = $filePaths;
+            $body['downloadName'] = $downloadName;
+            }
 
-        if(! $response){
+        // make the API Call
+        $response = $this->apiClient->callAPI(
+            $resourcePath, $method, $queryParams, $body, $headerParams
+        );
+
+        if (!$response) {
             return null;
         }
 
-        $responseObject = $this->apiClient->deserialize($response,
-                                                        'UrlResponse');
+        $responseObject = $this->apiClient->deserialize($response, 'UrlResponse');
+
         return $responseObject;
 
         }
@@ -496,51 +674,40 @@ class V1Api {
 
     public function getFileActivityLogs($access_token, $filterBy=null, $filter=null, $itemLimit=null, $offset=null, $sortBy=null, $sortOrder=null) {
 
-        //parse inputs
+        // parse inputs
         $resourcePath = "/v1/getFileActivityLogs";
-        $resourcePath = str_replace("{format}", "json", $resourcePath);
-        $method = "GET";
+        $method = "POST";
         $queryParams = array();
         $headerParams = array();
         $headerParams['Accept'] = '(mediaType,application/json)';
-        $headerParams['Content-Type'] = '';
 
-        if($access_token !== null) {
-            $queryParams['access_token'] = $this->apiClient->toQueryValue($access_token);
-        }
-        if($offset !== null) {
-            $queryParams['offset'] = $this->apiClient->toQueryValue($offset);
-        }
-        if($sortBy !== null) {
-            $queryParams['sortBy'] = $this->apiClient->toQueryValue($sortBy);
-        }
-        if($sortOrder !== null) {
-            $queryParams['sortOrder'] = $this->apiClient->toQueryValue($sortOrder);
-        }
-        if($filterBy !== null) {
-            $queryParams['filterBy'] = $this->apiClient->toQueryValue($filterBy);
-        }
-        if($filter !== null) {
-            $queryParams['filter'] = $this->apiClient->toQueryValue($filter);
-        }
-        if($itemLimit !== null) {
-            $queryParams['itemLimit'] = $this->apiClient->toQueryValue($itemLimit);
-        }
-        //make the API Call
-        if (! isset($body)) {
-            $body = null;
-        }
-        $response = $this->apiClient->callAPI($resourcePath, $method,
-                                              $queryParams, $body,
-                                              $headerParams);
+        // EV NOTE: the content type must be
+        // "application/x-www-form-urlencoded" for POST data
+        $headerParams['Content-Type'] = 'application/x-www-form-urlencoded';
 
+        // EV NOTE: specify the "body" as form data
+        if (!isset($body)) {            
+            $body = array();
+            $body['access_token'] = $access_token;
+            $body['filterBy'] = $filterBy;
+            $body['filter'] = $filter;
+            $body['itemLimit'] = $itemLimit;
+            $body['offset'] = $offset;
+            $body['sortBy'] = $sortBy;
+            $body['sortOrder'] = $sortOrder;
+            }
 
-        if(! $response){
+        // make the API Call
+        $response = $this->apiClient->callAPI(
+            $resourcePath, $method, $queryParams, $body, $headerParams
+        );
+
+        if (!$response) {
             return null;
         }
 
-        $responseObject = $this->apiClient->deserialize($response,
-                                                        'LogResponse');
+        $responseObject = $this->apiClient->deserialize($response, 'LogResponse');
+
         return $responseObject;
 
         }
@@ -554,36 +721,165 @@ class V1Api {
 
     public function getFolders($access_token, $path) {
 
-        //parse inputs
+        // parse inputs
         $resourcePath = "/v1/getFolders";
-        $resourcePath = str_replace("{format}", "json", $resourcePath);
-        $method = "GET";
+        $method = "POST";
         $queryParams = array();
         $headerParams = array();
         $headerParams['Accept'] = '(mediaType,application/json)';
-        $headerParams['Content-Type'] = '';
 
-        if($access_token !== null) {
-            $queryParams['access_token'] = $this->apiClient->toQueryValue($access_token);
-        }
-        if($path !== null) {
-            $queryParams['path'] = $this->apiClient->toQueryValue($path);
-        }
-        //make the API Call
-        if (! isset($body)) {
-            $body = null;
-        }
-        $response = $this->apiClient->callAPI($resourcePath, $method,
-                                              $queryParams, $body,
-                                              $headerParams);
+        // EV NOTE: the content type must be
+        // "application/x-www-form-urlencoded" for POST data
+        $headerParams['Content-Type'] = 'application/x-www-form-urlencoded';
 
+        // EV NOTE: specify the "body" as form data
+        if (!isset($body)) {            
+            $body = array();
+            $body['access_token'] = $access_token;
+            $body['path'] = $path;
+            }
 
-        if(! $response){
+        // make the API Call
+        $response = $this->apiClient->callAPI(
+            $resourcePath, $method, $queryParams, $body, $headerParams
+        );
+
+        if (!$response) {
             return null;
         }
 
-        $responseObject = $this->apiClient->deserialize($response,
-                                                        'ResourcePropertiesResponse');
+        $responseObject = $this->apiClient->deserialize($response, 'ResourcePropertiesResponse');
+
+        return $responseObject;
+
+        }
+    /**
+     * getNotification
+     * Returns a notification based on the given ID
+     * access_token, string: Access token required to make the API call (required)
+     * id, int: ID of the Notification (required)
+     * @return NotificationResponse
+     */
+
+    public function getNotification($access_token, $id) {
+
+        // parse inputs
+        $resourcePath = "/v1/getNotification";
+        $method = "POST";
+        $queryParams = array();
+        $headerParams = array();
+        $headerParams['Accept'] = '(mediaType,application/json)';
+
+        // EV NOTE: the content type must be
+        // "application/x-www-form-urlencoded" for POST data
+        $headerParams['Content-Type'] = 'application/x-www-form-urlencoded';
+
+        // EV NOTE: specify the "body" as form data
+        if (!isset($body)) {            
+            $body = array();
+            $body['access_token'] = $access_token;
+            $body['id'] = $id;
+            }
+
+        // make the API Call
+        $response = $this->apiClient->callAPI(
+            $resourcePath, $method, $queryParams, $body, $headerParams
+        );
+
+        if (!$response) {
+            return null;
+        }
+
+        $responseObject = $this->apiClient->deserialize($response, 'NotificationResponse');
+
+        return $responseObject;
+
+        }
+    /**
+     * getNotifications
+     * Returns all notifications for the current user
+     * access_token, string: Access token required to make the API call (required)
+     * type, string: Type of notification to filter on: 'file', 'folder', 'shared_folder', 'send_receipt', 'share_receipt', 'file_drop' (required)
+     * sortBy, string: Sort by one of the following: 'sort_notifications_folder_name', 'sort_notifications_path', 'sort_notifications_date' (optional)
+     * sortOrder, string: Sort by 'asc' or 'desc' order. (optional)
+     * filter, string: Filter by the provided search terms. (optional)
+     * @return NotificationsResponse
+     */
+
+    public function getNotifications($access_token, $type, $sortBy=null, $sortOrder=null, $filter=null) {
+
+        // parse inputs
+        $resourcePath = "/v1/getNotifications";
+        $method = "POST";
+        $queryParams = array();
+        $headerParams = array();
+        $headerParams['Accept'] = '(mediaType,application/json)';
+
+        // EV NOTE: the content type must be
+        // "application/x-www-form-urlencoded" for POST data
+        $headerParams['Content-Type'] = 'application/x-www-form-urlencoded';
+
+        // EV NOTE: specify the "body" as form data
+        if (!isset($body)) {            
+            $body = array();
+            $body['access_token'] = $access_token;
+            $body['type'] = $type;
+            $body['sortBy'] = $sortBy;
+            $body['sortOrder'] = $sortOrder;
+            $body['filter'] = $filter;
+            }
+
+        // make the API Call
+        $response = $this->apiClient->callAPI(
+            $resourcePath, $method, $queryParams, $body, $headerParams
+        );
+
+        if (!$response) {
+            return null;
+        }
+
+        $responseObject = $this->apiClient->deserialize($response, 'NotificationsResponse');
+
+        return $responseObject;
+
+        }
+    /**
+     * getNotificationActivity
+     * Returns all notification activity for the current user
+     * access_token, string: Access token required to make the API call (required)
+     * @return NotificationActivityResponse
+     */
+
+    public function getNotificationActivity($access_token) {
+
+        // parse inputs
+        $resourcePath = "/v1/getNotificationActivity";
+        $method = "POST";
+        $queryParams = array();
+        $headerParams = array();
+        $headerParams['Accept'] = '(mediaType,application/json)';
+
+        // EV NOTE: the content type must be
+        // "application/x-www-form-urlencoded" for POST data
+        $headerParams['Content-Type'] = 'application/x-www-form-urlencoded';
+
+        // EV NOTE: specify the "body" as form data
+        if (!isset($body)) {            
+            $body = array();
+            $body['access_token'] = $access_token;
+            }
+
+        // make the API Call
+        $response = $this->apiClient->callAPI(
+            $resourcePath, $method, $queryParams, $body, $headerParams
+        );
+
+        if (!$response) {
+            return null;
+        }
+
+        $responseObject = $this->apiClient->deserialize($response, 'NotificationActivityResponse');
+
         return $responseObject;
 
         }
@@ -603,60 +899,47 @@ class V1Api {
 
     public function getResourceList($access_token, $path, $sortBy, $sortOrder, $offset, $limit, $detailed=null, $pattern=null) {
 
-        //parse inputs
+        // parse inputs
         $resourcePath = "/v1/getResourceList";
-        $resourcePath = str_replace("{format}", "json", $resourcePath);
-        $method = "GET";
+        $method = "POST";
         $queryParams = array();
         $headerParams = array();
         $headerParams['Accept'] = '(mediaType,application/json)';
-        $headerParams['Content-Type'] = '';
 
-        if($access_token !== null) {
-            $queryParams['access_token'] = $this->apiClient->toQueryValue($access_token);
-        }
-        if($path !== null) {
-            $queryParams['path'] = $this->apiClient->toQueryValue($path);
-        }
-        if($sortBy !== null) {
-            $queryParams['sortBy'] = $this->apiClient->toQueryValue($sortBy);
-        }
-        if($sortOrder !== null) {
-            $queryParams['sortOrder'] = $this->apiClient->toQueryValue($sortOrder);
-        }
-        if($offset !== null) {
-            $queryParams['offset'] = $this->apiClient->toQueryValue($offset);
-        }
-        if($limit !== null) {
-            $queryParams['limit'] = $this->apiClient->toQueryValue($limit);
-        }
-        if($detailed !== null) {
-            $queryParams['detailed'] = $this->apiClient->toQueryValue($detailed);
-        }
-        if($pattern !== null) {
-            $queryParams['pattern'] = $this->apiClient->toQueryValue($pattern);
-        }
-        //make the API Call
-        if (! isset($body)) {
-            $body = null;
-        }
-        $response = $this->apiClient->callAPI($resourcePath, $method,
-                                              $queryParams, $body,
-                                              $headerParams);
+        // EV NOTE: the content type must be
+        // "application/x-www-form-urlencoded" for POST data
+        $headerParams['Content-Type'] = 'application/x-www-form-urlencoded';
 
+        // EV NOTE: specify the "body" as form data
+        if (!isset($body)) {            
+            $body = array();
+            $body['access_token'] = $access_token;
+            $body['path'] = $path;
+            $body['sortBy'] = $sortBy;
+            $body['sortOrder'] = $sortOrder;
+            $body['offset'] = $offset;
+            $body['limit'] = $limit;
+            $body['detailed'] = $detailed;
+            $body['pattern'] = $pattern;
+            }
 
-        if(! $response){
+        // make the API Call
+        $response = $this->apiClient->callAPI(
+            $resourcePath, $method, $queryParams, $body, $headerParams
+        );
+
+        if (!$response) {
             return null;
         }
 
-        $responseObject = $this->apiClient->deserialize($response,
-                                                        'ResourceResponse');
+        $responseObject = $this->apiClient->deserialize($response, 'ResourceResponse');
+
         return $responseObject;
 
         }
     /**
      * getResourceProperties
-     * Get the properties for each of the specified files/folders.
+     * Get the properties for each of the specified files/folders
      * access_token, string: Access token required to make the API call (required)
      * filePaths, array[string]: Array containing paths of the files or folder to get (required)
      * @return ResourcePropertiesResponse
@@ -664,36 +947,173 @@ class V1Api {
 
     public function getResourceProperties($access_token, $filePaths) {
 
-        //parse inputs
+        // parse inputs
         $resourcePath = "/v1/getResourceProperties";
-        $resourcePath = str_replace("{format}", "json", $resourcePath);
-        $method = "GET";
+        $method = "POST";
         $queryParams = array();
         $headerParams = array();
         $headerParams['Accept'] = '(mediaType,application/json)';
-        $headerParams['Content-Type'] = '';
 
-        if($access_token !== null) {
-            $queryParams['access_token'] = $this->apiClient->toQueryValue($access_token);
-        }
-        if($filePaths !== null) {
-            $queryParams['filePaths'] = $this->apiClient->toQueryValue($filePaths);
-        }
-        //make the API Call
-        if (! isset($body)) {
-            $body = null;
-        }
-        $response = $this->apiClient->callAPI($resourcePath, $method,
-                                              $queryParams, $body,
-                                              $headerParams);
+        // EV NOTE: the content type must be
+        // "application/x-www-form-urlencoded" for POST data
+        $headerParams['Content-Type'] = 'application/x-www-form-urlencoded';
 
+        // EV NOTE: specify the "body" as form data
+        if (!isset($body)) {            
+            $body = array();
+            $body['access_token'] = $access_token;
+            $body['filePaths'] = $filePaths;
+            }
 
-        if(! $response){
+        // make the API Call
+        $response = $this->apiClient->callAPI(
+            $resourcePath, $method, $queryParams, $body, $headerParams
+        );
+
+        if (!$response) {
             return null;
         }
 
-        $responseObject = $this->apiClient->deserialize($response,
-                                                        'ResourcePropertiesResponse');
+        $responseObject = $this->apiClient->deserialize($response, 'ResourcePropertiesResponse');
+
+        return $responseObject;
+
+        }
+    /**
+     * getShare
+     * Returns a share by the specified ID
+     * access_token, string: Access token required to make the API call (required)
+     * id, int: ID of the requested Share (required)
+     * @return ShareResponse
+     */
+
+    public function getShare($access_token, $id) {
+
+        // parse inputs
+        $resourcePath = "/v1/getShare";
+        $method = "POST";
+        $queryParams = array();
+        $headerParams = array();
+        $headerParams['Accept'] = '(mediaType,application/json)';
+
+        // EV NOTE: the content type must be
+        // "application/x-www-form-urlencoded" for POST data
+        $headerParams['Content-Type'] = 'application/x-www-form-urlencoded';
+
+        // EV NOTE: specify the "body" as form data
+        if (!isset($body)) {            
+            $body = array();
+            $body['access_token'] = $access_token;
+            $body['id'] = $id;
+            }
+
+        // make the API Call
+        $response = $this->apiClient->callAPI(
+            $resourcePath, $method, $queryParams, $body, $headerParams
+        );
+
+        if (!$response) {
+            return null;
+        }
+
+        $responseObject = $this->apiClient->deserialize($response, 'ShareResponse');
+
+        return $responseObject;
+
+        }
+    /**
+     * getShares
+     * Returns all Shares for the current user
+     * access_token, string: Access token required to make the API call (required)
+     * type, string: The type of share to return: 'shared_folder', 'send', or 'receive'. If no argument specified, will return all Shares types. (optional)
+     * sortBy, string: Sort by one of the following: 'sort_shares_name', 'sort_shares_date', 'sort_shares_user', 'sort_shares_access_mode'. (optional)
+     * sortOrder, string: Sort by 'asc' or 'desc' order. (optional)
+     * filter, string: Filter by the provided search terms. (optional)
+     * include, string: Filter by all, active-only, or current user's only. (optional)
+     * offset, int: Start position of results to return, for pagination. (optional)
+     * limit, int: Maximum number of elements to return or 0 if no limit. (optional)
+     * @return SharesResponse
+     */
+
+    public function getShares($access_token, $type=null, $sortBy=null, $sortOrder=null, $filter=null, $include=null, $offset=null, $limit=null) {
+
+        // parse inputs
+        $resourcePath = "/v1/getShares";
+        $method = "POST";
+        $queryParams = array();
+        $headerParams = array();
+        $headerParams['Accept'] = '(mediaType,application/json)';
+
+        // EV NOTE: the content type must be
+        // "application/x-www-form-urlencoded" for POST data
+        $headerParams['Content-Type'] = 'application/x-www-form-urlencoded';
+
+        // EV NOTE: specify the "body" as form data
+        if (!isset($body)) {            
+            $body = array();
+            $body['access_token'] = $access_token;
+            $body['type'] = $type;
+            $body['sortBy'] = $sortBy;
+            $body['sortOrder'] = $sortOrder;
+            $body['filter'] = $filter;
+            $body['include'] = $include;
+            $body['offset'] = $offset;
+            $body['limit'] = $limit;
+            }
+
+        // make the API Call
+        $response = $this->apiClient->callAPI(
+            $resourcePath, $method, $queryParams, $body, $headerParams
+        );
+
+        if (!$response) {
+            return null;
+        }
+
+        $responseObject = $this->apiClient->deserialize($response, 'SharesResponse');
+
+        return $responseObject;
+
+        }
+    /**
+     * getShareActivity
+     * Return activity log entries for the specified Share ID
+     * access_token, string: Access token required to make the API call (required)
+     * id, int: ID of the Share (required)
+     * @return ShareActivityResponse
+     */
+
+    public function getShareActivity($access_token, $id) {
+
+        // parse inputs
+        $resourcePath = "/v1/getShareActivity";
+        $method = "POST";
+        $queryParams = array();
+        $headerParams = array();
+        $headerParams['Accept'] = '(mediaType,application/json)';
+
+        // EV NOTE: the content type must be
+        // "application/x-www-form-urlencoded" for POST data
+        $headerParams['Content-Type'] = 'application/x-www-form-urlencoded';
+
+        // EV NOTE: specify the "body" as form data
+        if (!isset($body)) {            
+            $body = array();
+            $body['access_token'] = $access_token;
+            $body['id'] = $id;
+            }
+
+        // make the API Call
+        $response = $this->apiClient->callAPI(
+            $resourcePath, $method, $queryParams, $body, $headerParams
+        );
+
+        if (!$response) {
+            return null;
+        }
+
+        $responseObject = $this->apiClient->deserialize($response, 'ShareActivityResponse');
+
         return $responseObject;
 
         }
@@ -710,45 +1130,38 @@ class V1Api {
 
     public function getUploadFileUrl($access_token, $fileSize, $destinationPath, $allowOverwrite=null, $resume=null) {
 
-        //parse inputs
+        // parse inputs
         $resourcePath = "/v1/getUploadFileUrl";
-        $resourcePath = str_replace("{format}", "json", $resourcePath);
-        $method = "GET";
+        $method = "POST";
         $queryParams = array();
         $headerParams = array();
         $headerParams['Accept'] = '(mediaType,application/json)';
-        $headerParams['Content-Type'] = '';
 
-        if($access_token !== null) {
-            $queryParams['access_token'] = $this->apiClient->toQueryValue($access_token);
-        }
-        if($fileSize !== null) {
-            $queryParams['fileSize'] = $this->apiClient->toQueryValue($fileSize);
-        }
-        if($destinationPath !== null) {
-            $queryParams['destinationPath'] = $this->apiClient->toQueryValue($destinationPath);
-        }
-        if($allowOverwrite !== null) {
-            $queryParams['allowOverwrite'] = $this->apiClient->toQueryValue($allowOverwrite);
-        }
-        if($resume !== null) {
-            $queryParams['resume'] = $this->apiClient->toQueryValue($resume);
-        }
-        //make the API Call
-        if (! isset($body)) {
-            $body = null;
-        }
-        $response = $this->apiClient->callAPI($resourcePath, $method,
-                                              $queryParams, $body,
-                                              $headerParams);
+        // EV NOTE: the content type must be
+        // "application/x-www-form-urlencoded" for POST data
+        $headerParams['Content-Type'] = 'application/x-www-form-urlencoded';
 
+        // EV NOTE: specify the "body" as form data
+        if (!isset($body)) {            
+            $body = array();
+            $body['access_token'] = $access_token;
+            $body['fileSize'] = $fileSize;
+            $body['destinationPath'] = $destinationPath;
+            $body['allowOverwrite'] = $allowOverwrite;
+            $body['resume'] = $resume;
+            }
 
-        if(! $response){
+        // make the API Call
+        $response = $this->apiClient->callAPI(
+            $resourcePath, $method, $queryParams, $body, $headerParams
+        );
+
+        if (!$response) {
             return null;
         }
 
-        $responseObject = $this->apiClient->deserialize($response,
-                                                        'UrlResponse');
+        $responseObject = $this->apiClient->deserialize($response, 'UrlResponse');
+
         return $responseObject;
 
         }
@@ -762,36 +1175,35 @@ class V1Api {
 
     public function getUser($access_token, $username) {
 
-        //parse inputs
+        // parse inputs
         $resourcePath = "/v1/getUser";
-        $resourcePath = str_replace("{format}", "json", $resourcePath);
-        $method = "GET";
+        $method = "POST";
         $queryParams = array();
         $headerParams = array();
         $headerParams['Accept'] = '(mediaType,application/json)';
-        $headerParams['Content-Type'] = '';
 
-        if($access_token !== null) {
-            $queryParams['access_token'] = $this->apiClient->toQueryValue($access_token);
-        }
-        if($username !== null) {
-            $queryParams['username'] = $this->apiClient->toQueryValue($username);
-        }
-        //make the API Call
-        if (! isset($body)) {
-            $body = null;
-        }
-        $response = $this->apiClient->callAPI($resourcePath, $method,
-                                              $queryParams, $body,
-                                              $headerParams);
+        // EV NOTE: the content type must be
+        // "application/x-www-form-urlencoded" for POST data
+        $headerParams['Content-Type'] = 'application/x-www-form-urlencoded';
 
+        // EV NOTE: specify the "body" as form data
+        if (!isset($body)) {            
+            $body = array();
+            $body['access_token'] = $access_token;
+            $body['username'] = $username;
+            }
 
-        if(! $response){
+        // make the API Call
+        $response = $this->apiClient->callAPI(
+            $resourcePath, $method, $queryParams, $body, $headerParams
+        );
+
+        if (!$response) {
             return null;
         }
 
-        $responseObject = $this->apiClient->deserialize($response,
-                                                        'UserResponse');
+        $responseObject = $this->apiClient->deserialize($response, 'UserResponse');
+
         return $responseObject;
 
         }
@@ -799,46 +1211,43 @@ class V1Api {
      * getUsers
      * Gets the user object for the currently logged in user
      * access_token, string: Access token required to make the API call (required)
-     * sortBy, string: sort method ['sort_users_username' or 'sort_users_nickname' or 'sort_users_email' or 'sort_users_home_folder' or 'sort_users_permissions'] (required)
+     * sortBy, string: sort method ['sort_users_username' or 'sort_users_nickname' or 'sort_users_email' or 'sort_users_home_folder'] (required)
      * sortOrder, string: sort order, i.e. 'asc' or 'desc' (required)
      * @return UsersResponse
      */
 
     public function getUsers($access_token, $sortBy, $sortOrder) {
 
-        //parse inputs
+        // parse inputs
         $resourcePath = "/v1/getUsers";
-        $resourcePath = str_replace("{format}", "json", $resourcePath);
-        $method = "GET";
+        $method = "POST";
         $queryParams = array();
         $headerParams = array();
         $headerParams['Accept'] = '(mediaType,application/json)';
-        $headerParams['Content-Type'] = '';
 
-        if($access_token !== null) {
-            $queryParams['access_token'] = $this->apiClient->toQueryValue($access_token);
-        }
-        if($sortBy !== null) {
-            $queryParams['sortBy'] = $this->apiClient->toQueryValue($sortBy);
-        }
-        if($sortOrder !== null) {
-            $queryParams['sortOrder'] = $this->apiClient->toQueryValue($sortOrder);
-        }
-        //make the API Call
-        if (! isset($body)) {
-            $body = null;
-        }
-        $response = $this->apiClient->callAPI($resourcePath, $method,
-                                              $queryParams, $body,
-                                              $headerParams);
+        // EV NOTE: the content type must be
+        // "application/x-www-form-urlencoded" for POST data
+        $headerParams['Content-Type'] = 'application/x-www-form-urlencoded';
 
+        // EV NOTE: specify the "body" as form data
+        if (!isset($body)) {            
+            $body = array();
+            $body['access_token'] = $access_token;
+            $body['sortBy'] = $sortBy;
+            $body['sortOrder'] = $sortOrder;
+            }
 
-        if(! $response){
+        // make the API Call
+        $response = $this->apiClient->callAPI(
+            $resourcePath, $method, $queryParams, $body, $headerParams
+        );
+
+        if (!$response) {
             return null;
         }
 
-        $responseObject = $this->apiClient->deserialize($response,
-                                                        'UsersResponse');
+        $responseObject = $this->apiClient->deserialize($response, 'UsersResponse');
+
         return $responseObject;
 
         }
@@ -851,33 +1260,34 @@ class V1Api {
 
     public function logoutUser($access_token) {
 
-        //parse inputs
+        // parse inputs
         $resourcePath = "/v1/logoutUser";
-        $resourcePath = str_replace("{format}", "json", $resourcePath);
-        $method = "GET";
+        $method = "POST";
         $queryParams = array();
         $headerParams = array();
         $headerParams['Accept'] = '(mediaType,application/json)';
-        $headerParams['Content-Type'] = '';
 
-        if($access_token !== null) {
-            $queryParams['access_token'] = $this->apiClient->toQueryValue($access_token);
-        }
-        //make the API Call
-        if (! isset($body)) {
-            $body = null;
-        }
-        $response = $this->apiClient->callAPI($resourcePath, $method,
-                                              $queryParams, $body,
-                                              $headerParams);
+        // EV NOTE: the content type must be
+        // "application/x-www-form-urlencoded" for POST data
+        $headerParams['Content-Type'] = 'application/x-www-form-urlencoded';
 
+        // EV NOTE: specify the "body" as form data
+        if (!isset($body)) {            
+            $body = array();
+            $body['access_token'] = $access_token;
+            }
 
-        if(! $response){
+        // make the API Call
+        $response = $this->apiClient->callAPI(
+            $resourcePath, $method, $queryParams, $body, $headerParams
+        );
+
+        if (!$response) {
             return null;
         }
 
-        $responseObject = $this->apiClient->deserialize($response,
-                                                        'Response');
+        $responseObject = $this->apiClient->deserialize($response, 'Response');
+
         return $responseObject;
 
         }
@@ -892,39 +1302,36 @@ class V1Api {
 
     public function moveResources($access_token, $filePaths, $destinationPath) {
 
-        //parse inputs
+        // parse inputs
         $resourcePath = "/v1/moveResources";
-        $resourcePath = str_replace("{format}", "json", $resourcePath);
-        $method = "GET";
+        $method = "POST";
         $queryParams = array();
         $headerParams = array();
         $headerParams['Accept'] = '(mediaType,application/json)';
-        $headerParams['Content-Type'] = '';
 
-        if($access_token !== null) {
-            $queryParams['access_token'] = $this->apiClient->toQueryValue($access_token);
-        }
-        if($filePaths !== null) {
-            $queryParams['filePaths'] = $this->apiClient->toQueryValue($filePaths);
-        }
-        if($destinationPath !== null) {
-            $queryParams['destinationPath'] = $this->apiClient->toQueryValue($destinationPath);
-        }
-        //make the API Call
-        if (! isset($body)) {
-            $body = null;
-        }
-        $response = $this->apiClient->callAPI($resourcePath, $method,
-                                              $queryParams, $body,
-                                              $headerParams);
+        // EV NOTE: the content type must be
+        // "application/x-www-form-urlencoded" for POST data
+        $headerParams['Content-Type'] = 'application/x-www-form-urlencoded';
 
+        // EV NOTE: specify the "body" as form data
+        if (!isset($body)) {            
+            $body = array();
+            $body['access_token'] = $access_token;
+            $body['filePaths'] = $filePaths;
+            $body['destinationPath'] = $destinationPath;
+            }
 
-        if(! $response){
+        // make the API Call
+        $response = $this->apiClient->callAPI(
+            $resourcePath, $method, $queryParams, $body, $headerParams
+        );
+
+        if (!$response) {
             return null;
         }
 
-        $responseObject = $this->apiClient->deserialize($response,
-                                                        'ModifiedResourcesResponse');
+        $responseObject = $this->apiClient->deserialize($response, 'ModifiedResourcesResponse');
+
         return $responseObject;
 
         }
@@ -942,48 +1349,39 @@ class V1Api {
 
     public function previewFile($access_token, $path, $size, $width=null, $height=null, $page=null) {
 
-        //parse inputs
+        // parse inputs
         $resourcePath = "/v1/previewFile";
-        $resourcePath = str_replace("{format}", "json", $resourcePath);
-        $method = "GET";
+        $method = "POST";
         $queryParams = array();
         $headerParams = array();
         $headerParams['Accept'] = '(mediaType,application/json)';
-        $headerParams['Content-Type'] = '';
 
-        if($access_token !== null) {
-            $queryParams['access_token'] = $this->apiClient->toQueryValue($access_token);
-        }
-        if($path !== null) {
-            $queryParams['path'] = $this->apiClient->toQueryValue($path);
-        }
-        if($size !== null) {
-            $queryParams['size'] = $this->apiClient->toQueryValue($size);
-        }
-        if($width !== null) {
-            $queryParams['width'] = $this->apiClient->toQueryValue($width);
-        }
-        if($height !== null) {
-            $queryParams['height'] = $this->apiClient->toQueryValue($height);
-        }
-        if($page !== null) {
-            $queryParams['page'] = $this->apiClient->toQueryValue($page);
-        }
-        //make the API Call
-        if (! isset($body)) {
-            $body = null;
-        }
-        $response = $this->apiClient->callAPI($resourcePath, $method,
-                                              $queryParams, $body,
-                                              $headerParams);
+        // EV NOTE: the content type must be
+        // "application/x-www-form-urlencoded" for POST data
+        $headerParams['Content-Type'] = 'application/x-www-form-urlencoded';
 
+        // EV NOTE: specify the "body" as form data
+        if (!isset($body)) {            
+            $body = array();
+            $body['access_token'] = $access_token;
+            $body['path'] = $path;
+            $body['size'] = $size;
+            $body['width'] = $width;
+            $body['height'] = $height;
+            $body['page'] = $page;
+            }
 
-        if(! $response){
+        // make the API Call
+        $response = $this->apiClient->callAPI(
+            $resourcePath, $method, $queryParams, $body, $headerParams
+        );
+
+        if (!$response) {
             return null;
         }
 
-        $responseObject = $this->apiClient->deserialize($response,
-                                                        'PreviewFileResponse');
+        $responseObject = $this->apiClient->deserialize($response, 'PreviewFileResponse');
+
         return $responseObject;
 
         }
@@ -998,39 +1396,160 @@ class V1Api {
 
     public function renameResource($access_token, $filePath, $newName) {
 
-        //parse inputs
+        // parse inputs
         $resourcePath = "/v1/renameResource";
-        $resourcePath = str_replace("{format}", "json", $resourcePath);
-        $method = "GET";
+        $method = "POST";
         $queryParams = array();
         $headerParams = array();
         $headerParams['Accept'] = '(mediaType,application/json)';
-        $headerParams['Content-Type'] = '';
 
-        if($access_token !== null) {
-            $queryParams['access_token'] = $this->apiClient->toQueryValue($access_token);
-        }
-        if($filePath !== null) {
-            $queryParams['filePath'] = $this->apiClient->toQueryValue($filePath);
-        }
-        if($newName !== null) {
-            $queryParams['newName'] = $this->apiClient->toQueryValue($newName);
-        }
-        //make the API Call
-        if (! isset($body)) {
-            $body = null;
-        }
-        $response = $this->apiClient->callAPI($resourcePath, $method,
-                                              $queryParams, $body,
-                                              $headerParams);
+        // EV NOTE: the content type must be
+        // "application/x-www-form-urlencoded" for POST data
+        $headerParams['Content-Type'] = 'application/x-www-form-urlencoded';
 
+        // EV NOTE: specify the "body" as form data
+        if (!isset($body)) {            
+            $body = array();
+            $body['access_token'] = $access_token;
+            $body['filePath'] = $filePath;
+            $body['newName'] = $newName;
+            }
 
-        if(! $response){
+        // make the API Call
+        $response = $this->apiClient->callAPI(
+            $resourcePath, $method, $queryParams, $body, $headerParams
+        );
+
+        if (!$response) {
             return null;
         }
 
-        $responseObject = $this->apiClient->deserialize($response,
-                                                        'Response');
+        $responseObject = $this->apiClient->deserialize($response, 'Response');
+
+        return $responseObject;
+
+        }
+    /**
+     * updateNotification
+     * Updates an existing notification by ID
+     * access_token, string: Access token required to make the API call (required)
+     * id, int: The notification ID (required)
+     * path, string: Full path of file/folder where notification is set. (optional)
+     * action, string: Type of action to filter on: 'upload', 'download', 'delete', 'all' (optional)
+     * usernames, string: User type to filter on: 'notice_user_all', 'notice_user_all_recipients', 'notice_user_all_users' (optional)
+     * emails, array[string]: Email addresses to send notification to. If not specified, sends to owner by default. (optional)
+     * sendEmail, bool: Set to true if the user should be notified by email when the notification is triggered. (optional)
+     * @return Response
+     */
+
+    public function updateNotification($access_token, $id, $path=null, $action=null, $usernames=null, $emails=null, $sendEmail=null) {
+
+        // parse inputs
+        $resourcePath = "/v1/updateNotification";
+        $method = "POST";
+        $queryParams = array();
+        $headerParams = array();
+        $headerParams['Accept'] = '(mediaType,application/json)';
+
+        // EV NOTE: the content type must be
+        // "application/x-www-form-urlencoded" for POST data
+        $headerParams['Content-Type'] = 'application/x-www-form-urlencoded';
+
+        // EV NOTE: specify the "body" as form data
+        if (!isset($body)) {            
+            $body = array();
+            $body['access_token'] = $access_token;
+            $body['id'] = $id;
+            $body['path'] = $path;
+            $body['action'] = $action;
+            $body['usernames'] = $usernames;
+            $body['emails'] = $emails;
+            $body['sendEmail'] = $sendEmail;
+            }
+
+        // make the API Call
+        $response = $this->apiClient->callAPI(
+            $resourcePath, $method, $queryParams, $body, $headerParams
+        );
+
+        if (!$response) {
+            return null;
+        }
+
+        $responseObject = $this->apiClient->deserialize($response, 'Response');
+
+        return $responseObject;
+
+        }
+    /**
+     * updateShare
+     * Update an existing Share by ID
+     * access_token, string: Access token required to make the API call (required)
+     * id, int: The ID of the Share to update. (required)
+     * name, string: Name of the Share. (optional)
+     * filePaths, array[string]: Array of strings containing the file paths to share. (optional)
+     * subject, string: Share message subject (for email invitations). (optional)
+     * message, string: Share message contents (for email invitations). (optional)
+     * emails, array[string]: Array of strings for email recipients (for email invitations). (optional)
+     * ccEmail, string: Specifies a CC email recipient. (optional)
+     * requireEmail, bool: Requires a user's email to access (defaults to false if not specified). (optional)
+     * accessMode, string: Type of permissions share recipients have (upload, download, modify). Defaults to download if no option specified. (optional)
+     * embed, bool: Allows user to embed a widget with the share. Defaults to false if not specified. (optional)
+     * isPublic, bool: True if share has a public URL, otherwise defaults to false (optional)
+     * password, string: If not null, value of password is required to access this Share (optional)
+     * expiration, string: The date the current Share should expire, formatted YYYY-mm-dd (optional)
+     * hasNotification, bool: True if the user should be notified about activity on this Share. (optional)
+     * notificationEmails, array[string]: An array of recipients who should receive notification emails. (optional)
+     * fileDropCreateFolders, bool: If true, all receive folder submissions will be uploaded separate folders (only applicable for Receive folder types) (optional)
+     * @return Response
+     */
+
+    public function updateShare($access_token, $id, $name=null, $filePaths=null, $subject=null, $message=null, $emails=null, $ccEmail=null, $requireEmail=null, $accessMode=null, $embed=null, $isPublic=null, $password=null, $expiration=null, $hasNotification=null, $notificationEmails=null, $fileDropCreateFolders=null) {
+
+        // parse inputs
+        $resourcePath = "/v1/updateShare";
+        $method = "POST";
+        $queryParams = array();
+        $headerParams = array();
+        $headerParams['Accept'] = '(mediaType,application/json)';
+
+        // EV NOTE: the content type must be
+        // "application/x-www-form-urlencoded" for POST data
+        $headerParams['Content-Type'] = 'application/x-www-form-urlencoded';
+
+        // EV NOTE: specify the "body" as form data
+        if (!isset($body)) {            
+            $body = array();
+            $body['access_token'] = $access_token;
+            $body['id'] = $id;
+            $body['name'] = $name;
+            $body['filePaths'] = $filePaths;
+            $body['subject'] = $subject;
+            $body['message'] = $message;
+            $body['emails'] = $emails;
+            $body['ccEmail'] = $ccEmail;
+            $body['requireEmail'] = $requireEmail;
+            $body['accessMode'] = $accessMode;
+            $body['embed'] = $embed;
+            $body['isPublic'] = $isPublic;
+            $body['password'] = $password;
+            $body['expiration'] = $expiration;
+            $body['hasNotification'] = $hasNotification;
+            $body['notificationEmails'] = $notificationEmails;
+            $body['fileDropCreateFolders'] = $fileDropCreateFolders;
+            }
+
+        // make the API Call
+        $response = $this->apiClient->callAPI(
+            $resourcePath, $method, $queryParams, $body, $headerParams
+        );
+
+        if (!$response) {
+            return null;
+        }
+
+        $responseObject = $this->apiClient->deserialize($response, 'Response');
+
         return $responseObject;
 
         }
@@ -1041,71 +1560,56 @@ class V1Api {
      * userId, int: The user ID, must be obtained from getUser method first (required)
      * username, string: Name of the subaccount user to modify (optional)
      * nickname, string: The user's nickname (optional)
+     * expiration, string: The date when use should expire in format: YYYY-MM-DD (optional)
      * email, string: The user's email (optional)
      * destinationFolder, string: The user's home folder (optional)
      * password, string: The user's password (optional)
      * locked, bool: If true, the user's account is locked by default (optional)
      * role, string: The user's role, i.e: 'user', 'admin', 'master' (optional)
-     * permissions, array[string]: An array of permissions for the user (optional)
+     * permissions, string: A CSV string of user permissions. (optional)
      * @return Response
      */
 
-    public function updateUser($access_token, $userId, $username=null, $nickname=null, $email=null, $destinationFolder=null, $password=null, $locked=null, $role=null, $permissions=null) {
+    public function updateUser($access_token, $userId, $username=null, $nickname=null, $expiration=null, $email=null, $destinationFolder=null, $password=null, $locked=null, $role=null, $permissions=null) {
 
-        //parse inputs
+        // parse inputs
         $resourcePath = "/v1/updateUser";
-        $resourcePath = str_replace("{format}", "json", $resourcePath);
-        $method = "GET";
+        $method = "POST";
         $queryParams = array();
         $headerParams = array();
         $headerParams['Accept'] = '(mediaType,application/json)';
-        $headerParams['Content-Type'] = '';
 
-        if($access_token !== null) {
-            $queryParams['access_token'] = $this->apiClient->toQueryValue($access_token);
-        }
-        if($userId !== null) {
-            $queryParams['userId'] = $this->apiClient->toQueryValue($userId);
-        }
-        if($username !== null) {
-            $queryParams['username'] = $this->apiClient->toQueryValue($username);
-        }
-        if($nickname !== null) {
-            $queryParams['nickname'] = $this->apiClient->toQueryValue($nickname);
-        }
-        if($email !== null) {
-            $queryParams['email'] = $this->apiClient->toQueryValue($email);
-        }
-        if($destinationFolder !== null) {
-            $queryParams['destinationFolder'] = $this->apiClient->toQueryValue($destinationFolder);
-        }
-        if($password !== null) {
-            $queryParams['password'] = $this->apiClient->toQueryValue($password);
-        }
-        if($locked !== null) {
-            $queryParams['locked'] = $this->apiClient->toQueryValue($locked);
-        }
-        if($role !== null) {
-            $queryParams['role'] = $this->apiClient->toQueryValue($role);
-        }
-        if($permissions !== null) {
-            $queryParams['permissions'] = $this->apiClient->toQueryValue($permissions);
-        }
-        //make the API Call
-        if (! isset($body)) {
-            $body = null;
-        }
-        $response = $this->apiClient->callAPI($resourcePath, $method,
-                                              $queryParams, $body,
-                                              $headerParams);
+        // EV NOTE: the content type must be
+        // "application/x-www-form-urlencoded" for POST data
+        $headerParams['Content-Type'] = 'application/x-www-form-urlencoded';
 
+        // EV NOTE: specify the "body" as form data
+        if (!isset($body)) {            
+            $body = array();
+            $body['access_token'] = $access_token;
+            $body['userId'] = $userId;
+            $body['username'] = $username;
+            $body['nickname'] = $nickname;
+            $body['expiration'] = $expiration;
+            $body['email'] = $email;
+            $body['destinationFolder'] = $destinationFolder;
+            $body['password'] = $password;
+            $body['locked'] = $locked;
+            $body['role'] = $role;
+            $body['permissions'] = $permissions;
+            }
 
-        if(! $response){
+        // make the API Call
+        $response = $this->apiClient->callAPI(
+            $resourcePath, $method, $queryParams, $body, $headerParams
+        );
+
+        if (!$response) {
             return null;
         }
 
-        $responseObject = $this->apiClient->deserialize($response,
-                                                        'Response');
+        $responseObject = $this->apiClient->deserialize($response, 'Response');
+
         return $responseObject;
 
         }
@@ -1119,36 +1623,35 @@ class V1Api {
 
     public function userAvailable($access_token, $username) {
 
-        //parse inputs
+        // parse inputs
         $resourcePath = "/v1/userAvailable";
-        $resourcePath = str_replace("{format}", "json", $resourcePath);
-        $method = "GET";
+        $method = "POST";
         $queryParams = array();
         $headerParams = array();
         $headerParams['Accept'] = '(mediaType,application/json)';
-        $headerParams['Content-Type'] = '';
 
-        if($access_token !== null) {
-            $queryParams['access_token'] = $this->apiClient->toQueryValue($access_token);
-        }
-        if($username !== null) {
-            $queryParams['username'] = $this->apiClient->toQueryValue($username);
-        }
-        //make the API Call
-        if (! isset($body)) {
-            $body = null;
-        }
-        $response = $this->apiClient->callAPI($resourcePath, $method,
-                                              $queryParams, $body,
-                                              $headerParams);
+        // EV NOTE: the content type must be
+        // "application/x-www-form-urlencoded" for POST data
+        $headerParams['Content-Type'] = 'application/x-www-form-urlencoded';
 
+        // EV NOTE: specify the "body" as form data
+        if (!isset($body)) {            
+            $body = array();
+            $body['access_token'] = $access_token;
+            $body['username'] = $username;
+            }
 
-        if(! $response){
+        // make the API Call
+        $response = $this->apiClient->callAPI(
+            $resourcePath, $method, $queryParams, $body, $headerParams
+        );
+
+        if (!$response) {
             return null;
         }
 
-        $responseObject = $this->apiClient->deserialize($response,
-                                                        'AvailableUserResponse');
+        $responseObject = $this->apiClient->deserialize($response, 'AvailableUserResponse');
+
         return $responseObject;
 
         }

@@ -18,7 +18,6 @@ function swagger_autoloader($className) {
 
 spl_autoload_register('swagger_autoloader');
 
-
 class APIClient {
 
     public static $POST = "POST";
@@ -44,12 +43,11 @@ class APIClient {
      * @param array $headerParams parameters to be place in request header
      * @return unknown
      */
-    public function callAPI($resourcePath, $method, $queryParams, $postData,
-                            $headerParams) {
+    public function callAPI($resourcePath, $method, $queryParams, $postData, $headerParams) {
 
         $headers = array();
 
-        # Allow API key from $headerParams to override default
+        // Allow API key from $headerParams to override default
         $added_api_key = False;
         if ($headerParams != null) {
             foreach ($headerParams as $key => $val) {
@@ -59,12 +57,13 @@ class APIClient {
                 }
             }
         }
+
         if (! $added_api_key) {
             $headers[] = "api_key: " . $this->apiKey;
         }
 
         if (is_object($postData) or is_array($postData)) {
-            $postData = json_encode(self::sanitizeForSerialization($postData));
+            $postData = self::sanitizeForSerialization($postData);
         }
 
         // sets the swagger resource URL
@@ -73,6 +72,7 @@ class APIClient {
         // initialize curl, create HTTP header and bulid the query
         $curl = curl_init();
         curl_setopt($curl, CURLOPT_TIMEOUT, 5);
+
         // return the result on success, rather than just TRUE
         curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
         curl_setopt($curl, CURLOPT_HTTPHEADER, $headers);
@@ -87,20 +87,21 @@ class APIClient {
             curl_setopt($curl, CURLOPT_POSTFIELDS, $postData);
         } else if ($method == self::$PUT) {
             $json_data = json_encode($postData);
-            curl_setopt($curl, CURLOPT_CUSTOMREQUEST, "PUT");
+            curl_setopt($curl, CURLOPT_CUSTOMREQUEST, self::$PUT);
             curl_setopt($curl, CURLOPT_POSTFIELDS, $postData);
         } else if ($method == self::$DELETE) {
-            curl_setopt($curl, CURLOPT_CUSTOMREQUEST, "DELETE");
+            curl_setopt($curl, CURLOPT_CUSTOMREQUEST, self::$DELETE);
             curl_setopt($curl, CURLOPT_POSTFIELDS, $postData);
         } else if ($method != self::$GET) {
             throw new Exception('Method ' . $method . ' is not recognized.');
         }
+
         curl_setopt($curl, CURLOPT_URL, $url);
 
         // Make the request
         $response = curl_exec($curl);
         $response_info = curl_getinfo($curl);
-
+        
         // Handle the response
         if ($response_info['http_code'] == 0) {
             throw new Exception("TIMEOUT: api call to " . $url .
@@ -118,7 +119,6 @@ class APIClient {
                                 $response_info['http_code']);
         }
 
-
         return $data;
     }
 
@@ -126,12 +126,29 @@ class APIClient {
      * Build a JSON POST object
      */
     public static function sanitizeForSerialization($postData) {
+
+        $formData = "";
+
         foreach ($postData as $key => $value) {
+            // EV NOTE: changed this to properly serialize arrays
+            if (is_null($value)) {
+                continue;
+            }
             if (is_a($value, "DateTime")) {
-                $postData->{$key} = $value->format(DateTime::ISO8601);
+                $value = $value->format(DateTime::ISO8601);
+                $formData .= "$key=$value&";
+            } else if (is_array($value)) {
+                foreach ($value as $subvalue) {
+                    $formData .= $key . '[]' . "=$subvalue&";
+                }
+            } else {
+                $formData .= "$key=$value&";
             }
         }
-        return $postData;
+
+        $formData = rtrim($formData, '&');
+
+        return $formData;
     }
 
     /**
@@ -244,4 +261,5 @@ class APIClient {
         return $instance;
     }
 }
+
 

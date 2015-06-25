@@ -11,11 +11,11 @@ class ExistingResource {
 
     static $swaggerTypes = array(
         'exists' => 'bool',
-        'resource' => 'Resource'
+        'resource' => 'ResourceProperty'
 
         );
 
     public $exists; // bool
-    public $resource; // Resource
+    public $resource; // ResourceProperty
     }
 

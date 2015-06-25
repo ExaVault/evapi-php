@@ -1,23 +1,23 @@
 <?php
 /**
- * FilesResponse.php
+ * NotificationsResponse.php
  *
  * Copyright 2014 ExaVault, Inc.
  *
  * NOTE: This file was generated automatically. Do not modify by hand.
  */
 
-class FilesResponse {
+class NotificationsResponse {
 
     static $swaggerTypes = array(
         'success' => 'int',
         'error' => 'Error',
-        'results' => 'array[File]'
+        'results' => 'array[Notification]'
 
         );
 
     public $success; // int
     public $error; // Error
-    public $results; // array[File]
+    public $results; // array[Notification]
     }
 

@@ -5,11 +5,13 @@
  * EvapiTest.php
  *
  * This file contains unit tests for testing the swagger generated API
- * client
+ * client.
+ *
+ * @author Dylan Gleason, support -at- exavault -dot- com
  */
 
-require_once('../client/php/src/V1Api.php');
-require_once('../client/php/src/APIClient.php');
+require_once('../src/V1Api.php');
+require_once('../src/APIClient.php');
 
 class EvapiTest extends PHPUnit_Framework_TestCase
 {
@@ -20,45 +22,131 @@ class EvapiTest extends PHPUnit_Framework_TestCase
     // successfully against your account.
     //
 
-    const USERNAME      = 'yourusername';                // required for all tests
-    const PASSWORD      = 'yourpassword';                // required for all tests
-    const API_KEY       = 'yourusername-1234';           // required for all tests
-    const API_SERVER    = 'https://api.exavault.com';    // required for all tests
-    const FOLDER        = 'unit-tests';                  // for testCopyResources, testMoveResources, etc.
-    const SUBFOLDER     = 'subfolder';                   // for testCopyResources, testMoveResources, etc.
-    const TEST_USER     = 'unit-tests';                  // for testCreateUser
-    const TEST_EMAIL    = 'youremail@domain.com';        // for testCreateUser
-    const PREVIEW       = '/path/to/preview/file.jpg';   // for testPreviewFile
-    const RENAME_FOLDER = '/folder-to-rename';           // for testRenameResource
-    const DOWNLOAD_FILE = '/path/of/file/to/download';   // for testGetDownloadFileUrl
-    const TIMEZONE      = 'America/Los_Angeles';         // for testCreateUser
+    const USERNAME      = 'yourusername';
+    const PASSWORD      = 'yourpassword';
+    const API_KEY       = 'yourapp-XXXXXXXXXXXXXXXXXXXX';
+    const API_SERVER    = 'https://api.exavault.com';
+    const ROOT_DIR      = '/';
+    const FOLDER        = 'evapi-php-tests';
+    const SUBFOLDER     = 'subfolder'; 
+    const TEST_USER     = 'evapi-php-tests';
+    const TEST_EMAIL    = 'youremail@domain.com';
+    const PREVIEW       = '/test-files/preview/images.jpg';
+    const RENAME_FOLDER = 'test-rename-folder';
+    const DOWNLOAD_FILE = '/test-files/file-tree.txt';
+    const UPLOAD_FILE   = 'test-filename.txt';
+    const TIMEZONE      = 'America/Los_Angeles';
+    const USER_ROLE     = 'user';
+    const PERMISSIONS   = 'upload,download,modify,delete';
+
+    
+    private static $api = null;
+
+    private static $accessToken = null;
+
 
     /**
-     * BEGIN TESTS
+     * Setup the API client and authenticate for all tests.
+     *
+     * @return void
      */
-
-    public function setup()
+    public static function setUpBeforeClass()
     {
-        // init the API client
-        $this->api = new V1Api(new APIClient(self::API_KEY, self::API_SERVER));
+        self::$api = new V1Api(new APIClient(self::API_KEY, self::API_SERVER));
+        self::authenticateUser();
     }
 
-    public function testAuthenticateUser()
+    /**
+     * Logout the test user after completing tests
+     *
+     * @return void
+     */
+    public static function tearDownAfterClass()
+    {
+        if (!is_null(self::$accessToken)) {
+            self::$api->logoutUser(self::$accessToken);
+        }
+    }
+
+    /**
+     * Authenticates user with test data and returns the response
+     * object.
+     *
+     * @return void
+     */
+    private static function authenticateUser()
+    {
+        $response = self::$api->authenticateUser(self::USERNAME, self::PASSWORD);
+        if (!$response->success) {
+            throw new Exception();
+        }
+        self::$accessToken = $response->results->accessToken;
+    }
+
+    /**
+     * Create a test user and returns response object.
+     *
+     * @return UserResponse
+     */
+    private function createUser()
+    {
+        return self::$api->createUser(
+            self::$accessToken,
+            self::TEST_USER,
+            self::ROOT_DIR,
+            self::TEST_EMAIL,
+            self::PASSWORD,
+            self::USER_ROLE,
+            self::PERMISSIONS,
+            self::TEST_USER,
+            null,
+            null,
+            null,
+            self::TIMEZONE
+        );
+    }
+
+    /**
+     * Deletes the test user.
+     *
+     * @return Response
+     */
+    private function deleteUser()
+    {
+        return self::$api->deleteUser(self::$accessToken, self::TEST_USER);
+    }
+
+
+    // Test methods
+
+    public function testAuthenticateUserAndLogout()
     {
         echo (" - " . __METHOD__ . "\n");
 
-        // authenticate user and save access token
+        $error = false;
+        $authResponse = null;
+        $logoutResponse = null;
+
         try {
-            $response = $this->authenticateUser();
-            $results = $response->results;
+            $this->createUser();
+            $authResponse = self::$api->authenticateUser(self::TEST_USER, self::PASSWORD);
+            $logoutResponse = self::$api->logoutUser($authResponse->results->accessToken);
+            self::$api->deleteUser(self::$accessToken, self::TEST_USER);
         } catch (Exception $e) {
-            // do nothing
+            $error = true;            
         }
 
-        $this->assertNotNull($response);
-        $this->assertInstanceOf(AuthResponse, $response);
-        $this->assertEquals($results->username, self::USERNAME);
-        $this->assertNotEmpty($this->accessToken);
+        $this->assertFalse($error);
+
+        $this->assertNotNull($authResponse);
+        $this->assertInstanceOf('AuthResponse', $authResponse);
+
+        $this->assertNotNull($logoutResponse);
+        $this->assertInstanceOf('Response', $logoutResponse);
+
+        $results = $authResponse->results;
+        $this->assertEquals($results->username, self::TEST_USER);
+        $this->assertNotEmpty(self::$accessToken);
         $this->assertNotEmpty($results->clientIp);
     }
 
@@ -66,117 +154,125 @@ class EvapiTest extends PHPUnit_Framework_TestCase
     {
         echo (" - " . __METHOD__ . "\n");
 
-        $this->authenticateUser();
+        $error = false;
+        $response = null;
 
         try {
-            $response = $this->api->checkFilesExist($this->accessToken, '/');
+            $response = self::$api->checkFilesExist(self::$accessToken, '/');
         } catch (Exception $e) {
-            // do nothing
+            $error = true;
         }
 
+        $this->assertFalse($error);
         $this->assertNotNull($response);
-        $this->assertInstanceOf(ExistingResourcesResponse, $response);
-        $this->assertInstanceOf(ExistingResource, $response->results[0]);
+        $this->assertInstanceOf('ExistingResourcesResponse', $response);
+        $this->assertInstanceOf('ExistingResource', $response->results[0]);
     }
 
     public function testCopyResources()
     {
         echo (" - " . __METHOD__ . "\n");
 
-        $this->authenticateUser();
+        $error = false;
+        $response = null;
 
         try {
             // create a bunch of test folders to mess around with
-            $this->api->createFolder($this->accessToken, self::FOLDER, "/");
-            $this->api->createFolder($this->accessToken, self::SUBFOLDER, "/");
+            self::$api->createFolder(self::$accessToken, self::FOLDER, "/");
+            self::$api->createFolder(self::$accessToken, self::SUBFOLDER, "/");
 
             // make the actual copyResources call
-            $response = $this->api->copyResources($this->accessToken, array(self::SUBFOLDER), self::FOLDER);
-            $firstResult = $response->results[0];
+            $response = self::$api->copyResources(self::$accessToken, array(self::SUBFOLDER), self::FOLDER);            
 
             // setup the expected values
             $folder = "/" . self::FOLDER;
             $subFolder = "/" . self::SUBFOLDER;
             $copiedFolder = $folder . $subFolder;
 
+            // cleanup the test folders
+            self::$api->deleteResources(self::$accessToken, [$folder, $subFolder]);
+
         } catch (Exception $e) {
-            // do nothing
+            $error = true;
         }
 
+        $this->assertFalse($error);
         $this->assertNotNull($response);
+        $this->assertInstanceOf('ModifiedResourcesResponse', $response);
+
+        $firstResult = $response->results[0];
         $this->assertNotNull($firstResult);
-        $this->assertInstanceOf(ModifiedResourcesResponse, $response);
-        $this->assertInstanceOf(ModifiedResource, $firstResult);
+        $this->assertInstanceOf('ModifiedResource', $firstResult);
+
         $this->assertEquals($subFolder, $firstResult->file);
         $this->assertEquals($copiedFolder, $firstResult->destination);
-
-        // cleanup our test folders
-        $this->api->deleteResources($this->accessToken, $folder);
-        $this->api->deleteResources($this->accessToken, $subFolder);
     }
 
     public function testCreateFolder()
     {
         echo (" - " . __METHOD__ . "\n");
 
-        $this->authenticateUser();
+        $error = false;
+        $response = null;
 
         try {
-            $response = $this->api->createFolder($this->accessToken, self::FOLDER, "/");
+            // create a folder then delete it
+            $response = self::$api->createFolder(self::$accessToken, self::FOLDER, "/");
+            self::$api->deleteResources(self::$accessToken, ["/" . self::FOLDER]);
         } catch (Exception $e) {
-            // do nothing
+            $error = true;
         }
 
+        $this->assertFalse($error);
         $this->assertNotNull($response);
-        $this->assertInstanceOf(Response, $response);
+        $this->assertInstanceOf('Response', $response);
         $this->assertEquals(1, $response->success);
-
-        // cleanup test folder
-        $this->api->deleteResources($this->accessToken, "/" . self::FOLDER);
     }
 
     public function testCreateUser()
     {
         echo (" - " . __METHOD__ . "\n");
 
-        // authenticate the user
-        $this->authenticateUser();
+        $error = false;
+        $response = null;
 
         try {
+            // create then delete the user
             $response = $this->createUser();
+            $this->deleteUser();
         } catch (Exception $e) {
-            // do nothing
+            $error = true;
         }
 
+        $this->assertFalse($error);
         $this->assertNotNull($response);
-        $this->assertInstanceOf(Response, $response);
+        $this->assertInstanceOf('Response', $response);
         $this->assertEquals(1, $response->success);
 
-        // delete the user
-        $this->deleteUser();
     }
 
     public function testDeleteResources()
     {
         echo (" - " . __METHOD__ . "\n");
 
-        $this->authenticateUser();
+        $error = false;
+        $response = null;
 
-        // create the test folder
-        $this->api->createFolder($this->accessToken, self::FOLDER, "/");
-
-        // call the deleteResources method
         try {
-            $response = $this->api->deleteResources($this->accessToken, "/" . self::FOLDER);
-            $firstResult = $response->results[0];
+            // create the test folder and then delete it
+            self::$api->createFolder(self::$accessToken, self::FOLDER, "/");
+            $response = self::$api->deleteResources(self::$accessToken, ["/" . self::FOLDER]);
         } catch (Exception $e) {
-            // do nothing
+            $error = true;
         }
 
+        $this->assertFalse($error);
         $this->assertNotNull($response);
+        $this->assertInstanceOf('DeletedResourcesResponse', $response);
+        
+        $firstResult = $response->results[0];
         $this->assertNotNull($firstResult);
-        $this->assertInstanceOf(FilesResponse, $response);
-        $this->assertInstanceOf(File, $firstResult);
+        $this->assertInstanceOf('DeletedResource', $firstResult);
         $this->assertEquals("/" . self::FOLDER, $firstResult->file);
     }
 
@@ -184,18 +280,20 @@ class EvapiTest extends PHPUnit_Framework_TestCase
     {
         echo (" - " . __METHOD__ . "\n");
 
-        $this->authenticateUser();
-
-        // create then delete the test user
+        $error = false;
+        $response = null;
+        
         try {
+            // create then delete the test user
             $this->createUser();
             $response = $this->deleteUser();
         } catch (Exception $e) {
-            // do nothing
+            $error = true;
         }
 
+        $this->assertFalse($error);
         $this->assertNotNull($response);
-        $this->assertInstanceOf(Response, $response);
+        $this->assertInstanceOf('Response', $response);
         $this->assertEquals(1, $response->success);
     }
 
@@ -203,18 +301,22 @@ class EvapiTest extends PHPUnit_Framework_TestCase
     {
         echo (" - " . __METHOD__ . "\n");
 
-        $this->authenticateUser();
+        $error = false;
+        $response = null;
 
         try{
-            $response = $this->api->getAccount($this->accessToken);
-            $results = $response->results;
+            $response = self::$api->getAccount(self::$accessToken);
         } catch (Exception $e) {
+            $error = true;
         }
 
+        $this->assertFalse($error);
         $this->assertNotNull($response);
+        $this->assertInstanceOf('AccountResponse', $response);
+
+        $results = $response->results;
         $this->assertNotNull($results);
-        $this->assertInstanceOf(AccountResponse, $response);
-        $this->assertInstanceOf(Account, $results);
+        $this->assertInstanceOf('Account', $results);
         $this->assertEquals(self::USERNAME, $results->username);
     }
 
@@ -222,18 +324,22 @@ class EvapiTest extends PHPUnit_Framework_TestCase
     {
         echo (" - " . __METHOD__ . "\n");
 
-        $this->authenticateUser();
+        $error = false;
+        $response = null;
 
         try{
-            $response = $this->api->getCurrentUser($this->accessToken);
-            $results = $response->results;
+            $response = self::$api->getCurrentUser(self::$accessToken);
         } catch (Exception $e) {
+            $error = true;
         }
 
         $this->assertNotNull($response);
-        $this->assertNotNull($results);
-        $this->assertInstanceOf(UserResponse, $response);
-        $this->assertInstanceOf(User, $results);
+        $this->assertInstanceOf('UserResponse', $response);
+
+        $results = $response->results;
+        $this->assertNotNull($results);                    
+        $this->assertInstanceOf('User', $results);
+
         $this->assertEquals(self::USERNAME, $results->username);
         $this->assertEquals(self::USERNAME, $results->nickname);
         $this->assertEquals("master", $results->role);
@@ -243,19 +349,22 @@ class EvapiTest extends PHPUnit_Framework_TestCase
     {
         echo (" - " . __METHOD__ . "\n");
 
-        $this->authenticateUser();
-
-        // call the getDownloadFileUrl operation
+        $error = false;
+        $response = null;
+        
         try {
-            $response = $this->api->getDownloadFileUrl($this->accessToken, self::DOWNLOAD_FILE);
-            $results = $response->results;
+            $response = self::$api->getDownloadFileUrl(self::$accessToken, self::DOWNLOAD_FILE);
         } catch(Exception $e) {
+            $error = true;
         }
 
+        $this->assertFalse($error);
         $this->assertNotNull($response);
+        $this->assertInstanceOf('UrlResponse', $response);
+
+        $results = $response->results;
         $this->assertNotNull($results);
-        $this->assertInstanceOf(UrlResponse, $response);
-        $this->assertInstanceOf(Url, $results);
+        $this->assertInstanceOf('Url', $results);
         $this->assertNotEmpty($results->url);
     }
 
@@ -263,192 +372,215 @@ class EvapiTest extends PHPUnit_Framework_TestCase
     {
         echo (" - " . __METHOD__ . "\n");
 
-        $this->authenticateUser();
-
+        $error = false;
+        $response = null;
+        
         try {
-            $response = $this->api->getFileActivityLogs($this->accessToken, 0);
-            $firstResult = $response->results[0];
+            $response = self::$api->getFileActivityLogs(self::$accessToken, 0);
         } catch(Exception $e) {
+            $error = true;
         }
 
+        $this->assertFalse($error);
         $this->assertNotNull($response);
+        $this->assertInstanceOf('LogResponse', $response);
+
+        $firstResult = $response->results[0];
         $this->assertNotNull($firstResult);
-        $this->assertInstanceOf(LogResponse, $response);
-        $this->assertInstanceOf(LogEntry, $firstResult);
+        $this->assertInstanceOf('LogEntry', $firstResult);
     }
 
     public function testGetFolders()
     {
         echo (" - " . __METHOD__ . "\n");
 
-        $this->authenticateUser();
+        $error = false;
+        $response = null;        
 
         try {
-            $response = $this->api->getFolders($this->accessToken, "/");
-            $firstResult = $response->results[0];
+            $response = self::$api->getFolders(self::$accessToken, "/");
         } catch(Exception $e) {
-            // do nothing
+            $error = true;
         }
 
+        $this->assertFalse($error);
         $this->assertNotNull($response);
+        $this->assertInstanceOf('ResourcePropertiesResponse', $response);
+
+        $firstResult = $response->results[0];
         $this->assertNotNull($firstResult);
-        $this->assertInstanceOf(ResourcePropertiesResponse, $response);
-        $this->assertInstanceOf(ResourceProperty, $firstResult);
+        $this->assertInstanceOf('ResourceProperty', $firstResult);
     }
 
     public function testGetResourceList()
     {
         echo (" - " . __METHOD__ . "\n");
 
-        $this->authenticateUser();
+        $error = false;
+        $response = null;        
 
         try {
-            $response = $this->api->getResourceList($this->accessToken, "/", "sort_files_type", "asc", 1, 25);
-            $results = $response->results;
+            $response = self::$api->getResourceList(self::$accessToken, '/', 'sort_files_type', 'asc', 1, 25);
         } catch(Exception $e) {
-            // do nothing
+            $error = true;
         }
 
+        $this->assertFalse($error);        
         $this->assertNotNull($response);
+        $this->assertInstanceOf('ResourceResponse', $response);
+
+        $results = $response->results;
         $this->assertNotNull($results);
-        $this->assertInstanceOf(ResourceResponse, $response);
-        $this->assertInstanceOf(Resource, $results);
+        $this->assertInstanceOf('Resource', $results);
     }
 
     public function testGetResourceProperties()
     {
         echo (" - " . __METHOD__ . "\n");
 
-        $this->authenticateUser();
-        $timeout = false;
+        $error = false;
+        $response = null;
 
         try {
-            $response = $this->api->getResourceProperties($this->accessToken, array("/"));
-            $firstResult = $response->results[0];
-            
+            $response = self::$api->getResourceProperties(self::$accessToken, ["/"]);
         } catch(Exception $e) {
-            if (0 == $e->getCode()) {
-                $timeout = true;
-            }
+            $error = true;
         }
 
-        if (true != timeout) {
-            $this->assertNotNull($response);
-            $this->assertNotNull($firstResult);
-            $this->assertInstanceOf(ResourcePropertiesResponse, $response);
-            $this->assertInstanceOf(ResourceProperty, $firstResult);    
-        }
-        
+        $this->assertFalse($error);
+        $this->assertNotNull($response);
+        $this->assertInstanceOf('ResourcePropertiesResponse', $response);
+
+        $firstResult = $response->results[0];
+        $this->assertNotNull($firstResult);
+        $this->assertInstanceOf('ResourceProperty', $firstResult);
     }
 
     public function testGetUser()
     {
         echo (" - " . __METHOD__ . "\n");
 
-        $this->authenticateUser();
+        $error = false;
+        $response = null;
 
         try {
-            $response = $this->api->getUser($this->accessToken, self::USERNAME);
-            $results = $response->results;
+            $response = self::$api->getUser(self::$accessToken, self::USERNAME);
         } catch (Exception $e) {
-            // do nothing
+            $error = true;
         }
 
+        $this->assertFalse($error);
         $this->assertNotNull($response);
+        $this->assertInstanceOf('UserResponse', $response);
+
+        $results = $response->results;
         $this->assertNotNull($results);
-        $this->assertInstanceOf(UserResponse, $response);
-        $this->assertInstanceOf(User, $results);
+        $this->assertInstanceOf('User', $results);
     }
 
     public function testGetUsers()
     {
         echo (" - " . __METHOD__ . "\n");
 
-        $this->authenticateUser();
+        $error = false;
+        $response = null;
 
         try {
-            $response = $this->api->getUsers($this->accessToken, "sort_users_username", "asc");
-            $firstResult = $response->results[0];
+            $response = self::$api->getUsers(self::$accessToken, "sort_users_username", "asc");
         } catch (Exception $e) {
-            // do nothing
+            $error = true;
         }
 
+        $this->assertFalse($error);
         $this->assertNotNull($response);
-        $this->assertNotNull($firstResult);
-        $this->assertInstanceOf(UsersResponse, $response);
-        $this->assertInstanceOf(User, $firstResult);
+        $this->assertInstanceOf('UsersResponse', $response);
+
+        $firstResult = $response->results[0];
+        $this->assertNotNull($firstResult);                    
+        $this->assertInstanceOf('User', $firstResult);
     }
 
     public function testMoveResources()
     {
         echo (" - " . __METHOD__ . "\n");
 
-        $this->authenticateUser();
+        $error = false;
+        $response = null;
 
         try {
             // create a bunch of test folders to mess around with
-            $this->api->createFolder($this->accessToken, self::FOLDER, "/");
-            $this->api->createFolder($this->accessToken, self::SUBFOLDER, "/");
+            self::$api->createFolder(self::$accessToken, self::FOLDER, "/");
+            self::$api->createFolder(self::$accessToken, self::SUBFOLDER, "/");
 
             // make actual call to moveResources
-            $response = $this->api->moveResources($this->accessToken, array(self::SUBFOLDER), self::FOLDER);
-            $firstResult = $response->results[0];
+            $response = self::$api->moveResources(self::$accessToken, array(self::SUBFOLDER), self::FOLDER);            
 
             // setup the expected values
             $folder = "/" . self::FOLDER;
             $subFolder = "/" . self::SUBFOLDER;
             $movedFolder = $folder . $subFolder;
 
+            // cleanup test folder
+            self::$api->deleteResources(self::$accessToken, [$folder]);
+
         } catch (Exception $e) {
-            // do nothing
+            $error = true;
         }
 
+        $this->assertFalse($error);
         $this->assertNotNull($response);
+        $this->assertInstanceOf('ModifiedResourcesResponse', $response);
+
+        $firstResult = $response->results[0];
         $this->assertNotNull($firstResult);
-        $this->assertInstanceOf(ModifiedResourcesResponse, $response);
-        $this->assertInstanceOf(ModifiedResource, $firstResult);
+        $this->assertInstanceOf('ModifiedResource', $firstResult);
         $this->assertEquals($subFolder, $firstResult->file);
         $this->assertEquals($movedFolder, $firstResult->destination);
-
-        // cleanup test folder
-        $this->api->deleteResources($this->accessToken, $folder);
     }
 
     public function testPreviewFile()
     {
         echo (" - " . __METHOD__ . "\n");
 
-        $this->authenticateUser();
+        $error = false;
+        $response = null;
 
         try {
-            $response = $this->api->previewFile($this->accessToken, self::PREVIEW, "small");
-            $results = $response->results;
+            $response = self::$api->previewFile(self::$accessToken, self::PREVIEW, "small");
         } catch (Exception $e) {
-            // do nothing
+            $error = true;
         }
 
+        $this->assertFalse($error);
         $this->assertNotNull($response);
+        $this->assertInstanceOf('PreviewFileResponse', $response);
+
+        $results = $response->results;
         $this->assertNotNull($results);
-        $this->assertInstanceOf(PreviewFileResponse, $response);
-        $this->assertInstanceOf(PreviewFile, $results);
+        $this->assertInstanceOf('PreviewFile', $results);
     }
 
     public function testRenameResource()
     {
         echo (" - " . __METHOD__ . "\n");
 
-        $this->authenticateUser();
+        $error = false;
+        $response = null;
 
         try {
+            self::$api->createFolder(self::$accessToken, self::RENAME_FOLDER, "/");
             $newFolderName = self::RENAME_FOLDER . "-rename";
-            $response = $this->api->renameResource($this->accessToken, self::RENAME_FOLDER, $newFolderName);
-            $response = $this->api->renameResource($this->accessToken, $newFolderName, self::RENAME_FOLDER);
+            $response = self::$api->renameResource(self::$accessToken, self::RENAME_FOLDER, $newFolderName);
+
+            // cleanup the folder
+            self::$api->deleteResources(self::$accessToken, [$newFolderName]);            
         } catch (Exception $e) {
-            // do nothing
+            $error = true;
         }
 
+        $this->assertFalse($error);
         $this->assertNotNull($response);
-        $this->assertInstanceOf(Response, $response);
+        $this->assertInstanceOf('Response', $response);
         $this->assertEquals(1, $response->success);
     }
 
@@ -456,94 +588,49 @@ class EvapiTest extends PHPUnit_Framework_TestCase
     {
         echo (" - " . __METHOD__ . "\n");
 
-        $this->authenticateUser();
+        $error = false;
+        $response = null;
 
         try {
             // create the user, then get their userId
-            $response = $this->createUser();
-            $response = $this->api->getUser($this->accessToken, self::TEST_USER);
+            $this->createUser();
+            $response = self::$api->getUser(self::$accessToken, self::TEST_USER);
             $userId = $response->results->id;
 
             // make the call to updateUser
-            $response = $this->api->updateUser($this->accessToken, $userId, self::TEST_USER . "-changed");
-            $results = $response->results;
+            $response = self::$api->updateUser(self::$accessToken, $userId, self::TEST_USER . "-changed");
             
         } catch (Exception $e) {
-            // do nothing
+            $error = true;
         }
 
         $this->assertNotNull($response);
-        $this->assertInstanceOf(Response, $response);
+        $this->assertInstanceOf('Response', $response);
         $this->assertEquals(1, $response->success);
 
-        $this->api->deleteUser($this->accessToken, self::TEST_USER . "-changed");
+        self::$api->deleteUser(self::$accessToken, self::TEST_USER . "-changed");
     }
 
     public function testUserAvailable()
     {
         echo (" - " . __METHOD__ . "\n");
 
-        $this->authenticateUser();
+        $error = false;
+        $response = null;        
 
         try {
-            $response = $this->api->userAvailable($this->accessToken, self::USERNAME);
-            $results = $response->results;
+            $response = self::$api->userAvailable(self::$accessToken, self::USERNAME);
         } catch (Exception $e) {
-            // do nothing
+            $error = true;
         }
 
+        $this->assertFalse($error);
         $this->assertNotNull($response);
+        $this->assertInstanceOf('AvailableUserResponse', $response);
+
+        $results = $response->results;
         $this->assertNotNull($results);
-        $this->assertInstanceOf(AvailableUserResponse, $response);
-        $this->assertInstanceOf(AvailableUser, $results);
+        $this->assertInstanceOf('AvailableUser', $results);
         $this->assertEquals(false, $results->available);
-    }
-
-    /**
-     * tearDown(): logs out the authenticatedUser after each test is
-     * performed
-     */
-    public function tearDown()
-    {
-        $this->api->logoutUser($this->accessToken);
-    }
-
-    /**
-     * authenticateUser(): authenticates user with test data and
-     * returns the response object
-     */
-    private function authenticateUser()
-    {
-        $response = $this->api->authenticateUser(self::USERNAME, self::PASSWORD);
-        $this->accessToken = $response->results->accessToken;
-        return $response;
-    }
-
-    /**
-     * createUser(): creates a test user and returns response object
-     */
-    private function createUser()
-    {
-        return $this->api->createUser(
-            $this->accessToken,
-            self::TEST_USER,
-            "/",
-            self::TEST_EMAIL,
-            self::PASSWORD,
-            "user",
-            '"upload":true,"download":true',  // this needs to be a comma separated value, (CSV)
-            null,
-            null,
-            null,
-            self::TIMEZONE
-            );
-    }
-
-    /**
-     * deleteUser(): creates a test user and returns response object
-     */
-    private function deleteUser()
-    {
-        return $this->api->deleteUser($this->accessToken, self::TEST_USER);
     }
 }
