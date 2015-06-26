@@ -20,6 +20,7 @@ class User {
         'username' => 'string',
         'nickname' => 'string',
         'email' => 'string',
+        'expiration' => 'string',
         'homeDir' => 'string',
         'download' => 'bool',
         'upload' => 'bool',
@@ -44,6 +45,7 @@ class User {
     public $username; // string
     public $nickname; // string
     public $email; // string
+    public $expiration; // string
     public $homeDir; // string
     public $download; // bool
     public $upload; // bool

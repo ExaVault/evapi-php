@@ -10,8 +10,8 @@
 class Message {
 
     static $swaggerTypes = array(
-        'id' => 'string',
-        'userId' => 'string',
+        'id' => 'int',
+        'userId' => 'int',
         'shareId' => 'string',
         'subject' => 'string',
         'body' => 'string',
@@ -20,8 +20,8 @@ class Message {
 
         );
 
-    public $id; // string
-    public $userId; // string
+    public $id; // int
+    public $userId; // int
     public $shareId; // string
     public $subject; // string
     public $body; // string
