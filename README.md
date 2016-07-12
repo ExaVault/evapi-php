@@ -170,7 +170,7 @@ then log out.
 
 ```php
 // logout only if login was successful
-if ($loginResult) {
+if ($loginSuccess) {
     $api->logoutUser($accessToken);
 }
 ```
