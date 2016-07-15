@@ -77,6 +77,11 @@ class APIClient {
         curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
         curl_setopt($curl, CURLOPT_HTTPHEADER, $headers);
 
+        //use SSL - make sure your CA root bundle is up-to-date: http://php.net/manual/en/function.curl-setopt.php#110457
+        curl_setopt($curl, CURLOPT_SSLVERSION, 1);          // specify TLS 1.0
+        curl_setopt($curl, CURLOPT_SSL_VERIFYHOST, 2);      // verify common name with specified hostname
+        curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, true);   // verify certificate of remote peer
+       
         if (! empty($queryParams)) {
             $url = ($url . '?' . http_build_query($queryParams));
         }
