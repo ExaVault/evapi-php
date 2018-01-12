@@ -17,7 +17,7 @@ PHP 5.4.0 and later
 
 ## Installation
 
-1. Clone the repo `git clone https://github.com/ExaVault/evapi-python.git evapi-python` or manually download the library.
+1. Clone the repo `git clone https://github.com/ExaVault/evapi-php.git evapi-php` or manually download the library.
 2. Include autoload.php `require_once('/path/to/evapi-php/autoload.php');`
 
 ## Getting started 
