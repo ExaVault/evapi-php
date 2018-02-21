@@ -179,6 +179,7 @@ class ResourceProperty implements ArrayAccess
 
     const TYPE_FILE = 'file';
     const TYPE_FOLDER = 'folder';
+    const TYPE_DIR = 'dir';
     
 
     
@@ -191,6 +192,7 @@ class ResourceProperty implements ArrayAccess
         return [
             self::TYPE_FILE,
             self::TYPE_FOLDER,
+            self::TYPE_DIR,
         ];
     }
     
