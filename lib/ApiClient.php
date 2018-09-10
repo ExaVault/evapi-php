@@ -199,7 +199,7 @@ class ApiClient
             /* EV add our specific case for filePaths[] */
             if(isset($queryParams['filePaths[]'])) {
                 $filePaths = $queryParams['filePaths[]'];
-                $filePaths = split(",", $filePaths);
+                $filePaths = explode(",", $filePaths);
                 $formatedPaths = array_map( function($val) { return $val = 'filePaths[]=' . urlencode($val) ;}, $filePaths);
                 unset($queryParams['filePaths[]']);
                 $url = ($url . '?' . http_build_query($queryParams) . '&' . join('&', $formatedPaths) ); 
