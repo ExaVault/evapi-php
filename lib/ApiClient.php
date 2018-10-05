@@ -207,13 +207,11 @@ class ApiClient
             } else {
                 $url = ($url . '?' . http_build_query($queryParams)); 
             }
-            echo($url);
         }
 
         if ($this->config->getAllowEncoding()) {
             curl_setopt($curl, CURLOPT_ENCODING, '');
         }
-        print_r( $postData);
         if ($method === self::$POST) {
             curl_setopt($curl, CURLOPT_POST, true);
             curl_setopt($curl, CURLOPT_POSTFIELDS, $postData);
