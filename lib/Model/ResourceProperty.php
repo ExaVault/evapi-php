@@ -66,7 +66,7 @@ class ResourceProperty implements ArrayAccess
         'notification_settings' => 'string',
         'size' => 'int',
         'previewable' => 'bool',
-        'direct_file' => 'string',
+        'direct_file' => '\ExaVault\Sdk\Model\DirectFile[]',
         'type' => 'string'
     ];
 
