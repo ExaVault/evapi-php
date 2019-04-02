@@ -1,0 +1,21 @@
+{
+    "name": "lenrsmith/evapi-php",
+    "license": "GPL-2 or New-BSD",
+    "type": "library",
+    "description": "evapi-php is an API client written in PHP for connecting to the ExaVault API. The ExaVault API is a REST-like API providing operations for file and user management, and supports both POST and GET requests. This composer package the packages the original library (https://github.com/ExaVault/evapi-php) so that it can be easily installe via composer.",
+    "homepage": "https://github.com/lenrsmith/evapi-php",
+    "keywords": [
+        "evapi-php",
+        "ExaVault"
+    ],
+    "autoload": {
+        "psr-4": {
+             "Swagger\\Client\\": "lib/"
+         }
+    },
+    "authors":[
+        {
+            "name":"Leonard Smith"
+        }
+    ]
+}
