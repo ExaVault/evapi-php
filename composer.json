@@ -10,7 +10,9 @@
     ],
     "autoload": {
         "psr-4": {
-             "Swagger\\Client\\": "lib/"
+             "Swagger\\Client\\": "src",
+             "Swagger\\Client\\Api\\": "src/Api",
+             "Swagger\\Client\\Model\\": "src/Model"
          }
     },
     "authors":[
