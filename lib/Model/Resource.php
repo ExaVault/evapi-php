@@ -6,21 +6,20 @@
  *
  * @category Class
  * @package  Swagger\Client
- * @author   Swaagger Codegen team
+ * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
 
 /**
  * ExaVault API
  *
- * # Introduction  Welcome to the ExaVault API documentation. Our API lets you control nearly all aspects of your ExaVault account programatically, from uploading and downloading files to creating and managing shares and notifications. Our API supports both GET and POST operations.  Capabilities of the API include:  - Uploading and downloading files. - Managing files and folders; including standard operations like move, copy and delete. - Getting information about activity occuring in your account. - Creating, updating and deleting users. - Creating and managing shares, including download-only shares and recieve folders.  - Setting up and managing notifications.  ## The API Endpoint  The ExaVault API is located at: https://api.exavault.com/v1.2/  # Testing w/ Postman  We've made it easy for you to test our API before you start full-scale development. Download [Postman](https://www.getpostman.com/) or the [Postman Chrome Extension](https://chrome.google.com/webstore/detail/postman/fhbjgbiflinjbdggehcddcbncdddomop?hl=en), and then download our Postman collection, below. [Obtain your API key](#section/Code-Libraries-and-Sample-PHP-Code/Obtain-your-API-key) and you'll be able to interact with your ExaVault account immediately, so you can better understand what the capabilities of the API are.  <div class=\"postman-run-button\" data-postman-action=\"collection/import\" data-postman-var-1=\"e13395afc6278ce1555f\"></div>  ![ExaVault API Postman Colletion Usage](/images/postman.png)  If you'd prefer to skip Postman and start working with code directly, take a look at the sample code below.    # Code Libraries & Sample PHP Code  Once you're ready for full-scale development, we recommend looking at our code libraries available on [GitHub](https://github.com/ExaVault). We offer code libraries for [Python](https://github.com/ExaVault/evapi-python), [PHP](https://github.com/ExaVault/evapi-php) and [JavaScript](https://github.com/ExaVault/evapi-javascript).  While we recommend using our libraries, you're welcome to interact directly with our API via HTTP GET and POST requests -- a great option particularly if you're developing in a language for which we don't yet have sample code.     - [Download Python Library &amp; Sample Code &raquo;](https://github.com/ExaVault/evapi-python) - [Download PHP Library &amp; Sample Code &raquo;](https://github.com/ExaVault/evapi-php) - [Download JavaScript Library &amp; Sample Code &raquo;](https://github.com/ExaVault/evapi-javascript)  *Note: You can generate client libraries for any language using [Swagger Editor](http://editor2.swagger.io/). Just download our documentation file, past it into editor and use 'Generate Client' dropdown.*  ## Obtain Your API Key  You will need to obtain an API key for your application from the [Client Area](https://clients.exavault.com/clientarea.php?action=products) of your account.  To obtain an API key, please follow the instructions below.   + Login to the [Accounts](https://clients.exavault.com/clientarea.php?action=products) section of the Client Area.  + Use the drop down next to your desired account, and select *Manage API Keys*.  + You will be brought to the API Key management screen. Fill out the form and save to generate a new key for your app.  *NOTE: As of Oct 2017, we are in the progress of migrating customers to our next generation platform. If your account is already on our new platform, you should log into your File Manager and create your API key under Account->Developer->Manage API Keys*.  # Status Codes  The ExaVault API returns only two HTTP status codes for its responses: 200 and 500.  When the request could be successfully processed by the endpoint, the response status code will be 200, regardless of whether the requested action could be taken.  For example, the response to a getUser request for a username that does not exist in your account would have the status of 200,  indicating that the response was received and processed, but the error member of the returned response object would contain object with `message` and `code` properties.  **Result Format:**  |Success   | Error     | Results   | | ---      | :---:       |  :---:      | | 0        |  `Object` |   Empty   | | 1        |   Empty       |    `Object` or `Array`        |     When a malformed request is received, a 500 HTTP status code will be returned, indicating that the request could not be processed.  ExaVault's API does not currently support traditional REST response codes such as '201 Created' or '405 Method Not Allowed', although we intend to support such codes a future version of the API.   # File Paths  Many API calls require you to provide one or more file paths. For example, the <a href=\"#operation/moveResources\">moveResources</a> call requires both an array of source paths, **filePaths**, and a destination path, **destinationPath**. Here's a few tips for working with paths:   - File paths should always be specified as a string, using the standard Unix format: e.g. `/path/to/a/file.txt`  - File paths are always absolute _from the home directory of the logged in user_. For example, if the user **bob** had a home directory restriction of `/bob_home`, then an API call made using his login would specify a file as `/myfile.txt`, whereas an API call made using the master user ( no home directory restriction ) would specify the same file as `/bob_home/myfile.txt`.  # API Rate Limits  We rate limit the number of API calls you can make to help prevent abuse and protect system stablity. Each API key will support 500 requests per rolling five minutes. If you make more than 500 requests in a five minute period, you will receive a response with an error object for fifteen minutes.  # Webhooks  A webhook is an HTTP callback: a simple event-notification via HTTP POST. If you define webhooks for Exavault, ExaVault will POST a  message to a URL when certain things happen.     Webhooks can be used to receive a JSON object to your endpoint URL. You choose what events will trigger webhook messages to your endpoint URL.     Webhooks will attempt to send a message up to 8 times with increasing timeouts between each attempt. All webhook requests are tracked in the webhooks log.  ## Getting Started  1. Go to the Account tab inside SWFT.  2. Choose the Developer tab.  3. Configure your endpoint URL and select the events you want to trigger webhook messages.  4. Save settings.    You are all set to receive webhook callbacks on the events you selected.  ## Verification Signature  ExaVault includes a custom HTTP header, X-Exavault-Signature, with webhooks POST requests which will contain the signature for the request.  You can use the signature to verify the request for an additional level of security.  ## Generating the Signature  1. Go to Account tab inside SWFT.  2. Choose the Developer tab.  3. Obtain the verification token. This field will only be shown if you've configured your endpoint URL.  4. In your code that receives or processes the webhooks, you should concatenate the verification token with the JSON object that we sent in our      POST request and hash it with md5.     ```     md5($verificationToken.$webhooksObject);     ```  5. Compare signature that you generated to the signature provided in the X-Exavault-Signature HTTP header  ## Example JSON Response Object  ```json   {     \"accountname\": \"mycompanyname\",     \"username\": \"john\"     \"operation\": \"Upload\",     \"protocol\": \"https\",     \"path\": \"/testfolder/filename.jpg\"     \"attempt\": 1   } ```  ## Webhooks Logs  Keep track of all your webhooks requests in the Activity section of your account. You can find the following info for each request:    1. date and time - timestamp of the request.    2. endpoint url - where the webhook was sent.    3. event - what triggered the webhook.    4. status - HTTP status or curl error code.    5. attempt - how many times we tried to send this request.    6. response size - size of the response from your server.    7. details - you can check the response body if it was sent.
+ * See our API reference documentation at https://www.exavault.com/developer/api-docs/
  *
- * OpenAPI spec version: 1.0.1
- * 
+ * OpenAPI spec version: 2.0
+ * Contact: support@exavault.com
  * Generated by: https://github.com/swagger-api/swagger-codegen.git
- *
+ * Swagger Codegen version: 3.0.20
  */
-
 /**
  * NOTE: This class is auto generated by the swagger code generator program.
  * https://github.com/swagger-api/swagger-codegen
@@ -30,268 +29,320 @@
 namespace Swagger\Client\Model;
 
 use \ArrayAccess;
+use \Swagger\Client\ObjectSerializer;
 
 /**
  * Resource Class Doc Comment
  *
- * @category    Class
- * @description Resource object with information about child resources.
- * @package     Swagger\Client
- * @author      Swagger Codegen team
- * @link        https://github.com/swagger-api/swagger-codegen
+ * @category Class
+ * @description All properties of the resource.
+ * @package  Swagger\Client
+ * @author   Swagger Codegen team
+ * @link     https://github.com/swagger-api/swagger-codegen
  */
-class Resource implements ArrayAccess
+class Resource implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
     /**
       * The original name of the model.
+      *
       * @var string
       */
     protected static $swaggerModelName = 'Resource';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
+      *
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'total_files' => 'int',
-        'resources' => '\Swagger\Client\Model\ResourceProperty[]',
-        'inherited_shares' => '\Swagger\Client\Model\Share[]',
-        'inherited_notifications' => '\Swagger\Client\Model\Notification[]',
-        'inherited_direct_files' => '\Swagger\Client\Model\DirectFile[]'
-    ];
+        'id' => 'int',
+'type' => 'string',
+'attributes' => '\Swagger\Client\Model\ResourceAttributes',
+'relationships' => '\Swagger\Client\Model\ResourceRelationships'    ];
 
     /**
       * Array of property to format mappings. Used for (de)serialization
+      *
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'total_files' => 'int32',
-        'resources' => null,
-        'inherited_shares' => null,
-        'inherited_notifications' => null,
-        'inherited_direct_files' => null
-    ];
+        'id' => 'int32',
+'type' => null,
+'attributes' => null,
+'relationships' => null    ];
 
+    /**
+     * Array of property to type mappings. Used for (de)serialization
+     *
+     * @return array
+     */
     public static function swaggerTypes()
     {
         return self::$swaggerTypes;
     }
 
+    /**
+     * Array of property to format mappings. Used for (de)serialization
+     *
+     * @return array
+     */
     public static function swaggerFormats()
     {
         return self::$swaggerFormats;
     }
 
     /**
-     * Array of attributes where the key is the local name, and the value is the original name
+     * Array of attributes where the key is the local name,
+     * and the value is the original name
+     *
      * @var string[]
      */
     protected static $attributeMap = [
-        'total_files' => 'totalFiles',
-        'resources' => 'resources',
-        'inherited_shares' => 'inheritedShares',
-        'inherited_notifications' => 'inheritedNotifications',
-        'inherited_direct_files' => 'inheritedDirectFiles'
-    ];
-
+        'id' => 'id',
+'type' => 'type',
+'attributes' => 'attributes',
+'relationships' => 'relationships'    ];
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
+     *
      * @var string[]
      */
     protected static $setters = [
-        'total_files' => 'setTotalFiles',
-        'resources' => 'setResources',
-        'inherited_shares' => 'setInheritedShares',
-        'inherited_notifications' => 'setInheritedNotifications',
-        'inherited_direct_files' => 'setInheritedDirectFiles'
-    ];
-
+        'id' => 'setId',
+'type' => 'setType',
+'attributes' => 'setAttributes',
+'relationships' => 'setRelationships'    ];
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
+     *
      * @var string[]
      */
     protected static $getters = [
-        'total_files' => 'getTotalFiles',
-        'resources' => 'getResources',
-        'inherited_shares' => 'getInheritedShares',
-        'inherited_notifications' => 'getInheritedNotifications',
-        'inherited_direct_files' => 'getInheritedDirectFiles'
-    ];
+        'id' => 'getId',
+'type' => 'getType',
+'attributes' => 'getAttributes',
+'relationships' => 'getRelationships'    ];
 
+    /**
+     * Array of attributes where the key is the local name,
+     * and the value is the original name
+     *
+     * @return array
+     */
     public static function attributeMap()
     {
         return self::$attributeMap;
     }
 
+    /**
+     * Array of attributes to setter functions (for deserialization of responses)
+     *
+     * @return array
+     */
     public static function setters()
     {
         return self::$setters;
     }
 
+    /**
+     * Array of attributes to getter functions (for serialization of requests)
+     *
+     * @return array
+     */
     public static function getters()
     {
         return self::$getters;
     }
 
-    
+    /**
+     * The original name of the model.
+     *
+     * @return string
+     */
+    public function getModelName()
+    {
+        return self::$swaggerModelName;
+    }
 
-    
+    const TYPE_RESOURCE = 'resource';
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getTypeAllowableValues()
+    {
+        return [
+            self::TYPE_RESOURCE,        ];
+    }
 
     /**
      * Associative array for storing property values
+     *
      * @var mixed[]
      */
     protected $container = [];
 
     /**
      * Constructor
-     * @param mixed[] $data Associated array of property values initializing the model
+     *
+     * @param mixed[] $data Associated array of property values
+     *                      initializing the model
      */
     public function __construct(array $data = null)
     {
-        $this->container['total_files'] = isset($data['total_files']) ? $data['total_files'] : null;
-        $this->container['resources'] = isset($data['resources']) ? $data['resources'] : null;
-        $this->container['inherited_shares'] = isset($data['inherited_shares']) ? $data['inherited_shares'] : null;
-        $this->container['inherited_notifications'] = isset($data['inherited_notifications']) ? $data['inherited_notifications'] : null;
-        $this->container['inherited_direct_files'] = isset($data['inherited_direct_files']) ? $data['inherited_direct_files'] : null;
+        $this->container['id'] = isset($data['id']) ? $data['id'] : null;
+        $this->container['type'] = isset($data['type']) ? $data['type'] : null;
+        $this->container['attributes'] = isset($data['attributes']) ? $data['attributes'] : null;
+        $this->container['relationships'] = isset($data['relationships']) ? $data['relationships'] : null;
     }
 
     /**
-     * show all the invalid properties with reasons.
+     * Show all the invalid properties with reasons.
      *
      * @return array invalid properties with reasons
      */
     public function listInvalidProperties()
     {
-        $invalid_properties = [];
+        $invalidProperties = [];
 
-        return $invalid_properties;
+        $allowedValues = $this->getTypeAllowableValues();
+        if (!is_null($this->container['type']) && !in_array($this->container['type'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'type', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
+
+        return $invalidProperties;
     }
 
     /**
-     * validate all the properties in the model
+     * Validate all the properties in the model
      * return true if all passed
      *
      * @return bool True if all properties are valid
      */
     public function valid()
     {
-
-        return true;
+        return count($this->listInvalidProperties()) === 0;
     }
 
 
     /**
-     * Gets total_files
+     * Gets id
+     *
      * @return int
      */
-    public function getTotalFiles()
+    public function getId()
     {
-        return $this->container['total_files'];
+        return $this->container['id'];
     }
 
     /**
-     * Sets total_files
-     * @param int $total_files Total amount of files and folders in resource.
+     * Sets id
+     *
+     * @param int $id id
+     *
      * @return $this
      */
-    public function setTotalFiles($total_files)
+    public function setId($id)
     {
-        $this->container['total_files'] = $total_files;
+        $this->container['id'] = $id;
 
         return $this;
     }
 
     /**
-     * Gets resources
-     * @return \Swagger\Client\Model\ResourceProperty[]
+     * Gets type
+     *
+     * @return string
      */
-    public function getResources()
+    public function getType()
     {
-        return $this->container['resources'];
+        return $this->container['type'];
     }
 
     /**
-     * Sets resources
-     * @param \Swagger\Client\Model\ResourceProperty[] $resources Array of resources inside given resource path.
+     * Sets type
+     *
+     * @param string $type Type of item. \"resource\"
+     *
      * @return $this
      */
-    public function setResources($resources)
+    public function setType($type)
     {
-        $this->container['resources'] = $resources;
+        $allowedValues = $this->getTypeAllowableValues();
+        if (!is_null($type) && !in_array($type, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'type', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['type'] = $type;
 
         return $this;
     }
 
     /**
-     * Gets inherited_shares
-     * @return \Swagger\Client\Model\Share[]
+     * Gets attributes
+     *
+     * @return \Swagger\Client\Model\ResourceAttributes
      */
-    public function getInheritedShares()
+    public function getAttributes()
     {
-        return $this->container['inherited_shares'];
+        return $this->container['attributes'];
     }
 
     /**
-     * Sets inherited_shares
-     * @param \Swagger\Client\Model\Share[] $inherited_shares Array of all shares inside the given resource. Property not emtpy only if `detailed` param was set to `true`.
+     * Sets attributes
+     *
+     * @param \Swagger\Client\Model\ResourceAttributes $attributes attributes
+     *
      * @return $this
      */
-    public function setInheritedShares($inherited_shares)
+    public function setAttributes($attributes)
     {
-        $this->container['inherited_shares'] = $inherited_shares;
+        $this->container['attributes'] = $attributes;
 
         return $this;
     }
 
     /**
-     * Gets inherited_notifications
-     * @return \Swagger\Client\Model\Notification[]
+     * Gets relationships
+     *
+     * @return \Swagger\Client\Model\ResourceRelationships
      */
-    public function getInheritedNotifications()
+    public function getRelationships()
     {
-        return $this->container['inherited_notifications'];
+        return $this->container['relationships'];
     }
 
     /**
-     * Sets inherited_notifications
-     * @param \Swagger\Client\Model\Notification[] $inherited_notifications Array of all notifications inside the given resource. Property not emtpy only if `detailed` param was set to `true`.
+     * Sets relationships
+     *
+     * @param \Swagger\Client\Model\ResourceRelationships $relationships relationships
+     *
      * @return $this
      */
-    public function setInheritedNotifications($inherited_notifications)
+    public function setRelationships($relationships)
     {
-        $this->container['inherited_notifications'] = $inherited_notifications;
-
-        return $this;
-    }
-
-    /**
-     * Gets inherited_direct_files
-     * @return \Swagger\Client\Model\DirectFile[]
-     */
-    public function getInheritedDirectFiles()
-    {
-        return $this->container['inherited_direct_files'];
-    }
-
-    /**
-     * Sets inherited_direct_files
-     * @param \Swagger\Client\Model\DirectFile[] $inherited_direct_files Array of all direct file objects inside the given resource. Property not emtpy only if `detailed` param was set to `true`.
-     * @return $this
-     */
-    public function setInheritedDirectFiles($inherited_direct_files)
-    {
-        $this->container['inherited_direct_files'] = $inherited_direct_files;
+        $this->container['relationships'] = $relationships;
 
         return $this;
     }
     /**
      * Returns true if offset exists. False otherwise.
-     * @param  integer $offset Offset
+     *
+     * @param integer $offset Offset
+     *
      * @return boolean
      */
     public function offsetExists($offset)
@@ -301,7 +352,9 @@ class Resource implements ArrayAccess
 
     /**
      * Gets offset.
-     * @param  integer $offset Offset
+     *
+     * @param integer $offset Offset
+     *
      * @return mixed
      */
     public function offsetGet($offset)
@@ -311,8 +364,10 @@ class Resource implements ArrayAccess
 
     /**
      * Sets value based on offset.
-     * @param  integer $offset Offset
-     * @param  mixed   $value  Value to be set
+     *
+     * @param integer $offset Offset
+     * @param mixed   $value  Value to be set
+     *
      * @return void
      */
     public function offsetSet($offset, $value)
@@ -326,7 +381,9 @@ class Resource implements ArrayAccess
 
     /**
      * Unsets offset.
-     * @param  integer $offset Offset
+     *
+     * @param integer $offset Offset
+     *
      * @return void
      */
     public function offsetUnset($offset)
@@ -336,16 +393,18 @@ class Resource implements ArrayAccess
 
     /**
      * Gets the string presentation of the object
+     *
      * @return string
      */
     public function __toString()
     {
         if (defined('JSON_PRETTY_PRINT')) { // use JSON pretty print
-            return json_encode(\Swagger\Client\ObjectSerializer::sanitizeForSerialization($this), JSON_PRETTY_PRINT);
+            return json_encode(
+                ObjectSerializer::sanitizeForSerialization($this),
+                JSON_PRETTY_PRINT
+            );
         }
 
-        return json_encode(\Swagger\Client\ObjectSerializer::sanitizeForSerialization($this));
+        return json_encode(ObjectSerializer::sanitizeForSerialization($this));
     }
 }
-
-

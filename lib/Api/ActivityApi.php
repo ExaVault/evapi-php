@@ -12,14 +12,13 @@
 /**
  * ExaVault API
  *
- * # Introduction  Welcome to the ExaVault API documentation. Our API lets you control nearly all aspects of your ExaVault account programatically, from uploading and downloading files to creating and managing shares and notifications. Our API supports both GET and POST operations.  Capabilities of the API include:  - Uploading and downloading files. - Managing files and folders; including standard operations like move, copy and delete. - Getting information about activity occuring in your account. - Creating, updating and deleting users. - Creating and managing shares, including download-only shares and recieve folders.  - Setting up and managing notifications.  ## The API Endpoint  The ExaVault API is located at: https://api.exavault.com/v1.2/  # Testing w/ Postman  We've made it easy for you to test our API before you start full-scale development. Download [Postman](https://www.getpostman.com/) or the [Postman Chrome Extension](https://chrome.google.com/webstore/detail/postman/fhbjgbiflinjbdggehcddcbncdddomop?hl=en), and then download our Postman collection, below. [Obtain your API key](#section/Code-Libraries-and-Sample-PHP-Code/Obtain-your-API-key) and you'll be able to interact with your ExaVault account immediately, so you can better understand what the capabilities of the API are.  <div class=\"postman-run-button\" data-postman-action=\"collection/import\" data-postman-var-1=\"e13395afc6278ce1555f\"></div>  ![ExaVault API Postman Colletion Usage](/images/postman.png)  If you'd prefer to skip Postman and start working with code directly, take a look at the sample code below.    # Code Libraries & Sample PHP Code  Once you're ready for full-scale development, we recommend looking at our code libraries available on [GitHub](https://github.com/ExaVault). We offer code libraries for [Python](https://github.com/ExaVault/evapi-python), [PHP](https://github.com/ExaVault/evapi-php) and [JavaScript](https://github.com/ExaVault/evapi-javascript).  While we recommend using our libraries, you're welcome to interact directly with our API via HTTP GET and POST requests -- a great option particularly if you're developing in a language for which we don't yet have sample code.     - [Download Python Library &amp; Sample Code &raquo;](https://github.com/ExaVault/evapi-python) - [Download PHP Library &amp; Sample Code &raquo;](https://github.com/ExaVault/evapi-php) - [Download JavaScript Library &amp; Sample Code &raquo;](https://github.com/ExaVault/evapi-javascript)  *Note: You can generate client libraries for any language using [Swagger Editor](http://editor2.swagger.io/). Just download our documentation file, past it into editor and use 'Generate Client' dropdown.*  ## Obtain Your API Key  You will need to obtain an API key for your application from the [Client Area](https://clients.exavault.com/clientarea.php?action=products) of your account.  To obtain an API key, please follow the instructions below.   + Login to the [Accounts](https://clients.exavault.com/clientarea.php?action=products) section of the Client Area.  + Use the drop down next to your desired account, and select *Manage API Keys*.  + You will be brought to the API Key management screen. Fill out the form and save to generate a new key for your app.  *NOTE: As of Oct 2017, we are in the progress of migrating customers to our next generation platform. If your account is already on our new platform, you should log into your File Manager and create your API key under Account->Developer->Manage API Keys*.  # Status Codes  The ExaVault API returns only two HTTP status codes for its responses: 200 and 500.  When the request could be successfully processed by the endpoint, the response status code will be 200, regardless of whether the requested action could be taken.  For example, the response to a getUser request for a username that does not exist in your account would have the status of 200,  indicating that the response was received and processed, but the error member of the returned response object would contain object with `message` and `code` properties.  **Result Format:**  |Success   | Error     | Results   | | ---      | :---:       |  :---:      | | 0        |  `Object` |   Empty   | | 1        |   Empty       |    `Object` or `Array`        |     When a malformed request is received, a 500 HTTP status code will be returned, indicating that the request could not be processed.  ExaVault's API does not currently support traditional REST response codes such as '201 Created' or '405 Method Not Allowed', although we intend to support such codes a future version of the API.   # File Paths  Many API calls require you to provide one or more file paths. For example, the <a href=\"#operation/moveResources\">moveResources</a> call requires both an array of source paths, **filePaths**, and a destination path, **destinationPath**. Here's a few tips for working with paths:   - File paths should always be specified as a string, using the standard Unix format: e.g. `/path/to/a/file.txt`  - File paths are always absolute _from the home directory of the logged in user_. For example, if the user **bob** had a home directory restriction of `/bob_home`, then an API call made using his login would specify a file as `/myfile.txt`, whereas an API call made using the master user ( no home directory restriction ) would specify the same file as `/bob_home/myfile.txt`.  # API Rate Limits  We rate limit the number of API calls you can make to help prevent abuse and protect system stablity. Each API key will support 500 requests per rolling five minutes. If you make more than 500 requests in a five minute period, you will receive a response with an error object for fifteen minutes.  # Webhooks  A webhook is an HTTP callback: a simple event-notification via HTTP POST. If you define webhooks for Exavault, ExaVault will POST a  message to a URL when certain things happen.     Webhooks can be used to receive a JSON object to your endpoint URL. You choose what events will trigger webhook messages to your endpoint URL.     Webhooks will attempt to send a message up to 8 times with increasing timeouts between each attempt. All webhook requests are tracked in the webhooks log.  ## Getting Started  1. Go to the Account tab inside SWFT.  2. Choose the Developer tab.  3. Configure your endpoint URL and select the events you want to trigger webhook messages.  4. Save settings.    You are all set to receive webhook callbacks on the events you selected.  ## Verification Signature  ExaVault includes a custom HTTP header, X-Exavault-Signature, with webhooks POST requests which will contain the signature for the request.  You can use the signature to verify the request for an additional level of security.  ## Generating the Signature  1. Go to Account tab inside SWFT.  2. Choose the Developer tab.  3. Obtain the verification token. This field will only be shown if you've configured your endpoint URL.  4. In your code that receives or processes the webhooks, you should concatenate the verification token with the JSON object that we sent in our      POST request and hash it with md5.     ```     md5($verificationToken.$webhooksObject);     ```  5. Compare signature that you generated to the signature provided in the X-Exavault-Signature HTTP header  ## Example JSON Response Object  ```json   {     \"accountname\": \"mycompanyname\",     \"username\": \"john\"     \"operation\": \"Upload\",     \"protocol\": \"https\",     \"path\": \"/testfolder/filename.jpg\"     \"attempt\": 1   } ```  ## Webhooks Logs  Keep track of all your webhooks requests in the Activity section of your account. You can find the following info for each request:    1. date and time - timestamp of the request.    2. endpoint url - where the webhook was sent.    3. event - what triggered the webhook.    4. status - HTTP status or curl error code.    5. attempt - how many times we tried to send this request.    6. response size - size of the response from your server.    7. details - you can check the response body if it was sent.
+ * See our API reference documentation at https://www.exavault.com/developer/api-docs/
  *
- * OpenAPI spec version: 1.0.1
- * 
+ * OpenAPI spec version: 2.0
+ * Contact: support@exavault.com
  * Generated by: https://github.com/swagger-api/swagger-codegen.git
- *
+ * Swagger Codegen version: 3.0.20
  */
-
 /**
  * NOTE: This class is auto generated by the swagger code generator program.
  * https://github.com/swagger-api/swagger-codegen
@@ -28,10 +27,16 @@
 
 namespace Swagger\Client\Api;
 
-use \Swagger\Client\ApiClient;
-use \Swagger\Client\ApiException;
-use \Swagger\Client\Configuration;
-use \Swagger\Client\ObjectSerializer;
+use GuzzleHttp\Client;
+use GuzzleHttp\ClientInterface;
+use GuzzleHttp\Exception\RequestException;
+use GuzzleHttp\Psr7\MultipartStream;
+use GuzzleHttp\Psr7\Request;
+use GuzzleHttp\RequestOptions;
+use Swagger\Client\ApiException;
+use Swagger\Client\Configuration;
+use Swagger\Client\HeaderSelector;
+use Swagger\Client\ObjectSerializer;
 
 /**
  * ActivityApi Class Doc Comment
@@ -44,356 +49,749 @@ use \Swagger\Client\ObjectSerializer;
 class ActivityApi
 {
     /**
-     * API Client
-     *
-     * @var \Swagger\Client\ApiClient instance of the ApiClient
+     * @var ClientInterface
      */
-    protected $apiClient;
+    protected $client;
 
     /**
-     * Constructor
-     *
-     * @param \Swagger\Client\ApiClient|null $apiClient The api client to use
+     * @var Configuration
      */
-    public function __construct(\Swagger\Client\ApiClient $apiClient = null)
-    {
-        if ($apiClient === null) {
-            $apiClient = new ApiClient();
-        }
+    protected $config;
 
-        $this->apiClient = $apiClient;
+    /**
+     * @var HeaderSelector
+     */
+    protected $headerSelector;
+
+    /**
+     * @param ClientInterface $client
+     * @param Configuration   $config
+     * @param HeaderSelector  $selector
+     */
+    public function __construct(
+        ClientInterface $client = null,
+        Configuration $config = null,
+        HeaderSelector $selector = null
+    ) {
+        $this->client = $client ?: new Client();
+        $this->config = $config ?: new Configuration();
+        $this->headerSelector = $selector ?: new HeaderSelector();
     }
 
     /**
-     * Get API client
-     *
-     * @return \Swagger\Client\ApiClient get the API client
+     * @return Configuration
      */
-    public function getApiClient()
+    public function getConfig()
     {
-        return $this->apiClient;
+        return $this->config;
     }
 
     /**
-     * Set the API client
+     * Operation getSessionLogs
      *
-     * @param \Swagger\Client\ApiClient $apiClient set the API client
+     * Get activity logs
      *
-     * @return ActivityApi
-     */
-    public function setApiClient(\Swagger\Client\ApiClient $apiClient)
-    {
-        $this->apiClient = $apiClient;
-        return $this;
-    }
-
-    /**
-     * Operation getFileActivityLogs
+     * @param  string $ev_api_key API Key (required)
+     * @param  string $ev_access_token Access Token (required)
+     * @param  \DateTime $start_date Start date of the filter data range (optional)
+     * @param  \DateTime $end_date End date of the filter data range (optional)
+     * @param  string $ip_address Used to filter session logs by ip address. (optional)
+     * @param  string $user_name Username used for filtering a list (optional)
+     * @param  string $path Path used to filter records (optional)
+     * @param  string $type Filter session logs for operation type (see table above for acceptable values) (optional)
+     * @param  int $offset Offset of the records list (optional)
+     * @param  int $limit Limit of the records list (optional)
+     * @param  string $sort Comma separated list sort params (optional)
      *
-     * getFileActivityLogs
-     *
-     * @param string $api_key API key required to make the API call. (required)
-     * @param string $access_token Access token required to make the API call. (required)
-     * @param int $offset Starting record in the result set. Can be used for pagination. (optional)
-     * @param string $sort_by Sort method. (optional, default to sort_logs_date)
-     * @param string $sort_order Sort order. (optional, default to desc)
-     * @param string $filter_by Field to search on (optional)
-     * @param string $filter Search criteria. For date ranges, use format &#39;start_date::end_date&#39;. (optional)
-     * @param int $item_limit Number of logs to return. Can be used for pagination. (optional, default to 25)
      * @throws \Swagger\Client\ApiException on non-2xx response
-     * @return \Swagger\Client\Model\LogResponse
+     * @throws \InvalidArgumentException
+     * @return \Swagger\Client\Model\SessionActivityResponse
      */
-    public function getFileActivityLogs($api_key, $access_token, $offset = null, $sort_by = 'sort_logs_date', $sort_order = 'desc', $filter_by = null, $filter = null, $item_limit = '25')
+    public function getSessionLogs($ev_api_key, $ev_access_token, $start_date = null, $end_date = null, $ip_address = null, $user_name = null, $path = null, $type = null, $offset = null, $limit = null, $sort = null)
     {
-        list($response) = $this->getFileActivityLogsWithHttpInfo($api_key, $access_token, $offset, $sort_by, $sort_order, $filter_by, $filter, $item_limit);
+        list($response) = $this->getSessionLogsWithHttpInfo($ev_api_key, $ev_access_token, $start_date, $end_date, $ip_address, $user_name, $path, $type, $offset, $limit, $sort);
         return $response;
     }
 
     /**
-     * Operation getFileActivityLogsWithHttpInfo
+     * Operation getSessionLogsWithHttpInfo
      *
-     * getFileActivityLogs
+     * Get activity logs
      *
-     * @param string $api_key API key required to make the API call. (required)
-     * @param string $access_token Access token required to make the API call. (required)
-     * @param int $offset Starting record in the result set. Can be used for pagination. (optional)
-     * @param string $sort_by Sort method. (optional, default to sort_logs_date)
-     * @param string $sort_order Sort order. (optional, default to desc)
-     * @param string $filter_by Field to search on (optional)
-     * @param string $filter Search criteria. For date ranges, use format &#39;start_date::end_date&#39;. (optional)
-     * @param int $item_limit Number of logs to return. Can be used for pagination. (optional, default to 25)
+     * @param  string $ev_api_key API Key (required)
+     * @param  string $ev_access_token Access Token (required)
+     * @param  \DateTime $start_date Start date of the filter data range (optional)
+     * @param  \DateTime $end_date End date of the filter data range (optional)
+     * @param  string $ip_address Used to filter session logs by ip address. (optional)
+     * @param  string $user_name Username used for filtering a list (optional)
+     * @param  string $path Path used to filter records (optional)
+     * @param  string $type Filter session logs for operation type (see table above for acceptable values) (optional)
+     * @param  int $offset Offset of the records list (optional)
+     * @param  int $limit Limit of the records list (optional)
+     * @param  string $sort Comma separated list sort params (optional)
+     *
      * @throws \Swagger\Client\ApiException on non-2xx response
-     * @return array of \Swagger\Client\Model\LogResponse, HTTP status code, HTTP response headers (array of strings)
+     * @throws \InvalidArgumentException
+     * @return array of \Swagger\Client\Model\SessionActivityResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getFileActivityLogsWithHttpInfo($api_key, $access_token, $offset = null, $sort_by = 'sort_logs_date', $sort_order = 'desc', $filter_by = null, $filter = null, $item_limit = '25')
+    public function getSessionLogsWithHttpInfo($ev_api_key, $ev_access_token, $start_date = null, $end_date = null, $ip_address = null, $user_name = null, $path = null, $type = null, $offset = null, $limit = null, $sort = null)
     {
-        // verify the required parameter 'api_key' is set
-        if ($api_key === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $api_key when calling getFileActivityLogs');
+        $returnType = '\Swagger\Client\Model\SessionActivityResponse';
+        $request = $this->getSessionLogsRequest($ev_api_key, $ev_access_token, $start_date, $end_date, $ip_address, $user_name, $path, $type, $offset, $limit, $sort);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    $response->getBody()
+                );
+            }
+
+            $responseBody = $response->getBody();
+            if ($returnType === '\SplFileObject') {
+                $content = $responseBody; //stream goes to serializer
+            } else {
+                $content = $responseBody->getContents();
+                if (!in_array($returnType, ['string','integer','bool'])) {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Swagger\Client\Model\SessionActivityResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
         }
-        // verify the required parameter 'access_token' is set
-        if ($access_token === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $access_token when calling getFileActivityLogs');
+    }
+
+    /**
+     * Operation getSessionLogsAsync
+     *
+     * Get activity logs
+     *
+     * @param  string $ev_api_key API Key (required)
+     * @param  string $ev_access_token Access Token (required)
+     * @param  \DateTime $start_date Start date of the filter data range (optional)
+     * @param  \DateTime $end_date End date of the filter data range (optional)
+     * @param  string $ip_address Used to filter session logs by ip address. (optional)
+     * @param  string $user_name Username used for filtering a list (optional)
+     * @param  string $path Path used to filter records (optional)
+     * @param  string $type Filter session logs for operation type (see table above for acceptable values) (optional)
+     * @param  int $offset Offset of the records list (optional)
+     * @param  int $limit Limit of the records list (optional)
+     * @param  string $sort Comma separated list sort params (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getSessionLogsAsync($ev_api_key, $ev_access_token, $start_date = null, $end_date = null, $ip_address = null, $user_name = null, $path = null, $type = null, $offset = null, $limit = null, $sort = null)
+    {
+        return $this->getSessionLogsAsyncWithHttpInfo($ev_api_key, $ev_access_token, $start_date, $end_date, $ip_address, $user_name, $path, $type, $offset, $limit, $sort)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation getSessionLogsAsyncWithHttpInfo
+     *
+     * Get activity logs
+     *
+     * @param  string $ev_api_key API Key (required)
+     * @param  string $ev_access_token Access Token (required)
+     * @param  \DateTime $start_date Start date of the filter data range (optional)
+     * @param  \DateTime $end_date End date of the filter data range (optional)
+     * @param  string $ip_address Used to filter session logs by ip address. (optional)
+     * @param  string $user_name Username used for filtering a list (optional)
+     * @param  string $path Path used to filter records (optional)
+     * @param  string $type Filter session logs for operation type (see table above for acceptable values) (optional)
+     * @param  int $offset Offset of the records list (optional)
+     * @param  int $limit Limit of the records list (optional)
+     * @param  string $sort Comma separated list sort params (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getSessionLogsAsyncWithHttpInfo($ev_api_key, $ev_access_token, $start_date = null, $end_date = null, $ip_address = null, $user_name = null, $path = null, $type = null, $offset = null, $limit = null, $sort = null)
+    {
+        $returnType = '\Swagger\Client\Model\SessionActivityResponse';
+        $request = $this->getSessionLogsRequest($ev_api_key, $ev_access_token, $start_date, $end_date, $ip_address, $user_name, $path, $type, $offset, $limit, $sort);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = $responseBody->getContents();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'getSessionLogs'
+     *
+     * @param  string $ev_api_key API Key (required)
+     * @param  string $ev_access_token Access Token (required)
+     * @param  \DateTime $start_date Start date of the filter data range (optional)
+     * @param  \DateTime $end_date End date of the filter data range (optional)
+     * @param  string $ip_address Used to filter session logs by ip address. (optional)
+     * @param  string $user_name Username used for filtering a list (optional)
+     * @param  string $path Path used to filter records (optional)
+     * @param  string $type Filter session logs for operation type (see table above for acceptable values) (optional)
+     * @param  int $offset Offset of the records list (optional)
+     * @param  int $limit Limit of the records list (optional)
+     * @param  string $sort Comma separated list sort params (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function getSessionLogsRequest($ev_api_key, $ev_access_token, $start_date = null, $end_date = null, $ip_address = null, $user_name = null, $path = null, $type = null, $offset = null, $limit = null, $sort = null)
+    {
+        // verify the required parameter 'ev_api_key' is set
+        if ($ev_api_key === null || (is_array($ev_api_key) && count($ev_api_key) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $ev_api_key when calling getSessionLogs'
+            );
         }
-        // parse inputs
-        $resourcePath = "/getFileActivityLogs";
-        $httpBody = '';
+        // verify the required parameter 'ev_access_token' is set
+        if ($ev_access_token === null || (is_array($ev_access_token) && count($ev_access_token) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $ev_access_token when calling getSessionLogs'
+            );
+        }
+
+        $resourcePath = '/activity/session';
+        $formParams = [];
         $queryParams = [];
         $headerParams = [];
-        $formParams = [];
-        $_header_accept = $this->apiClient->selectHeaderAccept(['application/json']);
-        if (!is_null($_header_accept)) {
-            $headerParams['Accept'] = $_header_accept;
-        }
-        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType([]);
+        $httpBody = '';
+        $multipart = false;
 
         // query params
-        if ($access_token !== null) {
-            $queryParams['access_token'] = $this->apiClient->getSerializer()->toQueryValue($access_token);
+        if ($start_date !== null) {
+            $queryParams['startDate'] = ObjectSerializer::toQueryValue($start_date);
+        }
+        // query params
+        if ($end_date !== null) {
+            $queryParams['endDate'] = ObjectSerializer::toQueryValue($end_date);
+        }
+        // query params
+        if ($ip_address !== null) {
+            $queryParams['ipAddress'] = ObjectSerializer::toQueryValue($ip_address);
+        }
+        // query params
+        if ($user_name !== null) {
+            $queryParams['userName'] = ObjectSerializer::toQueryValue($user_name);
+        }
+        // query params
+        if ($path !== null) {
+            $queryParams['path'] = ObjectSerializer::toQueryValue($path);
+        }
+        // query params
+        if ($type !== null) {
+            $queryParams['type'] = ObjectSerializer::toQueryValue($type);
         }
         // query params
         if ($offset !== null) {
-            $queryParams['offset'] = $this->apiClient->getSerializer()->toQueryValue($offset);
+            $queryParams['offset'] = ObjectSerializer::toQueryValue($offset);
         }
         // query params
-        if ($sort_by !== null) {
-            $queryParams['sortBy'] = $this->apiClient->getSerializer()->toQueryValue($sort_by);
+        if ($limit !== null) {
+            $queryParams['limit'] = ObjectSerializer::toQueryValue($limit);
         }
         // query params
-        if ($sort_order !== null) {
-            $queryParams['sortOrder'] = $this->apiClient->getSerializer()->toQueryValue($sort_order);
-        }
-        // query params
-        if ($filter_by !== null) {
-            $queryParams['filterBy'] = $this->apiClient->getSerializer()->toQueryValue($filter_by);
-        }
-        // query params
-        if ($filter !== null) {
-            $queryParams['filter'] = $this->apiClient->getSerializer()->toQueryValue($filter);
-        }
-        // query params
-        if ($item_limit !== null) {
-            $queryParams['itemLimit'] = $this->apiClient->getSerializer()->toQueryValue($item_limit);
+        if ($sort !== null) {
+            $queryParams['sort'] = ObjectSerializer::toQueryValue($sort);
         }
         // header params
-        if ($api_key !== null) {
-            $headerParams['api_key'] = $this->apiClient->getSerializer()->toHeaderValue($api_key);
+        if ($ev_api_key !== null) {
+            $headerParams['ev-api-key'] = ObjectSerializer::toHeaderValue($ev_api_key);
+        }
+        // header params
+        if ($ev_access_token !== null) {
+            $headerParams['ev-access-token'] = ObjectSerializer::toHeaderValue($ev_access_token);
+        }
+
+
+        // body params
+        $_tempBody = null;
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                []
+            );
         }
 
         // for model (json/xml)
         if (isset($_tempBody)) {
-            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
-        } elseif (count($formParams) > 0) {
-            $httpBody = $formParams; // for HTTP post (form)
-        }
-        // make the API Call
-        try {
-            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
-                $resourcePath,
-                'GET',
-                $queryParams,
-                $httpBody,
-                $headerParams,
-                '\Swagger\Client\Model\LogResponse',
-                '/getFileActivityLogs'
-            );
-
-            return [$this->apiClient->getSerializer()->deserialize($response, '\Swagger\Client\Model\LogResponse', $httpHeader), $statusCode, $httpHeader];
-        } catch (ApiException $e) {
-            switch ($e->getCode()) {
-                case 200:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Swagger\Client\Model\LogResponse', $e->getResponseHeaders());
-                    $e->setResponseObject($data);
-                    break;
+            // $_tempBody is the method argument, if present
+            $httpBody = $_tempBody;
+            // \stdClass has no __toString(), so we should encode it manually
+            if ($httpBody instanceof \stdClass && $headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($httpBody);
             }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
 
-            throw $e;
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+            }
         }
+
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        return new Request(
+            'GET',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
     }
 
     /**
-     * Operation getNotificationActivity
+     * Operation getWebhookLogs
      *
-     * getNotificationActivity
+     * Get webhook logs
      *
-     * @param string $api_key API key required to make the API call. (required)
-     * @param string $access_token Access token required to make the API call. (required)
+     * @param  string $ev_api_key API Key (required)
+     * @param  string $ev_access_token Access Token (required)
+     * @param  string $event Filter by triggered event (optional)
+     * @param  int $status_code Filter by webhook response status code (optional)
+     * @param  string $path Path used to filter records (optional)
+     * @param  string $username Filter by triggering username. (optional)
+     * @param  int $offset Records to skip before returning results (optional)
+     * @param  int $limit Limit of the records list (optional)
+     * @param  string $sort Comma separated list sort params (optional)
+     *
      * @throws \Swagger\Client\ApiException on non-2xx response
-     * @return \Swagger\Client\Model\NotificationActivityResponse
+     * @throws \InvalidArgumentException
+     * @return \Swagger\Client\Model\WebhooksActivityResponse
      */
-    public function getNotificationActivity($api_key, $access_token)
+    public function getWebhookLogs($ev_api_key, $ev_access_token, $event = null, $status_code = null, $path = null, $username = null, $offset = null, $limit = null, $sort = null)
     {
-        list($response) = $this->getNotificationActivityWithHttpInfo($api_key, $access_token);
+        list($response) = $this->getWebhookLogsWithHttpInfo($ev_api_key, $ev_access_token, $event, $status_code, $path, $username, $offset, $limit, $sort);
         return $response;
     }
 
     /**
-     * Operation getNotificationActivityWithHttpInfo
+     * Operation getWebhookLogsWithHttpInfo
      *
-     * getNotificationActivity
+     * Get webhook logs
      *
-     * @param string $api_key API key required to make the API call. (required)
-     * @param string $access_token Access token required to make the API call. (required)
+     * @param  string $ev_api_key API Key (required)
+     * @param  string $ev_access_token Access Token (required)
+     * @param  string $event Filter by triggered event (optional)
+     * @param  int $status_code Filter by webhook response status code (optional)
+     * @param  string $path Path used to filter records (optional)
+     * @param  string $username Filter by triggering username. (optional)
+     * @param  int $offset Records to skip before returning results (optional)
+     * @param  int $limit Limit of the records list (optional)
+     * @param  string $sort Comma separated list sort params (optional)
+     *
      * @throws \Swagger\Client\ApiException on non-2xx response
-     * @return array of \Swagger\Client\Model\NotificationActivityResponse, HTTP status code, HTTP response headers (array of strings)
+     * @throws \InvalidArgumentException
+     * @return array of \Swagger\Client\Model\WebhooksActivityResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getNotificationActivityWithHttpInfo($api_key, $access_token)
+    public function getWebhookLogsWithHttpInfo($ev_api_key, $ev_access_token, $event = null, $status_code = null, $path = null, $username = null, $offset = null, $limit = null, $sort = null)
     {
-        // verify the required parameter 'api_key' is set
-        if ($api_key === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $api_key when calling getNotificationActivity');
-        }
-        // verify the required parameter 'access_token' is set
-        if ($access_token === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $access_token when calling getNotificationActivity');
-        }
-        // parse inputs
-        $resourcePath = "/getNotificationActivity";
-        $httpBody = '';
-        $queryParams = [];
-        $headerParams = [];
-        $formParams = [];
-        $_header_accept = $this->apiClient->selectHeaderAccept(['application/json']);
-        if (!is_null($_header_accept)) {
-            $headerParams['Accept'] = $_header_accept;
-        }
-        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType([]);
+        $returnType = '\Swagger\Client\Model\WebhooksActivityResponse';
+        $request = $this->getWebhookLogsRequest($ev_api_key, $ev_access_token, $event, $status_code, $path, $username, $offset, $limit, $sort);
 
-        // query params
-        if ($access_token !== null) {
-            $queryParams['access_token'] = $this->apiClient->getSerializer()->toQueryValue($access_token);
-        }
-        // header params
-        if ($api_key !== null) {
-            $headerParams['api_key'] = $this->apiClient->getSerializer()->toHeaderValue($api_key);
-        }
-
-        // for model (json/xml)
-        if (isset($_tempBody)) {
-            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
-        } elseif (count($formParams) > 0) {
-            $httpBody = $formParams; // for HTTP post (form)
-        }
-        // make the API Call
         try {
-            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
-                $resourcePath,
-                'GET',
-                $queryParams,
-                $httpBody,
-                $headerParams,
-                '\Swagger\Client\Model\NotificationActivityResponse',
-                '/getNotificationActivity'
-            );
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
+                );
+            }
 
-            return [$this->apiClient->getSerializer()->deserialize($response, '\Swagger\Client\Model\NotificationActivityResponse', $httpHeader), $statusCode, $httpHeader];
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    $response->getBody()
+                );
+            }
+
+            $responseBody = $response->getBody();
+            if ($returnType === '\SplFileObject') {
+                $content = $responseBody; //stream goes to serializer
+            } else {
+                $content = $responseBody->getContents();
+                if (!in_array($returnType, ['string','integer','bool'])) {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Swagger\Client\Model\NotificationActivityResponse', $e->getResponseHeaders());
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Swagger\Client\Model\WebhooksActivityResponse',
+                        $e->getResponseHeaders()
+                    );
                     $e->setResponseObject($data);
                     break;
             }
-
             throw $e;
         }
     }
 
     /**
-     * Operation getShareActivity
+     * Operation getWebhookLogsAsync
      *
-     * getShareActivity
+     * Get webhook logs
      *
-     * @param string $api_key API key required to make the API call. (required)
-     * @param string $access_token Access token required to make the API call. (required)
-     * @param int $id ID of the share. Use &lt;a href&#x3D;\&quot;#operation/getShares\&quot;&gt;getShares&lt;/a&gt; if you need to lookup an ID. (required)
-     * @throws \Swagger\Client\ApiException on non-2xx response
-     * @return \Swagger\Client\Model\ShareActivityResponse
+     * @param  string $ev_api_key API Key (required)
+     * @param  string $ev_access_token Access Token (required)
+     * @param  string $event Filter by triggered event (optional)
+     * @param  int $status_code Filter by webhook response status code (optional)
+     * @param  string $path Path used to filter records (optional)
+     * @param  string $username Filter by triggering username. (optional)
+     * @param  int $offset Records to skip before returning results (optional)
+     * @param  int $limit Limit of the records list (optional)
+     * @param  string $sort Comma separated list sort params (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getShareActivity($api_key, $access_token, $id)
+    public function getWebhookLogsAsync($ev_api_key, $ev_access_token, $event = null, $status_code = null, $path = null, $username = null, $offset = null, $limit = null, $sort = null)
     {
-        list($response) = $this->getShareActivityWithHttpInfo($api_key, $access_token, $id);
-        return $response;
+        return $this->getWebhookLogsAsyncWithHttpInfo($ev_api_key, $ev_access_token, $event, $status_code, $path, $username, $offset, $limit, $sort)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
     }
 
     /**
-     * Operation getShareActivityWithHttpInfo
+     * Operation getWebhookLogsAsyncWithHttpInfo
      *
-     * getShareActivity
+     * Get webhook logs
      *
-     * @param string $api_key API key required to make the API call. (required)
-     * @param string $access_token Access token required to make the API call. (required)
-     * @param int $id ID of the share. Use &lt;a href&#x3D;\&quot;#operation/getShares\&quot;&gt;getShares&lt;/a&gt; if you need to lookup an ID. (required)
-     * @throws \Swagger\Client\ApiException on non-2xx response
-     * @return array of \Swagger\Client\Model\ShareActivityResponse, HTTP status code, HTTP response headers (array of strings)
+     * @param  string $ev_api_key API Key (required)
+     * @param  string $ev_access_token Access Token (required)
+     * @param  string $event Filter by triggered event (optional)
+     * @param  int $status_code Filter by webhook response status code (optional)
+     * @param  string $path Path used to filter records (optional)
+     * @param  string $username Filter by triggering username. (optional)
+     * @param  int $offset Records to skip before returning results (optional)
+     * @param  int $limit Limit of the records list (optional)
+     * @param  string $sort Comma separated list sort params (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getShareActivityWithHttpInfo($api_key, $access_token, $id)
+    public function getWebhookLogsAsyncWithHttpInfo($ev_api_key, $ev_access_token, $event = null, $status_code = null, $path = null, $username = null, $offset = null, $limit = null, $sort = null)
     {
-        // verify the required parameter 'api_key' is set
-        if ($api_key === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $api_key when calling getShareActivity');
+        $returnType = '\Swagger\Client\Model\WebhooksActivityResponse';
+        $request = $this->getWebhookLogsRequest($ev_api_key, $ev_access_token, $event, $status_code, $path, $username, $offset, $limit, $sort);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = $responseBody->getContents();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'getWebhookLogs'
+     *
+     * @param  string $ev_api_key API Key (required)
+     * @param  string $ev_access_token Access Token (required)
+     * @param  string $event Filter by triggered event (optional)
+     * @param  int $status_code Filter by webhook response status code (optional)
+     * @param  string $path Path used to filter records (optional)
+     * @param  string $username Filter by triggering username. (optional)
+     * @param  int $offset Records to skip before returning results (optional)
+     * @param  int $limit Limit of the records list (optional)
+     * @param  string $sort Comma separated list sort params (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function getWebhookLogsRequest($ev_api_key, $ev_access_token, $event = null, $status_code = null, $path = null, $username = null, $offset = null, $limit = null, $sort = null)
+    {
+        // verify the required parameter 'ev_api_key' is set
+        if ($ev_api_key === null || (is_array($ev_api_key) && count($ev_api_key) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $ev_api_key when calling getWebhookLogs'
+            );
         }
-        // verify the required parameter 'access_token' is set
-        if ($access_token === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $access_token when calling getShareActivity');
+        // verify the required parameter 'ev_access_token' is set
+        if ($ev_access_token === null || (is_array($ev_access_token) && count($ev_access_token) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $ev_access_token when calling getWebhookLogs'
+            );
         }
-        // verify the required parameter 'id' is set
-        if ($id === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $id when calling getShareActivity');
-        }
-        // parse inputs
-        $resourcePath = "/getShareActivity";
-        $httpBody = '';
+
+        $resourcePath = '/activity/webhooks';
+        $formParams = [];
         $queryParams = [];
         $headerParams = [];
-        $formParams = [];
-        $_header_accept = $this->apiClient->selectHeaderAccept(['application/json']);
-        if (!is_null($_header_accept)) {
-            $headerParams['Accept'] = $_header_accept;
-        }
-        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType([]);
+        $httpBody = '';
+        $multipart = false;
 
         // query params
-        if ($access_token !== null) {
-            $queryParams['access_token'] = $this->apiClient->getSerializer()->toQueryValue($access_token);
+        if ($event !== null) {
+            $queryParams['event'] = ObjectSerializer::toQueryValue($event);
         }
         // query params
-        if ($id !== null) {
-            $queryParams['id'] = $this->apiClient->getSerializer()->toQueryValue($id);
+        if ($status_code !== null) {
+            $queryParams['statusCode'] = ObjectSerializer::toQueryValue($status_code);
+        }
+        // query params
+        if ($path !== null) {
+            $queryParams['path'] = ObjectSerializer::toQueryValue($path);
+        }
+        // query params
+        if ($username !== null) {
+            $queryParams['username'] = ObjectSerializer::toQueryValue($username);
+        }
+        // query params
+        if ($offset !== null) {
+            $queryParams['offset'] = ObjectSerializer::toQueryValue($offset);
+        }
+        // query params
+        if ($limit !== null) {
+            $queryParams['limit'] = ObjectSerializer::toQueryValue($limit);
+        }
+        // query params
+        if ($sort !== null) {
+            $queryParams['sort'] = ObjectSerializer::toQueryValue($sort);
         }
         // header params
-        if ($api_key !== null) {
-            $headerParams['api_key'] = $this->apiClient->getSerializer()->toHeaderValue($api_key);
+        if ($ev_api_key !== null) {
+            $headerParams['ev-api-key'] = ObjectSerializer::toHeaderValue($ev_api_key);
+        }
+        // header params
+        if ($ev_access_token !== null) {
+            $headerParams['ev-access-token'] = ObjectSerializer::toHeaderValue($ev_access_token);
+        }
+
+
+        // body params
+        $_tempBody = null;
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                []
+            );
         }
 
         // for model (json/xml)
         if (isset($_tempBody)) {
-            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
-        } elseif (count($formParams) > 0) {
-            $httpBody = $formParams; // for HTTP post (form)
-        }
-        // make the API Call
-        try {
-            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
-                $resourcePath,
-                'GET',
-                $queryParams,
-                $httpBody,
-                $headerParams,
-                '\Swagger\Client\Model\ShareActivityResponse',
-                '/getShareActivity'
-            );
-
-            return [$this->apiClient->getSerializer()->deserialize($response, '\Swagger\Client\Model\ShareActivityResponse', $httpHeader), $statusCode, $httpHeader];
-        } catch (ApiException $e) {
-            switch ($e->getCode()) {
-                case 200:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Swagger\Client\Model\ShareActivityResponse', $e->getResponseHeaders());
-                    $e->setResponseObject($data);
-                    break;
+            // $_tempBody is the method argument, if present
+            $httpBody = $_tempBody;
+            // \stdClass has no __toString(), so we should encode it manually
+            if ($httpBody instanceof \stdClass && $headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($httpBody);
             }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
 
-            throw $e;
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+            }
         }
+
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        return new Request(
+            'GET',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Create http client option
+     *
+     * @throws \RuntimeException on file opening failure
+     * @return array of http client options
+     */
+    protected function createHttpClientOption()
+    {
+        $options = [];
+        if ($this->config->getDebug()) {
+            $options[RequestOptions::DEBUG] = fopen($this->config->getDebugFile(), 'a');
+            if (!$options[RequestOptions::DEBUG]) {
+                throw new \RuntimeException('Failed to open the debug file: ' . $this->config->getDebugFile());
+            }
+        }
+
+        return $options;
     }
 }

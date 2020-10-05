@@ -1,7 +1,7 @@
 {
     "name": "exavault/evapi-php",
     "type": "library",
-    "description": "PHP SDK for ExaVault API v1.2",
+    "description": "PHP SDK for ExaVault API",
     "keywords": ["exavault","file transfer","php"],
     "homepage": "https://exavault.com/developer",
     "license": "MIT",
@@ -14,7 +14,12 @@
         }
     ],
     "require": {
-        "php": ">=5.3.0"
+        "php": ">=5.5",
+        "ext-curl": "*",
+        "ext-json": "*",
+        "ext-mbstring": "*",
+        "guzzlehttp/guzzle": "^6.2",
+        "vlucas/phpdotenv": "^5.2"
     },
     "autoload": {
         "psr-4": {
