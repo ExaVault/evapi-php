@@ -1,5 +1,5 @@
 <?php
-require_once('/path/to/evapi-php/autoload.php');
+require_once(__DIR__ . "/vendor/autoload.php");
 
 #authenticateUser
 
