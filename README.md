@@ -21,7 +21,7 @@ You can use composer to add this library to your project by running this command
 ### Option 2 - Manual Installation
 Alternatively, you can clone the [github repo](https://github.com/ExaVault/evapi-php) and then run `composer install` in the evapi-php directory to install dependencies.
 
-## Getting Started
+## Sample Code
 
 For a gentle introduction to using PHP code with ExaVault's API, check out [our code samples](https://github.com/ExaVault/evapi-php-samples)  Follow the instructions in that repository's README to run the sample scripts, which will demonstrate how to use several of the generated PHP classes to interact with your ExaVault account.
 
