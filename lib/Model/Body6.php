@@ -66,7 +66,8 @@ class Body6 implements ModelInterface, ArrayAccess
 'time_zone' => 'string',
 'expiration' => 'string',
 'locked' => 'bool',
-'onboarding' => 'bool'    ];
+'onboarding' => 'bool',
+'current_user_password' => 'string'    ];
 
     /**
       * Array of property to format mappings. Used for (de)serialization
@@ -84,7 +85,8 @@ class Body6 implements ModelInterface, ArrayAccess
 'time_zone' => null,
 'expiration' => null,
 'locked' => null,
-'onboarding' => null    ];
+'onboarding' => null,
+'current_user_password' => null    ];
 
     /**
      * Array of property to type mappings. Used for (de)serialization
@@ -123,7 +125,8 @@ class Body6 implements ModelInterface, ArrayAccess
 'time_zone' => 'timeZone',
 'expiration' => 'expiration',
 'locked' => 'locked',
-'onboarding' => 'onboarding'    ];
+'onboarding' => 'onboarding',
+'current_user_password' => 'currentUserPassword'    ];
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
@@ -141,7 +144,8 @@ class Body6 implements ModelInterface, ArrayAccess
 'time_zone' => 'setTimeZone',
 'expiration' => 'setExpiration',
 'locked' => 'setLocked',
-'onboarding' => 'setOnboarding'    ];
+'onboarding' => 'setOnboarding',
+'current_user_password' => 'setCurrentUserPassword'    ];
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
@@ -159,7 +163,8 @@ class Body6 implements ModelInterface, ArrayAccess
 'time_zone' => 'getTimeZone',
 'expiration' => 'getExpiration',
 'locked' => 'getLocked',
-'onboarding' => 'getOnboarding'    ];
+'onboarding' => 'getOnboarding',
+'current_user_password' => 'getCurrentUserPassword'    ];
 
     /**
      * Array of attributes where the key is the local name,
@@ -243,6 +248,7 @@ self::ROLE_ADMIN,        ];
         $this->container['expiration'] = isset($data['expiration']) ? $data['expiration'] : null;
         $this->container['locked'] = isset($data['locked']) ? $data['locked'] : null;
         $this->container['onboarding'] = isset($data['onboarding']) ? $data['onboarding'] : null;
+        $this->container['current_user_password'] = isset($data['current_user_password']) ? $data['current_user_password'] : null;
     }
 
     /**
@@ -546,6 +552,30 @@ self::ROLE_ADMIN,        ];
     public function setOnboarding($onboarding)
     {
         $this->container['onboarding'] = $onboarding;
+
+        return $this;
+    }
+
+    /**
+     * Gets current_user_password
+     *
+     * @return string
+     */
+    public function getCurrentUserPassword()
+    {
+        return $this->container['current_user_password'];
+    }
+
+    /**
+     * Sets current_user_password
+     *
+     * @param string $current_user_password The password of the currently authenticated user. Required when updating any user’s email, username or password.
+     *
+     * @return $this
+     */
+    public function setCurrentUserPassword($current_user_password)
+    {
+        $this->container['current_user_password'] = $current_user_password;
 
         return $this;
     }
