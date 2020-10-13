@@ -1,6 +1,6 @@
 <?php
 /**
- * UserResponse
+ * AnyOfResourceMultiResponseResponsesItems
  *
  * PHP version 5
  *
@@ -32,15 +32,14 @@ use \ArrayAccess;
 use \Swagger\Client\ObjectSerializer;
 
 /**
- * UserResponse Class Doc Comment
+ * AnyOfResourceMultiResponseResponsesItems Class Doc Comment
  *
  * @category Class
- * @description Response object for users.
  * @package  Swagger\Client
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class UserResponse implements ModelInterface, ArrayAccess
+class AnyOfResourceMultiResponseResponsesItems implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -49,7 +48,7 @@ class UserResponse implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'UserResponse';
+    protected static $swaggerModelName = 'AnyOfResourceMultiResponseResponsesItems';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -57,9 +56,7 @@ class UserResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'response_status' => 'int',
-'data' => '\Swagger\Client\Model\User',
-'included' => '\Swagger\Client\Model\AnyOfUserResponseIncludedItems[]'    ];
+            ];
 
     /**
       * Array of property to format mappings. Used for (de)serialization
@@ -67,9 +64,7 @@ class UserResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'response_status' => null,
-'data' => null,
-'included' => null    ];
+            ];
 
     /**
      * Array of property to type mappings. Used for (de)serialization
@@ -98,9 +93,7 @@ class UserResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'response_status' => 'responseStatus',
-'data' => 'data',
-'included' => 'included'    ];
+            ];
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
@@ -108,9 +101,7 @@ class UserResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'response_status' => 'setResponseStatus',
-'data' => 'setData',
-'included' => 'setIncluded'    ];
+            ];
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
@@ -118,9 +109,7 @@ class UserResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'response_status' => 'getResponseStatus',
-'data' => 'getData',
-'included' => 'getIncluded'    ];
+            ];
 
     /**
      * Array of attributes where the key is the local name,
@@ -180,9 +169,6 @@ class UserResponse implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['response_status'] = isset($data['response_status']) ? $data['response_status'] : null;
-        $this->container['data'] = isset($data['data']) ? $data['data'] : null;
-        $this->container['included'] = isset($data['included']) ? $data['included'] : null;
     }
 
     /**
@@ -208,78 +194,6 @@ class UserResponse implements ModelInterface, ArrayAccess
         return count($this->listInvalidProperties()) === 0;
     }
 
-
-    /**
-     * Gets response_status
-     *
-     * @return int
-     */
-    public function getResponseStatus()
-    {
-        return $this->container['response_status'];
-    }
-
-    /**
-     * Sets response_status
-     *
-     * @param int $response_status Http code for the response.
-     *
-     * @return $this
-     */
-    public function setResponseStatus($response_status)
-    {
-        $this->container['response_status'] = $response_status;
-
-        return $this;
-    }
-
-    /**
-     * Gets data
-     *
-     * @return \Swagger\Client\Model\User
-     */
-    public function getData()
-    {
-        return $this->container['data'];
-    }
-
-    /**
-     * Sets data
-     *
-     * @param \Swagger\Client\Model\User $data data
-     *
-     * @return $this
-     */
-    public function setData($data)
-    {
-        $this->container['data'] = $data;
-
-        return $this;
-    }
-
-    /**
-     * Gets included
-     *
-     * @return \Swagger\Client\Model\AnyOfUserResponseIncludedItems[]
-     */
-    public function getIncluded()
-    {
-        return $this->container['included'];
-    }
-
-    /**
-     * Sets included
-     *
-     * @param \Swagger\Client\Model\AnyOfUserResponseIncludedItems[] $included included
-     *
-     * @return $this
-     */
-    public function setIncluded($included)
-    {
-        $this->container['included'] = $included;
-
-        return $this;
-    }
     /**
      * Returns true if offset exists. False otherwise.
      *
