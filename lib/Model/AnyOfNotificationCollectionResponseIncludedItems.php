@@ -5,7 +5,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  Swagger\Client
+ * @package  ExaVault
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
@@ -26,16 +26,16 @@
  * Do not edit the class manually.
  */
 
-namespace Swagger\Client\Model;
+namespace ExaVault\Model;
 
 use \ArrayAccess;
-use \Swagger\Client\ObjectSerializer;
+use \ExaVault\ObjectSerializer;
 
 /**
  * AnyOfNotificationCollectionResponseIncludedItems Class Doc Comment
  *
  * @category Class
- * @package  Swagger\Client
+ * @package  ExaVault
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */

@@ -4,7 +4,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  Swagger\Client
+ * @package  ExaVault
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
@@ -25,7 +25,7 @@
  * Do not edit the class manually.
  */
 
-namespace Swagger\Client\Api;
+namespace ExaVault\Api;
 
 use GuzzleHttp\Client;
 use GuzzleHttp\ClientInterface;
@@ -33,16 +33,16 @@ use GuzzleHttp\Exception\RequestException;
 use GuzzleHttp\Psr7\MultipartStream;
 use GuzzleHttp\Psr7\Request;
 use GuzzleHttp\RequestOptions;
-use Swagger\Client\ApiException;
-use Swagger\Client\Configuration;
-use Swagger\Client\HeaderSelector;
-use Swagger\Client\ObjectSerializer;
+use ExaVault\ApiException;
+use ExaVault\Configuration;
+use ExaVault\HeaderSelector;
+use ExaVault\ObjectSerializer;
 
 /**
  * FormApi Class Doc Comment
  *
  * @category Class
- * @package  Swagger\Client
+ * @package  ExaVault
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
@@ -95,9 +95,9 @@ class FormApi
      * @param  string $ev_access_token Access token required to make the API call. (required)
      * @param  string $id ID of the entry to be deleted data for (required)
      *
-     * @throws \Swagger\Client\ApiException on non-2xx response
+     * @throws \ExaVault\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Swagger\Client\Model\EmptyResponse
+     * @return \ExaVault\Model\EmptyResponse
      */
     public function deleteFormMessageById($ev_api_key, $ev_access_token, $id)
     {
@@ -114,13 +114,13 @@ class FormApi
      * @param  string $ev_access_token Access token required to make the API call. (required)
      * @param  string $id ID of the entry to be deleted data for (required)
      *
-     * @throws \Swagger\Client\ApiException on non-2xx response
+     * @throws \ExaVault\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Swagger\Client\Model\EmptyResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \ExaVault\Model\EmptyResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function deleteFormMessageByIdWithHttpInfo($ev_api_key, $ev_access_token, $id)
     {
-        $returnType = '\Swagger\Client\Model\EmptyResponse';
+        $returnType = '\ExaVault\Model\EmptyResponse';
         $request = $this->deleteFormMessageByIdRequest($ev_api_key, $ev_access_token, $id);
 
         try {
@@ -172,7 +172,7 @@ class FormApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Swagger\Client\Model\EmptyResponse',
+                        '\ExaVault\Model\EmptyResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -218,7 +218,7 @@ class FormApi
      */
     public function deleteFormMessageByIdAsyncWithHttpInfo($ev_api_key, $ev_access_token, $id)
     {
-        $returnType = '\Swagger\Client\Model\EmptyResponse';
+        $returnType = '\ExaVault\Model\EmptyResponse';
         $request = $this->deleteFormMessageByIdRequest($ev_api_key, $ev_access_token, $id);
 
         return $this->client
@@ -388,9 +388,9 @@ class FormApi
      * @param  string $ev_access_token Access Token required to make the API call. (required)
      * @param  string $include Enter \&quot;**share**\&quot; to get information about associated receive folder. (optional)
      *
-     * @throws \Swagger\Client\ApiException on non-2xx response
+     * @throws \ExaVault\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Swagger\Client\Model\FormResponse
+     * @return \ExaVault\Model\FormResponse
      */
     public function getFormById($id, $ev_api_key, $ev_access_token, $include = null)
     {
@@ -408,13 +408,13 @@ class FormApi
      * @param  string $ev_access_token Access Token required to make the API call. (required)
      * @param  string $include Enter \&quot;**share**\&quot; to get information about associated receive folder. (optional)
      *
-     * @throws \Swagger\Client\ApiException on non-2xx response
+     * @throws \ExaVault\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Swagger\Client\Model\FormResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \ExaVault\Model\FormResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function getFormByIdWithHttpInfo($id, $ev_api_key, $ev_access_token, $include = null)
     {
-        $returnType = '\Swagger\Client\Model\FormResponse';
+        $returnType = '\ExaVault\Model\FormResponse';
         $request = $this->getFormByIdRequest($id, $ev_api_key, $ev_access_token, $include);
 
         try {
@@ -466,7 +466,7 @@ class FormApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Swagger\Client\Model\FormResponse',
+                        '\ExaVault\Model\FormResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -514,7 +514,7 @@ class FormApi
      */
     public function getFormByIdAsyncWithHttpInfo($id, $ev_api_key, $ev_access_token, $include = null)
     {
-        $returnType = '\Swagger\Client\Model\FormResponse';
+        $returnType = '\ExaVault\Model\FormResponse';
         $request = $this->getFormByIdRequest($id, $ev_api_key, $ev_access_token, $include);
 
         return $this->client
@@ -689,9 +689,9 @@ class FormApi
      * @param  string $share_hash Share hash to retrieve the form for. (required)
      * @param  string $include Related record types to include in the response. Valid option is **share** (optional)
      *
-     * @throws \Swagger\Client\ApiException on non-2xx response
+     * @throws \ExaVault\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Swagger\Client\Model\FormResponse
+     * @return \ExaVault\Model\FormResponse
      */
     public function getFormByShareHash($ev_api_key, $ev_access_token, $share_hash, $include = null)
     {
@@ -709,13 +709,13 @@ class FormApi
      * @param  string $share_hash Share hash to retrieve the form for. (required)
      * @param  string $include Related record types to include in the response. Valid option is **share** (optional)
      *
-     * @throws \Swagger\Client\ApiException on non-2xx response
+     * @throws \ExaVault\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Swagger\Client\Model\FormResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \ExaVault\Model\FormResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function getFormByShareHashWithHttpInfo($ev_api_key, $ev_access_token, $share_hash, $include = null)
     {
-        $returnType = '\Swagger\Client\Model\FormResponse';
+        $returnType = '\ExaVault\Model\FormResponse';
         $request = $this->getFormByShareHashRequest($ev_api_key, $ev_access_token, $share_hash, $include);
 
         try {
@@ -767,7 +767,7 @@ class FormApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Swagger\Client\Model\FormResponse',
+                        '\ExaVault\Model\FormResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -815,7 +815,7 @@ class FormApi
      */
     public function getFormByShareHashAsyncWithHttpInfo($ev_api_key, $ev_access_token, $share_hash, $include = null)
     {
-        $returnType = '\Swagger\Client\Model\FormResponse';
+        $returnType = '\ExaVault\Model\FormResponse';
         $request = $this->getFormByShareHashRequest($ev_api_key, $ev_access_token, $share_hash, $include);
 
         return $this->client
@@ -987,9 +987,9 @@ class FormApi
      * @param  int $limit Limit of records to be returned (for pagination) (optional)
      * @param  int $offset Current offset of records (for pagination) (optional)
      *
-     * @throws \Swagger\Client\ApiException on non-2xx response
+     * @throws \ExaVault\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Swagger\Client\Model\FormEntryResponse
+     * @return \ExaVault\Model\FormEntryResponse
      */
     public function getFormEntries($ev_api_key, $ev_access_token, $id, $limit = null, $offset = null)
     {
@@ -1008,13 +1008,13 @@ class FormApi
      * @param  int $limit Limit of records to be returned (for pagination) (optional)
      * @param  int $offset Current offset of records (for pagination) (optional)
      *
-     * @throws \Swagger\Client\ApiException on non-2xx response
+     * @throws \ExaVault\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Swagger\Client\Model\FormEntryResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \ExaVault\Model\FormEntryResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function getFormEntriesWithHttpInfo($ev_api_key, $ev_access_token, $id, $limit = null, $offset = null)
     {
-        $returnType = '\Swagger\Client\Model\FormEntryResponse';
+        $returnType = '\ExaVault\Model\FormEntryResponse';
         $request = $this->getFormEntriesRequest($ev_api_key, $ev_access_token, $id, $limit, $offset);
 
         try {
@@ -1066,7 +1066,7 @@ class FormApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Swagger\Client\Model\FormEntryResponse',
+                        '\ExaVault\Model\FormEntryResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1116,7 +1116,7 @@ class FormApi
      */
     public function getFormEntriesAsyncWithHttpInfo($ev_api_key, $ev_access_token, $id, $limit = null, $offset = null)
     {
-        $returnType = '\Swagger\Client\Model\FormEntryResponse';
+        $returnType = '\ExaVault\Model\FormEntryResponse';
         $request = $this->getFormEntriesRequest($ev_api_key, $ev_access_token, $id, $limit, $offset);
 
         return $this->client
@@ -1294,11 +1294,11 @@ class FormApi
      * @param  string $ev_api_key API Key required to make the API call. (required)
      * @param  string $ev_access_token Access token required to make the API call. (required)
      * @param  int $id Form unique ID number. (required)
-     * @param  \Swagger\Client\Model\Body2 $body body (optional)
+     * @param  \ExaVault\Model\Body2 $body body (optional)
      *
-     * @throws \Swagger\Client\ApiException on non-2xx response
+     * @throws \ExaVault\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Swagger\Client\Model\FormResponse
+     * @return \ExaVault\Model\FormResponse
      */
     public function updateFormById($ev_api_key, $ev_access_token, $id, $body = null)
     {
@@ -1314,15 +1314,15 @@ class FormApi
      * @param  string $ev_api_key API Key required to make the API call. (required)
      * @param  string $ev_access_token Access token required to make the API call. (required)
      * @param  int $id Form unique ID number. (required)
-     * @param  \Swagger\Client\Model\Body2 $body (optional)
+     * @param  \ExaVault\Model\Body2 $body (optional)
      *
-     * @throws \Swagger\Client\ApiException on non-2xx response
+     * @throws \ExaVault\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Swagger\Client\Model\FormResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \ExaVault\Model\FormResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function updateFormByIdWithHttpInfo($ev_api_key, $ev_access_token, $id, $body = null)
     {
-        $returnType = '\Swagger\Client\Model\FormResponse';
+        $returnType = '\ExaVault\Model\FormResponse';
         $request = $this->updateFormByIdRequest($ev_api_key, $ev_access_token, $id, $body);
 
         try {
@@ -1374,7 +1374,7 @@ class FormApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Swagger\Client\Model\FormResponse',
+                        '\ExaVault\Model\FormResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1392,7 +1392,7 @@ class FormApi
      * @param  string $ev_api_key API Key required to make the API call. (required)
      * @param  string $ev_access_token Access token required to make the API call. (required)
      * @param  int $id Form unique ID number. (required)
-     * @param  \Swagger\Client\Model\Body2 $body (optional)
+     * @param  \ExaVault\Model\Body2 $body (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -1415,14 +1415,14 @@ class FormApi
      * @param  string $ev_api_key API Key required to make the API call. (required)
      * @param  string $ev_access_token Access token required to make the API call. (required)
      * @param  int $id Form unique ID number. (required)
-     * @param  \Swagger\Client\Model\Body2 $body (optional)
+     * @param  \ExaVault\Model\Body2 $body (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
     public function updateFormByIdAsyncWithHttpInfo($ev_api_key, $ev_access_token, $id, $body = null)
     {
-        $returnType = '\Swagger\Client\Model\FormResponse';
+        $returnType = '\ExaVault\Model\FormResponse';
         $request = $this->updateFormByIdRequest($ev_api_key, $ev_access_token, $id, $body);
 
         return $this->client
@@ -1468,7 +1468,7 @@ class FormApi
      * @param  string $ev_api_key API Key required to make the API call. (required)
      * @param  string $ev_access_token Access token required to make the API call. (required)
      * @param  int $id Form unique ID number. (required)
-     * @param  \Swagger\Client\Model\Body2 $body (optional)
+     * @param  \ExaVault\Model\Body2 $body (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request

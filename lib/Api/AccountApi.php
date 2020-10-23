@@ -4,7 +4,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  Swagger\Client
+ * @package  ExaVault
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
@@ -25,7 +25,7 @@
  * Do not edit the class manually.
  */
 
-namespace Swagger\Client\Api;
+namespace ExaVault\Api;
 
 use GuzzleHttp\Client;
 use GuzzleHttp\ClientInterface;
@@ -33,16 +33,16 @@ use GuzzleHttp\Exception\RequestException;
 use GuzzleHttp\Psr7\MultipartStream;
 use GuzzleHttp\Psr7\Request;
 use GuzzleHttp\RequestOptions;
-use Swagger\Client\ApiException;
-use Swagger\Client\Configuration;
-use Swagger\Client\HeaderSelector;
-use Swagger\Client\ObjectSerializer;
+use ExaVault\ApiException;
+use ExaVault\Configuration;
+use ExaVault\HeaderSelector;
+use ExaVault\ObjectSerializer;
 
 /**
  * AccountApi Class Doc Comment
  *
  * @category Class
- * @package  Swagger\Client
+ * @package  ExaVault
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
@@ -95,9 +95,9 @@ class AccountApi
      * @param  string $ev_access_token Access Token for the request (required)
      * @param  string $include Related records to include in the response. Valid option is **masterUser** (optional)
      *
-     * @throws \Swagger\Client\ApiException on non-2xx response
+     * @throws \ExaVault\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Swagger\Client\Model\AccountResponse
+     * @return \ExaVault\Model\AccountResponse
      */
     public function getAccount($ev_api_key, $ev_access_token, $include = null)
     {
@@ -114,13 +114,13 @@ class AccountApi
      * @param  string $ev_access_token Access Token for the request (required)
      * @param  string $include Related records to include in the response. Valid option is **masterUser** (optional)
      *
-     * @throws \Swagger\Client\ApiException on non-2xx response
+     * @throws \ExaVault\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Swagger\Client\Model\AccountResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \ExaVault\Model\AccountResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function getAccountWithHttpInfo($ev_api_key, $ev_access_token, $include = null)
     {
-        $returnType = '\Swagger\Client\Model\AccountResponse';
+        $returnType = '\ExaVault\Model\AccountResponse';
         $request = $this->getAccountRequest($ev_api_key, $ev_access_token, $include);
 
         try {
@@ -172,7 +172,7 @@ class AccountApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Swagger\Client\Model\AccountResponse',
+                        '\ExaVault\Model\AccountResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -218,7 +218,7 @@ class AccountApi
      */
     public function getAccountAsyncWithHttpInfo($ev_api_key, $ev_access_token, $include = null)
     {
-        $returnType = '\Swagger\Client\Model\AccountResponse';
+        $returnType = '\ExaVault\Model\AccountResponse';
         $request = $this->getAccountRequest($ev_api_key, $ev_access_token, $include);
 
         return $this->client
@@ -375,11 +375,11 @@ class AccountApi
      *
      * @param  string $ev_api_key API Key required to make the API call. (required)
      * @param  string $ev_access_token Access token required to make the API call. (required)
-     * @param  \Swagger\Client\Model\UpdateAccountBody $body Update Account Settings (optional)
+     * @param  \ExaVault\Model\UpdateAccountBody $body Update Account Settings (optional)
      *
-     * @throws \Swagger\Client\ApiException on non-2xx response
+     * @throws \ExaVault\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Swagger\Client\Model\AccountResponse
+     * @return \ExaVault\Model\AccountResponse
      */
     public function updateAccount($ev_api_key, $ev_access_token, $body = null)
     {
@@ -394,15 +394,15 @@ class AccountApi
      *
      * @param  string $ev_api_key API Key required to make the API call. (required)
      * @param  string $ev_access_token Access token required to make the API call. (required)
-     * @param  \Swagger\Client\Model\UpdateAccountBody $body Update Account Settings (optional)
+     * @param  \ExaVault\Model\UpdateAccountBody $body Update Account Settings (optional)
      *
-     * @throws \Swagger\Client\ApiException on non-2xx response
+     * @throws \ExaVault\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Swagger\Client\Model\AccountResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \ExaVault\Model\AccountResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function updateAccountWithHttpInfo($ev_api_key, $ev_access_token, $body = null)
     {
-        $returnType = '\Swagger\Client\Model\AccountResponse';
+        $returnType = '\ExaVault\Model\AccountResponse';
         $request = $this->updateAccountRequest($ev_api_key, $ev_access_token, $body);
 
         try {
@@ -454,7 +454,7 @@ class AccountApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Swagger\Client\Model\AccountResponse',
+                        '\ExaVault\Model\AccountResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -471,7 +471,7 @@ class AccountApi
      *
      * @param  string $ev_api_key API Key required to make the API call. (required)
      * @param  string $ev_access_token Access token required to make the API call. (required)
-     * @param  \Swagger\Client\Model\UpdateAccountBody $body Update Account Settings (optional)
+     * @param  \ExaVault\Model\UpdateAccountBody $body Update Account Settings (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -493,14 +493,14 @@ class AccountApi
      *
      * @param  string $ev_api_key API Key required to make the API call. (required)
      * @param  string $ev_access_token Access token required to make the API call. (required)
-     * @param  \Swagger\Client\Model\UpdateAccountBody $body Update Account Settings (optional)
+     * @param  \ExaVault\Model\UpdateAccountBody $body Update Account Settings (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
     public function updateAccountAsyncWithHttpInfo($ev_api_key, $ev_access_token, $body = null)
     {
-        $returnType = '\Swagger\Client\Model\AccountResponse';
+        $returnType = '\ExaVault\Model\AccountResponse';
         $request = $this->updateAccountRequest($ev_api_key, $ev_access_token, $body);
 
         return $this->client
@@ -545,7 +545,7 @@ class AccountApi
      *
      * @param  string $ev_api_key API Key required to make the API call. (required)
      * @param  string $ev_access_token Access token required to make the API call. (required)
-     * @param  \Swagger\Client\Model\UpdateAccountBody $body Update Account Settings (optional)
+     * @param  \ExaVault\Model\UpdateAccountBody $body Update Account Settings (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request

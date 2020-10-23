@@ -4,7 +4,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  Swagger\Client
+ * @package  ExaVault
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
@@ -25,7 +25,7 @@
  * Do not edit the class manually.
  */
 
-namespace Swagger\Client\Api;
+namespace ExaVault\Api;
 
 use GuzzleHttp\Client;
 use GuzzleHttp\ClientInterface;
@@ -33,16 +33,16 @@ use GuzzleHttp\Exception\RequestException;
 use GuzzleHttp\Psr7\MultipartStream;
 use GuzzleHttp\Psr7\Request;
 use GuzzleHttp\RequestOptions;
-use Swagger\Client\ApiException;
-use Swagger\Client\Configuration;
-use Swagger\Client\HeaderSelector;
-use Swagger\Client\ObjectSerializer;
+use ExaVault\ApiException;
+use ExaVault\Configuration;
+use ExaVault\HeaderSelector;
+use ExaVault\ObjectSerializer;
 
 /**
  * UsersApi Class Doc Comment
  *
  * @category Class
- * @package  Swagger\Client
+ * @package  ExaVault
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
@@ -93,11 +93,11 @@ class UsersApi
      *
      * @param  string $ev_api_key API key required to make the API call (required)
      * @param  string $ev_access_token Access token required to make the API call. (required)
-     * @param  \Swagger\Client\Model\Body5 $body body (optional)
+     * @param  \ExaVault\Model\Body5 $body body (optional)
      *
-     * @throws \Swagger\Client\ApiException on non-2xx response
+     * @throws \ExaVault\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Swagger\Client\Model\UserResponse
+     * @return \ExaVault\Model\UserResponse
      */
     public function addUser($ev_api_key, $ev_access_token, $body = null)
     {
@@ -112,15 +112,15 @@ class UsersApi
      *
      * @param  string $ev_api_key API key required to make the API call (required)
      * @param  string $ev_access_token Access token required to make the API call. (required)
-     * @param  \Swagger\Client\Model\Body5 $body (optional)
+     * @param  \ExaVault\Model\Body5 $body (optional)
      *
-     * @throws \Swagger\Client\ApiException on non-2xx response
+     * @throws \ExaVault\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Swagger\Client\Model\UserResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \ExaVault\Model\UserResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function addUserWithHttpInfo($ev_api_key, $ev_access_token, $body = null)
     {
-        $returnType = '\Swagger\Client\Model\UserResponse';
+        $returnType = '\ExaVault\Model\UserResponse';
         $request = $this->addUserRequest($ev_api_key, $ev_access_token, $body);
 
         try {
@@ -172,7 +172,7 @@ class UsersApi
                 case 201:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Swagger\Client\Model\UserResponse',
+                        '\ExaVault\Model\UserResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -189,7 +189,7 @@ class UsersApi
      *
      * @param  string $ev_api_key API key required to make the API call (required)
      * @param  string $ev_access_token Access token required to make the API call. (required)
-     * @param  \Swagger\Client\Model\Body5 $body (optional)
+     * @param  \ExaVault\Model\Body5 $body (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -211,14 +211,14 @@ class UsersApi
      *
      * @param  string $ev_api_key API key required to make the API call (required)
      * @param  string $ev_access_token Access token required to make the API call. (required)
-     * @param  \Swagger\Client\Model\Body5 $body (optional)
+     * @param  \ExaVault\Model\Body5 $body (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
     public function addUserAsyncWithHttpInfo($ev_api_key, $ev_access_token, $body = null)
     {
-        $returnType = '\Swagger\Client\Model\UserResponse';
+        $returnType = '\ExaVault\Model\UserResponse';
         $request = $this->addUserRequest($ev_api_key, $ev_access_token, $body);
 
         return $this->client
@@ -263,7 +263,7 @@ class UsersApi
      *
      * @param  string $ev_api_key API key required to make the API call (required)
      * @param  string $ev_access_token Access token required to make the API call. (required)
-     * @param  \Swagger\Client\Model\Body5 $body (optional)
+     * @param  \ExaVault\Model\Body5 $body (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -376,9 +376,9 @@ class UsersApi
      * @param  string $ev_api_key API Key required to make the API call. (required)
      * @param  string $ev_access_token Access token required to make the API call. (required)
      *
-     * @throws \Swagger\Client\ApiException on non-2xx response
+     * @throws \ExaVault\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Swagger\Client\Model\EmptyResponse
+     * @return \ExaVault\Model\EmptyResponse
      */
     public function deleteUser($id, $ev_api_key, $ev_access_token)
     {
@@ -395,13 +395,13 @@ class UsersApi
      * @param  string $ev_api_key API Key required to make the API call. (required)
      * @param  string $ev_access_token Access token required to make the API call. (required)
      *
-     * @throws \Swagger\Client\ApiException on non-2xx response
+     * @throws \ExaVault\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Swagger\Client\Model\EmptyResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \ExaVault\Model\EmptyResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function deleteUserWithHttpInfo($id, $ev_api_key, $ev_access_token)
     {
-        $returnType = '\Swagger\Client\Model\EmptyResponse';
+        $returnType = '\ExaVault\Model\EmptyResponse';
         $request = $this->deleteUserRequest($id, $ev_api_key, $ev_access_token);
 
         try {
@@ -453,7 +453,7 @@ class UsersApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Swagger\Client\Model\EmptyResponse',
+                        '\ExaVault\Model\EmptyResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -499,7 +499,7 @@ class UsersApi
      */
     public function deleteUserAsyncWithHttpInfo($id, $ev_api_key, $ev_access_token)
     {
-        $returnType = '\Swagger\Client\Model\EmptyResponse';
+        $returnType = '\ExaVault\Model\EmptyResponse';
         $request = $this->deleteUserRequest($id, $ev_api_key, $ev_access_token);
 
         return $this->client
@@ -669,9 +669,9 @@ class UsersApi
      * @param  string $ev_access_token Access token required to make the API call. (required)
      * @param  string $include Comma-separated list of relationships to include in response. Possible values include **homeResource** and **ownerAccount**. (optional)
      *
-     * @throws \Swagger\Client\ApiException on non-2xx response
+     * @throws \ExaVault\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Swagger\Client\Model\UserResponse
+     * @return \ExaVault\Model\UserResponse
      */
     public function getUserById($id, $ev_api_key, $ev_access_token, $include = null)
     {
@@ -689,13 +689,13 @@ class UsersApi
      * @param  string $ev_access_token Access token required to make the API call. (required)
      * @param  string $include Comma-separated list of relationships to include in response. Possible values include **homeResource** and **ownerAccount**. (optional)
      *
-     * @throws \Swagger\Client\ApiException on non-2xx response
+     * @throws \ExaVault\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Swagger\Client\Model\UserResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \ExaVault\Model\UserResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function getUserByIdWithHttpInfo($id, $ev_api_key, $ev_access_token, $include = null)
     {
-        $returnType = '\Swagger\Client\Model\UserResponse';
+        $returnType = '\ExaVault\Model\UserResponse';
         $request = $this->getUserByIdRequest($id, $ev_api_key, $ev_access_token, $include);
 
         try {
@@ -747,7 +747,7 @@ class UsersApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Swagger\Client\Model\UserResponse',
+                        '\ExaVault\Model\UserResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -795,7 +795,7 @@ class UsersApi
      */
     public function getUserByIdAsyncWithHttpInfo($id, $ev_api_key, $ev_access_token, $include = null)
     {
-        $returnType = '\Swagger\Client\Model\UserResponse';
+        $returnType = '\ExaVault\Model\UserResponse';
         $request = $this->getUserByIdRequest($id, $ev_api_key, $ev_access_token, $include);
 
         return $this->client
@@ -979,9 +979,9 @@ class UsersApi
      * @param  int $limit Number of users to return. Can be used for pagination. (optional)
      * @param  string $include Comma separated list of relationships to include in response. Valid options are **homeResource** and **ownerAccount**. (optional)
      *
-     * @throws \Swagger\Client\ApiException on non-2xx response
+     * @throws \ExaVault\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Swagger\Client\Model\UserCollectionResponse
+     * @return \ExaVault\Model\UserCollectionResponse
      */
     public function listUsers($ev_api_key, $ev_access_token, $username = null, $nickname = null, $email = null, $role = null, $status = null, $home_dir = null, $search = null, $offset = null, $sort = null, $limit = null, $include = null)
     {
@@ -1008,13 +1008,13 @@ class UsersApi
      * @param  int $limit Number of users to return. Can be used for pagination. (optional)
      * @param  string $include Comma separated list of relationships to include in response. Valid options are **homeResource** and **ownerAccount**. (optional)
      *
-     * @throws \Swagger\Client\ApiException on non-2xx response
+     * @throws \ExaVault\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Swagger\Client\Model\UserCollectionResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \ExaVault\Model\UserCollectionResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function listUsersWithHttpInfo($ev_api_key, $ev_access_token, $username = null, $nickname = null, $email = null, $role = null, $status = null, $home_dir = null, $search = null, $offset = null, $sort = null, $limit = null, $include = null)
     {
-        $returnType = '\Swagger\Client\Model\UserCollectionResponse';
+        $returnType = '\ExaVault\Model\UserCollectionResponse';
         $request = $this->listUsersRequest($ev_api_key, $ev_access_token, $username, $nickname, $email, $role, $status, $home_dir, $search, $offset, $sort, $limit, $include);
 
         try {
@@ -1066,7 +1066,7 @@ class UsersApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Swagger\Client\Model\UserCollectionResponse',
+                        '\ExaVault\Model\UserCollectionResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1132,7 +1132,7 @@ class UsersApi
      */
     public function listUsersAsyncWithHttpInfo($ev_api_key, $ev_access_token, $username = null, $nickname = null, $email = null, $role = null, $status = null, $home_dir = null, $search = null, $offset = null, $sort = null, $limit = null, $include = null)
     {
-        $returnType = '\Swagger\Client\Model\UserCollectionResponse';
+        $returnType = '\ExaVault\Model\UserCollectionResponse';
         $request = $this->listUsersRequest($ev_api_key, $ev_access_token, $username, $nickname, $email, $role, $status, $home_dir, $search, $offset, $sort, $limit, $include);
 
         return $this->client
@@ -1340,11 +1340,11 @@ class UsersApi
      * @param  string $ev_api_key API key required to make the API call. (required)
      * @param  string $ev_access_token Access token required to make the API call. (required)
      * @param  float $id The user&#x27;s ID. Note that this is our internal ID, and _not the username_. You can obtain it by calling the [GET /users](#operation/listUsers) method. (required)
-     * @param  \Swagger\Client\Model\Body6 $body body (optional)
+     * @param  \ExaVault\Model\Body6 $body body (optional)
      *
-     * @throws \Swagger\Client\ApiException on non-2xx response
+     * @throws \ExaVault\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Swagger\Client\Model\UserResponse
+     * @return \ExaVault\Model\UserResponse
      */
     public function updateUser($ev_api_key, $ev_access_token, $id, $body = null)
     {
@@ -1360,15 +1360,15 @@ class UsersApi
      * @param  string $ev_api_key API key required to make the API call. (required)
      * @param  string $ev_access_token Access token required to make the API call. (required)
      * @param  float $id The user&#x27;s ID. Note that this is our internal ID, and _not the username_. You can obtain it by calling the [GET /users](#operation/listUsers) method. (required)
-     * @param  \Swagger\Client\Model\Body6 $body (optional)
+     * @param  \ExaVault\Model\Body6 $body (optional)
      *
-     * @throws \Swagger\Client\ApiException on non-2xx response
+     * @throws \ExaVault\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Swagger\Client\Model\UserResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \ExaVault\Model\UserResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function updateUserWithHttpInfo($ev_api_key, $ev_access_token, $id, $body = null)
     {
-        $returnType = '\Swagger\Client\Model\UserResponse';
+        $returnType = '\ExaVault\Model\UserResponse';
         $request = $this->updateUserRequest($ev_api_key, $ev_access_token, $id, $body);
 
         try {
@@ -1420,7 +1420,7 @@ class UsersApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Swagger\Client\Model\UserResponse',
+                        '\ExaVault\Model\UserResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1438,7 +1438,7 @@ class UsersApi
      * @param  string $ev_api_key API key required to make the API call. (required)
      * @param  string $ev_access_token Access token required to make the API call. (required)
      * @param  float $id The user&#x27;s ID. Note that this is our internal ID, and _not the username_. You can obtain it by calling the [GET /users](#operation/listUsers) method. (required)
-     * @param  \Swagger\Client\Model\Body6 $body (optional)
+     * @param  \ExaVault\Model\Body6 $body (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -1461,14 +1461,14 @@ class UsersApi
      * @param  string $ev_api_key API key required to make the API call. (required)
      * @param  string $ev_access_token Access token required to make the API call. (required)
      * @param  float $id The user&#x27;s ID. Note that this is our internal ID, and _not the username_. You can obtain it by calling the [GET /users](#operation/listUsers) method. (required)
-     * @param  \Swagger\Client\Model\Body6 $body (optional)
+     * @param  \ExaVault\Model\Body6 $body (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
     public function updateUserAsyncWithHttpInfo($ev_api_key, $ev_access_token, $id, $body = null)
     {
-        $returnType = '\Swagger\Client\Model\UserResponse';
+        $returnType = '\ExaVault\Model\UserResponse';
         $request = $this->updateUserRequest($ev_api_key, $ev_access_token, $id, $body);
 
         return $this->client
@@ -1514,7 +1514,7 @@ class UsersApi
      * @param  string $ev_api_key API key required to make the API call. (required)
      * @param  string $ev_access_token Access token required to make the API call. (required)
      * @param  float $id The user&#x27;s ID. Note that this is our internal ID, and _not the username_. You can obtain it by calling the [GET /users](#operation/listUsers) method. (required)
-     * @param  \Swagger\Client\Model\Body6 $body (optional)
+     * @param  \ExaVault\Model\Body6 $body (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request

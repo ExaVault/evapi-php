@@ -4,7 +4,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  Swagger\Client
+ * @package  ExaVault
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
@@ -25,7 +25,7 @@
  * Do not edit the class manually.
  */
 
-namespace Swagger\Client\Api;
+namespace ExaVault\Api;
 
 use GuzzleHttp\Client;
 use GuzzleHttp\ClientInterface;
@@ -33,16 +33,16 @@ use GuzzleHttp\Exception\RequestException;
 use GuzzleHttp\Psr7\MultipartStream;
 use GuzzleHttp\Psr7\Request;
 use GuzzleHttp\RequestOptions;
-use Swagger\Client\ApiException;
-use Swagger\Client\Configuration;
-use Swagger\Client\HeaderSelector;
-use Swagger\Client\ObjectSerializer;
+use ExaVault\ApiException;
+use ExaVault\Configuration;
+use ExaVault\HeaderSelector;
+use ExaVault\ObjectSerializer;
 
 /**
  * NotificationsApi Class Doc Comment
  *
  * @category Class
- * @package  Swagger\Client
+ * @package  ExaVault
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
@@ -93,11 +93,11 @@ class NotificationsApi
      *
      * @param  string $ev_api_key API Key required to make API call. (required)
      * @param  string $ev_access_token Access token required to make the API call. (required)
-     * @param  \Swagger\Client\Model\Body4 $body body (optional)
+     * @param  \ExaVault\Model\Body4 $body body (optional)
      *
-     * @throws \Swagger\Client\ApiException on non-2xx response
+     * @throws \ExaVault\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Swagger\Client\Model\NotificationResponse
+     * @return \ExaVault\Model\NotificationResponse
      */
     public function addNotification($ev_api_key, $ev_access_token, $body = null)
     {
@@ -112,15 +112,15 @@ class NotificationsApi
      *
      * @param  string $ev_api_key API Key required to make API call. (required)
      * @param  string $ev_access_token Access token required to make the API call. (required)
-     * @param  \Swagger\Client\Model\Body4 $body (optional)
+     * @param  \ExaVault\Model\Body4 $body (optional)
      *
-     * @throws \Swagger\Client\ApiException on non-2xx response
+     * @throws \ExaVault\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Swagger\Client\Model\NotificationResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \ExaVault\Model\NotificationResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function addNotificationWithHttpInfo($ev_api_key, $ev_access_token, $body = null)
     {
-        $returnType = '\Swagger\Client\Model\NotificationResponse';
+        $returnType = '\ExaVault\Model\NotificationResponse';
         $request = $this->addNotificationRequest($ev_api_key, $ev_access_token, $body);
 
         try {
@@ -172,7 +172,7 @@ class NotificationsApi
                 case 201:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Swagger\Client\Model\NotificationResponse',
+                        '\ExaVault\Model\NotificationResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -189,7 +189,7 @@ class NotificationsApi
      *
      * @param  string $ev_api_key API Key required to make API call. (required)
      * @param  string $ev_access_token Access token required to make the API call. (required)
-     * @param  \Swagger\Client\Model\Body4 $body (optional)
+     * @param  \ExaVault\Model\Body4 $body (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -211,14 +211,14 @@ class NotificationsApi
      *
      * @param  string $ev_api_key API Key required to make API call. (required)
      * @param  string $ev_access_token Access token required to make the API call. (required)
-     * @param  \Swagger\Client\Model\Body4 $body (optional)
+     * @param  \ExaVault\Model\Body4 $body (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
     public function addNotificationAsyncWithHttpInfo($ev_api_key, $ev_access_token, $body = null)
     {
-        $returnType = '\Swagger\Client\Model\NotificationResponse';
+        $returnType = '\ExaVault\Model\NotificationResponse';
         $request = $this->addNotificationRequest($ev_api_key, $ev_access_token, $body);
 
         return $this->client
@@ -263,7 +263,7 @@ class NotificationsApi
      *
      * @param  string $ev_api_key API Key required to make API call. (required)
      * @param  string $ev_access_token Access token required to make the API call. (required)
-     * @param  \Swagger\Client\Model\Body4 $body (optional)
+     * @param  \ExaVault\Model\Body4 $body (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -376,9 +376,9 @@ class NotificationsApi
      * @param  string $ev_access_token Access token required to make the API call. (required)
      * @param  int $id ID of the notification. Use [GET /notifications](#operation/listNotifications) if you need to lookup an ID. (required)
      *
-     * @throws \Swagger\Client\ApiException on non-2xx response
+     * @throws \ExaVault\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Swagger\Client\Model\EmptyResponse
+     * @return \ExaVault\Model\EmptyResponse
      */
     public function deleteNotificationById($ev_api_key, $ev_access_token, $id)
     {
@@ -395,13 +395,13 @@ class NotificationsApi
      * @param  string $ev_access_token Access token required to make the API call. (required)
      * @param  int $id ID of the notification. Use [GET /notifications](#operation/listNotifications) if you need to lookup an ID. (required)
      *
-     * @throws \Swagger\Client\ApiException on non-2xx response
+     * @throws \ExaVault\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Swagger\Client\Model\EmptyResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \ExaVault\Model\EmptyResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function deleteNotificationByIdWithHttpInfo($ev_api_key, $ev_access_token, $id)
     {
-        $returnType = '\Swagger\Client\Model\EmptyResponse';
+        $returnType = '\ExaVault\Model\EmptyResponse';
         $request = $this->deleteNotificationByIdRequest($ev_api_key, $ev_access_token, $id);
 
         try {
@@ -453,7 +453,7 @@ class NotificationsApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Swagger\Client\Model\EmptyResponse',
+                        '\ExaVault\Model\EmptyResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -499,7 +499,7 @@ class NotificationsApi
      */
     public function deleteNotificationByIdAsyncWithHttpInfo($ev_api_key, $ev_access_token, $id)
     {
-        $returnType = '\Swagger\Client\Model\EmptyResponse';
+        $returnType = '\ExaVault\Model\EmptyResponse';
         $request = $this->deleteNotificationByIdRequest($ev_api_key, $ev_access_token, $id);
 
         return $this->client
@@ -669,9 +669,9 @@ class NotificationsApi
      * @param  int $id ID of the notification. Use [GET /notifications](#operation/listNotifications) if you need to lookup an ID. (required)
      * @param  string $include Related record types to include in the response. You can include multiple types by separating them with commas. Valid options are **ownerUser**, **resource**, and **share**. (optional)
      *
-     * @throws \Swagger\Client\ApiException on non-2xx response
+     * @throws \ExaVault\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Swagger\Client\Model\NotificationResponse
+     * @return \ExaVault\Model\NotificationResponse
      */
     public function getNotificationById($ev_api_key, $ev_access_token, $id, $include = null)
     {
@@ -689,13 +689,13 @@ class NotificationsApi
      * @param  int $id ID of the notification. Use [GET /notifications](#operation/listNotifications) if you need to lookup an ID. (required)
      * @param  string $include Related record types to include in the response. You can include multiple types by separating them with commas. Valid options are **ownerUser**, **resource**, and **share**. (optional)
      *
-     * @throws \Swagger\Client\ApiException on non-2xx response
+     * @throws \ExaVault\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Swagger\Client\Model\NotificationResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \ExaVault\Model\NotificationResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function getNotificationByIdWithHttpInfo($ev_api_key, $ev_access_token, $id, $include = null)
     {
-        $returnType = '\Swagger\Client\Model\NotificationResponse';
+        $returnType = '\ExaVault\Model\NotificationResponse';
         $request = $this->getNotificationByIdRequest($ev_api_key, $ev_access_token, $id, $include);
 
         try {
@@ -747,7 +747,7 @@ class NotificationsApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Swagger\Client\Model\NotificationResponse',
+                        '\ExaVault\Model\NotificationResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -795,7 +795,7 @@ class NotificationsApi
      */
     public function getNotificationByIdAsyncWithHttpInfo($ev_api_key, $ev_access_token, $id, $include = null)
     {
-        $returnType = '\Swagger\Client\Model\NotificationResponse';
+        $returnType = '\ExaVault\Model\NotificationResponse';
         $request = $this->getNotificationByIdRequest($ev_api_key, $ev_access_token, $id, $include);
 
         return $this->client
@@ -974,9 +974,9 @@ class NotificationsApi
      * @param  string $include Related records to include in the response. Valid options are **ownerUser**, **resource**, **share** (optional)
      * @param  string $action The kind of action which triggers the notification. Valid choices are **connect** (only for delivery receipts), **download**, **upload**, **delete**, or **all**   **Note** The **all** action matches notifications set to \&quot;all\&quot;, not all notifications. For example, notifications set to trigger only on delete are not included if you filter for action&#x3D;all (optional)
      *
-     * @throws \Swagger\Client\ApiException on non-2xx response
+     * @throws \ExaVault\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Swagger\Client\Model\NotificationCollectionResponse
+     * @return \ExaVault\Model\NotificationCollectionResponse
      */
     public function listNotifications($ev_api_key, $ev_access_token, $type = null, $offset = '0', $sort = null, $limit = '25', $include = null, $action = null)
     {
@@ -998,13 +998,13 @@ class NotificationsApi
      * @param  string $include Related records to include in the response. Valid options are **ownerUser**, **resource**, **share** (optional)
      * @param  string $action The kind of action which triggers the notification. Valid choices are **connect** (only for delivery receipts), **download**, **upload**, **delete**, or **all**   **Note** The **all** action matches notifications set to \&quot;all\&quot;, not all notifications. For example, notifications set to trigger only on delete are not included if you filter for action&#x3D;all (optional)
      *
-     * @throws \Swagger\Client\ApiException on non-2xx response
+     * @throws \ExaVault\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Swagger\Client\Model\NotificationCollectionResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \ExaVault\Model\NotificationCollectionResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function listNotificationsWithHttpInfo($ev_api_key, $ev_access_token, $type = null, $offset = '0', $sort = null, $limit = '25', $include = null, $action = null)
     {
-        $returnType = '\Swagger\Client\Model\NotificationCollectionResponse';
+        $returnType = '\ExaVault\Model\NotificationCollectionResponse';
         $request = $this->listNotificationsRequest($ev_api_key, $ev_access_token, $type, $offset, $sort, $limit, $include, $action);
 
         try {
@@ -1056,7 +1056,7 @@ class NotificationsApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Swagger\Client\Model\NotificationCollectionResponse',
+                        '\ExaVault\Model\NotificationCollectionResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1112,7 +1112,7 @@ class NotificationsApi
      */
     public function listNotificationsAsyncWithHttpInfo($ev_api_key, $ev_access_token, $type = null, $offset = '0', $sort = null, $limit = '25', $include = null, $action = null)
     {
-        $returnType = '\Swagger\Client\Model\NotificationCollectionResponse';
+        $returnType = '\ExaVault\Model\NotificationCollectionResponse';
         $request = $this->listNotificationsRequest($ev_api_key, $ev_access_token, $type, $offset, $sort, $limit, $include, $action);
 
         return $this->client
@@ -1295,11 +1295,11 @@ class NotificationsApi
      * @param  string $ev_api_key API Key required to make the API call. (required)
      * @param  string $ev_access_token Access token required to make the API call. (required)
      * @param  int $id ID of the notification. Use [GET /notifications](#operation/listNotifications) if you need to lookup an ID. (required)
-     * @param  \Swagger\Client\Model\Body3 $body body (optional)
+     * @param  \ExaVault\Model\Body3 $body body (optional)
      *
-     * @throws \Swagger\Client\ApiException on non-2xx response
+     * @throws \ExaVault\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Swagger\Client\Model\NotificationResponse
+     * @return \ExaVault\Model\NotificationResponse
      */
     public function updateNotificationById($ev_api_key, $ev_access_token, $id, $body = null)
     {
@@ -1315,15 +1315,15 @@ class NotificationsApi
      * @param  string $ev_api_key API Key required to make the API call. (required)
      * @param  string $ev_access_token Access token required to make the API call. (required)
      * @param  int $id ID of the notification. Use [GET /notifications](#operation/listNotifications) if you need to lookup an ID. (required)
-     * @param  \Swagger\Client\Model\Body3 $body (optional)
+     * @param  \ExaVault\Model\Body3 $body (optional)
      *
-     * @throws \Swagger\Client\ApiException on non-2xx response
+     * @throws \ExaVault\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Swagger\Client\Model\NotificationResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \ExaVault\Model\NotificationResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function updateNotificationByIdWithHttpInfo($ev_api_key, $ev_access_token, $id, $body = null)
     {
-        $returnType = '\Swagger\Client\Model\NotificationResponse';
+        $returnType = '\ExaVault\Model\NotificationResponse';
         $request = $this->updateNotificationByIdRequest($ev_api_key, $ev_access_token, $id, $body);
 
         try {
@@ -1375,7 +1375,7 @@ class NotificationsApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Swagger\Client\Model\NotificationResponse',
+                        '\ExaVault\Model\NotificationResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1393,7 +1393,7 @@ class NotificationsApi
      * @param  string $ev_api_key API Key required to make the API call. (required)
      * @param  string $ev_access_token Access token required to make the API call. (required)
      * @param  int $id ID of the notification. Use [GET /notifications](#operation/listNotifications) if you need to lookup an ID. (required)
-     * @param  \Swagger\Client\Model\Body3 $body (optional)
+     * @param  \ExaVault\Model\Body3 $body (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -1416,14 +1416,14 @@ class NotificationsApi
      * @param  string $ev_api_key API Key required to make the API call. (required)
      * @param  string $ev_access_token Access token required to make the API call. (required)
      * @param  int $id ID of the notification. Use [GET /notifications](#operation/listNotifications) if you need to lookup an ID. (required)
-     * @param  \Swagger\Client\Model\Body3 $body (optional)
+     * @param  \ExaVault\Model\Body3 $body (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
     public function updateNotificationByIdAsyncWithHttpInfo($ev_api_key, $ev_access_token, $id, $body = null)
     {
-        $returnType = '\Swagger\Client\Model\NotificationResponse';
+        $returnType = '\ExaVault\Model\NotificationResponse';
         $request = $this->updateNotificationByIdRequest($ev_api_key, $ev_access_token, $id, $body);
 
         return $this->client
@@ -1469,7 +1469,7 @@ class NotificationsApi
      * @param  string $ev_api_key API Key required to make the API call. (required)
      * @param  string $ev_access_token Access token required to make the API call. (required)
      * @param  int $id ID of the notification. Use [GET /notifications](#operation/listNotifications) if you need to lookup an ID. (required)
-     * @param  \Swagger\Client\Model\Body3 $body (optional)
+     * @param  \ExaVault\Model\Body3 $body (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request

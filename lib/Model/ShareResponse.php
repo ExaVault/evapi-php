@@ -5,7 +5,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  Swagger\Client
+ * @package  ExaVault
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
@@ -26,17 +26,17 @@
  * Do not edit the class manually.
  */
 
-namespace Swagger\Client\Model;
+namespace ExaVault\Model;
 
 use \ArrayAccess;
-use \Swagger\Client\ObjectSerializer;
+use \ExaVault\ObjectSerializer;
 
 /**
  * ShareResponse Class Doc Comment
  *
  * @category Class
  * @description Response object for shares.
- * @package  Swagger\Client
+ * @package  ExaVault
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
@@ -58,8 +58,8 @@ class ShareResponse implements ModelInterface, ArrayAccess
       */
     protected static $swaggerTypes = [
         'response_status' => 'int',
-'data' => '\Swagger\Client\Model\Share',
-'included' => '\Swagger\Client\Model\AnyOfShareResponseIncludedItems[]'    ];
+'data' => '\ExaVault\Model\Share',
+'included' => '\ExaVault\Model\AnyOfShareResponseIncludedItems[]'    ];
 
     /**
       * Array of property to format mappings. Used for (de)serialization
@@ -236,7 +236,7 @@ class ShareResponse implements ModelInterface, ArrayAccess
     /**
      * Gets data
      *
-     * @return \Swagger\Client\Model\Share
+     * @return \ExaVault\Model\Share
      */
     public function getData()
     {
@@ -246,7 +246,7 @@ class ShareResponse implements ModelInterface, ArrayAccess
     /**
      * Sets data
      *
-     * @param \Swagger\Client\Model\Share $data data
+     * @param \ExaVault\Model\Share $data data
      *
      * @return $this
      */
@@ -260,7 +260,7 @@ class ShareResponse implements ModelInterface, ArrayAccess
     /**
      * Gets included
      *
-     * @return \Swagger\Client\Model\AnyOfShareResponseIncludedItems[]
+     * @return \ExaVault\Model\AnyOfShareResponseIncludedItems[]
      */
     public function getIncluded()
     {
@@ -270,7 +270,7 @@ class ShareResponse implements ModelInterface, ArrayAccess
     /**
      * Sets included
      *
-     * @param \Swagger\Client\Model\AnyOfShareResponseIncludedItems[] $included included
+     * @param \ExaVault\Model\AnyOfShareResponseIncludedItems[] $included included
      *
      * @return $this
      */

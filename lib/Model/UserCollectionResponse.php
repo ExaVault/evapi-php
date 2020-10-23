@@ -5,7 +5,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  Swagger\Client
+ * @package  ExaVault
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
@@ -26,16 +26,16 @@
  * Do not edit the class manually.
  */
 
-namespace Swagger\Client\Model;
+namespace ExaVault\Model;
 
 use \ArrayAccess;
-use \Swagger\Client\ObjectSerializer;
+use \ExaVault\ObjectSerializer;
 
 /**
  * UserCollectionResponse Class Doc Comment
  *
  * @category Class
- * @package  Swagger\Client
+ * @package  ExaVault
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
@@ -59,8 +59,8 @@ class UserCollectionResponse implements ModelInterface, ArrayAccess
         'response_status' => 'int',
 'total_results' => 'int',
 'returned_results' => 'int',
-'data' => '\Swagger\Client\Model\User[]',
-'included' => '\Swagger\Client\Model\AnyOfUserCollectionResponseIncludedItems[]'    ];
+'data' => '\ExaVault\Model\User[]',
+'included' => '\ExaVault\Model\AnyOfUserCollectionResponseIncludedItems[]'    ];
 
     /**
       * Array of property to format mappings. Used for (de)serialization
@@ -295,7 +295,7 @@ class UserCollectionResponse implements ModelInterface, ArrayAccess
     /**
      * Gets data
      *
-     * @return \Swagger\Client\Model\User[]
+     * @return \ExaVault\Model\User[]
      */
     public function getData()
     {
@@ -305,7 +305,7 @@ class UserCollectionResponse implements ModelInterface, ArrayAccess
     /**
      * Sets data
      *
-     * @param \Swagger\Client\Model\User[] $data data
+     * @param \ExaVault\Model\User[] $data data
      *
      * @return $this
      */
@@ -319,7 +319,7 @@ class UserCollectionResponse implements ModelInterface, ArrayAccess
     /**
      * Gets included
      *
-     * @return \Swagger\Client\Model\AnyOfUserCollectionResponseIncludedItems[]
+     * @return \ExaVault\Model\AnyOfUserCollectionResponseIncludedItems[]
      */
     public function getIncluded()
     {
@@ -329,7 +329,7 @@ class UserCollectionResponse implements ModelInterface, ArrayAccess
     /**
      * Sets included
      *
-     * @param \Swagger\Client\Model\AnyOfUserCollectionResponseIncludedItems[] $included included
+     * @param \ExaVault\Model\AnyOfUserCollectionResponseIncludedItems[] $included included
      *
      * @return $this
      */

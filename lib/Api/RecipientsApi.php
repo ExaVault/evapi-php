@@ -4,7 +4,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  Swagger\Client
+ * @package  ExaVault
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
@@ -25,7 +25,7 @@
  * Do not edit the class manually.
  */
 
-namespace Swagger\Client\Api;
+namespace ExaVault\Api;
 
 use GuzzleHttp\Client;
 use GuzzleHttp\ClientInterface;
@@ -33,16 +33,16 @@ use GuzzleHttp\Exception\RequestException;
 use GuzzleHttp\Psr7\MultipartStream;
 use GuzzleHttp\Psr7\Request;
 use GuzzleHttp\RequestOptions;
-use Swagger\Client\ApiException;
-use Swagger\Client\Configuration;
-use Swagger\Client\HeaderSelector;
-use Swagger\Client\ObjectSerializer;
+use ExaVault\ApiException;
+use ExaVault\Configuration;
+use ExaVault\HeaderSelector;
+use ExaVault\ObjectSerializer;
 
 /**
  * RecipientsApi Class Doc Comment
  *
  * @category Class
- * @package  Swagger\Client
+ * @package  ExaVault
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
@@ -94,11 +94,11 @@ class RecipientsApi
      * @param  string $ev_api_key API Key required to make the API call. (required)
      * @param  string $ev_access_token Access token required to make the API call. (required)
      * @param  int $share_id ID of the share to resend invites for. (required)
-     * @param  \Swagger\Client\Model\Body18 $body body (optional)
+     * @param  \ExaVault\Model\Body18 $body body (optional)
      *
-     * @throws \Swagger\Client\ApiException on non-2xx response
+     * @throws \ExaVault\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Swagger\Client\Model\ShareRecipientsResponse
+     * @return \ExaVault\Model\ShareRecipientsResponse
      */
     public function resendInvitationsForShare($ev_api_key, $ev_access_token, $share_id, $body = null)
     {
@@ -114,15 +114,15 @@ class RecipientsApi
      * @param  string $ev_api_key API Key required to make the API call. (required)
      * @param  string $ev_access_token Access token required to make the API call. (required)
      * @param  int $share_id ID of the share to resend invites for. (required)
-     * @param  \Swagger\Client\Model\Body18 $body (optional)
+     * @param  \ExaVault\Model\Body18 $body (optional)
      *
-     * @throws \Swagger\Client\ApiException on non-2xx response
+     * @throws \ExaVault\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Swagger\Client\Model\ShareRecipientsResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \ExaVault\Model\ShareRecipientsResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function resendInvitationsForShareWithHttpInfo($ev_api_key, $ev_access_token, $share_id, $body = null)
     {
-        $returnType = '\Swagger\Client\Model\ShareRecipientsResponse';
+        $returnType = '\ExaVault\Model\ShareRecipientsResponse';
         $request = $this->resendInvitationsForShareRequest($ev_api_key, $ev_access_token, $share_id, $body);
 
         try {
@@ -174,7 +174,7 @@ class RecipientsApi
                 case 201:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Swagger\Client\Model\ShareRecipientsResponse',
+                        '\ExaVault\Model\ShareRecipientsResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -192,7 +192,7 @@ class RecipientsApi
      * @param  string $ev_api_key API Key required to make the API call. (required)
      * @param  string $ev_access_token Access token required to make the API call. (required)
      * @param  int $share_id ID of the share to resend invites for. (required)
-     * @param  \Swagger\Client\Model\Body18 $body (optional)
+     * @param  \ExaVault\Model\Body18 $body (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -215,14 +215,14 @@ class RecipientsApi
      * @param  string $ev_api_key API Key required to make the API call. (required)
      * @param  string $ev_access_token Access token required to make the API call. (required)
      * @param  int $share_id ID of the share to resend invites for. (required)
-     * @param  \Swagger\Client\Model\Body18 $body (optional)
+     * @param  \ExaVault\Model\Body18 $body (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
     public function resendInvitationsForShareAsyncWithHttpInfo($ev_api_key, $ev_access_token, $share_id, $body = null)
     {
-        $returnType = '\Swagger\Client\Model\ShareRecipientsResponse';
+        $returnType = '\ExaVault\Model\ShareRecipientsResponse';
         $request = $this->resendInvitationsForShareRequest($ev_api_key, $ev_access_token, $share_id, $body);
 
         return $this->client
@@ -268,7 +268,7 @@ class RecipientsApi
      * @param  string $ev_api_key API Key required to make the API call. (required)
      * @param  string $ev_access_token Access token required to make the API call. (required)
      * @param  int $share_id ID of the share to resend invites for. (required)
-     * @param  \Swagger\Client\Model\Body18 $body (optional)
+     * @param  \ExaVault\Model\Body18 $body (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request

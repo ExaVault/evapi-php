@@ -5,7 +5,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  Swagger\Client
+ * @package  ExaVault
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
@@ -26,17 +26,17 @@
  * Do not edit the class manually.
  */
 
-namespace Swagger\Client\Model;
+namespace ExaVault\Model;
 
 use \ArrayAccess;
-use \Swagger\Client\ObjectSerializer;
+use \ExaVault\ObjectSerializer;
 
 /**
  * EmailListResponse Class Doc Comment
  *
  * @category Class
  * @description Response object for a single email list.
- * @package  Swagger\Client
+ * @package  ExaVault
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
@@ -58,8 +58,8 @@ class EmailListResponse implements ModelInterface, ArrayAccess
       */
     protected static $swaggerTypes = [
         'response_status' => 'int',
-'data' => '\Swagger\Client\Model\EmailList',
-'included' => '\Swagger\Client\Model\User[]'    ];
+'data' => '\ExaVault\Model\EmailList',
+'included' => '\ExaVault\Model\User[]'    ];
 
     /**
       * Array of property to format mappings. Used for (de)serialization
@@ -236,7 +236,7 @@ class EmailListResponse implements ModelInterface, ArrayAccess
     /**
      * Gets data
      *
-     * @return \Swagger\Client\Model\EmailList
+     * @return \ExaVault\Model\EmailList
      */
     public function getData()
     {
@@ -246,7 +246,7 @@ class EmailListResponse implements ModelInterface, ArrayAccess
     /**
      * Sets data
      *
-     * @param \Swagger\Client\Model\EmailList $data data
+     * @param \ExaVault\Model\EmailList $data data
      *
      * @return $this
      */
@@ -260,7 +260,7 @@ class EmailListResponse implements ModelInterface, ArrayAccess
     /**
      * Gets included
      *
-     * @return \Swagger\Client\Model\User[]
+     * @return \ExaVault\Model\User[]
      */
     public function getIncluded()
     {
@@ -270,7 +270,7 @@ class EmailListResponse implements ModelInterface, ArrayAccess
     /**
      * Sets included
      *
-     * @param \Swagger\Client\Model\User[] $included included
+     * @param \ExaVault\Model\User[] $included included
      *
      * @return $this
      */

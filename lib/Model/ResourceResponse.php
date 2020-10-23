@@ -5,7 +5,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  Swagger\Client
+ * @package  ExaVault
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
@@ -26,17 +26,17 @@
  * Do not edit the class manually.
  */
 
-namespace Swagger\Client\Model;
+namespace ExaVault\Model;
 
 use \ArrayAccess;
-use \Swagger\Client\ObjectSerializer;
+use \ExaVault\ObjectSerializer;
 
 /**
  * ResourceResponse Class Doc Comment
  *
  * @category Class
  * @description Response object for resources.
- * @package  Swagger\Client
+ * @package  ExaVault
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
@@ -58,8 +58,8 @@ class ResourceResponse implements ModelInterface, ArrayAccess
       */
     protected static $swaggerTypes = [
         'response_status' => 'int',
-'data' => '\Swagger\Client\Model\Resource',
-'included' => '\Swagger\Client\Model\AnyOfResourceResponseIncludedItems[]'    ];
+'data' => '\ExaVault\Model\Resource',
+'included' => '\ExaVault\Model\AnyOfResourceResponseIncludedItems[]'    ];
 
     /**
       * Array of property to format mappings. Used for (de)serialization
@@ -236,7 +236,7 @@ class ResourceResponse implements ModelInterface, ArrayAccess
     /**
      * Gets data
      *
-     * @return \Swagger\Client\Model\Resource
+     * @return \ExaVault\Model\Resource
      */
     public function getData()
     {
@@ -246,7 +246,7 @@ class ResourceResponse implements ModelInterface, ArrayAccess
     /**
      * Sets data
      *
-     * @param \Swagger\Client\Model\Resource $data data
+     * @param \ExaVault\Model\Resource $data data
      *
      * @return $this
      */
@@ -260,7 +260,7 @@ class ResourceResponse implements ModelInterface, ArrayAccess
     /**
      * Gets included
      *
-     * @return \Swagger\Client\Model\AnyOfResourceResponseIncludedItems[]
+     * @return \ExaVault\Model\AnyOfResourceResponseIncludedItems[]
      */
     public function getIncluded()
     {
@@ -270,7 +270,7 @@ class ResourceResponse implements ModelInterface, ArrayAccess
     /**
      * Sets included
      *
-     * @param \Swagger\Client\Model\AnyOfResourceResponseIncludedItems[] $included included
+     * @param \ExaVault\Model\AnyOfResourceResponseIncludedItems[] $included included
      *
      * @return $this
      */

@@ -4,7 +4,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  Swagger\Client
+ * @package  ExaVault
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
@@ -25,7 +25,7 @@
  * Do not edit the class manually.
  */
 
-namespace Swagger\Client\Api;
+namespace ExaVault\Api;
 
 use GuzzleHttp\Client;
 use GuzzleHttp\ClientInterface;
@@ -33,16 +33,16 @@ use GuzzleHttp\Exception\RequestException;
 use GuzzleHttp\Psr7\MultipartStream;
 use GuzzleHttp\Psr7\Request;
 use GuzzleHttp\RequestOptions;
-use Swagger\Client\ApiException;
-use Swagger\Client\Configuration;
-use Swagger\Client\HeaderSelector;
-use Swagger\Client\ObjectSerializer;
+use ExaVault\ApiException;
+use ExaVault\Configuration;
+use ExaVault\HeaderSelector;
+use ExaVault\ObjectSerializer;
 
 /**
  * ActivityApi Class Doc Comment
  *
  * @category Class
- * @package  Swagger\Client
+ * @package  ExaVault
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
@@ -103,9 +103,9 @@ class ActivityApi
      * @param  int $limit Limit of the records list (optional)
      * @param  string $sort Comma separated list sort params (optional)
      *
-     * @throws \Swagger\Client\ApiException on non-2xx response
+     * @throws \ExaVault\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Swagger\Client\Model\SessionActivityResponse
+     * @return \ExaVault\Model\SessionActivityResponse
      */
     public function getSessionLogs($ev_api_key, $ev_access_token, $start_date = null, $end_date = null, $ip_address = null, $user_name = null, $path = null, $type = null, $offset = null, $limit = null, $sort = null)
     {
@@ -130,13 +130,13 @@ class ActivityApi
      * @param  int $limit Limit of the records list (optional)
      * @param  string $sort Comma separated list sort params (optional)
      *
-     * @throws \Swagger\Client\ApiException on non-2xx response
+     * @throws \ExaVault\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Swagger\Client\Model\SessionActivityResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \ExaVault\Model\SessionActivityResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function getSessionLogsWithHttpInfo($ev_api_key, $ev_access_token, $start_date = null, $end_date = null, $ip_address = null, $user_name = null, $path = null, $type = null, $offset = null, $limit = null, $sort = null)
     {
-        $returnType = '\Swagger\Client\Model\SessionActivityResponse';
+        $returnType = '\ExaVault\Model\SessionActivityResponse';
         $request = $this->getSessionLogsRequest($ev_api_key, $ev_access_token, $start_date, $end_date, $ip_address, $user_name, $path, $type, $offset, $limit, $sort);
 
         try {
@@ -188,7 +188,7 @@ class ActivityApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Swagger\Client\Model\SessionActivityResponse',
+                        '\ExaVault\Model\SessionActivityResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -250,7 +250,7 @@ class ActivityApi
      */
     public function getSessionLogsAsyncWithHttpInfo($ev_api_key, $ev_access_token, $start_date = null, $end_date = null, $ip_address = null, $user_name = null, $path = null, $type = null, $offset = null, $limit = null, $sort = null)
     {
-        $returnType = '\Swagger\Client\Model\SessionActivityResponse';
+        $returnType = '\ExaVault\Model\SessionActivityResponse';
         $request = $this->getSessionLogsRequest($ev_api_key, $ev_access_token, $start_date, $end_date, $ip_address, $user_name, $path, $type, $offset, $limit, $sort);
 
         return $this->client
@@ -455,9 +455,9 @@ class ActivityApi
      * @param  int $limit Limit of the records list (optional)
      * @param  string $sort Comma separated list sort params (optional)
      *
-     * @throws \Swagger\Client\ApiException on non-2xx response
+     * @throws \ExaVault\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Swagger\Client\Model\WebhooksActivityResponse
+     * @return \ExaVault\Model\WebhooksActivityResponse
      */
     public function getWebhookLogs($ev_api_key, $ev_access_token, $event = null, $status_code = null, $path = null, $username = null, $offset = null, $limit = null, $sort = null)
     {
@@ -480,13 +480,13 @@ class ActivityApi
      * @param  int $limit Limit of the records list (optional)
      * @param  string $sort Comma separated list sort params (optional)
      *
-     * @throws \Swagger\Client\ApiException on non-2xx response
+     * @throws \ExaVault\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Swagger\Client\Model\WebhooksActivityResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \ExaVault\Model\WebhooksActivityResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function getWebhookLogsWithHttpInfo($ev_api_key, $ev_access_token, $event = null, $status_code = null, $path = null, $username = null, $offset = null, $limit = null, $sort = null)
     {
-        $returnType = '\Swagger\Client\Model\WebhooksActivityResponse';
+        $returnType = '\ExaVault\Model\WebhooksActivityResponse';
         $request = $this->getWebhookLogsRequest($ev_api_key, $ev_access_token, $event, $status_code, $path, $username, $offset, $limit, $sort);
 
         try {
@@ -538,7 +538,7 @@ class ActivityApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Swagger\Client\Model\WebhooksActivityResponse',
+                        '\ExaVault\Model\WebhooksActivityResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -596,7 +596,7 @@ class ActivityApi
      */
     public function getWebhookLogsAsyncWithHttpInfo($ev_api_key, $ev_access_token, $event = null, $status_code = null, $path = null, $username = null, $offset = null, $limit = null, $sort = null)
     {
-        $returnType = '\Swagger\Client\Model\WebhooksActivityResponse';
+        $returnType = '\ExaVault\Model\WebhooksActivityResponse';
         $request = $this->getWebhookLogsRequest($ev_api_key, $ev_access_token, $event, $status_code, $path, $username, $offset, $limit, $sort);
 
         return $this->client

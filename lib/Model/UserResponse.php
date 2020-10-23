@@ -5,7 +5,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  Swagger\Client
+ * @package  ExaVault
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
@@ -26,17 +26,17 @@
  * Do not edit the class manually.
  */
 
-namespace Swagger\Client\Model;
+namespace ExaVault\Model;
 
 use \ArrayAccess;
-use \Swagger\Client\ObjectSerializer;
+use \ExaVault\ObjectSerializer;
 
 /**
  * UserResponse Class Doc Comment
  *
  * @category Class
  * @description Response object for users.
- * @package  Swagger\Client
+ * @package  ExaVault
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
@@ -58,8 +58,8 @@ class UserResponse implements ModelInterface, ArrayAccess
       */
     protected static $swaggerTypes = [
         'response_status' => 'int',
-'data' => '\Swagger\Client\Model\User',
-'included' => '\Swagger\Client\Model\AnyOfUserResponseIncludedItems[]'    ];
+'data' => '\ExaVault\Model\User',
+'included' => '\ExaVault\Model\AnyOfUserResponseIncludedItems[]'    ];
 
     /**
       * Array of property to format mappings. Used for (de)serialization
@@ -236,7 +236,7 @@ class UserResponse implements ModelInterface, ArrayAccess
     /**
      * Gets data
      *
-     * @return \Swagger\Client\Model\User
+     * @return \ExaVault\Model\User
      */
     public function getData()
     {
@@ -246,7 +246,7 @@ class UserResponse implements ModelInterface, ArrayAccess
     /**
      * Sets data
      *
-     * @param \Swagger\Client\Model\User $data data
+     * @param \ExaVault\Model\User $data data
      *
      * @return $this
      */
@@ -260,7 +260,7 @@ class UserResponse implements ModelInterface, ArrayAccess
     /**
      * Gets included
      *
-     * @return \Swagger\Client\Model\AnyOfUserResponseIncludedItems[]
+     * @return \ExaVault\Model\AnyOfUserResponseIncludedItems[]
      */
     public function getIncluded()
     {
@@ -270,7 +270,7 @@ class UserResponse implements ModelInterface, ArrayAccess
     /**
      * Sets included
      *
-     * @param \Swagger\Client\Model\AnyOfUserResponseIncludedItems[] $included included
+     * @param \ExaVault\Model\AnyOfUserResponseIncludedItems[] $included included
      *
      * @return $this
      */

@@ -5,7 +5,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  Swagger\Client
+ * @package  ExaVault
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
@@ -26,17 +26,17 @@
  * Do not edit the class manually.
  */
 
-namespace Swagger\Client\Model;
+namespace ExaVault\Model;
 
 use \ArrayAccess;
-use \Swagger\Client\ObjectSerializer;
+use \ExaVault\ObjectSerializer;
 
 /**
  * FormAttributes Class Doc Comment
  *
  * @category Class
  * @description Attributes of the form including it&#x27;s included fields and css styles
- * @package  Swagger\Client
+ * @package  ExaVault
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
@@ -61,7 +61,7 @@ class FormAttributes implements ModelInterface, ArrayAccess
 'submit_button_text' => 'string',
 'success_message' => 'string',
 'css_styles' => 'string',
-'elements' => '\Swagger\Client\Model\FormField[]'    ];
+'elements' => '\ExaVault\Model\FormField[]'    ];
 
     /**
       * Array of property to format mappings. Used for (de)serialization
@@ -320,7 +320,7 @@ class FormAttributes implements ModelInterface, ArrayAccess
     /**
      * Gets elements
      *
-     * @return \Swagger\Client\Model\FormField[]
+     * @return \ExaVault\Model\FormField[]
      */
     public function getElements()
     {
@@ -330,7 +330,7 @@ class FormAttributes implements ModelInterface, ArrayAccess
     /**
      * Sets elements
      *
-     * @param \Swagger\Client\Model\FormField[] $elements Array of form fields defined for the form
+     * @param \ExaVault\Model\FormField[] $elements Array of form fields defined for the form
      *
      * @return $this
      */

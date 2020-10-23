@@ -5,7 +5,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  Swagger\Client
+ * @package  ExaVault
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
@@ -26,16 +26,16 @@
  * Do not edit the class manually.
  */
 
-namespace Swagger\Client\Model;
+namespace ExaVault\Model;
 
 use \ArrayAccess;
-use \Swagger\Client\ObjectSerializer;
+use \ExaVault\ObjectSerializer;
 
 /**
  * AccountResponse Class Doc Comment
  *
  * @category Class
- * @package  Swagger\Client
+ * @package  ExaVault
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
@@ -57,8 +57,8 @@ class AccountResponse implements ModelInterface, ArrayAccess
       */
     protected static $swaggerTypes = [
         'response_status' => 'int',
-'data' => '\Swagger\Client\Model\Account',
-'included' => '\Swagger\Client\Model\AnyOfAccountResponseIncludedItems[]'    ];
+'data' => '\ExaVault\Model\Account',
+'included' => '\ExaVault\Model\AnyOfAccountResponseIncludedItems[]'    ];
 
     /**
       * Array of property to format mappings. Used for (de)serialization
@@ -235,7 +235,7 @@ class AccountResponse implements ModelInterface, ArrayAccess
     /**
      * Gets data
      *
-     * @return \Swagger\Client\Model\Account
+     * @return \ExaVault\Model\Account
      */
     public function getData()
     {
@@ -245,7 +245,7 @@ class AccountResponse implements ModelInterface, ArrayAccess
     /**
      * Sets data
      *
-     * @param \Swagger\Client\Model\Account $data data
+     * @param \ExaVault\Model\Account $data data
      *
      * @return $this
      */
@@ -259,7 +259,7 @@ class AccountResponse implements ModelInterface, ArrayAccess
     /**
      * Gets included
      *
-     * @return \Swagger\Client\Model\AnyOfAccountResponseIncludedItems[]
+     * @return \ExaVault\Model\AnyOfAccountResponseIncludedItems[]
      */
     public function getIncluded()
     {
@@ -269,7 +269,7 @@ class AccountResponse implements ModelInterface, ArrayAccess
     /**
      * Sets included
      *
-     * @param \Swagger\Client\Model\AnyOfAccountResponseIncludedItems[] $included Array can contain objects specified in include param of the get call e.g User object
+     * @param \ExaVault\Model\AnyOfAccountResponseIncludedItems[] $included Array can contain objects specified in include param of the get call e.g User object
      *
      * @return $this
      */

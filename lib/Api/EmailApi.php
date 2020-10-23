@@ -4,7 +4,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  Swagger\Client
+ * @package  ExaVault
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
@@ -25,7 +25,7 @@
  * Do not edit the class manually.
  */
 
-namespace Swagger\Client\Api;
+namespace ExaVault\Api;
 
 use GuzzleHttp\Client;
 use GuzzleHttp\ClientInterface;
@@ -33,16 +33,16 @@ use GuzzleHttp\Exception\RequestException;
 use GuzzleHttp\Psr7\MultipartStream;
 use GuzzleHttp\Psr7\Request;
 use GuzzleHttp\RequestOptions;
-use Swagger\Client\ApiException;
-use Swagger\Client\Configuration;
-use Swagger\Client\HeaderSelector;
-use Swagger\Client\ObjectSerializer;
+use ExaVault\ApiException;
+use ExaVault\Configuration;
+use ExaVault\HeaderSelector;
+use ExaVault\ObjectSerializer;
 
 /**
  * EmailApi Class Doc Comment
  *
  * @category Class
- * @package  Swagger\Client
+ * @package  ExaVault
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
@@ -93,11 +93,11 @@ class EmailApi
      *
      * @param  string $ev_api_key API Key required to make the API call. (required)
      * @param  string $ev_access_token Access token required to make the API call. (required)
-     * @param  \Swagger\Client\Model\Body15 $body body (optional)
+     * @param  \ExaVault\Model\Body15 $body body (optional)
      *
-     * @throws \Swagger\Client\ApiException on non-2xx response
+     * @throws \ExaVault\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Swagger\Client\Model\EmptyResponse
+     * @return \ExaVault\Model\EmptyResponse
      */
     public function sendReferralEmail($ev_api_key, $ev_access_token, $body = null)
     {
@@ -112,15 +112,15 @@ class EmailApi
      *
      * @param  string $ev_api_key API Key required to make the API call. (required)
      * @param  string $ev_access_token Access token required to make the API call. (required)
-     * @param  \Swagger\Client\Model\Body15 $body (optional)
+     * @param  \ExaVault\Model\Body15 $body (optional)
      *
-     * @throws \Swagger\Client\ApiException on non-2xx response
+     * @throws \ExaVault\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Swagger\Client\Model\EmptyResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \ExaVault\Model\EmptyResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function sendReferralEmailWithHttpInfo($ev_api_key, $ev_access_token, $body = null)
     {
-        $returnType = '\Swagger\Client\Model\EmptyResponse';
+        $returnType = '\ExaVault\Model\EmptyResponse';
         $request = $this->sendReferralEmailRequest($ev_api_key, $ev_access_token, $body);
 
         try {
@@ -172,7 +172,7 @@ class EmailApi
                 case 201:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Swagger\Client\Model\EmptyResponse',
+                        '\ExaVault\Model\EmptyResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -189,7 +189,7 @@ class EmailApi
      *
      * @param  string $ev_api_key API Key required to make the API call. (required)
      * @param  string $ev_access_token Access token required to make the API call. (required)
-     * @param  \Swagger\Client\Model\Body15 $body (optional)
+     * @param  \ExaVault\Model\Body15 $body (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -211,14 +211,14 @@ class EmailApi
      *
      * @param  string $ev_api_key API Key required to make the API call. (required)
      * @param  string $ev_access_token Access token required to make the API call. (required)
-     * @param  \Swagger\Client\Model\Body15 $body (optional)
+     * @param  \ExaVault\Model\Body15 $body (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
     public function sendReferralEmailAsyncWithHttpInfo($ev_api_key, $ev_access_token, $body = null)
     {
-        $returnType = '\Swagger\Client\Model\EmptyResponse';
+        $returnType = '\ExaVault\Model\EmptyResponse';
         $request = $this->sendReferralEmailRequest($ev_api_key, $ev_access_token, $body);
 
         return $this->client
@@ -263,7 +263,7 @@ class EmailApi
      *
      * @param  string $ev_api_key API Key required to make the API call. (required)
      * @param  string $ev_access_token Access token required to make the API call. (required)
-     * @param  \Swagger\Client\Model\Body15 $body (optional)
+     * @param  \ExaVault\Model\Body15 $body (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -376,9 +376,9 @@ class EmailApi
      * @param  string $ev_access_token Access token required to make the API call. (required)
      * @param  string $username A username to send the welcome email to. (required)
      *
-     * @throws \Swagger\Client\ApiException on non-2xx response
+     * @throws \ExaVault\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Swagger\Client\Model\EmptyResponse
+     * @return \ExaVault\Model\EmptyResponse
      */
     public function sendWelcomeEmail($ev_api_key, $ev_access_token, $username)
     {
@@ -395,13 +395,13 @@ class EmailApi
      * @param  string $ev_access_token Access token required to make the API call. (required)
      * @param  string $username A username to send the welcome email to. (required)
      *
-     * @throws \Swagger\Client\ApiException on non-2xx response
+     * @throws \ExaVault\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Swagger\Client\Model\EmptyResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \ExaVault\Model\EmptyResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function sendWelcomeEmailWithHttpInfo($ev_api_key, $ev_access_token, $username)
     {
-        $returnType = '\Swagger\Client\Model\EmptyResponse';
+        $returnType = '\ExaVault\Model\EmptyResponse';
         $request = $this->sendWelcomeEmailRequest($ev_api_key, $ev_access_token, $username);
 
         try {
@@ -453,7 +453,7 @@ class EmailApi
                 case 201:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Swagger\Client\Model\EmptyResponse',
+                        '\ExaVault\Model\EmptyResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -499,7 +499,7 @@ class EmailApi
      */
     public function sendWelcomeEmailAsyncWithHttpInfo($ev_api_key, $ev_access_token, $username)
     {
-        $returnType = '\Swagger\Client\Model\EmptyResponse';
+        $returnType = '\ExaVault\Model\EmptyResponse';
         $request = $this->sendWelcomeEmailRequest($ev_api_key, $ev_access_token, $username);
 
         return $this->client

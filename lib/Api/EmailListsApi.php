@@ -4,7 +4,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  Swagger\Client
+ * @package  ExaVault
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
@@ -25,7 +25,7 @@
  * Do not edit the class manually.
  */
 
-namespace Swagger\Client\Api;
+namespace ExaVault\Api;
 
 use GuzzleHttp\Client;
 use GuzzleHttp\ClientInterface;
@@ -33,16 +33,16 @@ use GuzzleHttp\Exception\RequestException;
 use GuzzleHttp\Psr7\MultipartStream;
 use GuzzleHttp\Psr7\Request;
 use GuzzleHttp\RequestOptions;
-use Swagger\Client\ApiException;
-use Swagger\Client\Configuration;
-use Swagger\Client\HeaderSelector;
-use Swagger\Client\ObjectSerializer;
+use ExaVault\ApiException;
+use ExaVault\Configuration;
+use ExaVault\HeaderSelector;
+use ExaVault\ObjectSerializer;
 
 /**
  * EmailListsApi Class Doc Comment
  *
  * @category Class
- * @package  Swagger\Client
+ * @package  ExaVault
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
@@ -93,11 +93,11 @@ class EmailListsApi
      *
      * @param  string $ev_api_key API Key required to make the API call. (required)
      * @param  string $ev_access_token Access token required to make the API call. (required)
-     * @param  \Swagger\Client\Model\Body $body body (optional)
+     * @param  \ExaVault\Model\Body $body body (optional)
      *
-     * @throws \Swagger\Client\ApiException on non-2xx response
+     * @throws \ExaVault\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Swagger\Client\Model\EmailListResponse
+     * @return \ExaVault\Model\EmailListResponse
      */
     public function addEmailList($ev_api_key, $ev_access_token, $body = null)
     {
@@ -112,15 +112,15 @@ class EmailListsApi
      *
      * @param  string $ev_api_key API Key required to make the API call. (required)
      * @param  string $ev_access_token Access token required to make the API call. (required)
-     * @param  \Swagger\Client\Model\Body $body (optional)
+     * @param  \ExaVault\Model\Body $body (optional)
      *
-     * @throws \Swagger\Client\ApiException on non-2xx response
+     * @throws \ExaVault\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Swagger\Client\Model\EmailListResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \ExaVault\Model\EmailListResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function addEmailListWithHttpInfo($ev_api_key, $ev_access_token, $body = null)
     {
-        $returnType = '\Swagger\Client\Model\EmailListResponse';
+        $returnType = '\ExaVault\Model\EmailListResponse';
         $request = $this->addEmailListRequest($ev_api_key, $ev_access_token, $body);
 
         try {
@@ -172,7 +172,7 @@ class EmailListsApi
                 case 201:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Swagger\Client\Model\EmailListResponse',
+                        '\ExaVault\Model\EmailListResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -189,7 +189,7 @@ class EmailListsApi
      *
      * @param  string $ev_api_key API Key required to make the API call. (required)
      * @param  string $ev_access_token Access token required to make the API call. (required)
-     * @param  \Swagger\Client\Model\Body $body (optional)
+     * @param  \ExaVault\Model\Body $body (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -211,14 +211,14 @@ class EmailListsApi
      *
      * @param  string $ev_api_key API Key required to make the API call. (required)
      * @param  string $ev_access_token Access token required to make the API call. (required)
-     * @param  \Swagger\Client\Model\Body $body (optional)
+     * @param  \ExaVault\Model\Body $body (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
     public function addEmailListAsyncWithHttpInfo($ev_api_key, $ev_access_token, $body = null)
     {
-        $returnType = '\Swagger\Client\Model\EmailListResponse';
+        $returnType = '\ExaVault\Model\EmailListResponse';
         $request = $this->addEmailListRequest($ev_api_key, $ev_access_token, $body);
 
         return $this->client
@@ -263,7 +263,7 @@ class EmailListsApi
      *
      * @param  string $ev_api_key API Key required to make the API call. (required)
      * @param  string $ev_access_token Access token required to make the API call. (required)
-     * @param  \Swagger\Client\Model\Body $body (optional)
+     * @param  \ExaVault\Model\Body $body (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -376,9 +376,9 @@ class EmailListsApi
      * @param  string $ev_access_token Access token required to make the API call. (required)
      * @param  int $id ID of the email list to delete (required)
      *
-     * @throws \Swagger\Client\ApiException on non-2xx response
+     * @throws \ExaVault\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Swagger\Client\Model\EmptyResponse
+     * @return \ExaVault\Model\EmptyResponse
      */
     public function deleteEmailListById($ev_api_key, $ev_access_token, $id)
     {
@@ -395,13 +395,13 @@ class EmailListsApi
      * @param  string $ev_access_token Access token required to make the API call. (required)
      * @param  int $id ID of the email list to delete (required)
      *
-     * @throws \Swagger\Client\ApiException on non-2xx response
+     * @throws \ExaVault\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Swagger\Client\Model\EmptyResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \ExaVault\Model\EmptyResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function deleteEmailListByIdWithHttpInfo($ev_api_key, $ev_access_token, $id)
     {
-        $returnType = '\Swagger\Client\Model\EmptyResponse';
+        $returnType = '\ExaVault\Model\EmptyResponse';
         $request = $this->deleteEmailListByIdRequest($ev_api_key, $ev_access_token, $id);
 
         try {
@@ -453,7 +453,7 @@ class EmailListsApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Swagger\Client\Model\EmptyResponse',
+                        '\ExaVault\Model\EmptyResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -499,7 +499,7 @@ class EmailListsApi
      */
     public function deleteEmailListByIdAsyncWithHttpInfo($ev_api_key, $ev_access_token, $id)
     {
-        $returnType = '\Swagger\Client\Model\EmptyResponse';
+        $returnType = '\ExaVault\Model\EmptyResponse';
         $request = $this->deleteEmailListByIdRequest($ev_api_key, $ev_access_token, $id);
 
         return $this->client
@@ -669,9 +669,9 @@ class EmailListsApi
      * @param  int $id ID of the email list to return. (required)
      * @param  string $include Related record types to include in the response. Valid option is &#x60;ownerUser&#x60; (optional)
      *
-     * @throws \Swagger\Client\ApiException on non-2xx response
+     * @throws \ExaVault\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Swagger\Client\Model\EmailListResponse
+     * @return \ExaVault\Model\EmailListResponse
      */
     public function getEmailListById($ev_api_key, $ev_access_token, $id, $include = null)
     {
@@ -689,13 +689,13 @@ class EmailListsApi
      * @param  int $id ID of the email list to return. (required)
      * @param  string $include Related record types to include in the response. Valid option is &#x60;ownerUser&#x60; (optional)
      *
-     * @throws \Swagger\Client\ApiException on non-2xx response
+     * @throws \ExaVault\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Swagger\Client\Model\EmailListResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \ExaVault\Model\EmailListResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function getEmailListByIdWithHttpInfo($ev_api_key, $ev_access_token, $id, $include = null)
     {
-        $returnType = '\Swagger\Client\Model\EmailListResponse';
+        $returnType = '\ExaVault\Model\EmailListResponse';
         $request = $this->getEmailListByIdRequest($ev_api_key, $ev_access_token, $id, $include);
 
         try {
@@ -747,7 +747,7 @@ class EmailListsApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Swagger\Client\Model\EmailListResponse',
+                        '\ExaVault\Model\EmailListResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -795,7 +795,7 @@ class EmailListsApi
      */
     public function getEmailListByIdAsyncWithHttpInfo($ev_api_key, $ev_access_token, $id, $include = null)
     {
-        $returnType = '\Swagger\Client\Model\EmailListResponse';
+        $returnType = '\ExaVault\Model\EmailListResponse';
         $request = $this->getEmailListByIdRequest($ev_api_key, $ev_access_token, $id, $include);
 
         return $this->client
@@ -969,9 +969,9 @@ class EmailListsApi
      * @param  string $ev_access_token Access token required to make the API call. (required)
      * @param  string $include Related record types to include in the response. Valid option is &#x60;ownerUser&#x60; (optional)
      *
-     * @throws \Swagger\Client\ApiException on non-2xx response
+     * @throws \ExaVault\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Swagger\Client\Model\EmailListCollectionResponse
+     * @return \ExaVault\Model\EmailListCollectionResponse
      */
     public function getEmailLists($ev_api_key, $ev_access_token, $include = null)
     {
@@ -988,13 +988,13 @@ class EmailListsApi
      * @param  string $ev_access_token Access token required to make the API call. (required)
      * @param  string $include Related record types to include in the response. Valid option is &#x60;ownerUser&#x60; (optional)
      *
-     * @throws \Swagger\Client\ApiException on non-2xx response
+     * @throws \ExaVault\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Swagger\Client\Model\EmailListCollectionResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \ExaVault\Model\EmailListCollectionResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function getEmailListsWithHttpInfo($ev_api_key, $ev_access_token, $include = null)
     {
-        $returnType = '\Swagger\Client\Model\EmailListCollectionResponse';
+        $returnType = '\ExaVault\Model\EmailListCollectionResponse';
         $request = $this->getEmailListsRequest($ev_api_key, $ev_access_token, $include);
 
         try {
@@ -1046,7 +1046,7 @@ class EmailListsApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Swagger\Client\Model\EmailListCollectionResponse',
+                        '\ExaVault\Model\EmailListCollectionResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1092,7 +1092,7 @@ class EmailListsApi
      */
     public function getEmailListsAsyncWithHttpInfo($ev_api_key, $ev_access_token, $include = null)
     {
-        $returnType = '\Swagger\Client\Model\EmailListCollectionResponse';
+        $returnType = '\ExaVault\Model\EmailListCollectionResponse';
         $request = $this->getEmailListsRequest($ev_api_key, $ev_access_token, $include);
 
         return $this->client
@@ -1250,11 +1250,11 @@ class EmailListsApi
      * @param  string $ev_api_key API Key required to make the API call. (required)
      * @param  string $ev_access_token Access token required to make the API call. (required)
      * @param  int $id ID of the email list to update. (required)
-     * @param  \Swagger\Client\Model\Body1 $body body (optional)
+     * @param  \ExaVault\Model\Body1 $body body (optional)
      *
-     * @throws \Swagger\Client\ApiException on non-2xx response
+     * @throws \ExaVault\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Swagger\Client\Model\EmailListResponse
+     * @return \ExaVault\Model\EmailListResponse
      */
     public function updateEmailListById($ev_api_key, $ev_access_token, $id, $body = null)
     {
@@ -1270,15 +1270,15 @@ class EmailListsApi
      * @param  string $ev_api_key API Key required to make the API call. (required)
      * @param  string $ev_access_token Access token required to make the API call. (required)
      * @param  int $id ID of the email list to update. (required)
-     * @param  \Swagger\Client\Model\Body1 $body (optional)
+     * @param  \ExaVault\Model\Body1 $body (optional)
      *
-     * @throws \Swagger\Client\ApiException on non-2xx response
+     * @throws \ExaVault\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Swagger\Client\Model\EmailListResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \ExaVault\Model\EmailListResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function updateEmailListByIdWithHttpInfo($ev_api_key, $ev_access_token, $id, $body = null)
     {
-        $returnType = '\Swagger\Client\Model\EmailListResponse';
+        $returnType = '\ExaVault\Model\EmailListResponse';
         $request = $this->updateEmailListByIdRequest($ev_api_key, $ev_access_token, $id, $body);
 
         try {
@@ -1330,7 +1330,7 @@ class EmailListsApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Swagger\Client\Model\EmailListResponse',
+                        '\ExaVault\Model\EmailListResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1348,7 +1348,7 @@ class EmailListsApi
      * @param  string $ev_api_key API Key required to make the API call. (required)
      * @param  string $ev_access_token Access token required to make the API call. (required)
      * @param  int $id ID of the email list to update. (required)
-     * @param  \Swagger\Client\Model\Body1 $body (optional)
+     * @param  \ExaVault\Model\Body1 $body (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -1371,14 +1371,14 @@ class EmailListsApi
      * @param  string $ev_api_key API Key required to make the API call. (required)
      * @param  string $ev_access_token Access token required to make the API call. (required)
      * @param  int $id ID of the email list to update. (required)
-     * @param  \Swagger\Client\Model\Body1 $body (optional)
+     * @param  \ExaVault\Model\Body1 $body (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
     public function updateEmailListByIdAsyncWithHttpInfo($ev_api_key, $ev_access_token, $id, $body = null)
     {
-        $returnType = '\Swagger\Client\Model\EmailListResponse';
+        $returnType = '\ExaVault\Model\EmailListResponse';
         $request = $this->updateEmailListByIdRequest($ev_api_key, $ev_access_token, $id, $body);
 
         return $this->client
@@ -1424,7 +1424,7 @@ class EmailListsApi
      * @param  string $ev_api_key API Key required to make the API call. (required)
      * @param  string $ev_access_token Access token required to make the API call. (required)
      * @param  int $id ID of the email list to update. (required)
-     * @param  \Swagger\Client\Model\Body1 $body (optional)
+     * @param  \ExaVault\Model\Body1 $body (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request

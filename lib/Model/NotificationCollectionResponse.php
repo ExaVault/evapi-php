@@ -5,7 +5,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  Swagger\Client
+ * @package  ExaVault
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
@@ -26,17 +26,17 @@
  * Do not edit the class manually.
  */
 
-namespace Swagger\Client\Model;
+namespace ExaVault\Model;
 
 use \ArrayAccess;
-use \Swagger\Client\ObjectSerializer;
+use \ExaVault\ObjectSerializer;
 
 /**
  * NotificationCollectionResponse Class Doc Comment
  *
  * @category Class
  * @description Response object for notifications collection.
- * @package  Swagger\Client
+ * @package  ExaVault
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
@@ -60,8 +60,8 @@ class NotificationCollectionResponse implements ModelInterface, ArrayAccess
         'response_status' => 'int',
 'total_results' => 'int',
 'returned_results' => 'int',
-'data' => '\Swagger\Client\Model\Notification[]',
-'included' => '\Swagger\Client\Model\AnyOfNotificationCollectionResponseIncludedItems[]'    ];
+'data' => '\ExaVault\Model\Notification[]',
+'included' => '\ExaVault\Model\AnyOfNotificationCollectionResponseIncludedItems[]'    ];
 
     /**
       * Array of property to format mappings. Used for (de)serialization
@@ -296,7 +296,7 @@ class NotificationCollectionResponse implements ModelInterface, ArrayAccess
     /**
      * Gets data
      *
-     * @return \Swagger\Client\Model\Notification[]
+     * @return \ExaVault\Model\Notification[]
      */
     public function getData()
     {
@@ -306,7 +306,7 @@ class NotificationCollectionResponse implements ModelInterface, ArrayAccess
     /**
      * Sets data
      *
-     * @param \Swagger\Client\Model\Notification[] $data data
+     * @param \ExaVault\Model\Notification[] $data data
      *
      * @return $this
      */
@@ -320,7 +320,7 @@ class NotificationCollectionResponse implements ModelInterface, ArrayAccess
     /**
      * Gets included
      *
-     * @return \Swagger\Client\Model\AnyOfNotificationCollectionResponseIncludedItems[]
+     * @return \ExaVault\Model\AnyOfNotificationCollectionResponseIncludedItems[]
      */
     public function getIncluded()
     {
@@ -330,7 +330,7 @@ class NotificationCollectionResponse implements ModelInterface, ArrayAccess
     /**
      * Sets included
      *
-     * @param \Swagger\Client\Model\AnyOfNotificationCollectionResponseIncludedItems[] $included included
+     * @param \ExaVault\Model\AnyOfNotificationCollectionResponseIncludedItems[] $included included
      *
      * @return $this
      */

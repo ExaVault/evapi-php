@@ -4,7 +4,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  Swagger\Client
+ * @package  ExaVault
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
@@ -25,7 +25,7 @@
  * Do not edit the class manually.
  */
 
-namespace Swagger\Client\Api;
+namespace ExaVault\Api;
 
 use GuzzleHttp\Client;
 use GuzzleHttp\ClientInterface;
@@ -33,16 +33,16 @@ use GuzzleHttp\Exception\RequestException;
 use GuzzleHttp\Psr7\MultipartStream;
 use GuzzleHttp\Psr7\Request;
 use GuzzleHttp\RequestOptions;
-use Swagger\Client\ApiException;
-use Swagger\Client\Configuration;
-use Swagger\Client\HeaderSelector;
-use Swagger\Client\ObjectSerializer;
+use ExaVault\ApiException;
+use ExaVault\Configuration;
+use ExaVault\HeaderSelector;
+use ExaVault\ObjectSerializer;
 
 /**
  * ResourcesApi Class Doc Comment
  *
  * @category Class
- * @package  Swagger\Client
+ * @package  ExaVault
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
@@ -93,11 +93,11 @@ class ResourcesApi
      *
      * @param  string $ev_api_key API Key required to make the API call. (required)
      * @param  string $ev_access_token Access token required to make the API call. (required)
-     * @param  \Swagger\Client\Model\Body8 $body body (optional)
+     * @param  \ExaVault\Model\Body8 $body body (optional)
      *
-     * @throws \Swagger\Client\ApiException on non-2xx response
+     * @throws \ExaVault\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Swagger\Client\Model\ResourceResponse
+     * @return \ExaVault\Model\ResourceResponse
      */
     public function addFolder($ev_api_key, $ev_access_token, $body = null)
     {
@@ -112,15 +112,15 @@ class ResourcesApi
      *
      * @param  string $ev_api_key API Key required to make the API call. (required)
      * @param  string $ev_access_token Access token required to make the API call. (required)
-     * @param  \Swagger\Client\Model\Body8 $body (optional)
+     * @param  \ExaVault\Model\Body8 $body (optional)
      *
-     * @throws \Swagger\Client\ApiException on non-2xx response
+     * @throws \ExaVault\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Swagger\Client\Model\ResourceResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \ExaVault\Model\ResourceResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function addFolderWithHttpInfo($ev_api_key, $ev_access_token, $body = null)
     {
-        $returnType = '\Swagger\Client\Model\ResourceResponse';
+        $returnType = '\ExaVault\Model\ResourceResponse';
         $request = $this->addFolderRequest($ev_api_key, $ev_access_token, $body);
 
         try {
@@ -172,7 +172,7 @@ class ResourcesApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Swagger\Client\Model\ResourceResponse',
+                        '\ExaVault\Model\ResourceResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -189,7 +189,7 @@ class ResourcesApi
      *
      * @param  string $ev_api_key API Key required to make the API call. (required)
      * @param  string $ev_access_token Access token required to make the API call. (required)
-     * @param  \Swagger\Client\Model\Body8 $body (optional)
+     * @param  \ExaVault\Model\Body8 $body (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -211,14 +211,14 @@ class ResourcesApi
      *
      * @param  string $ev_api_key API Key required to make the API call. (required)
      * @param  string $ev_access_token Access token required to make the API call. (required)
-     * @param  \Swagger\Client\Model\Body8 $body (optional)
+     * @param  \ExaVault\Model\Body8 $body (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
     public function addFolderAsyncWithHttpInfo($ev_api_key, $ev_access_token, $body = null)
     {
-        $returnType = '\Swagger\Client\Model\ResourceResponse';
+        $returnType = '\ExaVault\Model\ResourceResponse';
         $request = $this->addFolderRequest($ev_api_key, $ev_access_token, $body);
 
         return $this->client
@@ -263,7 +263,7 @@ class ResourcesApi
      *
      * @param  string $ev_api_key API Key required to make the API call. (required)
      * @param  string $ev_access_token Access token required to make the API call. (required)
-     * @param  \Swagger\Client\Model\Body8 $body (optional)
+     * @param  \ExaVault\Model\Body8 $body (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -374,11 +374,11 @@ class ResourcesApi
      *
      * @param  string $ev_api_key API Key required to make the API call. (required)
      * @param  string $ev_access_token Access token required to make the API call. (required)
-     * @param  \Swagger\Client\Model\Body10 $body body (optional)
+     * @param  \ExaVault\Model\Body10 $body body (optional)
      *
-     * @throws \Swagger\Client\ApiException on non-2xx response
+     * @throws \ExaVault\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Swagger\Client\Model\ResourceResponse
+     * @return \ExaVault\Model\ResourceResponse
      */
     public function compressFiles($ev_api_key, $ev_access_token, $body = null)
     {
@@ -393,15 +393,15 @@ class ResourcesApi
      *
      * @param  string $ev_api_key API Key required to make the API call. (required)
      * @param  string $ev_access_token Access token required to make the API call. (required)
-     * @param  \Swagger\Client\Model\Body10 $body (optional)
+     * @param  \ExaVault\Model\Body10 $body (optional)
      *
-     * @throws \Swagger\Client\ApiException on non-2xx response
+     * @throws \ExaVault\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Swagger\Client\Model\ResourceResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \ExaVault\Model\ResourceResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function compressFilesWithHttpInfo($ev_api_key, $ev_access_token, $body = null)
     {
-        $returnType = '\Swagger\Client\Model\ResourceResponse';
+        $returnType = '\ExaVault\Model\ResourceResponse';
         $request = $this->compressFilesRequest($ev_api_key, $ev_access_token, $body);
 
         try {
@@ -453,7 +453,7 @@ class ResourcesApi
                 case 201:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Swagger\Client\Model\ResourceResponse',
+                        '\ExaVault\Model\ResourceResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -470,7 +470,7 @@ class ResourcesApi
      *
      * @param  string $ev_api_key API Key required to make the API call. (required)
      * @param  string $ev_access_token Access token required to make the API call. (required)
-     * @param  \Swagger\Client\Model\Body10 $body (optional)
+     * @param  \ExaVault\Model\Body10 $body (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -492,14 +492,14 @@ class ResourcesApi
      *
      * @param  string $ev_api_key API Key required to make the API call. (required)
      * @param  string $ev_access_token Access token required to make the API call. (required)
-     * @param  \Swagger\Client\Model\Body10 $body (optional)
+     * @param  \ExaVault\Model\Body10 $body (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
     public function compressFilesAsyncWithHttpInfo($ev_api_key, $ev_access_token, $body = null)
     {
-        $returnType = '\Swagger\Client\Model\ResourceResponse';
+        $returnType = '\ExaVault\Model\ResourceResponse';
         $request = $this->compressFilesRequest($ev_api_key, $ev_access_token, $body);
 
         return $this->client
@@ -544,7 +544,7 @@ class ResourcesApi
      *
      * @param  string $ev_api_key API Key required to make the API call. (required)
      * @param  string $ev_access_token Access token required to make the API call. (required)
-     * @param  \Swagger\Client\Model\Body10 $body (optional)
+     * @param  \ExaVault\Model\Body10 $body (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -655,11 +655,11 @@ class ResourcesApi
      *
      * @param  string $ev_api_key API Key required to make the API call. (required)
      * @param  string $ev_access_token Access token required to make the API call. (required)
-     * @param  \Swagger\Client\Model\Body12 $body body (optional)
+     * @param  \ExaVault\Model\Body12 $body body (optional)
      *
-     * @throws \Swagger\Client\ApiException on non-2xx response
+     * @throws \ExaVault\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Swagger\Client\Model\ResourceCopyMove
+     * @return \ExaVault\Model\ResourceCopyMove
      */
     public function copyResources($ev_api_key, $ev_access_token, $body = null)
     {
@@ -674,15 +674,15 @@ class ResourcesApi
      *
      * @param  string $ev_api_key API Key required to make the API call. (required)
      * @param  string $ev_access_token Access token required to make the API call. (required)
-     * @param  \Swagger\Client\Model\Body12 $body (optional)
+     * @param  \ExaVault\Model\Body12 $body (optional)
      *
-     * @throws \Swagger\Client\ApiException on non-2xx response
+     * @throws \ExaVault\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Swagger\Client\Model\ResourceCopyMove, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \ExaVault\Model\ResourceCopyMove, HTTP status code, HTTP response headers (array of strings)
      */
     public function copyResourcesWithHttpInfo($ev_api_key, $ev_access_token, $body = null)
     {
-        $returnType = '\Swagger\Client\Model\ResourceCopyMove';
+        $returnType = '\ExaVault\Model\ResourceCopyMove';
         $request = $this->copyResourcesRequest($ev_api_key, $ev_access_token, $body);
 
         try {
@@ -734,7 +734,7 @@ class ResourcesApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Swagger\Client\Model\ResourceCopyMove',
+                        '\ExaVault\Model\ResourceCopyMove',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -742,7 +742,7 @@ class ResourcesApi
                 case 207:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Swagger\Client\Model\ResourceMultiResponse',
+                        '\ExaVault\Model\ResourceMultiResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -759,7 +759,7 @@ class ResourcesApi
      *
      * @param  string $ev_api_key API Key required to make the API call. (required)
      * @param  string $ev_access_token Access token required to make the API call. (required)
-     * @param  \Swagger\Client\Model\Body12 $body (optional)
+     * @param  \ExaVault\Model\Body12 $body (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -781,14 +781,14 @@ class ResourcesApi
      *
      * @param  string $ev_api_key API Key required to make the API call. (required)
      * @param  string $ev_access_token Access token required to make the API call. (required)
-     * @param  \Swagger\Client\Model\Body12 $body (optional)
+     * @param  \ExaVault\Model\Body12 $body (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
     public function copyResourcesAsyncWithHttpInfo($ev_api_key, $ev_access_token, $body = null)
     {
-        $returnType = '\Swagger\Client\Model\ResourceCopyMove';
+        $returnType = '\ExaVault\Model\ResourceCopyMove';
         $request = $this->copyResourcesRequest($ev_api_key, $ev_access_token, $body);
 
         return $this->client
@@ -833,7 +833,7 @@ class ResourcesApi
      *
      * @param  string $ev_api_key API Key required to make the API call. (required)
      * @param  string $ev_access_token Access token required to make the API call. (required)
-     * @param  \Swagger\Client\Model\Body12 $body (optional)
+     * @param  \ExaVault\Model\Body12 $body (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -946,9 +946,9 @@ class ResourcesApi
      * @param  string $ev_api_key API Key required to make the API call. (required)
      * @param  string $ev_access_token Access token required to make the API call. (required)
      *
-     * @throws \Swagger\Client\ApiException on non-2xx response
+     * @throws \ExaVault\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Swagger\Client\Model\EmptyResponse
+     * @return \ExaVault\Model\EmptyResponse
      */
     public function deleteResourceById($id, $ev_api_key, $ev_access_token)
     {
@@ -965,13 +965,13 @@ class ResourcesApi
      * @param  string $ev_api_key API Key required to make the API call. (required)
      * @param  string $ev_access_token Access token required to make the API call. (required)
      *
-     * @throws \Swagger\Client\ApiException on non-2xx response
+     * @throws \ExaVault\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Swagger\Client\Model\EmptyResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \ExaVault\Model\EmptyResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function deleteResourceByIdWithHttpInfo($id, $ev_api_key, $ev_access_token)
     {
-        $returnType = '\Swagger\Client\Model\EmptyResponse';
+        $returnType = '\ExaVault\Model\EmptyResponse';
         $request = $this->deleteResourceByIdRequest($id, $ev_api_key, $ev_access_token);
 
         try {
@@ -1023,7 +1023,7 @@ class ResourcesApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Swagger\Client\Model\EmptyResponse',
+                        '\ExaVault\Model\EmptyResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1069,7 +1069,7 @@ class ResourcesApi
      */
     public function deleteResourceByIdAsyncWithHttpInfo($id, $ev_api_key, $ev_access_token)
     {
-        $returnType = '\Swagger\Client\Model\EmptyResponse';
+        $returnType = '\ExaVault\Model\EmptyResponse';
         $request = $this->deleteResourceByIdRequest($id, $ev_api_key, $ev_access_token);
 
         return $this->client
@@ -1236,11 +1236,11 @@ class ResourcesApi
      *
      * @param  string $ev_api_key API Key (required)
      * @param  string $ev_access_token Access Token (required)
-     * @param  \Swagger\Client\Model\Body9 $body body (optional)
+     * @param  \ExaVault\Model\Body9 $body body (optional)
      *
-     * @throws \Swagger\Client\ApiException on non-2xx response
+     * @throws \ExaVault\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Swagger\Client\Model\EmptyResponse
+     * @return \ExaVault\Model\EmptyResponse
      */
     public function deleteResources($ev_api_key, $ev_access_token, $body = null)
     {
@@ -1255,15 +1255,15 @@ class ResourcesApi
      *
      * @param  string $ev_api_key API Key (required)
      * @param  string $ev_access_token Access Token (required)
-     * @param  \Swagger\Client\Model\Body9 $body (optional)
+     * @param  \ExaVault\Model\Body9 $body (optional)
      *
-     * @throws \Swagger\Client\ApiException on non-2xx response
+     * @throws \ExaVault\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Swagger\Client\Model\EmptyResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \ExaVault\Model\EmptyResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function deleteResourcesWithHttpInfo($ev_api_key, $ev_access_token, $body = null)
     {
-        $returnType = '\Swagger\Client\Model\EmptyResponse';
+        $returnType = '\ExaVault\Model\EmptyResponse';
         $request = $this->deleteResourcesRequest($ev_api_key, $ev_access_token, $body);
 
         try {
@@ -1315,7 +1315,7 @@ class ResourcesApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Swagger\Client\Model\EmptyResponse',
+                        '\ExaVault\Model\EmptyResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1323,7 +1323,7 @@ class ResourcesApi
                 case 207:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Swagger\Client\Model\ResourceMultiResponse',
+                        '\ExaVault\Model\ResourceMultiResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1340,7 +1340,7 @@ class ResourcesApi
      *
      * @param  string $ev_api_key API Key (required)
      * @param  string $ev_access_token Access Token (required)
-     * @param  \Swagger\Client\Model\Body9 $body (optional)
+     * @param  \ExaVault\Model\Body9 $body (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -1362,14 +1362,14 @@ class ResourcesApi
      *
      * @param  string $ev_api_key API Key (required)
      * @param  string $ev_access_token Access Token (required)
-     * @param  \Swagger\Client\Model\Body9 $body (optional)
+     * @param  \ExaVault\Model\Body9 $body (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
     public function deleteResourcesAsyncWithHttpInfo($ev_api_key, $ev_access_token, $body = null)
     {
-        $returnType = '\Swagger\Client\Model\EmptyResponse';
+        $returnType = '\ExaVault\Model\EmptyResponse';
         $request = $this->deleteResourcesRequest($ev_api_key, $ev_access_token, $body);
 
         return $this->client
@@ -1414,7 +1414,7 @@ class ResourcesApi
      *
      * @param  string $ev_api_key API Key (required)
      * @param  string $ev_access_token Access Token (required)
-     * @param  \Swagger\Client\Model\Body9 $body (optional)
+     * @param  \ExaVault\Model\Body9 $body (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -1530,7 +1530,7 @@ class ResourcesApi
      * @param  bool $polling Used when downloading multiple files so url will be pulled till zip file is created. (optional)
      * @param  string $polling_zip_name Reference to the previously created zip for polling operation. (optional)
      *
-     * @throws \Swagger\Client\ApiException on non-2xx response
+     * @throws \ExaVault\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return string
      */
@@ -1552,7 +1552,7 @@ class ResourcesApi
      * @param  bool $polling Used when downloading multiple files so url will be pulled till zip file is created. (optional)
      * @param  string $polling_zip_name Reference to the previously created zip for polling operation. (optional)
      *
-     * @throws \Swagger\Client\ApiException on non-2xx response
+     * @throws \ExaVault\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of string, HTTP status code, HTTP response headers (array of strings)
      */
@@ -1618,7 +1618,7 @@ class ResourcesApi
                 case 202:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Swagger\Client\Model\DownloadPollingResponse',
+                        '\ExaVault\Model\DownloadPollingResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1851,11 +1851,11 @@ class ResourcesApi
      *
      * @param  string $ev_api_key API Key required to make the API call. (required)
      * @param  string $ev_access_token Access token required to make the API call. (required)
-     * @param  \Swagger\Client\Model\Body11 $body body (optional)
+     * @param  \ExaVault\Model\Body11 $body body (optional)
      *
-     * @throws \Swagger\Client\ApiException on non-2xx response
+     * @throws \ExaVault\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Swagger\Client\Model\ResourceCollectionResponse
+     * @return \ExaVault\Model\ResourceCollectionResponse
      */
     public function extractFiles($ev_api_key, $ev_access_token, $body = null)
     {
@@ -1870,15 +1870,15 @@ class ResourcesApi
      *
      * @param  string $ev_api_key API Key required to make the API call. (required)
      * @param  string $ev_access_token Access token required to make the API call. (required)
-     * @param  \Swagger\Client\Model\Body11 $body (optional)
+     * @param  \ExaVault\Model\Body11 $body (optional)
      *
-     * @throws \Swagger\Client\ApiException on non-2xx response
+     * @throws \ExaVault\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Swagger\Client\Model\ResourceCollectionResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \ExaVault\Model\ResourceCollectionResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function extractFilesWithHttpInfo($ev_api_key, $ev_access_token, $body = null)
     {
-        $returnType = '\Swagger\Client\Model\ResourceCollectionResponse';
+        $returnType = '\ExaVault\Model\ResourceCollectionResponse';
         $request = $this->extractFilesRequest($ev_api_key, $ev_access_token, $body);
 
         try {
@@ -1930,7 +1930,7 @@ class ResourcesApi
                 case 201:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Swagger\Client\Model\ResourceCollectionResponse',
+                        '\ExaVault\Model\ResourceCollectionResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1947,7 +1947,7 @@ class ResourcesApi
      *
      * @param  string $ev_api_key API Key required to make the API call. (required)
      * @param  string $ev_access_token Access token required to make the API call. (required)
-     * @param  \Swagger\Client\Model\Body11 $body (optional)
+     * @param  \ExaVault\Model\Body11 $body (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -1969,14 +1969,14 @@ class ResourcesApi
      *
      * @param  string $ev_api_key API Key required to make the API call. (required)
      * @param  string $ev_access_token Access token required to make the API call. (required)
-     * @param  \Swagger\Client\Model\Body11 $body (optional)
+     * @param  \ExaVault\Model\Body11 $body (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
     public function extractFilesAsyncWithHttpInfo($ev_api_key, $ev_access_token, $body = null)
     {
-        $returnType = '\Swagger\Client\Model\ResourceCollectionResponse';
+        $returnType = '\ExaVault\Model\ResourceCollectionResponse';
         $request = $this->extractFilesRequest($ev_api_key, $ev_access_token, $body);
 
         return $this->client
@@ -2021,7 +2021,7 @@ class ResourcesApi
      *
      * @param  string $ev_api_key API Key required to make the API call. (required)
      * @param  string $ev_access_token Access token required to make the API call. (required)
-     * @param  \Swagger\Client\Model\Body11 $body (optional)
+     * @param  \ExaVault\Model\Body11 $body (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -2138,9 +2138,9 @@ class ResourcesApi
      * @param  int $height Overrides sizes. Sets to a specific height. (optional)
      * @param  int $page Page number to extract from a multi-page document (0 is the first page). Vaild for **.pdf** or **.doc** files. (optional, default to 0)
      *
-     * @throws \Swagger\Client\ApiException on non-2xx response
+     * @throws \ExaVault\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Swagger\Client\Model\PreviewFileResponse
+     * @return \ExaVault\Model\PreviewFileResponse
      */
     public function getPreviewImage($ev_api_key, $ev_access_token, $resource, $size, $width = null, $height = null, $page = '0')
     {
@@ -2161,13 +2161,13 @@ class ResourcesApi
      * @param  int $height Overrides sizes. Sets to a specific height. (optional)
      * @param  int $page Page number to extract from a multi-page document (0 is the first page). Vaild for **.pdf** or **.doc** files. (optional, default to 0)
      *
-     * @throws \Swagger\Client\ApiException on non-2xx response
+     * @throws \ExaVault\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Swagger\Client\Model\PreviewFileResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \ExaVault\Model\PreviewFileResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function getPreviewImageWithHttpInfo($ev_api_key, $ev_access_token, $resource, $size, $width = null, $height = null, $page = '0')
     {
-        $returnType = '\Swagger\Client\Model\PreviewFileResponse';
+        $returnType = '\ExaVault\Model\PreviewFileResponse';
         $request = $this->getPreviewImageRequest($ev_api_key, $ev_access_token, $resource, $size, $width, $height, $page);
 
         try {
@@ -2219,7 +2219,7 @@ class ResourcesApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Swagger\Client\Model\PreviewFileResponse',
+                        '\ExaVault\Model\PreviewFileResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2273,7 +2273,7 @@ class ResourcesApi
      */
     public function getPreviewImageAsyncWithHttpInfo($ev_api_key, $ev_access_token, $resource, $size, $width = null, $height = null, $page = '0')
     {
-        $returnType = '\Swagger\Client\Model\PreviewFileResponse';
+        $returnType = '\ExaVault\Model\PreviewFileResponse';
         $request = $this->getPreviewImageRequest($ev_api_key, $ev_access_token, $resource, $size, $width, $height, $page);
 
         return $this->client
@@ -2465,9 +2465,9 @@ class ResourcesApi
      * @param  string $resource Resource identifier of the file or folder to get metadata for. (required)
      * @param  string $include Comma separated list of relationships to include in response. Possible values are **share**, **notifications**, **directFile**, **parentResource**, **ownerUser**, **ownerUser**. (optional)
      *
-     * @throws \Swagger\Client\ApiException on non-2xx response
+     * @throws \ExaVault\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Swagger\Client\Model\ResourceResponse
+     * @return \ExaVault\Model\ResourceResponse
      */
     public function getResourceInfo($ev_api_key, $ev_access_token, $resource, $include = null)
     {
@@ -2485,13 +2485,13 @@ class ResourcesApi
      * @param  string $resource Resource identifier of the file or folder to get metadata for. (required)
      * @param  string $include Comma separated list of relationships to include in response. Possible values are **share**, **notifications**, **directFile**, **parentResource**, **ownerUser**, **ownerUser**. (optional)
      *
-     * @throws \Swagger\Client\ApiException on non-2xx response
+     * @throws \ExaVault\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Swagger\Client\Model\ResourceResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \ExaVault\Model\ResourceResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function getResourceInfoWithHttpInfo($ev_api_key, $ev_access_token, $resource, $include = null)
     {
-        $returnType = '\Swagger\Client\Model\ResourceResponse';
+        $returnType = '\ExaVault\Model\ResourceResponse';
         $request = $this->getResourceInfoRequest($ev_api_key, $ev_access_token, $resource, $include);
 
         try {
@@ -2543,7 +2543,7 @@ class ResourcesApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Swagger\Client\Model\ResourceResponse',
+                        '\ExaVault\Model\ResourceResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2591,7 +2591,7 @@ class ResourcesApi
      */
     public function getResourceInfoAsyncWithHttpInfo($ev_api_key, $ev_access_token, $resource, $include = null)
     {
-        $returnType = '\Swagger\Client\Model\ResourceResponse';
+        $returnType = '\ExaVault\Model\ResourceResponse';
         $request = $this->getResourceInfoRequest($ev_api_key, $ev_access_token, $resource, $include);
 
         return $this->client
@@ -2762,9 +2762,9 @@ class ResourcesApi
      * @param  string $ev_access_token Access token required to make the API call. (required)
      * @param  string $include Comma separated list of relationships to include in response. Possible values are **share**, **notifications**, **directFile**, **parentResource**, **ownerUser**, **ownerAccount**. (optional)
      *
-     * @throws \Swagger\Client\ApiException on non-2xx response
+     * @throws \ExaVault\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Swagger\Client\Model\ResourceResponse
+     * @return \ExaVault\Model\ResourceResponse
      */
     public function getResourceInfoById($id, $ev_api_key, $ev_access_token, $include = null)
     {
@@ -2782,13 +2782,13 @@ class ResourcesApi
      * @param  string $ev_access_token Access token required to make the API call. (required)
      * @param  string $include Comma separated list of relationships to include in response. Possible values are **share**, **notifications**, **directFile**, **parentResource**, **ownerUser**, **ownerAccount**. (optional)
      *
-     * @throws \Swagger\Client\ApiException on non-2xx response
+     * @throws \ExaVault\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Swagger\Client\Model\ResourceResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \ExaVault\Model\ResourceResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function getResourceInfoByIdWithHttpInfo($id, $ev_api_key, $ev_access_token, $include = null)
     {
-        $returnType = '\Swagger\Client\Model\ResourceResponse';
+        $returnType = '\ExaVault\Model\ResourceResponse';
         $request = $this->getResourceInfoByIdRequest($id, $ev_api_key, $ev_access_token, $include);
 
         try {
@@ -2840,7 +2840,7 @@ class ResourcesApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Swagger\Client\Model\ResourceResponse',
+                        '\ExaVault\Model\ResourceResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2888,7 +2888,7 @@ class ResourcesApi
      */
     public function getResourceInfoByIdAsyncWithHttpInfo($id, $ev_api_key, $ev_access_token, $include = null)
     {
-        $returnType = '\Swagger\Client\Model\ResourceResponse';
+        $returnType = '\ExaVault\Model\ResourceResponse';
         $request = $this->getResourceInfoByIdRequest($id, $ev_api_key, $ev_access_token, $include);
 
         return $this->client
@@ -3067,9 +3067,9 @@ class ResourcesApi
      * @param  string $type Limit types of resources returned to \&quot;file\&quot; or \&quot;dir\&quot; only. (optional)
      * @param  string $include Comma separated list of relationships to include in response. Possible values are **share**, **notifications**, **directFile**, **parentResource**, **ownerUser**, **ownerUser**. (optional)
      *
-     * @throws \Swagger\Client\ApiException on non-2xx response
+     * @throws \ExaVault\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Swagger\Client\Model\ResourceCollectionResponse
+     * @return \ExaVault\Model\ResourceCollectionResponse
      */
     public function listResourceContents($ev_api_key, $ev_access_token, $id, $sort = null, $offset = '0', $limit = null, $type = null, $include = null)
     {
@@ -3091,13 +3091,13 @@ class ResourcesApi
      * @param  string $type Limit types of resources returned to \&quot;file\&quot; or \&quot;dir\&quot; only. (optional)
      * @param  string $include Comma separated list of relationships to include in response. Possible values are **share**, **notifications**, **directFile**, **parentResource**, **ownerUser**, **ownerUser**. (optional)
      *
-     * @throws \Swagger\Client\ApiException on non-2xx response
+     * @throws \ExaVault\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Swagger\Client\Model\ResourceCollectionResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \ExaVault\Model\ResourceCollectionResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function listResourceContentsWithHttpInfo($ev_api_key, $ev_access_token, $id, $sort = null, $offset = '0', $limit = null, $type = null, $include = null)
     {
-        $returnType = '\Swagger\Client\Model\ResourceCollectionResponse';
+        $returnType = '\ExaVault\Model\ResourceCollectionResponse';
         $request = $this->listResourceContentsRequest($ev_api_key, $ev_access_token, $id, $sort, $offset, $limit, $type, $include);
 
         try {
@@ -3149,7 +3149,7 @@ class ResourcesApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Swagger\Client\Model\ResourceCollectionResponse',
+                        '\ExaVault\Model\ResourceCollectionResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -3205,7 +3205,7 @@ class ResourcesApi
      */
     public function listResourceContentsAsyncWithHttpInfo($ev_api_key, $ev_access_token, $id, $sort = null, $offset = '0', $limit = null, $type = null, $include = null)
     {
-        $returnType = '\Swagger\Client\Model\ResourceCollectionResponse';
+        $returnType = '\ExaVault\Model\ResourceCollectionResponse';
         $request = $this->listResourceContentsRequest($ev_api_key, $ev_access_token, $id, $sort, $offset, $limit, $type, $include);
 
         return $this->client
@@ -3405,9 +3405,9 @@ class ResourcesApi
      * @param  string $name Text to match resource names. This allows you to filter the results returned. For example, to locate only zip archive files, you can enter &#x60;*zip&#x60; and only resources ending in \&quot;zip\&quot; will be included in the list of results. (optional)
      * @param  string $include Comma separated list of relationships to include in response. Possible values are **share**, **notifications**, **directFile**, **parentResource**, **ownerUser**, **ownerAccount**. (optional)
      *
-     * @throws \Swagger\Client\ApiException on non-2xx response
+     * @throws \ExaVault\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Swagger\Client\Model\ResourceCollectionResponse
+     * @return \ExaVault\Model\ResourceCollectionResponse
      */
     public function listResources($ev_api_key, $ev_access_token, $resource, $sort = null, $offset = '0', $limit = null, $type = null, $name = null, $include = null)
     {
@@ -3430,13 +3430,13 @@ class ResourcesApi
      * @param  string $name Text to match resource names. This allows you to filter the results returned. For example, to locate only zip archive files, you can enter &#x60;*zip&#x60; and only resources ending in \&quot;zip\&quot; will be included in the list of results. (optional)
      * @param  string $include Comma separated list of relationships to include in response. Possible values are **share**, **notifications**, **directFile**, **parentResource**, **ownerUser**, **ownerAccount**. (optional)
      *
-     * @throws \Swagger\Client\ApiException on non-2xx response
+     * @throws \ExaVault\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Swagger\Client\Model\ResourceCollectionResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \ExaVault\Model\ResourceCollectionResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function listResourcesWithHttpInfo($ev_api_key, $ev_access_token, $resource, $sort = null, $offset = '0', $limit = null, $type = null, $name = null, $include = null)
     {
-        $returnType = '\Swagger\Client\Model\ResourceCollectionResponse';
+        $returnType = '\ExaVault\Model\ResourceCollectionResponse';
         $request = $this->listResourcesRequest($ev_api_key, $ev_access_token, $resource, $sort, $offset, $limit, $type, $name, $include);
 
         try {
@@ -3488,7 +3488,7 @@ class ResourcesApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Swagger\Client\Model\ResourceCollectionResponse',
+                        '\ExaVault\Model\ResourceCollectionResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -3546,7 +3546,7 @@ class ResourcesApi
      */
     public function listResourcesAsyncWithHttpInfo($ev_api_key, $ev_access_token, $resource, $sort = null, $offset = '0', $limit = null, $type = null, $name = null, $include = null)
     {
-        $returnType = '\Swagger\Client\Model\ResourceCollectionResponse';
+        $returnType = '\ExaVault\Model\ResourceCollectionResponse';
         $request = $this->listResourcesRequest($ev_api_key, $ev_access_token, $resource, $sort, $offset, $limit, $type, $name, $include);
 
         return $this->client
@@ -3739,11 +3739,11 @@ class ResourcesApi
      *
      * @param  string $ev_api_key API Key required to make the API call. (required)
      * @param  string $ev_access_token Access token required to make the API call. (required)
-     * @param  \Swagger\Client\Model\Body13 $body body (optional)
+     * @param  \ExaVault\Model\Body13 $body body (optional)
      *
-     * @throws \Swagger\Client\ApiException on non-2xx response
+     * @throws \ExaVault\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Swagger\Client\Model\ResourceCopyMove
+     * @return \ExaVault\Model\ResourceCopyMove
      */
     public function moveResources($ev_api_key, $ev_access_token, $body = null)
     {
@@ -3758,15 +3758,15 @@ class ResourcesApi
      *
      * @param  string $ev_api_key API Key required to make the API call. (required)
      * @param  string $ev_access_token Access token required to make the API call. (required)
-     * @param  \Swagger\Client\Model\Body13 $body (optional)
+     * @param  \ExaVault\Model\Body13 $body (optional)
      *
-     * @throws \Swagger\Client\ApiException on non-2xx response
+     * @throws \ExaVault\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Swagger\Client\Model\ResourceCopyMove, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \ExaVault\Model\ResourceCopyMove, HTTP status code, HTTP response headers (array of strings)
      */
     public function moveResourcesWithHttpInfo($ev_api_key, $ev_access_token, $body = null)
     {
-        $returnType = '\Swagger\Client\Model\ResourceCopyMove';
+        $returnType = '\ExaVault\Model\ResourceCopyMove';
         $request = $this->moveResourcesRequest($ev_api_key, $ev_access_token, $body);
 
         try {
@@ -3818,7 +3818,7 @@ class ResourcesApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Swagger\Client\Model\ResourceCopyMove',
+                        '\ExaVault\Model\ResourceCopyMove',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -3826,7 +3826,7 @@ class ResourcesApi
                 case 207:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Swagger\Client\Model\ResourceMultiResponse',
+                        '\ExaVault\Model\ResourceMultiResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -3843,7 +3843,7 @@ class ResourcesApi
      *
      * @param  string $ev_api_key API Key required to make the API call. (required)
      * @param  string $ev_access_token Access token required to make the API call. (required)
-     * @param  \Swagger\Client\Model\Body13 $body (optional)
+     * @param  \ExaVault\Model\Body13 $body (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -3865,14 +3865,14 @@ class ResourcesApi
      *
      * @param  string $ev_api_key API Key required to make the API call. (required)
      * @param  string $ev_access_token Access token required to make the API call. (required)
-     * @param  \Swagger\Client\Model\Body13 $body (optional)
+     * @param  \ExaVault\Model\Body13 $body (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
     public function moveResourcesAsyncWithHttpInfo($ev_api_key, $ev_access_token, $body = null)
     {
-        $returnType = '\Swagger\Client\Model\ResourceCopyMove';
+        $returnType = '\ExaVault\Model\ResourceCopyMove';
         $request = $this->moveResourcesRequest($ev_api_key, $ev_access_token, $body);
 
         return $this->client
@@ -3917,7 +3917,7 @@ class ResourcesApi
      *
      * @param  string $ev_api_key API Key required to make the API call. (required)
      * @param  string $ev_access_token Access token required to make the API call. (required)
-     * @param  \Swagger\Client\Model\Body13 $body (optional)
+     * @param  \ExaVault\Model\Body13 $body (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -4029,11 +4029,11 @@ class ResourcesApi
      * @param  string $ev_access_token Access token required to make the API call. (required)
      * @param  string $ev_api_key API key required to make the API call. (required)
      * @param  int $id ID number of the resource (required)
-     * @param  \Swagger\Client\Model\Body7 $body body (optional)
+     * @param  \ExaVault\Model\Body7 $body body (optional)
      *
-     * @throws \Swagger\Client\ApiException on non-2xx response
+     * @throws \ExaVault\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Swagger\Client\Model\ResourceResponse
+     * @return \ExaVault\Model\ResourceResponse
      */
     public function updateResourceById($ev_access_token, $ev_api_key, $id, $body = null)
     {
@@ -4049,15 +4049,15 @@ class ResourcesApi
      * @param  string $ev_access_token Access token required to make the API call. (required)
      * @param  string $ev_api_key API key required to make the API call. (required)
      * @param  int $id ID number of the resource (required)
-     * @param  \Swagger\Client\Model\Body7 $body (optional)
+     * @param  \ExaVault\Model\Body7 $body (optional)
      *
-     * @throws \Swagger\Client\ApiException on non-2xx response
+     * @throws \ExaVault\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Swagger\Client\Model\ResourceResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \ExaVault\Model\ResourceResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function updateResourceByIdWithHttpInfo($ev_access_token, $ev_api_key, $id, $body = null)
     {
-        $returnType = '\Swagger\Client\Model\ResourceResponse';
+        $returnType = '\ExaVault\Model\ResourceResponse';
         $request = $this->updateResourceByIdRequest($ev_access_token, $ev_api_key, $id, $body);
 
         try {
@@ -4109,7 +4109,7 @@ class ResourcesApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Swagger\Client\Model\ResourceResponse',
+                        '\ExaVault\Model\ResourceResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -4127,7 +4127,7 @@ class ResourcesApi
      * @param  string $ev_access_token Access token required to make the API call. (required)
      * @param  string $ev_api_key API key required to make the API call. (required)
      * @param  int $id ID number of the resource (required)
-     * @param  \Swagger\Client\Model\Body7 $body (optional)
+     * @param  \ExaVault\Model\Body7 $body (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -4150,14 +4150,14 @@ class ResourcesApi
      * @param  string $ev_access_token Access token required to make the API call. (required)
      * @param  string $ev_api_key API key required to make the API call. (required)
      * @param  int $id ID number of the resource (required)
-     * @param  \Swagger\Client\Model\Body7 $body (optional)
+     * @param  \ExaVault\Model\Body7 $body (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
     public function updateResourceByIdAsyncWithHttpInfo($ev_access_token, $ev_api_key, $id, $body = null)
     {
-        $returnType = '\Swagger\Client\Model\ResourceResponse';
+        $returnType = '\ExaVault\Model\ResourceResponse';
         $request = $this->updateResourceByIdRequest($ev_access_token, $ev_api_key, $id, $body);
 
         return $this->client
@@ -4203,7 +4203,7 @@ class ResourcesApi
      * @param  string $ev_access_token Access token required to make the API call. (required)
      * @param  string $ev_api_key API key required to make the API call. (required)
      * @param  int $id ID number of the resource (required)
-     * @param  \Swagger\Client\Model\Body7 $body (optional)
+     * @param  \ExaVault\Model\Body7 $body (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -4335,9 +4335,9 @@ class ResourcesApi
      * @param  bool $resume True if upload resume is supported, false if it isn&#x27;t. (optional, default to true)
      * @param  bool $allow_overwrite True if a file with the same name is found in the designated path, should be overwritten. False if different file names should be generated. (optional, default to false)
      *
-     * @throws \Swagger\Client\ApiException on non-2xx response
+     * @throws \ExaVault\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Swagger\Client\Model\ResourceResponse
+     * @return \ExaVault\Model\ResourceResponse
      */
     public function uploadFile($ev_api_key, $ev_access_token, $path, $file_size, $file = null, $offset_bytes = null, $resume = 'true', $allow_overwrite = 'false')
     {
@@ -4359,13 +4359,13 @@ class ResourcesApi
      * @param  bool $resume True if upload resume is supported, false if it isn&#x27;t. (optional, default to true)
      * @param  bool $allow_overwrite True if a file with the same name is found in the designated path, should be overwritten. False if different file names should be generated. (optional, default to false)
      *
-     * @throws \Swagger\Client\ApiException on non-2xx response
+     * @throws \ExaVault\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Swagger\Client\Model\ResourceResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \ExaVault\Model\ResourceResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function uploadFileWithHttpInfo($ev_api_key, $ev_access_token, $path, $file_size, $file = null, $offset_bytes = null, $resume = 'true', $allow_overwrite = 'false')
     {
-        $returnType = '\Swagger\Client\Model\ResourceResponse';
+        $returnType = '\ExaVault\Model\ResourceResponse';
         $request = $this->uploadFileRequest($ev_api_key, $ev_access_token, $path, $file_size, $file, $offset_bytes, $resume, $allow_overwrite);
 
         try {
@@ -4417,7 +4417,7 @@ class ResourcesApi
                 case 201:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Swagger\Client\Model\ResourceResponse',
+                        '\ExaVault\Model\ResourceResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -4473,7 +4473,7 @@ class ResourcesApi
      */
     public function uploadFileAsyncWithHttpInfo($ev_api_key, $ev_access_token, $path, $file_size, $file = null, $offset_bytes = null, $resume = 'true', $allow_overwrite = 'false')
     {
-        $returnType = '\Swagger\Client\Model\ResourceResponse';
+        $returnType = '\ExaVault\Model\ResourceResponse';
         $request = $this->uploadFileRequest($ev_api_key, $ev_access_token, $path, $file_size, $file, $offset_bytes, $resume, $allow_overwrite);
 
         return $this->client

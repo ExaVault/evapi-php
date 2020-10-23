@@ -5,7 +5,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  Swagger\Client
+ * @package  ExaVault
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
@@ -26,17 +26,17 @@
  * Do not edit the class manually.
  */
 
-namespace Swagger\Client\Model;
+namespace ExaVault\Model;
 
 use \ArrayAccess;
-use \Swagger\Client\ObjectSerializer;
+use \ExaVault\ObjectSerializer;
 
 /**
  * ResourceCollectionResponse Class Doc Comment
  *
  * @category Class
  * @description Response object for collection of resources.
- * @package  Swagger\Client
+ * @package  ExaVault
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
@@ -60,8 +60,8 @@ class ResourceCollectionResponse implements ModelInterface, ArrayAccess
         'response_status' => 'int',
 'total_results' => 'int',
 'returned_results' => 'int',
-'data' => '\Swagger\Client\Model\Resource[]',
-'included' => '\Swagger\Client\Model\AnyOfResourceCollectionResponseIncludedItems[]'    ];
+'data' => '\ExaVault\Model\Resource[]',
+'included' => '\ExaVault\Model\AnyOfResourceCollectionResponseIncludedItems[]'    ];
 
     /**
       * Array of property to format mappings. Used for (de)serialization
@@ -296,7 +296,7 @@ class ResourceCollectionResponse implements ModelInterface, ArrayAccess
     /**
      * Gets data
      *
-     * @return \Swagger\Client\Model\Resource[]
+     * @return \ExaVault\Model\Resource[]
      */
     public function getData()
     {
@@ -306,7 +306,7 @@ class ResourceCollectionResponse implements ModelInterface, ArrayAccess
     /**
      * Sets data
      *
-     * @param \Swagger\Client\Model\Resource[] $data data
+     * @param \ExaVault\Model\Resource[] $data data
      *
      * @return $this
      */
@@ -320,7 +320,7 @@ class ResourceCollectionResponse implements ModelInterface, ArrayAccess
     /**
      * Gets included
      *
-     * @return \Swagger\Client\Model\AnyOfResourceCollectionResponseIncludedItems[]
+     * @return \ExaVault\Model\AnyOfResourceCollectionResponseIncludedItems[]
      */
     public function getIncluded()
     {
@@ -330,7 +330,7 @@ class ResourceCollectionResponse implements ModelInterface, ArrayAccess
     /**
      * Sets included
      *
-     * @param \Swagger\Client\Model\AnyOfResourceCollectionResponseIncludedItems[] $included included
+     * @param \ExaVault\Model\AnyOfResourceCollectionResponseIncludedItems[] $included included
      *
      * @return $this
      */

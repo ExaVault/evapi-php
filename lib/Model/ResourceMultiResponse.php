@@ -5,7 +5,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  Swagger\Client
+ * @package  ExaVault
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
@@ -26,16 +26,16 @@
  * Do not edit the class manually.
  */
 
-namespace Swagger\Client\Model;
+namespace ExaVault\Model;
 
 use \ArrayAccess;
-use \Swagger\Client\ObjectSerializer;
+use \ExaVault\ObjectSerializer;
 
 /**
  * ResourceMultiResponse Class Doc Comment
  *
  * @category Class
- * @package  Swagger\Client
+ * @package  ExaVault
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
@@ -56,7 +56,7 @@ class ResourceMultiResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'responses' => '\Swagger\Client\Model\AnyOfResourceMultiResponseResponsesItems[]'    ];
+        'responses' => '\ExaVault\Model\AnyOfResourceMultiResponseResponsesItems[]'    ];
 
     /**
       * Array of property to format mappings. Used for (de)serialization
@@ -199,7 +199,7 @@ class ResourceMultiResponse implements ModelInterface, ArrayAccess
     /**
      * Gets responses
      *
-     * @return \Swagger\Client\Model\AnyOfResourceMultiResponseResponsesItems[]
+     * @return \ExaVault\Model\AnyOfResourceMultiResponseResponsesItems[]
      */
     public function getResponses()
     {
@@ -209,7 +209,7 @@ class ResourceMultiResponse implements ModelInterface, ArrayAccess
     /**
      * Sets responses
      *
-     * @param \Swagger\Client\Model\AnyOfResourceMultiResponseResponsesItems[] $responses responses
+     * @param \ExaVault\Model\AnyOfResourceMultiResponseResponsesItems[] $responses responses
      *
      * @return $this
      */
