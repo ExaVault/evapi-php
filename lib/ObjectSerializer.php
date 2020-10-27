@@ -301,7 +301,7 @@ class ObjectSerializer
             }
             /**EV Customization - if the discriminator is "type" it's one we set manually so call the other class */
             if ($discriminator == "type") {
-                $class = "Swagger\Client\Model\\" . ucfirst($data->type);
+                $class = "ExaVault\\Model\\" . ucfirst($data->type);
             }
             /**EV End of customization */
             $instance = new $class();

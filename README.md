@@ -31,25 +31,25 @@ When you're ready to write your own code using this library, you'll need to:
 
 1. Install our code library in your project, either with `composer require exavault/evapi-php "~2.0"` or by downloading this repository and running `composer install`
 1. Include the generated `vendor/autoload.php` to the top of your script
-1. Provide your API key and access token with every function method on the Api classes, which are in th Swagger\Client\Api namespace.
+1. Provide your API key and access token with every function method on the Api classes, which are in the ExaVault\Api namespace.
 1. Whenever you instantiate an Api object (ResourcesApi, UsersApi, etc.), override the configuration to point the code at the correct API URL:
 ```php
 $account_url = "https://YOUR_ACCOUNT_NAME_HERE.exavault.com/api/v2/";
-$accountApi = new Swagger\Client\Api\AccountApi(
+$accountApi = new ExaVault\Api\AccountApi(
     new GuzzleHttp\Client(),
-    (new Swagger\Client\Configuration())->setHost($account_url)
+    (new ExaVault\Configuration())->setHost($account_url)
 );
 ```
 ```php
-$resourcesApi = new Swagger\Client\Api\ResourcesApi(
+$resourcesApi = new ExaVault\Api\ResourcesApi(
     new GuzzleHttp\Client(),
-    (new Swagger\Client\Configuration())->setHost($account_url)
+    (new ExaVault\Configuration())->setHost($account_url)
 );
 ```
 ```php
-$usersApi = new Swagger\Client\Api\UsersApi(
+$usersApi = new ExaVault\Api\UsersApi(
     new GuzzleHttp\Client(),
-    (new Swagger\Client\Configuration())->setHost($account_url)
+    (new ExaVault\Configuration())->setHost($account_url)
 );
 ```
 
