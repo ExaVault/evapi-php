@@ -29,7 +29,7 @@ For a gentle introduction to using PHP code with ExaVault's API, check out [our 
 
 When you're ready to write your own code using this library, you'll need to:
 
-1. Install our code library in your project, either with `composer require exavault/evapi-php "~2.0"` or by downloading this repository and running `composer install`
+1. Install our code library in your project, either with `composer require exavault/evapi-php "~2.1"` or by downloading this repository and running `composer install`
 1. Include the generated `vendor/autoload.php` to the top of your script
 1. Provide your API key and access token with every function method on the Api classes, which are in the ExaVault\Api namespace.
 1. Whenever you instantiate an Api object (ResourcesApi, UsersApi, etc.), override the configuration to point the code at the correct API URL:
