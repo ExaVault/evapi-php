@@ -1,4 +1,4 @@
-# ExaVault PHP API Library - v2.0
+# ExaVault PHP API Library - v2.1.1
 
 ## Introduction
 Welcome to ExaVault's PHP code library for our v2 API. Our v2 API will allow you to interact with all aspects of the service the same way our web portal would. The library is generated from our API's [public swagger YAML file](https://www.exavault.com/api/docs/evapi_2.0_public.yaml)
