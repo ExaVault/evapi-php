@@ -1,4 +1,4 @@
-# ExaVault PHP API Library - v2.0
+# ExaVault PHP API Library - v2.1.1
 
 ## Introduction
 Welcome to ExaVault's PHP code library for our v2 API. Our v2 API will allow you to interact with all aspects of the service the same way our web portal would. The library is generated from our API's [public swagger YAML file](https://www.exavault.com/api/docs/evapi_2.0_public.yaml)
@@ -29,7 +29,7 @@ For a gentle introduction to using PHP code with ExaVault's API, check out [our 
 
 When you're ready to write your own code using this library, you'll need to:
 
-1. Install our code library in your project, either with `composer require exavault/evapi-php` or by downloading this repository and running `composer install`
+1. Install our code library in your project, either with `composer require exavault/evapi-php "~2.1"` or by downloading this repository and running `composer install`
 1. Include the generated `vendor/autoload.php` to the top of your script
 1. Provide your API key and access token with every function method on the Api classes, which are in the ExaVault\Api namespace.
 1. Whenever you instantiate an Api object (ResourcesApi, UsersApi, etc.), override the configuration to point the code at the correct API URL:
