@@ -67,7 +67,7 @@ class SessionActivityEntry implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'id' => null,
+        'id' => 'int64',
 'type' => null,
 'attributes' => null    ];
 

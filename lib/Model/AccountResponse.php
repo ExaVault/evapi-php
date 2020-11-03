@@ -58,7 +58,7 @@ class AccountResponse implements ModelInterface, ArrayAccess
     protected static $swaggerTypes = [
         'response_status' => 'int',
 'data' => '\ExaVault\Model\Account',
-'included' => '\ExaVault\Model\AnyOfAccountResponseIncludedItems[]'    ];
+'included' => '\ExaVault\Model\User[]'    ];
 
     /**
       * Array of property to format mappings. Used for (de)serialization
@@ -259,7 +259,7 @@ class AccountResponse implements ModelInterface, ArrayAccess
     /**
      * Gets included
      *
-     * @return \ExaVault\Model\AnyOfAccountResponseIncludedItems[]
+     * @return \ExaVault\Model\User[]
      */
     public function getIncluded()
     {
@@ -269,7 +269,7 @@ class AccountResponse implements ModelInterface, ArrayAccess
     /**
      * Sets included
      *
-     * @param \ExaVault\Model\AnyOfAccountResponseIncludedItems[] $included Array can contain objects specified in include param of the get call e.g User object
+     * @param \ExaVault\Model\User[] $included Array can contain objects specified in include param of the get call e.g User object
      *
      * @return $this
      */

@@ -99,7 +99,7 @@ class Body10 implements ModelInterface, ArrayAccess
     protected static $attributeMap = [
         'resources' => 'resources',
 'parent_resource' => 'parentResource',
-'archive_name' => 'archive Name'    ];
+'archive_name' => 'archiveName'    ];
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)

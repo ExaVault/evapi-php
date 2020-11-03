@@ -59,7 +59,7 @@ class FormResponse implements ModelInterface, ArrayAccess
     protected static $swaggerTypes = [
         'response_status' => 'int',
 'data' => '\ExaVault\Model\Form',
-'included' => '\ExaVault\Model\AnyOfFormResponseIncludedItems[]'    ];
+'included' => '\ExaVault\Model\Share[]'    ];
 
     /**
       * Array of property to format mappings. Used for (de)serialization
@@ -260,7 +260,7 @@ class FormResponse implements ModelInterface, ArrayAccess
     /**
      * Gets included
      *
-     * @return \ExaVault\Model\AnyOfFormResponseIncludedItems[]
+     * @return \ExaVault\Model\Share[]
      */
     public function getIncluded()
     {
@@ -270,7 +270,7 @@ class FormResponse implements ModelInterface, ArrayAccess
     /**
      * Sets included
      *
-     * @param \ExaVault\Model\AnyOfFormResponseIncludedItems[] $included included
+     * @param \ExaVault\Model\Share[] $included included
      *
      * @return $this
      */

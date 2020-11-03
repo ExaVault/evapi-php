@@ -35,7 +35,7 @@ use \ExaVault\ObjectSerializer;
  * FormEntryField Class Doc Comment
  *
  * @category Class
- * @description Attributes of the form including it&#x27;s included fields and css styles
+ * @description Attributes of the form including its included fields and css styles
  * @package  ExaVault
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen

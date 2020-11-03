@@ -1527,7 +1527,7 @@ class ResourcesApi
      * @param  string $ev_access_token Access token required to make the API call. (required)
      * @param  string[] $resources Path of file or folder to be downloaded, starting from the root. Can also be an array of paths. (required)
      * @param  string $download_name If zipping multiple files, the name of the zip file to create and download. (optional)
-     * @param  bool $polling Used when downloading multiple files so url will be pulled till zip file is created. (optional)
+     * @param  bool $polling Used when downloading multiple files so url will be polled till zip file is created. (optional)
      * @param  string $polling_zip_name Reference to the previously created zip for polling operation. (optional)
      *
      * @throws \ExaVault\ApiException on non-2xx response
@@ -1549,7 +1549,7 @@ class ResourcesApi
      * @param  string $ev_access_token Access token required to make the API call. (required)
      * @param  string[] $resources Path of file or folder to be downloaded, starting from the root. Can also be an array of paths. (required)
      * @param  string $download_name If zipping multiple files, the name of the zip file to create and download. (optional)
-     * @param  bool $polling Used when downloading multiple files so url will be pulled till zip file is created. (optional)
+     * @param  bool $polling Used when downloading multiple files so url will be polled till zip file is created. (optional)
      * @param  string $polling_zip_name Reference to the previously created zip for polling operation. (optional)
      *
      * @throws \ExaVault\ApiException on non-2xx response
@@ -1637,7 +1637,7 @@ class ResourcesApi
      * @param  string $ev_access_token Access token required to make the API call. (required)
      * @param  string[] $resources Path of file or folder to be downloaded, starting from the root. Can also be an array of paths. (required)
      * @param  string $download_name If zipping multiple files, the name of the zip file to create and download. (optional)
-     * @param  bool $polling Used when downloading multiple files so url will be pulled till zip file is created. (optional)
+     * @param  bool $polling Used when downloading multiple files so url will be polled till zip file is created. (optional)
      * @param  string $polling_zip_name Reference to the previously created zip for polling operation. (optional)
      *
      * @throws \InvalidArgumentException
@@ -1662,7 +1662,7 @@ class ResourcesApi
      * @param  string $ev_access_token Access token required to make the API call. (required)
      * @param  string[] $resources Path of file or folder to be downloaded, starting from the root. Can also be an array of paths. (required)
      * @param  string $download_name If zipping multiple files, the name of the zip file to create and download. (optional)
-     * @param  bool $polling Used when downloading multiple files so url will be pulled till zip file is created. (optional)
+     * @param  bool $polling Used when downloading multiple files so url will be polled till zip file is created. (optional)
      * @param  string $polling_zip_name Reference to the previously created zip for polling operation. (optional)
      *
      * @throws \InvalidArgumentException
@@ -1717,7 +1717,7 @@ class ResourcesApi
      * @param  string $ev_access_token Access token required to make the API call. (required)
      * @param  string[] $resources Path of file or folder to be downloaded, starting from the root. Can also be an array of paths. (required)
      * @param  string $download_name If zipping multiple files, the name of the zip file to create and download. (optional)
-     * @param  bool $polling Used when downloading multiple files so url will be pulled till zip file is created. (optional)
+     * @param  bool $polling Used when downloading multiple files so url will be polled till zip file is created. (optional)
      * @param  string $polling_zip_name Reference to the previously created zip for polling operation. (optional)
      *
      * @throws \InvalidArgumentException
