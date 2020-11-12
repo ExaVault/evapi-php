@@ -1,6 +1,6 @@
 <?php
 /**
- * UserRelationshipsHomeResourceData
+ * CompressFilesRequestBody
  *
  * PHP version 5
  *
@@ -32,14 +32,14 @@ use \ArrayAccess;
 use \ExaVault\ObjectSerializer;
 
 /**
- * UserRelationshipsHomeResourceData Class Doc Comment
+ * CompressFilesRequestBody Class Doc Comment
  *
  * @category Class
  * @package  ExaVault
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class UserRelationshipsHomeResourceData implements ModelInterface, ArrayAccess
+class CompressFilesRequestBody implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -48,7 +48,7 @@ class UserRelationshipsHomeResourceData implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'User_relationships_homeResource_data';
+    protected static $swaggerModelName = 'CompressFilesRequestBody';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -56,8 +56,9 @@ class UserRelationshipsHomeResourceData implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'type' => 'string',
-'id' => 'int'    ];
+        'resources' => 'string[]',
+'parent_resource' => 'string',
+'archive_name' => 'string'    ];
 
     /**
       * Array of property to format mappings. Used for (de)serialization
@@ -65,8 +66,9 @@ class UserRelationshipsHomeResourceData implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'type' => null,
-'id' => 'int64'    ];
+        'resources' => null,
+'parent_resource' => null,
+'archive_name' => null    ];
 
     /**
      * Array of property to type mappings. Used for (de)serialization
@@ -95,8 +97,9 @@ class UserRelationshipsHomeResourceData implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'type' => 'type',
-'id' => 'id'    ];
+        'resources' => 'resources',
+'parent_resource' => 'parentResource',
+'archive_name' => 'archiveName'    ];
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
@@ -104,8 +107,9 @@ class UserRelationshipsHomeResourceData implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'type' => 'setType',
-'id' => 'setId'    ];
+        'resources' => 'setResources',
+'parent_resource' => 'setParentResource',
+'archive_name' => 'setArchiveName'    ];
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
@@ -113,8 +117,9 @@ class UserRelationshipsHomeResourceData implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'type' => 'getType',
-'id' => 'getId'    ];
+        'resources' => 'getResources',
+'parent_resource' => 'getParentResource',
+'archive_name' => 'getArchiveName'    ];
 
     /**
      * Array of attributes where the key is the local name,
@@ -157,18 +162,7 @@ class UserRelationshipsHomeResourceData implements ModelInterface, ArrayAccess
         return self::$swaggerModelName;
     }
 
-    const TYPE_RESOURCE = 'resource';
-
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getTypeAllowableValues()
-    {
-        return [
-            self::TYPE_RESOURCE,        ];
-    }
+    
 
     /**
      * Associative array for storing property values
@@ -185,8 +179,9 @@ class UserRelationshipsHomeResourceData implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['type'] = isset($data['type']) ? $data['type'] : null;
-        $this->container['id'] = isset($data['id']) ? $data['id'] : null;
+        $this->container['resources'] = isset($data['resources']) ? $data['resources'] : null;
+        $this->container['parent_resource'] = isset($data['parent_resource']) ? $data['parent_resource'] : null;
+        $this->container['archive_name'] = isset($data['archive_name']) ? $data['archive_name'] : null;
     }
 
     /**
@@ -198,14 +193,9 @@ class UserRelationshipsHomeResourceData implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        $allowedValues = $this->getTypeAllowableValues();
-        if (!is_null($this->container['type']) && !in_array($this->container['type'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value for 'type', must be one of '%s'",
-                implode("', '", $allowedValues)
-            );
+        if ($this->container['resources'] === null) {
+            $invalidProperties[] = "'resources' can't be null";
         }
-
         return $invalidProperties;
     }
 
@@ -222,58 +212,73 @@ class UserRelationshipsHomeResourceData implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets type
+     * Gets resources
      *
-     * @return string
+     * @return string[]
      */
-    public function getType()
+    public function getResources()
     {
-        return $this->container['type'];
+        return $this->container['resources'];
     }
 
     /**
-     * Sets type
+     * Sets resources
      *
-     * @param string $type Type is resource.
+     * @param string[] $resources Resource identifiers for file(s)/folder(s) to include in new zip file
      *
      * @return $this
      */
-    public function setType($type)
+    public function setResources($resources)
     {
-        $allowedValues = $this->getTypeAllowableValues();
-        if (!is_null($type) && !in_array($type, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value for 'type', must be one of '%s'",
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
-        $this->container['type'] = $type;
+        $this->container['resources'] = $resources;
 
         return $this;
     }
 
     /**
-     * Gets id
+     * Gets parent_resource
      *
-     * @return int
+     * @return string
      */
-    public function getId()
+    public function getParentResource()
     {
-        return $this->container['id'];
+        return $this->container['parent_resource'];
     }
 
     /**
-     * Sets id
+     * Sets parent_resource
      *
-     * @param int $id ID of home directory resource.
+     * @param string $parent_resource Full path to folder new archive will be created in. If left blank, \"/\" will be used.
      *
      * @return $this
      */
-    public function setId($id)
+    public function setParentResource($parent_resource)
     {
-        $this->container['id'] = $id;
+        $this->container['parent_resource'] = $parent_resource;
+
+        return $this;
+    }
+
+    /**
+     * Gets archive_name
+     *
+     * @return string
+     */
+    public function getArchiveName()
+    {
+        return $this->container['archive_name'];
+    }
+
+    /**
+     * Sets archive_name
+     *
+     * @param string $archive_name Name of the zip archive to create. If left blank, current date will be used.
+     *
+     * @return $this
+     */
+    public function setArchiveName($archive_name)
+    {
+        $this->container['archive_name'] = $archive_name;
 
         return $this;
     }

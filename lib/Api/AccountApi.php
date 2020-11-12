@@ -375,7 +375,7 @@ class AccountApi
      *
      * @param  string $ev_api_key API Key required to make the API call. (required)
      * @param  string $ev_access_token Access token required to make the API call. (required)
-     * @param  \ExaVault\Model\UpdateAccountBody $body Update Account Settings (optional)
+     * @param  \ExaVault\Model\UpdateAccountRequestBody $body Update Account Settings (optional)
      *
      * @throws \ExaVault\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -394,7 +394,7 @@ class AccountApi
      *
      * @param  string $ev_api_key API Key required to make the API call. (required)
      * @param  string $ev_access_token Access token required to make the API call. (required)
-     * @param  \ExaVault\Model\UpdateAccountBody $body Update Account Settings (optional)
+     * @param  \ExaVault\Model\UpdateAccountRequestBody $body Update Account Settings (optional)
      *
      * @throws \ExaVault\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -471,7 +471,7 @@ class AccountApi
      *
      * @param  string $ev_api_key API Key required to make the API call. (required)
      * @param  string $ev_access_token Access token required to make the API call. (required)
-     * @param  \ExaVault\Model\UpdateAccountBody $body Update Account Settings (optional)
+     * @param  \ExaVault\Model\UpdateAccountRequestBody $body Update Account Settings (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -493,7 +493,7 @@ class AccountApi
      *
      * @param  string $ev_api_key API Key required to make the API call. (required)
      * @param  string $ev_access_token Access token required to make the API call. (required)
-     * @param  \ExaVault\Model\UpdateAccountBody $body Update Account Settings (optional)
+     * @param  \ExaVault\Model\UpdateAccountRequestBody $body Update Account Settings (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -545,7 +545,7 @@ class AccountApi
      *
      * @param  string $ev_api_key API Key required to make the API call. (required)
      * @param  string $ev_access_token Access token required to make the API call. (required)
-     * @param  \ExaVault\Model\UpdateAccountBody $body Update Account Settings (optional)
+     * @param  \ExaVault\Model\UpdateAccountRequestBody $body Update Account Settings (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request

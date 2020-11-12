@@ -93,7 +93,7 @@ class ResourcesApi
      *
      * @param  string $ev_api_key API Key required to make the API call. (required)
      * @param  string $ev_access_token Access token required to make the API call. (required)
-     * @param  \ExaVault\Model\Body8 $body body (optional)
+     * @param  \ExaVault\Model\AddFolderRequestBody $body body (optional)
      *
      * @throws \ExaVault\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -112,7 +112,7 @@ class ResourcesApi
      *
      * @param  string $ev_api_key API Key required to make the API call. (required)
      * @param  string $ev_access_token Access token required to make the API call. (required)
-     * @param  \ExaVault\Model\Body8 $body (optional)
+     * @param  \ExaVault\Model\AddFolderRequestBody $body (optional)
      *
      * @throws \ExaVault\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -189,7 +189,7 @@ class ResourcesApi
      *
      * @param  string $ev_api_key API Key required to make the API call. (required)
      * @param  string $ev_access_token Access token required to make the API call. (required)
-     * @param  \ExaVault\Model\Body8 $body (optional)
+     * @param  \ExaVault\Model\AddFolderRequestBody $body (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -211,7 +211,7 @@ class ResourcesApi
      *
      * @param  string $ev_api_key API Key required to make the API call. (required)
      * @param  string $ev_access_token Access token required to make the API call. (required)
-     * @param  \ExaVault\Model\Body8 $body (optional)
+     * @param  \ExaVault\Model\AddFolderRequestBody $body (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -263,7 +263,7 @@ class ResourcesApi
      *
      * @param  string $ev_api_key API Key required to make the API call. (required)
      * @param  string $ev_access_token Access token required to make the API call. (required)
-     * @param  \ExaVault\Model\Body8 $body (optional)
+     * @param  \ExaVault\Model\AddFolderRequestBody $body (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -374,7 +374,7 @@ class ResourcesApi
      *
      * @param  string $ev_api_key API Key required to make the API call. (required)
      * @param  string $ev_access_token Access token required to make the API call. (required)
-     * @param  \ExaVault\Model\Body10 $body body (optional)
+     * @param  \ExaVault\Model\CompressFilesRequestBody $body body (optional)
      *
      * @throws \ExaVault\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -393,7 +393,7 @@ class ResourcesApi
      *
      * @param  string $ev_api_key API Key required to make the API call. (required)
      * @param  string $ev_access_token Access token required to make the API call. (required)
-     * @param  \ExaVault\Model\Body10 $body (optional)
+     * @param  \ExaVault\Model\CompressFilesRequestBody $body (optional)
      *
      * @throws \ExaVault\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -470,7 +470,7 @@ class ResourcesApi
      *
      * @param  string $ev_api_key API Key required to make the API call. (required)
      * @param  string $ev_access_token Access token required to make the API call. (required)
-     * @param  \ExaVault\Model\Body10 $body (optional)
+     * @param  \ExaVault\Model\CompressFilesRequestBody $body (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -492,7 +492,7 @@ class ResourcesApi
      *
      * @param  string $ev_api_key API Key required to make the API call. (required)
      * @param  string $ev_access_token Access token required to make the API call. (required)
-     * @param  \ExaVault\Model\Body10 $body (optional)
+     * @param  \ExaVault\Model\CompressFilesRequestBody $body (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -544,7 +544,7 @@ class ResourcesApi
      *
      * @param  string $ev_api_key API Key required to make the API call. (required)
      * @param  string $ev_access_token Access token required to make the API call. (required)
-     * @param  \ExaVault\Model\Body10 $body (optional)
+     * @param  \ExaVault\Model\CompressFilesRequestBody $body (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -655,7 +655,7 @@ class ResourcesApi
      *
      * @param  string $ev_api_key API Key required to make the API call. (required)
      * @param  string $ev_access_token Access token required to make the API call. (required)
-     * @param  \ExaVault\Model\Body12 $body body (optional)
+     * @param  \ExaVault\Model\CopyResourcesRequestBody $body body (optional)
      *
      * @throws \ExaVault\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -674,7 +674,7 @@ class ResourcesApi
      *
      * @param  string $ev_api_key API Key required to make the API call. (required)
      * @param  string $ev_access_token Access token required to make the API call. (required)
-     * @param  \ExaVault\Model\Body12 $body (optional)
+     * @param  \ExaVault\Model\CopyResourcesRequestBody $body (optional)
      *
      * @throws \ExaVault\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -759,7 +759,7 @@ class ResourcesApi
      *
      * @param  string $ev_api_key API Key required to make the API call. (required)
      * @param  string $ev_access_token Access token required to make the API call. (required)
-     * @param  \ExaVault\Model\Body12 $body (optional)
+     * @param  \ExaVault\Model\CopyResourcesRequestBody $body (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -781,7 +781,7 @@ class ResourcesApi
      *
      * @param  string $ev_api_key API Key required to make the API call. (required)
      * @param  string $ev_access_token Access token required to make the API call. (required)
-     * @param  \ExaVault\Model\Body12 $body (optional)
+     * @param  \ExaVault\Model\CopyResourcesRequestBody $body (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -833,7 +833,7 @@ class ResourcesApi
      *
      * @param  string $ev_api_key API Key required to make the API call. (required)
      * @param  string $ev_access_token Access token required to make the API call. (required)
-     * @param  \ExaVault\Model\Body12 $body (optional)
+     * @param  \ExaVault\Model\CopyResourcesRequestBody $body (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -1236,7 +1236,7 @@ class ResourcesApi
      *
      * @param  string $ev_api_key API Key (required)
      * @param  string $ev_access_token Access Token (required)
-     * @param  \ExaVault\Model\Body9 $body body (optional)
+     * @param  \ExaVault\Model\DeleteResourcesRequestBody $body body (optional)
      *
      * @throws \ExaVault\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -1255,7 +1255,7 @@ class ResourcesApi
      *
      * @param  string $ev_api_key API Key (required)
      * @param  string $ev_access_token Access Token (required)
-     * @param  \ExaVault\Model\Body9 $body (optional)
+     * @param  \ExaVault\Model\DeleteResourcesRequestBody $body (optional)
      *
      * @throws \ExaVault\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -1340,7 +1340,7 @@ class ResourcesApi
      *
      * @param  string $ev_api_key API Key (required)
      * @param  string $ev_access_token Access Token (required)
-     * @param  \ExaVault\Model\Body9 $body (optional)
+     * @param  \ExaVault\Model\DeleteResourcesRequestBody $body (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -1362,7 +1362,7 @@ class ResourcesApi
      *
      * @param  string $ev_api_key API Key (required)
      * @param  string $ev_access_token Access Token (required)
-     * @param  \ExaVault\Model\Body9 $body (optional)
+     * @param  \ExaVault\Model\DeleteResourcesRequestBody $body (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -1414,7 +1414,7 @@ class ResourcesApi
      *
      * @param  string $ev_api_key API Key (required)
      * @param  string $ev_access_token Access Token (required)
-     * @param  \ExaVault\Model\Body9 $body (optional)
+     * @param  \ExaVault\Model\DeleteResourcesRequestBody $body (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -1526,17 +1526,17 @@ class ResourcesApi
      * @param  string $ev_api_key API Key required to make the API call. (required)
      * @param  string $ev_access_token Access token required to make the API call. (required)
      * @param  string[] $resources Path of file or folder to be downloaded, starting from the root. Can also be an array of paths. (required)
-     * @param  string $download_name If zipping multiple files, the name of the zip file to create and download. (optional)
+     * @param  string $download_archive_name If zipping multiple files, the name of the zip file to create and download. (optional)
      * @param  bool $polling Used when downloading multiple files so url will be polled till zip file is created. (optional)
-     * @param  string $polling_zip_name Reference to the previously created zip for polling operation. (optional)
+     * @param  string $polling_archive_name Reference to the previously created zip for polling operation. (optional)
      *
      * @throws \ExaVault\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return string
      */
-    public function download($ev_api_key, $ev_access_token, $resources, $download_name = null, $polling = null, $polling_zip_name = null)
+    public function download($ev_api_key, $ev_access_token, $resources, $download_archive_name = null, $polling = null, $polling_archive_name = null)
     {
-        list($response) = $this->downloadWithHttpInfo($ev_api_key, $ev_access_token, $resources, $download_name, $polling, $polling_zip_name);
+        list($response) = $this->downloadWithHttpInfo($ev_api_key, $ev_access_token, $resources, $download_archive_name, $polling, $polling_archive_name);
         return $response;
     }
 
@@ -1548,18 +1548,18 @@ class ResourcesApi
      * @param  string $ev_api_key API Key required to make the API call. (required)
      * @param  string $ev_access_token Access token required to make the API call. (required)
      * @param  string[] $resources Path of file or folder to be downloaded, starting from the root. Can also be an array of paths. (required)
-     * @param  string $download_name If zipping multiple files, the name of the zip file to create and download. (optional)
+     * @param  string $download_archive_name If zipping multiple files, the name of the zip file to create and download. (optional)
      * @param  bool $polling Used when downloading multiple files so url will be polled till zip file is created. (optional)
-     * @param  string $polling_zip_name Reference to the previously created zip for polling operation. (optional)
+     * @param  string $polling_archive_name Reference to the previously created zip for polling operation. (optional)
      *
      * @throws \ExaVault\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of string, HTTP status code, HTTP response headers (array of strings)
      */
-    public function downloadWithHttpInfo($ev_api_key, $ev_access_token, $resources, $download_name = null, $polling = null, $polling_zip_name = null)
+    public function downloadWithHttpInfo($ev_api_key, $ev_access_token, $resources, $download_archive_name = null, $polling = null, $polling_archive_name = null)
     {
         $returnType = 'string';
-        $request = $this->downloadRequest($ev_api_key, $ev_access_token, $resources, $download_name, $polling, $polling_zip_name);
+        $request = $this->downloadRequest($ev_api_key, $ev_access_token, $resources, $download_archive_name, $polling, $polling_archive_name);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1636,16 +1636,16 @@ class ResourcesApi
      * @param  string $ev_api_key API Key required to make the API call. (required)
      * @param  string $ev_access_token Access token required to make the API call. (required)
      * @param  string[] $resources Path of file or folder to be downloaded, starting from the root. Can also be an array of paths. (required)
-     * @param  string $download_name If zipping multiple files, the name of the zip file to create and download. (optional)
+     * @param  string $download_archive_name If zipping multiple files, the name of the zip file to create and download. (optional)
      * @param  bool $polling Used when downloading multiple files so url will be polled till zip file is created. (optional)
-     * @param  string $polling_zip_name Reference to the previously created zip for polling operation. (optional)
+     * @param  string $polling_archive_name Reference to the previously created zip for polling operation. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function downloadAsync($ev_api_key, $ev_access_token, $resources, $download_name = null, $polling = null, $polling_zip_name = null)
+    public function downloadAsync($ev_api_key, $ev_access_token, $resources, $download_archive_name = null, $polling = null, $polling_archive_name = null)
     {
-        return $this->downloadAsyncWithHttpInfo($ev_api_key, $ev_access_token, $resources, $download_name, $polling, $polling_zip_name)
+        return $this->downloadAsyncWithHttpInfo($ev_api_key, $ev_access_token, $resources, $download_archive_name, $polling, $polling_archive_name)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1661,17 +1661,17 @@ class ResourcesApi
      * @param  string $ev_api_key API Key required to make the API call. (required)
      * @param  string $ev_access_token Access token required to make the API call. (required)
      * @param  string[] $resources Path of file or folder to be downloaded, starting from the root. Can also be an array of paths. (required)
-     * @param  string $download_name If zipping multiple files, the name of the zip file to create and download. (optional)
+     * @param  string $download_archive_name If zipping multiple files, the name of the zip file to create and download. (optional)
      * @param  bool $polling Used when downloading multiple files so url will be polled till zip file is created. (optional)
-     * @param  string $polling_zip_name Reference to the previously created zip for polling operation. (optional)
+     * @param  string $polling_archive_name Reference to the previously created zip for polling operation. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function downloadAsyncWithHttpInfo($ev_api_key, $ev_access_token, $resources, $download_name = null, $polling = null, $polling_zip_name = null)
+    public function downloadAsyncWithHttpInfo($ev_api_key, $ev_access_token, $resources, $download_archive_name = null, $polling = null, $polling_archive_name = null)
     {
         $returnType = 'string';
-        $request = $this->downloadRequest($ev_api_key, $ev_access_token, $resources, $download_name, $polling, $polling_zip_name);
+        $request = $this->downloadRequest($ev_api_key, $ev_access_token, $resources, $download_archive_name, $polling, $polling_archive_name);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1716,14 +1716,14 @@ class ResourcesApi
      * @param  string $ev_api_key API Key required to make the API call. (required)
      * @param  string $ev_access_token Access token required to make the API call. (required)
      * @param  string[] $resources Path of file or folder to be downloaded, starting from the root. Can also be an array of paths. (required)
-     * @param  string $download_name If zipping multiple files, the name of the zip file to create and download. (optional)
+     * @param  string $download_archive_name If zipping multiple files, the name of the zip file to create and download. (optional)
      * @param  bool $polling Used when downloading multiple files so url will be polled till zip file is created. (optional)
-     * @param  string $polling_zip_name Reference to the previously created zip for polling operation. (optional)
+     * @param  string $polling_archive_name Reference to the previously created zip for polling operation. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function downloadRequest($ev_api_key, $ev_access_token, $resources, $download_name = null, $polling = null, $polling_zip_name = null)
+    protected function downloadRequest($ev_api_key, $ev_access_token, $resources, $download_archive_name = null, $polling = null, $polling_archive_name = null)
     {
         // verify the required parameter 'ev_api_key' is set
         if ($ev_api_key === null || (is_array($ev_api_key) && count($ev_api_key) === 0)) {
@@ -1759,16 +1759,16 @@ class ResourcesApi
             $queryParams['resources[]'] = ObjectSerializer::toQueryValue($resources, null);
         }
         // query params
-        if ($download_name !== null) {
-            $queryParams['downloadName'] = ObjectSerializer::toQueryValue($download_name, null);
+        if ($download_archive_name !== null) {
+            $queryParams['downloadArchiveName'] = ObjectSerializer::toQueryValue($download_archive_name, null);
         }
         // query params
         if ($polling !== null) {
             $queryParams['polling'] = ObjectSerializer::toQueryValue($polling, null);
         }
         // query params
-        if ($polling_zip_name !== null) {
-            $queryParams['pollingZipName'] = ObjectSerializer::toQueryValue($polling_zip_name, null);
+        if ($polling_archive_name !== null) {
+            $queryParams['pollingArchiveName'] = ObjectSerializer::toQueryValue($polling_archive_name, null);
         }
         // header params
         if ($ev_api_key !== null) {
@@ -1851,7 +1851,7 @@ class ResourcesApi
      *
      * @param  string $ev_api_key API Key required to make the API call. (required)
      * @param  string $ev_access_token Access token required to make the API call. (required)
-     * @param  \ExaVault\Model\Body11 $body body (optional)
+     * @param  \ExaVault\Model\ExtractFilesRequestBody $body body (optional)
      *
      * @throws \ExaVault\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -1870,7 +1870,7 @@ class ResourcesApi
      *
      * @param  string $ev_api_key API Key required to make the API call. (required)
      * @param  string $ev_access_token Access token required to make the API call. (required)
-     * @param  \ExaVault\Model\Body11 $body (optional)
+     * @param  \ExaVault\Model\ExtractFilesRequestBody $body (optional)
      *
      * @throws \ExaVault\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -1947,7 +1947,7 @@ class ResourcesApi
      *
      * @param  string $ev_api_key API Key required to make the API call. (required)
      * @param  string $ev_access_token Access token required to make the API call. (required)
-     * @param  \ExaVault\Model\Body11 $body (optional)
+     * @param  \ExaVault\Model\ExtractFilesRequestBody $body (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -1969,7 +1969,7 @@ class ResourcesApi
      *
      * @param  string $ev_api_key API Key required to make the API call. (required)
      * @param  string $ev_access_token Access token required to make the API call. (required)
-     * @param  \ExaVault\Model\Body11 $body (optional)
+     * @param  \ExaVault\Model\ExtractFilesRequestBody $body (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -2021,7 +2021,7 @@ class ResourcesApi
      *
      * @param  string $ev_api_key API Key required to make the API call. (required)
      * @param  string $ev_access_token Access token required to make the API call. (required)
-     * @param  \ExaVault\Model\Body11 $body (optional)
+     * @param  \ExaVault\Model\ExtractFilesRequestBody $body (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -3739,7 +3739,7 @@ class ResourcesApi
      *
      * @param  string $ev_api_key API Key required to make the API call. (required)
      * @param  string $ev_access_token Access token required to make the API call. (required)
-     * @param  \ExaVault\Model\Body13 $body body (optional)
+     * @param  \ExaVault\Model\MoveResourcesRequestBody $body body (optional)
      *
      * @throws \ExaVault\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -3758,7 +3758,7 @@ class ResourcesApi
      *
      * @param  string $ev_api_key API Key required to make the API call. (required)
      * @param  string $ev_access_token Access token required to make the API call. (required)
-     * @param  \ExaVault\Model\Body13 $body (optional)
+     * @param  \ExaVault\Model\MoveResourcesRequestBody $body (optional)
      *
      * @throws \ExaVault\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -3843,7 +3843,7 @@ class ResourcesApi
      *
      * @param  string $ev_api_key API Key required to make the API call. (required)
      * @param  string $ev_access_token Access token required to make the API call. (required)
-     * @param  \ExaVault\Model\Body13 $body (optional)
+     * @param  \ExaVault\Model\MoveResourcesRequestBody $body (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -3865,7 +3865,7 @@ class ResourcesApi
      *
      * @param  string $ev_api_key API Key required to make the API call. (required)
      * @param  string $ev_access_token Access token required to make the API call. (required)
-     * @param  \ExaVault\Model\Body13 $body (optional)
+     * @param  \ExaVault\Model\MoveResourcesRequestBody $body (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -3917,7 +3917,7 @@ class ResourcesApi
      *
      * @param  string $ev_api_key API Key required to make the API call. (required)
      * @param  string $ev_access_token Access token required to make the API call. (required)
-     * @param  \ExaVault\Model\Body13 $body (optional)
+     * @param  \ExaVault\Model\MoveResourcesRequestBody $body (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -4029,7 +4029,7 @@ class ResourcesApi
      * @param  string $ev_access_token Access token required to make the API call. (required)
      * @param  string $ev_api_key API key required to make the API call. (required)
      * @param  int $id ID number of the resource (required)
-     * @param  \ExaVault\Model\Body7 $body body (optional)
+     * @param  \ExaVault\Model\UpdateReourceByIdRequestBody $body body (optional)
      *
      * @throws \ExaVault\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -4049,7 +4049,7 @@ class ResourcesApi
      * @param  string $ev_access_token Access token required to make the API call. (required)
      * @param  string $ev_api_key API key required to make the API call. (required)
      * @param  int $id ID number of the resource (required)
-     * @param  \ExaVault\Model\Body7 $body (optional)
+     * @param  \ExaVault\Model\UpdateReourceByIdRequestBody $body (optional)
      *
      * @throws \ExaVault\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -4127,7 +4127,7 @@ class ResourcesApi
      * @param  string $ev_access_token Access token required to make the API call. (required)
      * @param  string $ev_api_key API key required to make the API call. (required)
      * @param  int $id ID number of the resource (required)
-     * @param  \ExaVault\Model\Body7 $body (optional)
+     * @param  \ExaVault\Model\UpdateReourceByIdRequestBody $body (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -4150,7 +4150,7 @@ class ResourcesApi
      * @param  string $ev_access_token Access token required to make the API call. (required)
      * @param  string $ev_api_key API key required to make the API call. (required)
      * @param  int $id ID number of the resource (required)
-     * @param  \ExaVault\Model\Body7 $body (optional)
+     * @param  \ExaVault\Model\UpdateReourceByIdRequestBody $body (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -4203,7 +4203,7 @@ class ResourcesApi
      * @param  string $ev_access_token Access token required to make the API call. (required)
      * @param  string $ev_api_key API key required to make the API call. (required)
      * @param  int $id ID number of the resource (required)
-     * @param  \ExaVault\Model\Body7 $body (optional)
+     * @param  \ExaVault\Model\UpdateReourceByIdRequestBody $body (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request

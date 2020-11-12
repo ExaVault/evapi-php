@@ -93,7 +93,7 @@ class EmailListsApi
      *
      * @param  string $ev_api_key API Key required to make the API call. (required)
      * @param  string $ev_access_token Access token required to make the API call. (required)
-     * @param  \ExaVault\Model\Body $body body (optional)
+     * @param  \ExaVault\Model\AddEmailListRequestBody $body body (optional)
      *
      * @throws \ExaVault\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -112,7 +112,7 @@ class EmailListsApi
      *
      * @param  string $ev_api_key API Key required to make the API call. (required)
      * @param  string $ev_access_token Access token required to make the API call. (required)
-     * @param  \ExaVault\Model\Body $body (optional)
+     * @param  \ExaVault\Model\AddEmailListRequestBody $body (optional)
      *
      * @throws \ExaVault\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -189,7 +189,7 @@ class EmailListsApi
      *
      * @param  string $ev_api_key API Key required to make the API call. (required)
      * @param  string $ev_access_token Access token required to make the API call. (required)
-     * @param  \ExaVault\Model\Body $body (optional)
+     * @param  \ExaVault\Model\AddEmailListRequestBody $body (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -211,7 +211,7 @@ class EmailListsApi
      *
      * @param  string $ev_api_key API Key required to make the API call. (required)
      * @param  string $ev_access_token Access token required to make the API call. (required)
-     * @param  \ExaVault\Model\Body $body (optional)
+     * @param  \ExaVault\Model\AddEmailListRequestBody $body (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -263,7 +263,7 @@ class EmailListsApi
      *
      * @param  string $ev_api_key API Key required to make the API call. (required)
      * @param  string $ev_access_token Access token required to make the API call. (required)
-     * @param  \ExaVault\Model\Body $body (optional)
+     * @param  \ExaVault\Model\AddEmailListRequestBody $body (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -1250,7 +1250,7 @@ class EmailListsApi
      * @param  string $ev_api_key API Key required to make the API call. (required)
      * @param  string $ev_access_token Access token required to make the API call. (required)
      * @param  int $id ID of the email list to update. (required)
-     * @param  \ExaVault\Model\Body1 $body body (optional)
+     * @param  \ExaVault\Model\UpdateEmailListRequestBody $body body (optional)
      *
      * @throws \ExaVault\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -1270,7 +1270,7 @@ class EmailListsApi
      * @param  string $ev_api_key API Key required to make the API call. (required)
      * @param  string $ev_access_token Access token required to make the API call. (required)
      * @param  int $id ID of the email list to update. (required)
-     * @param  \ExaVault\Model\Body1 $body (optional)
+     * @param  \ExaVault\Model\UpdateEmailListRequestBody $body (optional)
      *
      * @throws \ExaVault\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -1348,7 +1348,7 @@ class EmailListsApi
      * @param  string $ev_api_key API Key required to make the API call. (required)
      * @param  string $ev_access_token Access token required to make the API call. (required)
      * @param  int $id ID of the email list to update. (required)
-     * @param  \ExaVault\Model\Body1 $body (optional)
+     * @param  \ExaVault\Model\UpdateEmailListRequestBody $body (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -1371,7 +1371,7 @@ class EmailListsApi
      * @param  string $ev_api_key API Key required to make the API call. (required)
      * @param  string $ev_access_token Access token required to make the API call. (required)
      * @param  int $id ID of the email list to update. (required)
-     * @param  \ExaVault\Model\Body1 $body (optional)
+     * @param  \ExaVault\Model\UpdateEmailListRequestBody $body (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -1424,7 +1424,7 @@ class EmailListsApi
      * @param  string $ev_api_key API Key required to make the API call. (required)
      * @param  string $ev_access_token Access token required to make the API call. (required)
      * @param  int $id ID of the email list to update. (required)
-     * @param  \ExaVault\Model\Body1 $body (optional)
+     * @param  \ExaVault\Model\UpdateEmailListRequestBody $body (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request

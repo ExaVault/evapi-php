@@ -48,7 +48,7 @@ class ShareRelationshipsData implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'Share_relationships_data';
+    protected static $swaggerModelName = 'ShareRelationships_data';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -157,7 +157,7 @@ class ShareRelationshipsData implements ModelInterface, ArrayAccess
         return self::$swaggerModelName;
     }
 
-    const TYPE_MESSAGE = 'message';
+    const TYPE_NOTIFICATION = 'notification';
 
     /**
      * Gets allowable values of the enum
@@ -167,7 +167,7 @@ class ShareRelationshipsData implements ModelInterface, ArrayAccess
     public function getTypeAllowableValues()
     {
         return [
-            self::TYPE_MESSAGE,        ];
+            self::TYPE_NOTIFICATION,        ];
     }
 
     /**
@@ -234,7 +234,7 @@ class ShareRelationshipsData implements ModelInterface, ArrayAccess
     /**
      * Sets type
      *
-     * @param string $type Type is message.
+     * @param string $type Type is notification.
      *
      * @return $this
      */
@@ -267,7 +267,7 @@ class ShareRelationshipsData implements ModelInterface, ArrayAccess
     /**
      * Sets id
      *
-     * @param int $id ID of the message.
+     * @param int $id ID of the notification.
      *
      * @return $this
      */

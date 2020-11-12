@@ -93,7 +93,7 @@ class NotificationsApi
      *
      * @param  string $ev_api_key API Key required to make API call. (required)
      * @param  string $ev_access_token Access token required to make the API call. (required)
-     * @param  \ExaVault\Model\Body4 $body body (optional)
+     * @param  \ExaVault\Model\AddNotificationRequestBody $body body (optional)
      *
      * @throws \ExaVault\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -112,7 +112,7 @@ class NotificationsApi
      *
      * @param  string $ev_api_key API Key required to make API call. (required)
      * @param  string $ev_access_token Access token required to make the API call. (required)
-     * @param  \ExaVault\Model\Body4 $body (optional)
+     * @param  \ExaVault\Model\AddNotificationRequestBody $body (optional)
      *
      * @throws \ExaVault\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -189,7 +189,7 @@ class NotificationsApi
      *
      * @param  string $ev_api_key API Key required to make API call. (required)
      * @param  string $ev_access_token Access token required to make the API call. (required)
-     * @param  \ExaVault\Model\Body4 $body (optional)
+     * @param  \ExaVault\Model\AddNotificationRequestBody $body (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -211,7 +211,7 @@ class NotificationsApi
      *
      * @param  string $ev_api_key API Key required to make API call. (required)
      * @param  string $ev_access_token Access token required to make the API call. (required)
-     * @param  \ExaVault\Model\Body4 $body (optional)
+     * @param  \ExaVault\Model\AddNotificationRequestBody $body (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -263,7 +263,7 @@ class NotificationsApi
      *
      * @param  string $ev_api_key API Key required to make API call. (required)
      * @param  string $ev_access_token Access token required to make the API call. (required)
-     * @param  \ExaVault\Model\Body4 $body (optional)
+     * @param  \ExaVault\Model\AddNotificationRequestBody $body (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -1295,7 +1295,7 @@ class NotificationsApi
      * @param  string $ev_api_key API Key required to make the API call. (required)
      * @param  string $ev_access_token Access token required to make the API call. (required)
      * @param  int $id ID of the notification. Use [GET /notifications](#operation/listNotifications) if you need to lookup an ID. (required)
-     * @param  \ExaVault\Model\Body3 $body body (optional)
+     * @param  \ExaVault\Model\UpdateNotificationByIdRequestBody $body body (optional)
      *
      * @throws \ExaVault\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -1315,7 +1315,7 @@ class NotificationsApi
      * @param  string $ev_api_key API Key required to make the API call. (required)
      * @param  string $ev_access_token Access token required to make the API call. (required)
      * @param  int $id ID of the notification. Use [GET /notifications](#operation/listNotifications) if you need to lookup an ID. (required)
-     * @param  \ExaVault\Model\Body3 $body (optional)
+     * @param  \ExaVault\Model\UpdateNotificationByIdRequestBody $body (optional)
      *
      * @throws \ExaVault\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -1393,7 +1393,7 @@ class NotificationsApi
      * @param  string $ev_api_key API Key required to make the API call. (required)
      * @param  string $ev_access_token Access token required to make the API call. (required)
      * @param  int $id ID of the notification. Use [GET /notifications](#operation/listNotifications) if you need to lookup an ID. (required)
-     * @param  \ExaVault\Model\Body3 $body (optional)
+     * @param  \ExaVault\Model\UpdateNotificationByIdRequestBody $body (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -1416,7 +1416,7 @@ class NotificationsApi
      * @param  string $ev_api_key API Key required to make the API call. (required)
      * @param  string $ev_access_token Access token required to make the API call. (required)
      * @param  int $id ID of the notification. Use [GET /notifications](#operation/listNotifications) if you need to lookup an ID. (required)
-     * @param  \ExaVault\Model\Body3 $body (optional)
+     * @param  \ExaVault\Model\UpdateNotificationByIdRequestBody $body (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -1469,7 +1469,7 @@ class NotificationsApi
      * @param  string $ev_api_key API Key required to make the API call. (required)
      * @param  string $ev_access_token Access token required to make the API call. (required)
      * @param  int $id ID of the notification. Use [GET /notifications](#operation/listNotifications) if you need to lookup an ID. (required)
-     * @param  \ExaVault\Model\Body3 $body (optional)
+     * @param  \ExaVault\Model\UpdateNotificationByIdRequestBody $body (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request

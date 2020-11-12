@@ -1,6 +1,6 @@
 <?php
 /**
- * UserRelationshipsHomeResourceData
+ * UpdateEmailListRequestBody
  *
  * PHP version 5
  *
@@ -32,14 +32,14 @@ use \ArrayAccess;
 use \ExaVault\ObjectSerializer;
 
 /**
- * UserRelationshipsHomeResourceData Class Doc Comment
+ * UpdateEmailListRequestBody Class Doc Comment
  *
  * @category Class
  * @package  ExaVault
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class UserRelationshipsHomeResourceData implements ModelInterface, ArrayAccess
+class UpdateEmailListRequestBody implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -48,7 +48,7 @@ class UserRelationshipsHomeResourceData implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'User_relationships_homeResource_data';
+    protected static $swaggerModelName = 'UpdateEmailListRequestBody';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -56,8 +56,8 @@ class UserRelationshipsHomeResourceData implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'type' => 'string',
-'id' => 'int'    ];
+        'name' => 'string',
+'emails' => 'string[]'    ];
 
     /**
       * Array of property to format mappings. Used for (de)serialization
@@ -65,8 +65,8 @@ class UserRelationshipsHomeResourceData implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'type' => null,
-'id' => 'int64'    ];
+        'name' => null,
+'emails' => null    ];
 
     /**
      * Array of property to type mappings. Used for (de)serialization
@@ -95,8 +95,8 @@ class UserRelationshipsHomeResourceData implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'type' => 'type',
-'id' => 'id'    ];
+        'name' => 'name',
+'emails' => 'emails'    ];
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
@@ -104,8 +104,8 @@ class UserRelationshipsHomeResourceData implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'type' => 'setType',
-'id' => 'setId'    ];
+        'name' => 'setName',
+'emails' => 'setEmails'    ];
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
@@ -113,8 +113,8 @@ class UserRelationshipsHomeResourceData implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'type' => 'getType',
-'id' => 'getId'    ];
+        'name' => 'getName',
+'emails' => 'getEmails'    ];
 
     /**
      * Array of attributes where the key is the local name,
@@ -157,18 +157,7 @@ class UserRelationshipsHomeResourceData implements ModelInterface, ArrayAccess
         return self::$swaggerModelName;
     }
 
-    const TYPE_RESOURCE = 'resource';
-
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getTypeAllowableValues()
-    {
-        return [
-            self::TYPE_RESOURCE,        ];
-    }
+    
 
     /**
      * Associative array for storing property values
@@ -185,8 +174,8 @@ class UserRelationshipsHomeResourceData implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['type'] = isset($data['type']) ? $data['type'] : null;
-        $this->container['id'] = isset($data['id']) ? $data['id'] : null;
+        $this->container['name'] = isset($data['name']) ? $data['name'] : null;
+        $this->container['emails'] = isset($data['emails']) ? $data['emails'] : null;
     }
 
     /**
@@ -197,14 +186,6 @@ class UserRelationshipsHomeResourceData implements ModelInterface, ArrayAccess
     public function listInvalidProperties()
     {
         $invalidProperties = [];
-
-        $allowedValues = $this->getTypeAllowableValues();
-        if (!is_null($this->container['type']) && !in_array($this->container['type'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value for 'type', must be one of '%s'",
-                implode("', '", $allowedValues)
-            );
-        }
 
         return $invalidProperties;
     }
@@ -222,58 +203,49 @@ class UserRelationshipsHomeResourceData implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets type
+     * Gets name
      *
      * @return string
      */
-    public function getType()
+    public function getName()
     {
-        return $this->container['type'];
+        return $this->container['name'];
     }
 
     /**
-     * Sets type
+     * Sets name
      *
-     * @param string $type Type is resource.
+     * @param string $name Name of the email list.
      *
      * @return $this
      */
-    public function setType($type)
+    public function setName($name)
     {
-        $allowedValues = $this->getTypeAllowableValues();
-        if (!is_null($type) && !in_array($type, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value for 'type', must be one of '%s'",
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
-        $this->container['type'] = $type;
+        $this->container['name'] = $name;
 
         return $this;
     }
 
     /**
-     * Gets id
+     * Gets emails
      *
-     * @return int
+     * @return string[]
      */
-    public function getId()
+    public function getEmails()
     {
-        return $this->container['id'];
+        return $this->container['emails'];
     }
 
     /**
-     * Sets id
+     * Sets emails
      *
-     * @param int $id ID of home directory resource.
+     * @param string[] $emails Array of email addresses to add to the email list.
      *
      * @return $this
      */
-    public function setId($id)
+    public function setEmails($emails)
     {
-        $this->container['id'] = $id;
+        $this->container['emails'] = $emails;
 
         return $this;
     }

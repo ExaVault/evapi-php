@@ -71,7 +71,8 @@ class UserAttributes implements ModelInterface, ArrayAccess
 'role' => 'string',
 'time_zone' => 'string',
 'onboarding' => 'bool',
-'first_login' => 'bool'    ];
+'first_login' => 'bool',
+'locked' => 'bool'    ];
 
     /**
       * Array of property to format mappings. Used for (de)serialization
@@ -93,7 +94,8 @@ class UserAttributes implements ModelInterface, ArrayAccess
 'role' => null,
 'time_zone' => null,
 'onboarding' => null,
-'first_login' => null    ];
+'first_login' => null,
+'locked' => null    ];
 
     /**
      * Array of property to type mappings. Used for (de)serialization
@@ -136,7 +138,8 @@ class UserAttributes implements ModelInterface, ArrayAccess
 'role' => 'role',
 'time_zone' => 'timeZone',
 'onboarding' => 'onboarding',
-'first_login' => 'firstLogin'    ];
+'first_login' => 'firstLogin',
+'locked' => 'locked'    ];
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
@@ -158,7 +161,8 @@ class UserAttributes implements ModelInterface, ArrayAccess
 'role' => 'setRole',
 'time_zone' => 'setTimeZone',
 'onboarding' => 'setOnboarding',
-'first_login' => 'setFirstLogin'    ];
+'first_login' => 'setFirstLogin',
+'locked' => 'setLocked'    ];
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
@@ -180,7 +184,8 @@ class UserAttributes implements ModelInterface, ArrayAccess
 'role' => 'getRole',
 'time_zone' => 'getTimeZone',
 'onboarding' => 'getOnboarding',
-'first_login' => 'getFirstLogin'    ];
+'first_login' => 'getFirstLogin',
+'locked' => 'getLocked'    ];
 
     /**
      * Array of attributes where the key is the local name,
@@ -283,6 +288,7 @@ self::ROLE_MASTER,        ];
         $this->container['time_zone'] = isset($data['time_zone']) ? $data['time_zone'] : null;
         $this->container['onboarding'] = isset($data['onboarding']) ? $data['onboarding'] : null;
         $this->container['first_login'] = isset($data['first_login']) ? $data['first_login'] : null;
+        $this->container['locked'] = isset($data['locked']) ? $data['locked'] : null;
     }
 
     /**
@@ -732,6 +738,30 @@ self::ROLE_MASTER,        ];
     public function setFirstLogin($first_login)
     {
         $this->container['first_login'] = $first_login;
+
+        return $this;
+    }
+
+    /**
+     * Gets locked
+     *
+     * @return bool
+     */
+    public function getLocked()
+    {
+        return $this->container['locked'];
+    }
+
+    /**
+     * Sets locked
+     *
+     * @param bool $locked `true` if the user is locked and cannot log in.
+     *
+     * @return $this
+     */
+    public function setLocked($locked)
+    {
+        $this->container['locked'] = $locked;
 
         return $this;
     }

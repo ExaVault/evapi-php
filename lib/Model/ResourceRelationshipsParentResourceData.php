@@ -65,7 +65,7 @@ class ResourceRelationshipsParentResourceData implements ModelInterface, ArrayAc
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'id' => 'int32',
+        'id' => 'int64',
 'type' => null    ];
 
     /**

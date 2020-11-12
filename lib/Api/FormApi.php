@@ -1294,7 +1294,7 @@ class FormApi
      * @param  string $ev_api_key API Key required to make the API call. (required)
      * @param  string $ev_access_token Access token required to make the API call. (required)
      * @param  int $id Form unique ID number. (required)
-     * @param  \ExaVault\Model\Body2 $body body (optional)
+     * @param  \ExaVault\Model\UpdateFormByIdRequestBody $body body (optional)
      *
      * @throws \ExaVault\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -1314,7 +1314,7 @@ class FormApi
      * @param  string $ev_api_key API Key required to make the API call. (required)
      * @param  string $ev_access_token Access token required to make the API call. (required)
      * @param  int $id Form unique ID number. (required)
-     * @param  \ExaVault\Model\Body2 $body (optional)
+     * @param  \ExaVault\Model\UpdateFormByIdRequestBody $body (optional)
      *
      * @throws \ExaVault\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -1392,7 +1392,7 @@ class FormApi
      * @param  string $ev_api_key API Key required to make the API call. (required)
      * @param  string $ev_access_token Access token required to make the API call. (required)
      * @param  int $id Form unique ID number. (required)
-     * @param  \ExaVault\Model\Body2 $body (optional)
+     * @param  \ExaVault\Model\UpdateFormByIdRequestBody $body (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -1415,7 +1415,7 @@ class FormApi
      * @param  string $ev_api_key API Key required to make the API call. (required)
      * @param  string $ev_access_token Access token required to make the API call. (required)
      * @param  int $id Form unique ID number. (required)
-     * @param  \ExaVault\Model\Body2 $body (optional)
+     * @param  \ExaVault\Model\UpdateFormByIdRequestBody $body (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -1468,7 +1468,7 @@ class FormApi
      * @param  string $ev_api_key API Key required to make the API call. (required)
      * @param  string $ev_access_token Access token required to make the API call. (required)
      * @param  int $id Form unique ID number. (required)
-     * @param  \ExaVault\Model\Body2 $body (optional)
+     * @param  \ExaVault\Model\UpdateFormByIdRequestBody $body (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request

@@ -1,6 +1,6 @@
 <?php
 /**
- * UserRelationshipsHomeResourceData
+ * ShareResourceData
  *
  * PHP version 5
  *
@@ -32,14 +32,14 @@ use \ArrayAccess;
 use \ExaVault\ObjectSerializer;
 
 /**
- * UserRelationshipsHomeResourceData Class Doc Comment
+ * ShareResourceData Class Doc Comment
  *
  * @category Class
  * @package  ExaVault
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class UserRelationshipsHomeResourceData implements ModelInterface, ArrayAccess
+class ShareResourceData implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -48,7 +48,7 @@ class UserRelationshipsHomeResourceData implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'User_relationships_homeResource_data';
+    protected static $swaggerModelName = 'ShareResourceData';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -267,7 +267,7 @@ class UserRelationshipsHomeResourceData implements ModelInterface, ArrayAccess
     /**
      * Sets id
      *
-     * @param int $id ID of home directory resource.
+     * @param int $id ID of the shared resource.
      *
      * @return $this
      */

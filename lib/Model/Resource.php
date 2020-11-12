@@ -68,7 +68,7 @@ class Resource implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'id' => 'int32',
+        'id' => 'int64',
 'type' => null,
 'attributes' => null,
 'relationships' => null    ];

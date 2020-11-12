@@ -1,6 +1,6 @@
 <?php
 /**
- * SessionActivityEntryAttributes
+ * UsersPermissions
  *
  * PHP version 5
  *
@@ -32,14 +32,15 @@ use \ArrayAccess;
 use \ExaVault\ObjectSerializer;
 
 /**
- * SessionActivityEntryAttributes Class Doc Comment
+ * UsersPermissions Class Doc Comment
  *
  * @category Class
+ * @description An object containing name/value pairs for each permission. Any permission that is not passed will be set to &#x60;false&#x60; by default. Note that users will be unable to see any files in the account unless you include &#x60;list&#x60; permission.
  * @package  ExaVault
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class SessionActivityEntryAttributes implements ModelInterface, ArrayAccess
+class UsersPermissions implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -48,7 +49,7 @@ class SessionActivityEntryAttributes implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'SessionActivityEntry_attributes';
+    protected static $swaggerModelName = 'users_permissions';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -56,17 +57,16 @@ class SessionActivityEntryAttributes implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'bytes_transferred' => 'int',
-'created' => 'string',
-'duration' => 'int',
-'file_name' => 'string',
-'file_source' => 'string',
-'ip_address' => 'string',
-'operation' => 'string',
-'protocol' => 'string',
-'session_id' => 'string',
-'status' => 'string',
-'username' => 'string'    ];
+        'list' => 'bool',
+'download' => 'bool',
+'upload' => 'bool',
+'modify' => 'bool',
+'delete' => 'bool',
+'change_password' => 'bool',
+'share' => 'bool',
+'notification' => 'bool',
+'view_form_data' => 'bool',
+'delete_form_data' => 'bool'    ];
 
     /**
       * Array of property to format mappings. Used for (de)serialization
@@ -74,17 +74,16 @@ class SessionActivityEntryAttributes implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'bytes_transferred' => 'int64',
-'created' => null,
-'duration' => null,
-'file_name' => null,
-'file_source' => null,
-'ip_address' => null,
-'operation' => null,
-'protocol' => null,
-'session_id' => null,
-'status' => null,
-'username' => null    ];
+        'list' => null,
+'download' => null,
+'upload' => null,
+'modify' => null,
+'delete' => null,
+'change_password' => null,
+'share' => null,
+'notification' => null,
+'view_form_data' => null,
+'delete_form_data' => null    ];
 
     /**
      * Array of property to type mappings. Used for (de)serialization
@@ -113,17 +112,16 @@ class SessionActivityEntryAttributes implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'bytes_transferred' => 'bytesTransferred',
-'created' => 'created',
-'duration' => 'duration',
-'file_name' => 'fileName',
-'file_source' => 'fileSource',
-'ip_address' => 'ipAddress',
-'operation' => 'operation',
-'protocol' => 'protocol',
-'session_id' => 'sessionId',
-'status' => 'status',
-'username' => 'username'    ];
+        'list' => 'list',
+'download' => 'download',
+'upload' => 'upload',
+'modify' => 'modify',
+'delete' => 'delete',
+'change_password' => 'changePassword',
+'share' => 'share',
+'notification' => 'notification',
+'view_form_data' => 'viewFormData',
+'delete_form_data' => 'deleteFormData'    ];
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
@@ -131,17 +129,16 @@ class SessionActivityEntryAttributes implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'bytes_transferred' => 'setBytesTransferred',
-'created' => 'setCreated',
-'duration' => 'setDuration',
-'file_name' => 'setFileName',
-'file_source' => 'setFileSource',
-'ip_address' => 'setIpAddress',
-'operation' => 'setOperation',
-'protocol' => 'setProtocol',
-'session_id' => 'setSessionId',
-'status' => 'setStatus',
-'username' => 'setUsername'    ];
+        'list' => 'setList',
+'download' => 'setDownload',
+'upload' => 'setUpload',
+'modify' => 'setModify',
+'delete' => 'setDelete',
+'change_password' => 'setChangePassword',
+'share' => 'setShare',
+'notification' => 'setNotification',
+'view_form_data' => 'setViewFormData',
+'delete_form_data' => 'setDeleteFormData'    ];
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
@@ -149,17 +146,16 @@ class SessionActivityEntryAttributes implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'bytes_transferred' => 'getBytesTransferred',
-'created' => 'getCreated',
-'duration' => 'getDuration',
-'file_name' => 'getFileName',
-'file_source' => 'getFileSource',
-'ip_address' => 'getIpAddress',
-'operation' => 'getOperation',
-'protocol' => 'getProtocol',
-'session_id' => 'getSessionId',
-'status' => 'getStatus',
-'username' => 'getUsername'    ];
+        'list' => 'getList',
+'download' => 'getDownload',
+'upload' => 'getUpload',
+'modify' => 'getModify',
+'delete' => 'getDelete',
+'change_password' => 'getChangePassword',
+'share' => 'getShare',
+'notification' => 'getNotification',
+'view_form_data' => 'getViewFormData',
+'delete_form_data' => 'getDeleteFormData'    ];
 
     /**
      * Array of attributes where the key is the local name,
@@ -219,17 +215,16 @@ class SessionActivityEntryAttributes implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['bytes_transferred'] = isset($data['bytes_transferred']) ? $data['bytes_transferred'] : null;
-        $this->container['created'] = isset($data['created']) ? $data['created'] : null;
-        $this->container['duration'] = isset($data['duration']) ? $data['duration'] : null;
-        $this->container['file_name'] = isset($data['file_name']) ? $data['file_name'] : null;
-        $this->container['file_source'] = isset($data['file_source']) ? $data['file_source'] : null;
-        $this->container['ip_address'] = isset($data['ip_address']) ? $data['ip_address'] : null;
-        $this->container['operation'] = isset($data['operation']) ? $data['operation'] : null;
-        $this->container['protocol'] = isset($data['protocol']) ? $data['protocol'] : null;
-        $this->container['session_id'] = isset($data['session_id']) ? $data['session_id'] : null;
-        $this->container['status'] = isset($data['status']) ? $data['status'] : null;
-        $this->container['username'] = isset($data['username']) ? $data['username'] : null;
+        $this->container['list'] = isset($data['list']) ? $data['list'] : null;
+        $this->container['download'] = isset($data['download']) ? $data['download'] : null;
+        $this->container['upload'] = isset($data['upload']) ? $data['upload'] : null;
+        $this->container['modify'] = isset($data['modify']) ? $data['modify'] : null;
+        $this->container['delete'] = isset($data['delete']) ? $data['delete'] : null;
+        $this->container['change_password'] = isset($data['change_password']) ? $data['change_password'] : null;
+        $this->container['share'] = isset($data['share']) ? $data['share'] : null;
+        $this->container['notification'] = isset($data['notification']) ? $data['notification'] : null;
+        $this->container['view_form_data'] = isset($data['view_form_data']) ? $data['view_form_data'] : null;
+        $this->container['delete_form_data'] = isset($data['delete_form_data']) ? $data['delete_form_data'] : null;
     }
 
     /**
@@ -257,265 +252,241 @@ class SessionActivityEntryAttributes implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets bytes_transferred
+     * Gets list
      *
-     * @return int
+     * @return bool
      */
-    public function getBytesTransferred()
+    public function getList()
     {
-        return $this->container['bytes_transferred'];
+        return $this->container['list'];
     }
 
     /**
-     * Sets bytes_transferred
+     * Sets list
      *
-     * @param int $bytes_transferred bytes_transferred
+     * @param bool $list list
      *
      * @return $this
      */
-    public function setBytesTransferred($bytes_transferred)
+    public function setList($list)
     {
-        $this->container['bytes_transferred'] = $bytes_transferred;
+        $this->container['list'] = $list;
 
         return $this;
     }
 
     /**
-     * Gets created
+     * Gets download
      *
-     * @return string
+     * @return bool
      */
-    public function getCreated()
+    public function getDownload()
     {
-        return $this->container['created'];
+        return $this->container['download'];
     }
 
     /**
-     * Sets created
+     * Sets download
      *
-     * @param string $created created
+     * @param bool $download download
      *
      * @return $this
      */
-    public function setCreated($created)
+    public function setDownload($download)
     {
-        $this->container['created'] = $created;
+        $this->container['download'] = $download;
 
         return $this;
     }
 
     /**
-     * Gets duration
+     * Gets upload
      *
-     * @return int
+     * @return bool
      */
-    public function getDuration()
+    public function getUpload()
     {
-        return $this->container['duration'];
+        return $this->container['upload'];
     }
 
     /**
-     * Sets duration
+     * Sets upload
      *
-     * @param int $duration duration
+     * @param bool $upload upload
      *
      * @return $this
      */
-    public function setDuration($duration)
+    public function setUpload($upload)
     {
-        $this->container['duration'] = $duration;
+        $this->container['upload'] = $upload;
 
         return $this;
     }
 
     /**
-     * Gets file_name
+     * Gets modify
      *
-     * @return string
+     * @return bool
      */
-    public function getFileName()
+    public function getModify()
     {
-        return $this->container['file_name'];
+        return $this->container['modify'];
     }
 
     /**
-     * Sets file_name
+     * Sets modify
      *
-     * @param string $file_name file_name
+     * @param bool $modify modify
      *
      * @return $this
      */
-    public function setFileName($file_name)
+    public function setModify($modify)
     {
-        $this->container['file_name'] = $file_name;
+        $this->container['modify'] = $modify;
 
         return $this;
     }
 
     /**
-     * Gets file_source
+     * Gets delete
      *
-     * @return string
+     * @return bool
      */
-    public function getFileSource()
+    public function getDelete()
     {
-        return $this->container['file_source'];
+        return $this->container['delete'];
     }
 
     /**
-     * Sets file_source
+     * Sets delete
      *
-     * @param string $file_source file_source
+     * @param bool $delete delete
      *
      * @return $this
      */
-    public function setFileSource($file_source)
+    public function setDelete($delete)
     {
-        $this->container['file_source'] = $file_source;
+        $this->container['delete'] = $delete;
 
         return $this;
     }
 
     /**
-     * Gets ip_address
+     * Gets change_password
      *
-     * @return string
+     * @return bool
      */
-    public function getIpAddress()
+    public function getChangePassword()
     {
-        return $this->container['ip_address'];
+        return $this->container['change_password'];
     }
 
     /**
-     * Sets ip_address
+     * Sets change_password
      *
-     * @param string $ip_address ip_address
+     * @param bool $change_password change_password
      *
      * @return $this
      */
-    public function setIpAddress($ip_address)
+    public function setChangePassword($change_password)
     {
-        $this->container['ip_address'] = $ip_address;
+        $this->container['change_password'] = $change_password;
 
         return $this;
     }
 
     /**
-     * Gets operation
+     * Gets share
      *
-     * @return string
+     * @return bool
      */
-    public function getOperation()
+    public function getShare()
     {
-        return $this->container['operation'];
+        return $this->container['share'];
     }
 
     /**
-     * Sets operation
+     * Sets share
      *
-     * @param string $operation operation
+     * @param bool $share share
      *
      * @return $this
      */
-    public function setOperation($operation)
+    public function setShare($share)
     {
-        $this->container['operation'] = $operation;
+        $this->container['share'] = $share;
 
         return $this;
     }
 
     /**
-     * Gets protocol
+     * Gets notification
      *
-     * @return string
+     * @return bool
      */
-    public function getProtocol()
+    public function getNotification()
     {
-        return $this->container['protocol'];
+        return $this->container['notification'];
     }
 
     /**
-     * Sets protocol
+     * Sets notification
      *
-     * @param string $protocol protocol
+     * @param bool $notification notification
      *
      * @return $this
      */
-    public function setProtocol($protocol)
+    public function setNotification($notification)
     {
-        $this->container['protocol'] = $protocol;
+        $this->container['notification'] = $notification;
 
         return $this;
     }
 
     /**
-     * Gets session_id
+     * Gets view_form_data
      *
-     * @return string
+     * @return bool
      */
-    public function getSessionId()
+    public function getViewFormData()
     {
-        return $this->container['session_id'];
+        return $this->container['view_form_data'];
     }
 
     /**
-     * Sets session_id
+     * Sets view_form_data
      *
-     * @param string $session_id session_id
+     * @param bool $view_form_data view_form_data
      *
      * @return $this
      */
-    public function setSessionId($session_id)
+    public function setViewFormData($view_form_data)
     {
-        $this->container['session_id'] = $session_id;
+        $this->container['view_form_data'] = $view_form_data;
 
         return $this;
     }
 
     /**
-     * Gets status
+     * Gets delete_form_data
      *
-     * @return string
+     * @return bool
      */
-    public function getStatus()
+    public function getDeleteFormData()
     {
-        return $this->container['status'];
+        return $this->container['delete_form_data'];
     }
 
     /**
-     * Sets status
+     * Sets delete_form_data
      *
-     * @param string $status status
+     * @param bool $delete_form_data delete_form_data
      *
      * @return $this
      */
-    public function setStatus($status)
+    public function setDeleteFormData($delete_form_data)
     {
-        $this->container['status'] = $status;
-
-        return $this;
-    }
-
-    /**
-     * Gets username
-     *
-     * @return string
-     */
-    public function getUsername()
-    {
-        return $this->container['username'];
-    }
-
-    /**
-     * Sets username
-     *
-     * @param string $username username
-     *
-     * @return $this
-     */
-    public function setUsername($username)
-    {
-        $this->container['username'] = $username;
+        $this->container['delete_form_data'] = $delete_form_data;
 
         return $this;
     }

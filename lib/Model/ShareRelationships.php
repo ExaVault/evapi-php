@@ -49,7 +49,7 @@ class ShareRelationships implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'Share_relationships';
+    protected static $swaggerModelName = 'ShareRelationships';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -57,10 +57,10 @@ class ShareRelationships implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'messages' => '\ExaVault\Model\ShareRelationshipsMessages[]',
+        'messages' => '\ExaVault\Model\ShareRelationshpsMessage[]',
 'owner' => '\ExaVault\Model\ShareRelationshipsOwner',
-'resources' => '\ExaVault\Model\ShareRelationshipsResources[]',
-'notifications' => '\ExaVault\Model\ShareRelationshipsNotifications[]'    ];
+'resources' => '\ExaVault\Model\ShareRelationshipsResource[]',
+'notifications' => '\ExaVault\Model\ShareRelationshipsNotification[]'    ];
 
     /**
       * Array of property to format mappings. Used for (de)serialization
@@ -218,7 +218,7 @@ class ShareRelationships implements ModelInterface, ArrayAccess
     /**
      * Gets messages
      *
-     * @return \ExaVault\Model\ShareRelationshipsMessages[]
+     * @return \ExaVault\Model\ShareRelationshpsMessage[]
      */
     public function getMessages()
     {
@@ -228,7 +228,7 @@ class ShareRelationships implements ModelInterface, ArrayAccess
     /**
      * Sets messages
      *
-     * @param \ExaVault\Model\ShareRelationshipsMessages[] $messages null
+     * @param \ExaVault\Model\ShareRelationshpsMessage[] $messages null
      *
      * @return $this
      */
@@ -266,7 +266,7 @@ class ShareRelationships implements ModelInterface, ArrayAccess
     /**
      * Gets resources
      *
-     * @return \ExaVault\Model\ShareRelationshipsResources[]
+     * @return \ExaVault\Model\ShareRelationshipsResource[]
      */
     public function getResources()
     {
@@ -276,7 +276,7 @@ class ShareRelationships implements ModelInterface, ArrayAccess
     /**
      * Sets resources
      *
-     * @param \ExaVault\Model\ShareRelationshipsResources[] $resources resources
+     * @param \ExaVault\Model\ShareRelationshipsResource[] $resources resources
      *
      * @return $this
      */
@@ -290,7 +290,7 @@ class ShareRelationships implements ModelInterface, ArrayAccess
     /**
      * Gets notifications
      *
-     * @return \ExaVault\Model\ShareRelationshipsNotifications[]
+     * @return \ExaVault\Model\ShareRelationshipsNotification[]
      */
     public function getNotifications()
     {
@@ -300,7 +300,7 @@ class ShareRelationships implements ModelInterface, ArrayAccess
     /**
      * Sets notifications
      *
-     * @param \ExaVault\Model\ShareRelationshipsNotifications[] $notifications null
+     * @param \ExaVault\Model\ShareRelationshipsNotification[] $notifications null
      *
      * @return $this
      */

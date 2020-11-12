@@ -1,6 +1,6 @@
 <?php
 /**
- * UserRelationshipsHomeResourceData
+ * ShareMessageData
  *
  * PHP version 5
  *
@@ -32,14 +32,14 @@ use \ArrayAccess;
 use \ExaVault\ObjectSerializer;
 
 /**
- * UserRelationshipsHomeResourceData Class Doc Comment
+ * ShareMessageData Class Doc Comment
  *
  * @category Class
  * @package  ExaVault
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class UserRelationshipsHomeResourceData implements ModelInterface, ArrayAccess
+class ShareMessageData implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -48,7 +48,7 @@ class UserRelationshipsHomeResourceData implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'User_relationships_homeResource_data';
+    protected static $swaggerModelName = 'ShareMessageData';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -66,7 +66,7 @@ class UserRelationshipsHomeResourceData implements ModelInterface, ArrayAccess
       */
     protected static $swaggerFormats = [
         'type' => null,
-'id' => 'int64'    ];
+'id' => null    ];
 
     /**
      * Array of property to type mappings. Used for (de)serialization
@@ -157,7 +157,7 @@ class UserRelationshipsHomeResourceData implements ModelInterface, ArrayAccess
         return self::$swaggerModelName;
     }
 
-    const TYPE_RESOURCE = 'resource';
+    const TYPE_MESSAGE = 'message';
 
     /**
      * Gets allowable values of the enum
@@ -167,7 +167,7 @@ class UserRelationshipsHomeResourceData implements ModelInterface, ArrayAccess
     public function getTypeAllowableValues()
     {
         return [
-            self::TYPE_RESOURCE,        ];
+            self::TYPE_MESSAGE,        ];
     }
 
     /**
@@ -234,7 +234,7 @@ class UserRelationshipsHomeResourceData implements ModelInterface, ArrayAccess
     /**
      * Sets type
      *
-     * @param string $type Type is resource.
+     * @param string $type Type is message.
      *
      * @return $this
      */
@@ -267,7 +267,7 @@ class UserRelationshipsHomeResourceData implements ModelInterface, ArrayAccess
     /**
      * Sets id
      *
-     * @param int $id ID of home directory resource.
+     * @param int $id ID of the message.
      *
      * @return $this
      */

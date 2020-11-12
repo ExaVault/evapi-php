@@ -1,6 +1,6 @@
 <?php
 /**
- * UserRelationshipsHomeResourceData
+ * UpdateFormByIdRequestBody
  *
  * PHP version 5
  *
@@ -32,14 +32,15 @@ use \ArrayAccess;
 use \ExaVault\ObjectSerializer;
 
 /**
- * UserRelationshipsHomeResourceData Class Doc Comment
+ * UpdateFormByIdRequestBody Class Doc Comment
  *
  * @category Class
+ * @description CSS Styles of the form.
  * @package  ExaVault
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class UserRelationshipsHomeResourceData implements ModelInterface, ArrayAccess
+class UpdateFormByIdRequestBody implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -48,7 +49,7 @@ class UserRelationshipsHomeResourceData implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'User_relationships_homeResource_data';
+    protected static $swaggerModelName = 'UpdateFormByIdRequestBody';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -56,8 +57,11 @@ class UserRelationshipsHomeResourceData implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'type' => 'string',
-'id' => 'int'    ];
+        'form_description' => 'string',
+'submit_button_text' => 'string',
+'success_message' => 'string',
+'elements' => '\ExaVault\Model\FormsidElements[]',
+'css_styles' => 'string'    ];
 
     /**
       * Array of property to format mappings. Used for (de)serialization
@@ -65,8 +69,11 @@ class UserRelationshipsHomeResourceData implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'type' => null,
-'id' => 'int64'    ];
+        'form_description' => null,
+'submit_button_text' => null,
+'success_message' => null,
+'elements' => null,
+'css_styles' => null    ];
 
     /**
      * Array of property to type mappings. Used for (de)serialization
@@ -95,8 +102,11 @@ class UserRelationshipsHomeResourceData implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'type' => 'type',
-'id' => 'id'    ];
+        'form_description' => 'formDescription',
+'submit_button_text' => 'submitButtonText',
+'success_message' => 'successMessage',
+'elements' => 'elements',
+'css_styles' => 'cssStyles'    ];
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
@@ -104,8 +114,11 @@ class UserRelationshipsHomeResourceData implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'type' => 'setType',
-'id' => 'setId'    ];
+        'form_description' => 'setFormDescription',
+'submit_button_text' => 'setSubmitButtonText',
+'success_message' => 'setSuccessMessage',
+'elements' => 'setElements',
+'css_styles' => 'setCssStyles'    ];
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
@@ -113,8 +126,11 @@ class UserRelationshipsHomeResourceData implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'type' => 'getType',
-'id' => 'getId'    ];
+        'form_description' => 'getFormDescription',
+'submit_button_text' => 'getSubmitButtonText',
+'success_message' => 'getSuccessMessage',
+'elements' => 'getElements',
+'css_styles' => 'getCssStyles'    ];
 
     /**
      * Array of attributes where the key is the local name,
@@ -157,18 +173,7 @@ class UserRelationshipsHomeResourceData implements ModelInterface, ArrayAccess
         return self::$swaggerModelName;
     }
 
-    const TYPE_RESOURCE = 'resource';
-
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getTypeAllowableValues()
-    {
-        return [
-            self::TYPE_RESOURCE,        ];
-    }
+    
 
     /**
      * Associative array for storing property values
@@ -185,8 +190,11 @@ class UserRelationshipsHomeResourceData implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['type'] = isset($data['type']) ? $data['type'] : null;
-        $this->container['id'] = isset($data['id']) ? $data['id'] : null;
+        $this->container['form_description'] = isset($data['form_description']) ? $data['form_description'] : null;
+        $this->container['submit_button_text'] = isset($data['submit_button_text']) ? $data['submit_button_text'] : null;
+        $this->container['success_message'] = isset($data['success_message']) ? $data['success_message'] : null;
+        $this->container['elements'] = isset($data['elements']) ? $data['elements'] : null;
+        $this->container['css_styles'] = isset($data['css_styles']) ? $data['css_styles'] : null;
     }
 
     /**
@@ -197,14 +205,6 @@ class UserRelationshipsHomeResourceData implements ModelInterface, ArrayAccess
     public function listInvalidProperties()
     {
         $invalidProperties = [];
-
-        $allowedValues = $this->getTypeAllowableValues();
-        if (!is_null($this->container['type']) && !in_array($this->container['type'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value for 'type', must be one of '%s'",
-                implode("', '", $allowedValues)
-            );
-        }
 
         return $invalidProperties;
     }
@@ -222,58 +222,121 @@ class UserRelationshipsHomeResourceData implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets type
+     * Gets form_description
      *
      * @return string
      */
-    public function getType()
+    public function getFormDescription()
     {
-        return $this->container['type'];
+        return $this->container['form_description'];
     }
 
     /**
-     * Sets type
+     * Sets form_description
      *
-     * @param string $type Type is resource.
+     * @param string $form_description Set a description for the form that will be visible to recipients.
      *
      * @return $this
      */
-    public function setType($type)
+    public function setFormDescription($form_description)
     {
-        $allowedValues = $this->getTypeAllowableValues();
-        if (!is_null($type) && !in_array($type, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value for 'type', must be one of '%s'",
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
-        $this->container['type'] = $type;
+        $this->container['form_description'] = $form_description;
 
         return $this;
     }
 
     /**
-     * Gets id
+     * Gets submit_button_text
      *
-     * @return int
+     * @return string
      */
-    public function getId()
+    public function getSubmitButtonText()
     {
-        return $this->container['id'];
+        return $this->container['submit_button_text'];
     }
 
     /**
-     * Sets id
+     * Sets submit_button_text
      *
-     * @param int $id ID of home directory resource.
+     * @param string $submit_button_text Text to be displayed on the submission button.
      *
      * @return $this
      */
-    public function setId($id)
+    public function setSubmitButtonText($submit_button_text)
     {
-        $this->container['id'] = $id;
+        $this->container['submit_button_text'] = $submit_button_text;
+
+        return $this;
+    }
+
+    /**
+     * Gets success_message
+     *
+     * @return string
+     */
+    public function getSuccessMessage()
+    {
+        return $this->container['success_message'];
+    }
+
+    /**
+     * Sets success_message
+     *
+     * @param string $success_message Text to be displayed when a recipient has submitted the form.
+     *
+     * @return $this
+     */
+    public function setSuccessMessage($success_message)
+    {
+        $this->container['success_message'] = $success_message;
+
+        return $this;
+    }
+
+    /**
+     * Gets elements
+     *
+     * @return \ExaVault\Model\FormsidElements[]
+     */
+    public function getElements()
+    {
+        return $this->container['elements'];
+    }
+
+    /**
+     * Sets elements
+     *
+     * @param \ExaVault\Model\FormsidElements[] $elements elements
+     *
+     * @return $this
+     */
+    public function setElements($elements)
+    {
+        $this->container['elements'] = $elements;
+
+        return $this;
+    }
+
+    /**
+     * Gets css_styles
+     *
+     * @return string
+     */
+    public function getCssStyles()
+    {
+        return $this->container['css_styles'];
+    }
+
+    /**
+     * Sets css_styles
+     *
+     * @param string $css_styles css_styles
+     *
+     * @return $this
+     */
+    public function setCssStyles($css_styles)
+    {
+        $this->container['css_styles'] = $css_styles;
 
         return $this;
     }

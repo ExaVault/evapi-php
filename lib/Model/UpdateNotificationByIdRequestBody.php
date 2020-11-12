@@ -1,6 +1,6 @@
 <?php
 /**
- * UserRelationshipsHomeResourceData
+ * UpdateNotificationByIdRequestBody
  *
  * PHP version 5
  *
@@ -32,14 +32,14 @@ use \ArrayAccess;
 use \ExaVault\ObjectSerializer;
 
 /**
- * UserRelationshipsHomeResourceData Class Doc Comment
+ * UpdateNotificationByIdRequestBody Class Doc Comment
  *
  * @category Class
  * @package  ExaVault
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class UserRelationshipsHomeResourceData implements ModelInterface, ArrayAccess
+class UpdateNotificationByIdRequestBody implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -48,7 +48,7 @@ class UserRelationshipsHomeResourceData implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'User_relationships_homeResource_data';
+    protected static $swaggerModelName = 'UpdateNotificationByIdRequestBody';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -56,8 +56,11 @@ class UserRelationshipsHomeResourceData implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'type' => 'string',
-'id' => 'int'    ];
+        'action' => 'string',
+'usernames' => 'string[]',
+'send_email' => 'bool',
+'recipients' => 'string[]',
+'message' => 'string'    ];
 
     /**
       * Array of property to format mappings. Used for (de)serialization
@@ -65,8 +68,11 @@ class UserRelationshipsHomeResourceData implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'type' => null,
-'id' => 'int64'    ];
+        'action' => null,
+'usernames' => null,
+'send_email' => null,
+'recipients' => 'email',
+'message' => null    ];
 
     /**
      * Array of property to type mappings. Used for (de)serialization
@@ -95,8 +101,11 @@ class UserRelationshipsHomeResourceData implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'type' => 'type',
-'id' => 'id'    ];
+        'action' => 'action',
+'usernames' => 'usernames',
+'send_email' => 'sendEmail',
+'recipients' => 'recipients',
+'message' => 'message'    ];
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
@@ -104,8 +113,11 @@ class UserRelationshipsHomeResourceData implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'type' => 'setType',
-'id' => 'setId'    ];
+        'action' => 'setAction',
+'usernames' => 'setUsernames',
+'send_email' => 'setSendEmail',
+'recipients' => 'setRecipients',
+'message' => 'setMessage'    ];
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
@@ -113,8 +125,11 @@ class UserRelationshipsHomeResourceData implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'type' => 'getType',
-'id' => 'getId'    ];
+        'action' => 'getAction',
+'usernames' => 'getUsernames',
+'send_email' => 'getSendEmail',
+'recipients' => 'getRecipients',
+'message' => 'getMessage'    ];
 
     /**
      * Array of attributes where the key is the local name,
@@ -157,17 +172,23 @@ class UserRelationshipsHomeResourceData implements ModelInterface, ArrayAccess
         return self::$swaggerModelName;
     }
 
-    const TYPE_RESOURCE = 'resource';
+    const ACTION_UPLOAD = 'upload';
+const ACTION_DOWNLOAD = 'download';
+const ACTION_DELETE = 'delete';
+const ACTION_ALL = 'all';
 
     /**
      * Gets allowable values of the enum
      *
      * @return string[]
      */
-    public function getTypeAllowableValues()
+    public function getActionAllowableValues()
     {
         return [
-            self::TYPE_RESOURCE,        ];
+            self::ACTION_UPLOAD,
+self::ACTION_DOWNLOAD,
+self::ACTION_DELETE,
+self::ACTION_ALL,        ];
     }
 
     /**
@@ -185,8 +206,11 @@ class UserRelationshipsHomeResourceData implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['type'] = isset($data['type']) ? $data['type'] : null;
-        $this->container['id'] = isset($data['id']) ? $data['id'] : null;
+        $this->container['action'] = isset($data['action']) ? $data['action'] : null;
+        $this->container['usernames'] = isset($data['usernames']) ? $data['usernames'] : null;
+        $this->container['send_email'] = isset($data['send_email']) ? $data['send_email'] : null;
+        $this->container['recipients'] = isset($data['recipients']) ? $data['recipients'] : null;
+        $this->container['message'] = isset($data['message']) ? $data['message'] : null;
     }
 
     /**
@@ -198,10 +222,10 @@ class UserRelationshipsHomeResourceData implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        $allowedValues = $this->getTypeAllowableValues();
-        if (!is_null($this->container['type']) && !in_array($this->container['type'], $allowedValues, true)) {
+        $allowedValues = $this->getActionAllowableValues();
+        if (!is_null($this->container['action']) && !in_array($this->container['action'], $allowedValues, true)) {
             $invalidProperties[] = sprintf(
-                "invalid value for 'type', must be one of '%s'",
+                "invalid value for 'action', must be one of '%s'",
                 implode("', '", $allowedValues)
             );
         }
@@ -222,58 +246,130 @@ class UserRelationshipsHomeResourceData implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets type
+     * Gets action
      *
      * @return string
      */
-    public function getType()
+    public function getAction()
     {
-        return $this->container['type'];
+        return $this->container['action'];
     }
 
     /**
-     * Sets type
+     * Sets action
      *
-     * @param string $type Type is resource.
+     * @param string $action Type of action be notified about. Notifications will only be sent for the given type of action. Valid choices are **upload**, **download**, **delete** or **all** (upload/download/delete)
      *
      * @return $this
      */
-    public function setType($type)
+    public function setAction($action)
     {
-        $allowedValues = $this->getTypeAllowableValues();
-        if (!is_null($type) && !in_array($type, $allowedValues, true)) {
+        $allowedValues = $this->getActionAllowableValues();
+        if (!is_null($action) && !in_array($action, $allowedValues, true)) {
             throw new \InvalidArgumentException(
                 sprintf(
-                    "Invalid value for 'type', must be one of '%s'",
+                    "Invalid value for 'action', must be one of '%s'",
                     implode("', '", $allowedValues)
                 )
             );
         }
-        $this->container['type'] = $type;
+        $this->container['action'] = $action;
 
         return $this;
     }
 
     /**
-     * Gets id
+     * Gets usernames
      *
-     * @return int
+     * @return string[]
      */
-    public function getId()
+    public function getUsernames()
     {
-        return $this->container['id'];
+        return $this->container['usernames'];
     }
 
     /**
-     * Sets id
+     * Sets usernames
      *
-     * @param int $id ID of home directory resource.
+     * @param string[] $usernames Determines which users' actions should trigger the notification.   Rather than listing  individual users, you can also use 3 special options:  - **notice\\_user\\_all** for activity by any user or share recipient - **notice\\_user\\_all\\_users** for activity only by user accounts - **notice\\_user\\_all\\_recipient** for activity only by share recipients
      *
      * @return $this
      */
-    public function setId($id)
+    public function setUsernames($usernames)
     {
-        $this->container['id'] = $id;
+        $this->container['usernames'] = $usernames;
+
+        return $this;
+    }
+
+    /**
+     * Gets send_email
+     *
+     * @return bool
+     */
+    public function getSendEmail()
+    {
+        return $this->container['send_email'];
+    }
+
+    /**
+     * Sets send_email
+     *
+     * @param bool $send_email Whether an email should be sent to the recipients when matching activity happens.
+     *
+     * @return $this
+     */
+    public function setSendEmail($send_email)
+    {
+        $this->container['send_email'] = $send_email;
+
+        return $this;
+    }
+
+    /**
+     * Gets recipients
+     *
+     * @return string[]
+     */
+    public function getRecipients()
+    {
+        return $this->container['recipients'];
+    }
+
+    /**
+     * Sets recipients
+     *
+     * @param string[] $recipients Email addresses to send notification emails to. If empty, sends to the current user's email address.
+     *
+     * @return $this
+     */
+    public function setRecipients($recipients)
+    {
+        $this->container['recipients'] = $recipients;
+
+        return $this;
+    }
+
+    /**
+     * Gets message
+     *
+     * @return string
+     */
+    public function getMessage()
+    {
+        return $this->container['message'];
+    }
+
+    /**
+     * Sets message
+     *
+     * @param string $message Custom message to insert into the notification emails, along with the matching activity.
+     *
+     * @return $this
+     */
+    public function setMessage($message)
+    {
+        $this->container['message'] = $message;
 
         return $this;
     }

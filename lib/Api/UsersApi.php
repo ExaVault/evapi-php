@@ -93,7 +93,7 @@ class UsersApi
      *
      * @param  string $ev_api_key API key required to make the API call (required)
      * @param  string $ev_access_token Access token required to make the API call. (required)
-     * @param  \ExaVault\Model\Body5 $body body (optional)
+     * @param  \ExaVault\Model\AddUserRequestBody $body body (optional)
      *
      * @throws \ExaVault\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -112,7 +112,7 @@ class UsersApi
      *
      * @param  string $ev_api_key API key required to make the API call (required)
      * @param  string $ev_access_token Access token required to make the API call. (required)
-     * @param  \ExaVault\Model\Body5 $body (optional)
+     * @param  \ExaVault\Model\AddUserRequestBody $body (optional)
      *
      * @throws \ExaVault\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -189,7 +189,7 @@ class UsersApi
      *
      * @param  string $ev_api_key API key required to make the API call (required)
      * @param  string $ev_access_token Access token required to make the API call. (required)
-     * @param  \ExaVault\Model\Body5 $body (optional)
+     * @param  \ExaVault\Model\AddUserRequestBody $body (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -211,7 +211,7 @@ class UsersApi
      *
      * @param  string $ev_api_key API key required to make the API call (required)
      * @param  string $ev_access_token Access token required to make the API call. (required)
-     * @param  \ExaVault\Model\Body5 $body (optional)
+     * @param  \ExaVault\Model\AddUserRequestBody $body (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -263,7 +263,7 @@ class UsersApi
      *
      * @param  string $ev_api_key API key required to make the API call (required)
      * @param  string $ev_access_token Access token required to make the API call. (required)
-     * @param  \ExaVault\Model\Body5 $body (optional)
+     * @param  \ExaVault\Model\AddUserRequestBody $body (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -1340,7 +1340,7 @@ class UsersApi
      * @param  string $ev_api_key API key required to make the API call. (required)
      * @param  string $ev_access_token Access token required to make the API call. (required)
      * @param  float $id The user&#x27;s ID. Note that this is our internal ID, and _not the username_. You can obtain it by calling the [GET /users](#operation/listUsers) method. (required)
-     * @param  \ExaVault\Model\Body6 $body body (optional)
+     * @param  \ExaVault\Model\UpdateUserRequestBody $body body (optional)
      *
      * @throws \ExaVault\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -1360,7 +1360,7 @@ class UsersApi
      * @param  string $ev_api_key API key required to make the API call. (required)
      * @param  string $ev_access_token Access token required to make the API call. (required)
      * @param  float $id The user&#x27;s ID. Note that this is our internal ID, and _not the username_. You can obtain it by calling the [GET /users](#operation/listUsers) method. (required)
-     * @param  \ExaVault\Model\Body6 $body (optional)
+     * @param  \ExaVault\Model\UpdateUserRequestBody $body (optional)
      *
      * @throws \ExaVault\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -1438,7 +1438,7 @@ class UsersApi
      * @param  string $ev_api_key API key required to make the API call. (required)
      * @param  string $ev_access_token Access token required to make the API call. (required)
      * @param  float $id The user&#x27;s ID. Note that this is our internal ID, and _not the username_. You can obtain it by calling the [GET /users](#operation/listUsers) method. (required)
-     * @param  \ExaVault\Model\Body6 $body (optional)
+     * @param  \ExaVault\Model\UpdateUserRequestBody $body (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -1461,7 +1461,7 @@ class UsersApi
      * @param  string $ev_api_key API key required to make the API call. (required)
      * @param  string $ev_access_token Access token required to make the API call. (required)
      * @param  float $id The user&#x27;s ID. Note that this is our internal ID, and _not the username_. You can obtain it by calling the [GET /users](#operation/listUsers) method. (required)
-     * @param  \ExaVault\Model\Body6 $body (optional)
+     * @param  \ExaVault\Model\UpdateUserRequestBody $body (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -1514,7 +1514,7 @@ class UsersApi
      * @param  string $ev_api_key API key required to make the API call. (required)
      * @param  string $ev_access_token Access token required to make the API call. (required)
      * @param  float $id The user&#x27;s ID. Note that this is our internal ID, and _not the username_. You can obtain it by calling the [GET /users](#operation/listUsers) method. (required)
-     * @param  \ExaVault\Model\Body6 $body (optional)
+     * @param  \ExaVault\Model\UpdateUserRequestBody $body (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request

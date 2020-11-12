@@ -94,7 +94,7 @@ class RecipientsApi
      * @param  string $ev_api_key API Key required to make the API call. (required)
      * @param  string $ev_access_token Access token required to make the API call. (required)
      * @param  int $share_id ID of the share to resend invites for. (required)
-     * @param  \ExaVault\Model\Body18 $body body (optional)
+     * @param  \ExaVault\Model\ResendInvitationsRequestBody $body body (optional)
      *
      * @throws \ExaVault\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -114,7 +114,7 @@ class RecipientsApi
      * @param  string $ev_api_key API Key required to make the API call. (required)
      * @param  string $ev_access_token Access token required to make the API call. (required)
      * @param  int $share_id ID of the share to resend invites for. (required)
-     * @param  \ExaVault\Model\Body18 $body (optional)
+     * @param  \ExaVault\Model\ResendInvitationsRequestBody $body (optional)
      *
      * @throws \ExaVault\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -192,7 +192,7 @@ class RecipientsApi
      * @param  string $ev_api_key API Key required to make the API call. (required)
      * @param  string $ev_access_token Access token required to make the API call. (required)
      * @param  int $share_id ID of the share to resend invites for. (required)
-     * @param  \ExaVault\Model\Body18 $body (optional)
+     * @param  \ExaVault\Model\ResendInvitationsRequestBody $body (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -215,7 +215,7 @@ class RecipientsApi
      * @param  string $ev_api_key API Key required to make the API call. (required)
      * @param  string $ev_access_token Access token required to make the API call. (required)
      * @param  int $share_id ID of the share to resend invites for. (required)
-     * @param  \ExaVault\Model\Body18 $body (optional)
+     * @param  \ExaVault\Model\ResendInvitationsRequestBody $body (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -268,7 +268,7 @@ class RecipientsApi
      * @param  string $ev_api_key API Key required to make the API call. (required)
      * @param  string $ev_access_token Access token required to make the API call. (required)
      * @param  int $share_id ID of the share to resend invites for. (required)
-     * @param  \ExaVault\Model\Body18 $body (optional)
+     * @param  \ExaVault\Model\ResendInvitationsRequestBody $body (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request

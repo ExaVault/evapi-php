@@ -56,8 +56,7 @@ class Body implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'name' => 'string',
-'emails' => 'string[]'    ];
+        'file' => 'string'    ];
 
     /**
       * Array of property to format mappings. Used for (de)serialization
@@ -65,8 +64,7 @@ class Body implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'name' => null,
-'emails' => null    ];
+        'file' => 'binary'    ];
 
     /**
      * Array of property to type mappings. Used for (de)serialization
@@ -95,8 +93,7 @@ class Body implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'name' => 'name',
-'emails' => 'emails'    ];
+        'file' => 'file'    ];
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
@@ -104,8 +101,7 @@ class Body implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'name' => 'setName',
-'emails' => 'setEmails'    ];
+        'file' => 'setFile'    ];
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
@@ -113,8 +109,7 @@ class Body implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'name' => 'getName',
-'emails' => 'getEmails'    ];
+        'file' => 'getFile'    ];
 
     /**
      * Array of attributes where the key is the local name,
@@ -174,8 +169,7 @@ class Body implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['name'] = isset($data['name']) ? $data['name'] : null;
-        $this->container['emails'] = isset($data['emails']) ? $data['emails'] : null;
+        $this->container['file'] = isset($data['file']) ? $data['file'] : null;
     }
 
     /**
@@ -187,12 +181,6 @@ class Body implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['name'] === null) {
-            $invalidProperties[] = "'name' can't be null";
-        }
-        if ($this->container['emails'] === null) {
-            $invalidProperties[] = "'emails' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -209,49 +197,25 @@ class Body implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets name
+     * Gets file
      *
      * @return string
      */
-    public function getName()
+    public function getFile()
     {
-        return $this->container['name'];
+        return $this->container['file'];
     }
 
     /**
-     * Sets name
+     * Sets file
      *
-     * @param string $name Name of the email list.
+     * @param string $file file
      *
      * @return $this
      */
-    public function setName($name)
+    public function setFile($file)
     {
-        $this->container['name'] = $name;
-
-        return $this;
-    }
-
-    /**
-     * Gets emails
-     *
-     * @return string[]
-     */
-    public function getEmails()
-    {
-        return $this->container['emails'];
-    }
-
-    /**
-     * Sets emails
-     *
-     * @param string[] $emails Array of email addresses to include in the email list.
-     *
-     * @return $this
-     */
-    public function setEmails($emails)
-    {
-        $this->container['emails'] = $emails;
+        $this->container['file'] = $file;
 
         return $this;
     }

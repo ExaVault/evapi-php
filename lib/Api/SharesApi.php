@@ -93,7 +93,7 @@ class SharesApi
      *
      * @param  string $ev_api_key API Key required to make the API call. (required)
      * @param  string $ev_access_token Access token required to make the API call. (required)
-     * @param  \ExaVault\Model\Body16 $body body (optional)
+     * @param  \ExaVault\Model\AddShareRequestBody $body body (optional)
      *
      * @throws \ExaVault\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -112,7 +112,7 @@ class SharesApi
      *
      * @param  string $ev_api_key API Key required to make the API call. (required)
      * @param  string $ev_access_token Access token required to make the API call. (required)
-     * @param  \ExaVault\Model\Body16 $body (optional)
+     * @param  \ExaVault\Model\AddShareRequestBody $body (optional)
      *
      * @throws \ExaVault\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -189,7 +189,7 @@ class SharesApi
      *
      * @param  string $ev_api_key API Key required to make the API call. (required)
      * @param  string $ev_access_token Access token required to make the API call. (required)
-     * @param  \ExaVault\Model\Body16 $body (optional)
+     * @param  \ExaVault\Model\AddShareRequestBody $body (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -211,7 +211,7 @@ class SharesApi
      *
      * @param  string $ev_api_key API Key required to make the API call. (required)
      * @param  string $ev_access_token Access token required to make the API call. (required)
-     * @param  \ExaVault\Model\Body16 $body (optional)
+     * @param  \ExaVault\Model\AddShareRequestBody $body (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -263,7 +263,7 @@ class SharesApi
      *
      * @param  string $ev_api_key API Key required to make the API call. (required)
      * @param  string $ev_access_token Access token required to make the API call. (required)
-     * @param  \ExaVault\Model\Body16 $body (optional)
+     * @param  \ExaVault\Model\AddShareRequestBody $body (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -1629,7 +1629,7 @@ class SharesApi
      *
      * Update a share
      *
-     * @param  \ExaVault\Model\Body17 $body body (required)
+     * @param  \ExaVault\Model\UpdateShareRequestBody $body body (required)
      * @param  string $ev_api_key API Key (required)
      * @param  string $ev_access_token Access Token (required)
      * @param  int $id ID of the share entry (required)
@@ -1649,7 +1649,7 @@ class SharesApi
      *
      * Update a share
      *
-     * @param  \ExaVault\Model\Body17 $body (required)
+     * @param  \ExaVault\Model\UpdateShareRequestBody $body (required)
      * @param  string $ev_api_key API Key (required)
      * @param  string $ev_access_token Access Token (required)
      * @param  int $id ID of the share entry (required)
@@ -1727,7 +1727,7 @@ class SharesApi
      *
      * Update a share
      *
-     * @param  \ExaVault\Model\Body17 $body (required)
+     * @param  \ExaVault\Model\UpdateShareRequestBody $body (required)
      * @param  string $ev_api_key API Key (required)
      * @param  string $ev_access_token Access Token (required)
      * @param  int $id ID of the share entry (required)
@@ -1750,7 +1750,7 @@ class SharesApi
      *
      * Update a share
      *
-     * @param  \ExaVault\Model\Body17 $body (required)
+     * @param  \ExaVault\Model\UpdateShareRequestBody $body (required)
      * @param  string $ev_api_key API Key (required)
      * @param  string $ev_access_token Access Token (required)
      * @param  int $id ID of the share entry (required)
@@ -1803,7 +1803,7 @@ class SharesApi
     /**
      * Create request for operation 'updateShareById'
      *
-     * @param  \ExaVault\Model\Body17 $body (required)
+     * @param  \ExaVault\Model\UpdateShareRequestBody $body (required)
      * @param  string $ev_api_key API Key (required)
      * @param  string $ev_access_token Access Token (required)
      * @param  int $id ID of the share entry (required)

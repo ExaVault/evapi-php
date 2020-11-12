@@ -60,7 +60,7 @@ class ShareAttributes implements ModelInterface, ArrayAccess
         'name' => 'string',
 'has_password' => 'bool',
 'public' => 'bool',
-'access_mode' => 'string',
+'access_mode' => 'string[]',
 'access_description' => 'string',
 'embed' => 'bool',
 'hash' => 'string',
@@ -72,7 +72,7 @@ class ShareAttributes implements ModelInterface, ArrayAccess
 'require_email' => 'bool',
 'file_drop_create_folders' => 'bool',
 'paths' => 'string[]',
-'recipients' => '\ExaVault\Model\ShareRecipient1[]',
+'recipients' => '\ExaVault\Model\ShareRecipient[]',
 'messages' => '\ExaVault\Model\ShareMessage[]',
 'inherited' => 'bool',
 'status' => 'int',
@@ -268,10 +268,10 @@ class ShareAttributes implements ModelInterface, ArrayAccess
         return self::$swaggerModelName;
     }
 
-    const ACCESS_MODE_UPLOAD = 'upload';
-const ACCESS_MODE_DOWNLOAD = 'download';
-const ACCESS_MODE_DOWNLOAD_UPLOAD = 'download_upload';
-const ACCESS_MODE_DOWNLOAD_UPLOAD_MODIFY_DELETE = 'download_upload_modify_delete';
+    const ACCESS_MODE_DOWNLOAD = 'download';
+const ACCESS_MODE_UPLOAD = 'upload';
+const ACCESS_MODE_MODIFY = 'modify';
+const ACCESS_MODE_DELETE = 'delete';
 const TYPE_SHARED_FOLDER = 'shared_folder';
 const TYPE_SEND = 'send';
 const TYPE_RECEIVE = 'receive';
@@ -289,10 +289,10 @@ const TRACKING_STATUS_PENDING = 'pending';
     public function getAccessModeAllowableValues()
     {
         return [
-            self::ACCESS_MODE_UPLOAD,
-self::ACCESS_MODE_DOWNLOAD,
-self::ACCESS_MODE_DOWNLOAD_UPLOAD,
-self::ACCESS_MODE_DOWNLOAD_UPLOAD_MODIFY_DELETE,        ];
+            self::ACCESS_MODE_DOWNLOAD,
+self::ACCESS_MODE_UPLOAD,
+self::ACCESS_MODE_MODIFY,
+self::ACCESS_MODE_DELETE,        ];
     }
     /**
      * Gets allowable values of the enum
@@ -379,14 +379,6 @@ self::TRACKING_STATUS_PENDING,        ];
     public function listInvalidProperties()
     {
         $invalidProperties = [];
-
-        $allowedValues = $this->getAccessModeAllowableValues();
-        if (!is_null($this->container['access_mode']) && !in_array($this->container['access_mode'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value for 'access_mode', must be one of '%s'",
-                implode("', '", $allowedValues)
-            );
-        }
 
         $allowedValues = $this->getTypeAllowableValues();
         if (!is_null($this->container['type']) && !in_array($this->container['type'], $allowedValues, true)) {
@@ -502,7 +494,7 @@ self::TRACKING_STATUS_PENDING,        ];
     /**
      * Gets access_mode
      *
-     * @return string
+     * @return string[]
      */
     public function getAccessMode()
     {
@@ -512,14 +504,14 @@ self::TRACKING_STATUS_PENDING,        ];
     /**
      * Sets access_mode
      *
-     * @param string $access_mode Access rights for the share.
+     * @param string[] $access_mode Access rights for the share.
      *
      * @return $this
      */
     public function setAccessMode($access_mode)
     {
         $allowedValues = $this->getAccessModeAllowableValues();
-        if (!is_null($access_mode) && !in_array($access_mode, $allowedValues, true)) {
+        if (!is_null($access_mode) && array_diff($access_mode, $allowedValues)) {
             throw new \InvalidArgumentException(
                 sprintf(
                     "Invalid value for 'access_mode', must be one of '%s'",
@@ -808,7 +800,7 @@ self::TRACKING_STATUS_PENDING,        ];
     /**
      * Gets recipients
      *
-     * @return \ExaVault\Model\ShareRecipient1[]
+     * @return \ExaVault\Model\ShareRecipient[]
      */
     public function getRecipients()
     {
@@ -818,7 +810,7 @@ self::TRACKING_STATUS_PENDING,        ];
     /**
      * Sets recipients
      *
-     * @param \ExaVault\Model\ShareRecipient1[] $recipients Array of recipients.
+     * @param \ExaVault\Model\ShareRecipient[] $recipients Array of recipients.
      *
      * @return $this
      */
@@ -995,7 +987,7 @@ self::TRACKING_STATUS_PENDING,        ];
     /**
      * Sets tracking_status
      *
-     * @param string $tracking_status Checks recipient received status and returns whether it's been recevied (`complete`,) partial recevied (`incomplete`,) or not recevied yet (`pending`.)
+     * @param string $tracking_status Checks recipient received status and returns whether it's been recevied (`complete`,) partial recevied (`incomplete`,) or not received yet (`pending`.)
      *
      * @return $this
      */
