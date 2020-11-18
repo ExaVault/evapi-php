@@ -93,7 +93,7 @@ class FormApi
      *
      * @param  string $ev_api_key API Key required to make the API call. (required)
      * @param  string $ev_access_token Access token required to make the API call. (required)
-     * @param  string $id ID of the entry to be deleted data for (required)
+     * @param  int $id ID of the entry to be deleted data for (required)
      *
      * @throws \ExaVault\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -112,7 +112,7 @@ class FormApi
      *
      * @param  string $ev_api_key API Key required to make the API call. (required)
      * @param  string $ev_access_token Access token required to make the API call. (required)
-     * @param  string $id ID of the entry to be deleted data for (required)
+     * @param  int $id ID of the entry to be deleted data for (required)
      *
      * @throws \ExaVault\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -189,7 +189,7 @@ class FormApi
      *
      * @param  string $ev_api_key API Key required to make the API call. (required)
      * @param  string $ev_access_token Access token required to make the API call. (required)
-     * @param  string $id ID of the entry to be deleted data for (required)
+     * @param  int $id ID of the entry to be deleted data for (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -211,7 +211,7 @@ class FormApi
      *
      * @param  string $ev_api_key API Key required to make the API call. (required)
      * @param  string $ev_access_token Access token required to make the API call. (required)
-     * @param  string $id ID of the entry to be deleted data for (required)
+     * @param  int $id ID of the entry to be deleted data for (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -263,7 +263,7 @@ class FormApi
      *
      * @param  string $ev_api_key API Key required to make the API call. (required)
      * @param  string $ev_access_token Access token required to make the API call. (required)
-     * @param  string $id ID of the entry to be deleted data for (required)
+     * @param  int $id ID of the entry to be deleted data for (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -983,7 +983,7 @@ class FormApi
      *
      * @param  string $ev_api_key API Key required to make the API call. (required)
      * @param  string $ev_access_token Access token required to make the API call. (required)
-     * @param  string $id ID of the form to retrieve entries for. (required)
+     * @param  int $id ID of the form to retrieve entries for. (required)
      * @param  int $limit Limit of records to be returned (for pagination) (optional)
      * @param  int $offset Current offset of records (for pagination) (optional)
      *
@@ -1004,7 +1004,7 @@ class FormApi
      *
      * @param  string $ev_api_key API Key required to make the API call. (required)
      * @param  string $ev_access_token Access token required to make the API call. (required)
-     * @param  string $id ID of the form to retrieve entries for. (required)
+     * @param  int $id ID of the form to retrieve entries for. (required)
      * @param  int $limit Limit of records to be returned (for pagination) (optional)
      * @param  int $offset Current offset of records (for pagination) (optional)
      *
@@ -1083,7 +1083,7 @@ class FormApi
      *
      * @param  string $ev_api_key API Key required to make the API call. (required)
      * @param  string $ev_access_token Access token required to make the API call. (required)
-     * @param  string $id ID of the form to retrieve entries for. (required)
+     * @param  int $id ID of the form to retrieve entries for. (required)
      * @param  int $limit Limit of records to be returned (for pagination) (optional)
      * @param  int $offset Current offset of records (for pagination) (optional)
      *
@@ -1107,7 +1107,7 @@ class FormApi
      *
      * @param  string $ev_api_key API Key required to make the API call. (required)
      * @param  string $ev_access_token Access token required to make the API call. (required)
-     * @param  string $id ID of the form to retrieve entries for. (required)
+     * @param  int $id ID of the form to retrieve entries for. (required)
      * @param  int $limit Limit of records to be returned (for pagination) (optional)
      * @param  int $offset Current offset of records (for pagination) (optional)
      *
@@ -1161,7 +1161,7 @@ class FormApi
      *
      * @param  string $ev_api_key API Key required to make the API call. (required)
      * @param  string $ev_access_token Access token required to make the API call. (required)
-     * @param  string $id ID of the form to retrieve entries for. (required)
+     * @param  int $id ID of the form to retrieve entries for. (required)
      * @param  int $limit Limit of records to be returned (for pagination) (optional)
      * @param  int $offset Current offset of records (for pagination) (optional)
      *
