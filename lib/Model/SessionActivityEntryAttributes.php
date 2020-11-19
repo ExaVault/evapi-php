@@ -56,15 +56,15 @@ class SessionActivityEntryAttributes implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'bytes_transferred' => 'int',
+        'bytesTransferred' => 'int',
 'created' => 'string',
 'duration' => 'int',
-'file_name' => 'string',
-'file_source' => 'string',
-'ip_address' => 'string',
+'fileName' => 'string',
+'fileSource' => 'string',
+'ipAddress' => 'string',
 'operation' => 'string',
 'protocol' => 'string',
-'session_id' => 'string',
+'sessionId' => 'string',
 'status' => 'string',
 'username' => 'string'    ];
 
@@ -74,15 +74,15 @@ class SessionActivityEntryAttributes implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'bytes_transferred' => 'int64',
+        'bytesTransferred' => 'int64',
 'created' => null,
 'duration' => null,
-'file_name' => null,
-'file_source' => null,
-'ip_address' => null,
+'fileName' => null,
+'fileSource' => null,
+'ipAddress' => null,
 'operation' => null,
 'protocol' => null,
-'session_id' => null,
+'sessionId' => null,
 'status' => null,
 'username' => null    ];
 
@@ -113,15 +113,15 @@ class SessionActivityEntryAttributes implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'bytes_transferred' => 'bytesTransferred',
+        'bytesTransferred' => 'bytesTransferred',
 'created' => 'created',
 'duration' => 'duration',
-'file_name' => 'fileName',
-'file_source' => 'fileSource',
-'ip_address' => 'ipAddress',
+'fileName' => 'fileName',
+'fileSource' => 'fileSource',
+'ipAddress' => 'ipAddress',
 'operation' => 'operation',
 'protocol' => 'protocol',
-'session_id' => 'sessionId',
+'sessionId' => 'sessionId',
 'status' => 'status',
 'username' => 'username'    ];
 
@@ -131,15 +131,15 @@ class SessionActivityEntryAttributes implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'bytes_transferred' => 'setBytesTransferred',
+        'bytesTransferred' => 'setBytesTransferred',
 'created' => 'setCreated',
 'duration' => 'setDuration',
-'file_name' => 'setFileName',
-'file_source' => 'setFileSource',
-'ip_address' => 'setIpAddress',
+'fileName' => 'setFileName',
+'fileSource' => 'setFileSource',
+'ipAddress' => 'setIpAddress',
 'operation' => 'setOperation',
 'protocol' => 'setProtocol',
-'session_id' => 'setSessionId',
+'sessionId' => 'setSessionId',
 'status' => 'setStatus',
 'username' => 'setUsername'    ];
 
@@ -149,15 +149,15 @@ class SessionActivityEntryAttributes implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'bytes_transferred' => 'getBytesTransferred',
+        'bytesTransferred' => 'getBytesTransferred',
 'created' => 'getCreated',
 'duration' => 'getDuration',
-'file_name' => 'getFileName',
-'file_source' => 'getFileSource',
-'ip_address' => 'getIpAddress',
+'fileName' => 'getFileName',
+'fileSource' => 'getFileSource',
+'ipAddress' => 'getIpAddress',
 'operation' => 'getOperation',
 'protocol' => 'getProtocol',
-'session_id' => 'getSessionId',
+'sessionId' => 'getSessionId',
 'status' => 'getStatus',
 'username' => 'getUsername'    ];
 
@@ -219,15 +219,15 @@ class SessionActivityEntryAttributes implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['bytes_transferred'] = isset($data['bytes_transferred']) ? $data['bytes_transferred'] : null;
+        $this->container['bytesTransferred'] = isset($data['bytesTransferred']) ? $data['bytesTransferred'] : null;
         $this->container['created'] = isset($data['created']) ? $data['created'] : null;
         $this->container['duration'] = isset($data['duration']) ? $data['duration'] : null;
-        $this->container['file_name'] = isset($data['file_name']) ? $data['file_name'] : null;
-        $this->container['file_source'] = isset($data['file_source']) ? $data['file_source'] : null;
-        $this->container['ip_address'] = isset($data['ip_address']) ? $data['ip_address'] : null;
+        $this->container['fileName'] = isset($data['fileName']) ? $data['fileName'] : null;
+        $this->container['fileSource'] = isset($data['fileSource']) ? $data['fileSource'] : null;
+        $this->container['ipAddress'] = isset($data['ipAddress']) ? $data['ipAddress'] : null;
         $this->container['operation'] = isset($data['operation']) ? $data['operation'] : null;
         $this->container['protocol'] = isset($data['protocol']) ? $data['protocol'] : null;
-        $this->container['session_id'] = isset($data['session_id']) ? $data['session_id'] : null;
+        $this->container['sessionId'] = isset($data['sessionId']) ? $data['sessionId'] : null;
         $this->container['status'] = isset($data['status']) ? $data['status'] : null;
         $this->container['username'] = isset($data['username']) ? $data['username'] : null;
     }
@@ -257,25 +257,25 @@ class SessionActivityEntryAttributes implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets bytes_transferred
+     * Gets bytesTransferred
      *
      * @return int
      */
     public function getBytesTransferred()
     {
-        return $this->container['bytes_transferred'];
+        return $this->container['bytesTransferred'];
     }
 
     /**
-     * Sets bytes_transferred
+     * Sets bytesTransferred
      *
-     * @param int $bytes_transferred bytes_transferred
+     * @param int $bytesTransferred bytesTransferred
      *
      * @return $this
      */
-    public function setBytesTransferred($bytes_transferred)
+    public function setBytesTransferred($bytesTransferred)
     {
-        $this->container['bytes_transferred'] = $bytes_transferred;
+        $this->container['bytesTransferred'] = $bytesTransferred;
 
         return $this;
     }
@@ -329,73 +329,73 @@ class SessionActivityEntryAttributes implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets file_name
+     * Gets fileName
      *
      * @return string
      */
     public function getFileName()
     {
-        return $this->container['file_name'];
+        return $this->container['fileName'];
     }
 
     /**
-     * Sets file_name
+     * Sets fileName
      *
-     * @param string $file_name file_name
+     * @param string $fileName fileName
      *
      * @return $this
      */
-    public function setFileName($file_name)
+    public function setFileName($fileName)
     {
-        $this->container['file_name'] = $file_name;
+        $this->container['fileName'] = $fileName;
 
         return $this;
     }
 
     /**
-     * Gets file_source
+     * Gets fileSource
      *
      * @return string
      */
     public function getFileSource()
     {
-        return $this->container['file_source'];
+        return $this->container['fileSource'];
     }
 
     /**
-     * Sets file_source
+     * Sets fileSource
      *
-     * @param string $file_source file_source
+     * @param string $fileSource fileSource
      *
      * @return $this
      */
-    public function setFileSource($file_source)
+    public function setFileSource($fileSource)
     {
-        $this->container['file_source'] = $file_source;
+        $this->container['fileSource'] = $fileSource;
 
         return $this;
     }
 
     /**
-     * Gets ip_address
+     * Gets ipAddress
      *
      * @return string
      */
     public function getIpAddress()
     {
-        return $this->container['ip_address'];
+        return $this->container['ipAddress'];
     }
 
     /**
-     * Sets ip_address
+     * Sets ipAddress
      *
-     * @param string $ip_address ip_address
+     * @param string $ipAddress ipAddress
      *
      * @return $this
      */
-    public function setIpAddress($ip_address)
+    public function setIpAddress($ipAddress)
     {
-        $this->container['ip_address'] = $ip_address;
+        $this->container['ipAddress'] = $ipAddress;
 
         return $this;
     }
@@ -449,25 +449,25 @@ class SessionActivityEntryAttributes implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets session_id
+     * Gets sessionId
      *
      * @return string
      */
     public function getSessionId()
     {
-        return $this->container['session_id'];
+        return $this->container['sessionId'];
     }
 
     /**
-     * Sets session_id
+     * Sets sessionId
      *
-     * @param string $session_id session_id
+     * @param string $sessionId sessionId
      *
      * @return $this
      */
-    public function setSessionId($session_id)
+    public function setSessionId($sessionId)
     {
-        $this->container['session_id'] = $session_id;
+        $this->container['sessionId'] = $sessionId;
 
         return $this;
     }

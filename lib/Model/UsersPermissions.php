@@ -62,11 +62,11 @@ class UsersPermissions implements ModelInterface, ArrayAccess
 'upload' => 'bool',
 'modify' => 'bool',
 'delete' => 'bool',
-'change_password' => 'bool',
+'changePassword' => 'bool',
 'share' => 'bool',
 'notification' => 'bool',
-'view_form_data' => 'bool',
-'delete_form_data' => 'bool'    ];
+'viewFormData' => 'bool',
+'deleteFormData' => 'bool'    ];
 
     /**
       * Array of property to format mappings. Used for (de)serialization
@@ -79,11 +79,11 @@ class UsersPermissions implements ModelInterface, ArrayAccess
 'upload' => null,
 'modify' => null,
 'delete' => null,
-'change_password' => null,
+'changePassword' => null,
 'share' => null,
 'notification' => null,
-'view_form_data' => null,
-'delete_form_data' => null    ];
+'viewFormData' => null,
+'deleteFormData' => null    ];
 
     /**
      * Array of property to type mappings. Used for (de)serialization
@@ -117,11 +117,11 @@ class UsersPermissions implements ModelInterface, ArrayAccess
 'upload' => 'upload',
 'modify' => 'modify',
 'delete' => 'delete',
-'change_password' => 'changePassword',
+'changePassword' => 'changePassword',
 'share' => 'share',
 'notification' => 'notification',
-'view_form_data' => 'viewFormData',
-'delete_form_data' => 'deleteFormData'    ];
+'viewFormData' => 'viewFormData',
+'deleteFormData' => 'deleteFormData'    ];
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
@@ -134,11 +134,11 @@ class UsersPermissions implements ModelInterface, ArrayAccess
 'upload' => 'setUpload',
 'modify' => 'setModify',
 'delete' => 'setDelete',
-'change_password' => 'setChangePassword',
+'changePassword' => 'setChangePassword',
 'share' => 'setShare',
 'notification' => 'setNotification',
-'view_form_data' => 'setViewFormData',
-'delete_form_data' => 'setDeleteFormData'    ];
+'viewFormData' => 'setViewFormData',
+'deleteFormData' => 'setDeleteFormData'    ];
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
@@ -151,11 +151,11 @@ class UsersPermissions implements ModelInterface, ArrayAccess
 'upload' => 'getUpload',
 'modify' => 'getModify',
 'delete' => 'getDelete',
-'change_password' => 'getChangePassword',
+'changePassword' => 'getChangePassword',
 'share' => 'getShare',
 'notification' => 'getNotification',
-'view_form_data' => 'getViewFormData',
-'delete_form_data' => 'getDeleteFormData'    ];
+'viewFormData' => 'getViewFormData',
+'deleteFormData' => 'getDeleteFormData'    ];
 
     /**
      * Array of attributes where the key is the local name,
@@ -220,11 +220,11 @@ class UsersPermissions implements ModelInterface, ArrayAccess
         $this->container['upload'] = isset($data['upload']) ? $data['upload'] : null;
         $this->container['modify'] = isset($data['modify']) ? $data['modify'] : null;
         $this->container['delete'] = isset($data['delete']) ? $data['delete'] : null;
-        $this->container['change_password'] = isset($data['change_password']) ? $data['change_password'] : null;
+        $this->container['changePassword'] = isset($data['changePassword']) ? $data['changePassword'] : null;
         $this->container['share'] = isset($data['share']) ? $data['share'] : null;
         $this->container['notification'] = isset($data['notification']) ? $data['notification'] : null;
-        $this->container['view_form_data'] = isset($data['view_form_data']) ? $data['view_form_data'] : null;
-        $this->container['delete_form_data'] = isset($data['delete_form_data']) ? $data['delete_form_data'] : null;
+        $this->container['viewFormData'] = isset($data['viewFormData']) ? $data['viewFormData'] : null;
+        $this->container['deleteFormData'] = isset($data['deleteFormData']) ? $data['deleteFormData'] : null;
     }
 
     /**
@@ -372,25 +372,25 @@ class UsersPermissions implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets change_password
+     * Gets changePassword
      *
      * @return bool
      */
     public function getChangePassword()
     {
-        return $this->container['change_password'];
+        return $this->container['changePassword'];
     }
 
     /**
-     * Sets change_password
+     * Sets changePassword
      *
-     * @param bool $change_password change_password
+     * @param bool $changePassword changePassword
      *
      * @return $this
      */
-    public function setChangePassword($change_password)
+    public function setChangePassword($changePassword)
     {
-        $this->container['change_password'] = $change_password;
+        $this->container['changePassword'] = $changePassword;
 
         return $this;
     }
@@ -444,49 +444,49 @@ class UsersPermissions implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets view_form_data
+     * Gets viewFormData
      *
      * @return bool
      */
     public function getViewFormData()
     {
-        return $this->container['view_form_data'];
+        return $this->container['viewFormData'];
     }
 
     /**
-     * Sets view_form_data
+     * Sets viewFormData
      *
-     * @param bool $view_form_data view_form_data
+     * @param bool $viewFormData viewFormData
      *
      * @return $this
      */
-    public function setViewFormData($view_form_data)
+    public function setViewFormData($viewFormData)
     {
-        $this->container['view_form_data'] = $view_form_data;
+        $this->container['viewFormData'] = $viewFormData;
 
         return $this;
     }
 
     /**
-     * Gets delete_form_data
+     * Gets deleteFormData
      *
      * @return bool
      */
     public function getDeleteFormData()
     {
-        return $this->container['delete_form_data'];
+        return $this->container['deleteFormData'];
     }
 
     /**
-     * Sets delete_form_data
+     * Sets deleteFormData
      *
-     * @param bool $delete_form_data delete_form_data
+     * @param bool $deleteFormData deleteFormData
      *
      * @return $this
      */
-    public function setDeleteFormData($delete_form_data)
+    public function setDeleteFormData($deleteFormData)
     {
-        $this->container['delete_form_data'] = $delete_form_data;
+        $this->container['deleteFormData'] = $deleteFormData;
 
         return $this;
     }

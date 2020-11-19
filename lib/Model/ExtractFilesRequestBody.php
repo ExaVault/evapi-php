@@ -57,7 +57,7 @@ class ExtractFilesRequestBody implements ModelInterface, ArrayAccess
       */
     protected static $swaggerTypes = [
         'resource' => 'string',
-'parent_resource' => 'string'    ];
+'parentResource' => 'string'    ];
 
     /**
       * Array of property to format mappings. Used for (de)serialization
@@ -66,7 +66,7 @@ class ExtractFilesRequestBody implements ModelInterface, ArrayAccess
       */
     protected static $swaggerFormats = [
         'resource' => null,
-'parent_resource' => null    ];
+'parentResource' => null    ];
 
     /**
      * Array of property to type mappings. Used for (de)serialization
@@ -96,7 +96,7 @@ class ExtractFilesRequestBody implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'resource' => 'resource',
-'parent_resource' => 'parentResource'    ];
+'parentResource' => 'parentResource'    ];
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
@@ -105,7 +105,7 @@ class ExtractFilesRequestBody implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'resource' => 'setResource',
-'parent_resource' => 'setParentResource'    ];
+'parentResource' => 'setParentResource'    ];
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
@@ -114,7 +114,7 @@ class ExtractFilesRequestBody implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'resource' => 'getResource',
-'parent_resource' => 'getParentResource'    ];
+'parentResource' => 'getParentResource'    ];
 
     /**
      * Array of attributes where the key is the local name,
@@ -175,7 +175,7 @@ class ExtractFilesRequestBody implements ModelInterface, ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['resource'] = isset($data['resource']) ? $data['resource'] : null;
-        $this->container['parent_resource'] = isset($data['parent_resource']) ? $data['parent_resource'] : null;
+        $this->container['parentResource'] = isset($data['parentResource']) ? $data['parentResource'] : null;
     }
 
     /**
@@ -190,8 +190,8 @@ class ExtractFilesRequestBody implements ModelInterface, ArrayAccess
         if ($this->container['resource'] === null) {
             $invalidProperties[] = "'resource' can't be null";
         }
-        if ($this->container['parent_resource'] === null) {
-            $invalidProperties[] = "'parent_resource' can't be null";
+        if ($this->container['parentResource'] === null) {
+            $invalidProperties[] = "'parentResource' can't be null";
         }
         return $invalidProperties;
     }
@@ -233,25 +233,25 @@ class ExtractFilesRequestBody implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets parent_resource
+     * Gets parentResource
      *
      * @return string
      */
     public function getParentResource()
     {
-        return $this->container['parent_resource'];
+        return $this->container['parentResource'];
     }
 
     /**
-     * Sets parent_resource
+     * Sets parentResource
      *
-     * @param string $parent_resource Resource identifier for folder files should be extracted to.
+     * @param string $parentResource Resource identifier for folder files should be extracted to.
      *
      * @return $this
      */
-    public function setParentResource($parent_resource)
+    public function setParentResource($parentResource)
     {
-        $this->container['parent_resource'] = $parent_resource;
+        $this->container['parentResource'] = $parentResource;
 
         return $this;
     }

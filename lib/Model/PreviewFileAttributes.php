@@ -58,8 +58,8 @@ class PreviewFileAttributes implements ModelInterface, ArrayAccess
     protected static $swaggerTypes = [
         'image' => 'string',
 'size' => 'int',
-'image_hash' => 'string',
-'page_count' => 'int'    ];
+'imageHash' => 'string',
+'pageCount' => 'int'    ];
 
     /**
       * Array of property to format mappings. Used for (de)serialization
@@ -69,8 +69,8 @@ class PreviewFileAttributes implements ModelInterface, ArrayAccess
     protected static $swaggerFormats = [
         'image' => null,
 'size' => 'int64',
-'image_hash' => null,
-'page_count' => 'int32'    ];
+'imageHash' => null,
+'pageCount' => 'int32'    ];
 
     /**
      * Array of property to type mappings. Used for (de)serialization
@@ -101,8 +101,8 @@ class PreviewFileAttributes implements ModelInterface, ArrayAccess
     protected static $attributeMap = [
         'image' => 'image',
 'size' => 'size',
-'image_hash' => 'imageHash',
-'page_count' => 'pageCount'    ];
+'imageHash' => 'imageHash',
+'pageCount' => 'pageCount'    ];
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
@@ -112,8 +112,8 @@ class PreviewFileAttributes implements ModelInterface, ArrayAccess
     protected static $setters = [
         'image' => 'setImage',
 'size' => 'setSize',
-'image_hash' => 'setImageHash',
-'page_count' => 'setPageCount'    ];
+'imageHash' => 'setImageHash',
+'pageCount' => 'setPageCount'    ];
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
@@ -123,8 +123,8 @@ class PreviewFileAttributes implements ModelInterface, ArrayAccess
     protected static $getters = [
         'image' => 'getImage',
 'size' => 'getSize',
-'image_hash' => 'getImageHash',
-'page_count' => 'getPageCount'    ];
+'imageHash' => 'getImageHash',
+'pageCount' => 'getPageCount'    ];
 
     /**
      * Array of attributes where the key is the local name,
@@ -186,8 +186,8 @@ class PreviewFileAttributes implements ModelInterface, ArrayAccess
     {
         $this->container['image'] = isset($data['image']) ? $data['image'] : null;
         $this->container['size'] = isset($data['size']) ? $data['size'] : null;
-        $this->container['image_hash'] = isset($data['image_hash']) ? $data['image_hash'] : null;
-        $this->container['page_count'] = isset($data['page_count']) ? $data['page_count'] : null;
+        $this->container['imageHash'] = isset($data['imageHash']) ? $data['imageHash'] : null;
+        $this->container['pageCount'] = isset($data['pageCount']) ? $data['pageCount'] : null;
     }
 
     /**
@@ -263,49 +263,49 @@ class PreviewFileAttributes implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets image_hash
+     * Gets imageHash
      *
      * @return string
      */
     public function getImageHash()
     {
-        return $this->container['image_hash'];
+        return $this->container['imageHash'];
     }
 
     /**
-     * Sets image_hash
+     * Sets imageHash
      *
-     * @param string $image_hash hash of the image.
+     * @param string $imageHash hash of the image.
      *
      * @return $this
      */
-    public function setImageHash($image_hash)
+    public function setImageHash($imageHash)
     {
-        $this->container['image_hash'] = $image_hash;
+        $this->container['imageHash'] = $imageHash;
 
         return $this;
     }
 
     /**
-     * Gets page_count
+     * Gets pageCount
      *
      * @return int
      */
     public function getPageCount()
     {
-        return $this->container['page_count'];
+        return $this->container['pageCount'];
     }
 
     /**
-     * Sets page_count
+     * Sets pageCount
      *
-     * @param int $page_count Amount of pages available in the file. Used only for multipage documents.
+     * @param int $pageCount Amount of pages available in the file. Used only for multipage documents.
      *
      * @return $this
      */
-    public function setPageCount($page_count)
+    public function setPageCount($pageCount)
     {
-        $this->container['page_count'] = $page_count;
+        $this->container['pageCount'] = $pageCount;
 
         return $this;
     }

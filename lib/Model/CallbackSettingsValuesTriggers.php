@@ -60,28 +60,28 @@ class CallbackSettingsValuesTriggers implements ModelInterface, ArrayAccess
         'download' => 'bool',
 'upload' => 'bool',
 'delete' => 'bool',
-'create_folder' => 'bool',
+'createFolder' => 'bool',
 'rename' => 'bool',
 'move' => 'bool',
 'copy' => 'bool',
 'compress' => 'bool',
 'extract' => 'bool',
-'share_folder' => 'bool',
-'send_files' => 'bool',
-'receive_files' => 'bool',
-'update_share' => 'bool',
-'update_receive' => 'bool',
-'delete_send' => 'bool',
-'delete_receive' => 'bool',
-'delete_share' => 'bool',
-'create_notification' => 'bool',
-'update_notification' => 'bool',
-'delete_notification' => 'bool',
-'create_user' => 'bool',
-'update_user' => 'bool',
-'delete_user' => 'bool',
-'user_connect' => 'bool',
-'user_disconnect' => 'bool'    ];
+'shareFolder' => 'bool',
+'sendFiles' => 'bool',
+'receiveFiles' => 'bool',
+'updateShare' => 'bool',
+'updateReceive' => 'bool',
+'deleteSend' => 'bool',
+'deleteReceive' => 'bool',
+'deleteShare' => 'bool',
+'createNotification' => 'bool',
+'updateNotification' => 'bool',
+'deleteNotification' => 'bool',
+'createUser' => 'bool',
+'updateUser' => 'bool',
+'deleteUser' => 'bool',
+'userConnect' => 'bool',
+'userDisconnect' => 'bool'    ];
 
     /**
       * Array of property to format mappings. Used for (de)serialization
@@ -92,28 +92,28 @@ class CallbackSettingsValuesTriggers implements ModelInterface, ArrayAccess
         'download' => null,
 'upload' => null,
 'delete' => null,
-'create_folder' => null,
+'createFolder' => null,
 'rename' => null,
 'move' => null,
 'copy' => null,
 'compress' => null,
 'extract' => null,
-'share_folder' => null,
-'send_files' => null,
-'receive_files' => null,
-'update_share' => null,
-'update_receive' => null,
-'delete_send' => null,
-'delete_receive' => null,
-'delete_share' => null,
-'create_notification' => null,
-'update_notification' => null,
-'delete_notification' => null,
-'create_user' => null,
-'update_user' => null,
-'delete_user' => null,
-'user_connect' => null,
-'user_disconnect' => null    ];
+'shareFolder' => null,
+'sendFiles' => null,
+'receiveFiles' => null,
+'updateShare' => null,
+'updateReceive' => null,
+'deleteSend' => null,
+'deleteReceive' => null,
+'deleteShare' => null,
+'createNotification' => null,
+'updateNotification' => null,
+'deleteNotification' => null,
+'createUser' => null,
+'updateUser' => null,
+'deleteUser' => null,
+'userConnect' => null,
+'userDisconnect' => null    ];
 
     /**
      * Array of property to type mappings. Used for (de)serialization
@@ -145,28 +145,28 @@ class CallbackSettingsValuesTriggers implements ModelInterface, ArrayAccess
         'download' => 'download',
 'upload' => 'upload',
 'delete' => 'delete',
-'create_folder' => 'createFolder',
+'createFolder' => 'createFolder',
 'rename' => 'rename',
 'move' => 'move',
 'copy' => 'copy',
 'compress' => 'compress',
 'extract' => 'extract',
-'share_folder' => 'shareFolder',
-'send_files' => 'sendFiles',
-'receive_files' => 'receiveFiles',
-'update_share' => 'updateShare',
-'update_receive' => 'updateReceive',
-'delete_send' => 'deleteSend',
-'delete_receive' => 'deleteReceive',
-'delete_share' => 'deleteShare',
-'create_notification' => 'createNotification',
-'update_notification' => 'updateNotification',
-'delete_notification' => 'deleteNotification',
-'create_user' => 'createUser',
-'update_user' => 'updateUser',
-'delete_user' => 'deleteUser',
-'user_connect' => 'userConnect',
-'user_disconnect' => 'userDisconnect'    ];
+'shareFolder' => 'shareFolder',
+'sendFiles' => 'sendFiles',
+'receiveFiles' => 'receiveFiles',
+'updateShare' => 'updateShare',
+'updateReceive' => 'updateReceive',
+'deleteSend' => 'deleteSend',
+'deleteReceive' => 'deleteReceive',
+'deleteShare' => 'deleteShare',
+'createNotification' => 'createNotification',
+'updateNotification' => 'updateNotification',
+'deleteNotification' => 'deleteNotification',
+'createUser' => 'createUser',
+'updateUser' => 'updateUser',
+'deleteUser' => 'deleteUser',
+'userConnect' => 'userConnect',
+'userDisconnect' => 'userDisconnect'    ];
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
@@ -177,28 +177,28 @@ class CallbackSettingsValuesTriggers implements ModelInterface, ArrayAccess
         'download' => 'setDownload',
 'upload' => 'setUpload',
 'delete' => 'setDelete',
-'create_folder' => 'setCreateFolder',
+'createFolder' => 'setCreateFolder',
 'rename' => 'setRename',
 'move' => 'setMove',
 'copy' => 'setCopy',
 'compress' => 'setCompress',
 'extract' => 'setExtract',
-'share_folder' => 'setShareFolder',
-'send_files' => 'setSendFiles',
-'receive_files' => 'setReceiveFiles',
-'update_share' => 'setUpdateShare',
-'update_receive' => 'setUpdateReceive',
-'delete_send' => 'setDeleteSend',
-'delete_receive' => 'setDeleteReceive',
-'delete_share' => 'setDeleteShare',
-'create_notification' => 'setCreateNotification',
-'update_notification' => 'setUpdateNotification',
-'delete_notification' => 'setDeleteNotification',
-'create_user' => 'setCreateUser',
-'update_user' => 'setUpdateUser',
-'delete_user' => 'setDeleteUser',
-'user_connect' => 'setUserConnect',
-'user_disconnect' => 'setUserDisconnect'    ];
+'shareFolder' => 'setShareFolder',
+'sendFiles' => 'setSendFiles',
+'receiveFiles' => 'setReceiveFiles',
+'updateShare' => 'setUpdateShare',
+'updateReceive' => 'setUpdateReceive',
+'deleteSend' => 'setDeleteSend',
+'deleteReceive' => 'setDeleteReceive',
+'deleteShare' => 'setDeleteShare',
+'createNotification' => 'setCreateNotification',
+'updateNotification' => 'setUpdateNotification',
+'deleteNotification' => 'setDeleteNotification',
+'createUser' => 'setCreateUser',
+'updateUser' => 'setUpdateUser',
+'deleteUser' => 'setDeleteUser',
+'userConnect' => 'setUserConnect',
+'userDisconnect' => 'setUserDisconnect'    ];
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
@@ -209,28 +209,28 @@ class CallbackSettingsValuesTriggers implements ModelInterface, ArrayAccess
         'download' => 'getDownload',
 'upload' => 'getUpload',
 'delete' => 'getDelete',
-'create_folder' => 'getCreateFolder',
+'createFolder' => 'getCreateFolder',
 'rename' => 'getRename',
 'move' => 'getMove',
 'copy' => 'getCopy',
 'compress' => 'getCompress',
 'extract' => 'getExtract',
-'share_folder' => 'getShareFolder',
-'send_files' => 'getSendFiles',
-'receive_files' => 'getReceiveFiles',
-'update_share' => 'getUpdateShare',
-'update_receive' => 'getUpdateReceive',
-'delete_send' => 'getDeleteSend',
-'delete_receive' => 'getDeleteReceive',
-'delete_share' => 'getDeleteShare',
-'create_notification' => 'getCreateNotification',
-'update_notification' => 'getUpdateNotification',
-'delete_notification' => 'getDeleteNotification',
-'create_user' => 'getCreateUser',
-'update_user' => 'getUpdateUser',
-'delete_user' => 'getDeleteUser',
-'user_connect' => 'getUserConnect',
-'user_disconnect' => 'getUserDisconnect'    ];
+'shareFolder' => 'getShareFolder',
+'sendFiles' => 'getSendFiles',
+'receiveFiles' => 'getReceiveFiles',
+'updateShare' => 'getUpdateShare',
+'updateReceive' => 'getUpdateReceive',
+'deleteSend' => 'getDeleteSend',
+'deleteReceive' => 'getDeleteReceive',
+'deleteShare' => 'getDeleteShare',
+'createNotification' => 'getCreateNotification',
+'updateNotification' => 'getUpdateNotification',
+'deleteNotification' => 'getDeleteNotification',
+'createUser' => 'getCreateUser',
+'updateUser' => 'getUpdateUser',
+'deleteUser' => 'getDeleteUser',
+'userConnect' => 'getUserConnect',
+'userDisconnect' => 'getUserDisconnect'    ];
 
     /**
      * Array of attributes where the key is the local name,
@@ -293,28 +293,28 @@ class CallbackSettingsValuesTriggers implements ModelInterface, ArrayAccess
         $this->container['download'] = isset($data['download']) ? $data['download'] : null;
         $this->container['upload'] = isset($data['upload']) ? $data['upload'] : null;
         $this->container['delete'] = isset($data['delete']) ? $data['delete'] : null;
-        $this->container['create_folder'] = isset($data['create_folder']) ? $data['create_folder'] : null;
+        $this->container['createFolder'] = isset($data['createFolder']) ? $data['createFolder'] : null;
         $this->container['rename'] = isset($data['rename']) ? $data['rename'] : null;
         $this->container['move'] = isset($data['move']) ? $data['move'] : null;
         $this->container['copy'] = isset($data['copy']) ? $data['copy'] : null;
         $this->container['compress'] = isset($data['compress']) ? $data['compress'] : null;
         $this->container['extract'] = isset($data['extract']) ? $data['extract'] : null;
-        $this->container['share_folder'] = isset($data['share_folder']) ? $data['share_folder'] : null;
-        $this->container['send_files'] = isset($data['send_files']) ? $data['send_files'] : null;
-        $this->container['receive_files'] = isset($data['receive_files']) ? $data['receive_files'] : null;
-        $this->container['update_share'] = isset($data['update_share']) ? $data['update_share'] : null;
-        $this->container['update_receive'] = isset($data['update_receive']) ? $data['update_receive'] : null;
-        $this->container['delete_send'] = isset($data['delete_send']) ? $data['delete_send'] : null;
-        $this->container['delete_receive'] = isset($data['delete_receive']) ? $data['delete_receive'] : null;
-        $this->container['delete_share'] = isset($data['delete_share']) ? $data['delete_share'] : null;
-        $this->container['create_notification'] = isset($data['create_notification']) ? $data['create_notification'] : null;
-        $this->container['update_notification'] = isset($data['update_notification']) ? $data['update_notification'] : null;
-        $this->container['delete_notification'] = isset($data['delete_notification']) ? $data['delete_notification'] : null;
-        $this->container['create_user'] = isset($data['create_user']) ? $data['create_user'] : null;
-        $this->container['update_user'] = isset($data['update_user']) ? $data['update_user'] : null;
-        $this->container['delete_user'] = isset($data['delete_user']) ? $data['delete_user'] : null;
-        $this->container['user_connect'] = isset($data['user_connect']) ? $data['user_connect'] : null;
-        $this->container['user_disconnect'] = isset($data['user_disconnect']) ? $data['user_disconnect'] : null;
+        $this->container['shareFolder'] = isset($data['shareFolder']) ? $data['shareFolder'] : null;
+        $this->container['sendFiles'] = isset($data['sendFiles']) ? $data['sendFiles'] : null;
+        $this->container['receiveFiles'] = isset($data['receiveFiles']) ? $data['receiveFiles'] : null;
+        $this->container['updateShare'] = isset($data['updateShare']) ? $data['updateShare'] : null;
+        $this->container['updateReceive'] = isset($data['updateReceive']) ? $data['updateReceive'] : null;
+        $this->container['deleteSend'] = isset($data['deleteSend']) ? $data['deleteSend'] : null;
+        $this->container['deleteReceive'] = isset($data['deleteReceive']) ? $data['deleteReceive'] : null;
+        $this->container['deleteShare'] = isset($data['deleteShare']) ? $data['deleteShare'] : null;
+        $this->container['createNotification'] = isset($data['createNotification']) ? $data['createNotification'] : null;
+        $this->container['updateNotification'] = isset($data['updateNotification']) ? $data['updateNotification'] : null;
+        $this->container['deleteNotification'] = isset($data['deleteNotification']) ? $data['deleteNotification'] : null;
+        $this->container['createUser'] = isset($data['createUser']) ? $data['createUser'] : null;
+        $this->container['updateUser'] = isset($data['updateUser']) ? $data['updateUser'] : null;
+        $this->container['deleteUser'] = isset($data['deleteUser']) ? $data['deleteUser'] : null;
+        $this->container['userConnect'] = isset($data['userConnect']) ? $data['userConnect'] : null;
+        $this->container['userDisconnect'] = isset($data['userDisconnect']) ? $data['userDisconnect'] : null;
     }
 
     /**
@@ -414,25 +414,25 @@ class CallbackSettingsValuesTriggers implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets create_folder
+     * Gets createFolder
      *
      * @return bool
      */
     public function getCreateFolder()
     {
-        return $this->container['create_folder'];
+        return $this->container['createFolder'];
     }
 
     /**
-     * Sets create_folder
+     * Sets createFolder
      *
-     * @param bool $create_folder create_folder
+     * @param bool $createFolder createFolder
      *
      * @return $this
      */
-    public function setCreateFolder($create_folder)
+    public function setCreateFolder($createFolder)
     {
-        $this->container['create_folder'] = $create_folder;
+        $this->container['createFolder'] = $createFolder;
 
         return $this;
     }
@@ -558,385 +558,385 @@ class CallbackSettingsValuesTriggers implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets share_folder
+     * Gets shareFolder
      *
      * @return bool
      */
     public function getShareFolder()
     {
-        return $this->container['share_folder'];
+        return $this->container['shareFolder'];
     }
 
     /**
-     * Sets share_folder
+     * Sets shareFolder
      *
-     * @param bool $share_folder share_folder
+     * @param bool $shareFolder shareFolder
      *
      * @return $this
      */
-    public function setShareFolder($share_folder)
+    public function setShareFolder($shareFolder)
     {
-        $this->container['share_folder'] = $share_folder;
+        $this->container['shareFolder'] = $shareFolder;
 
         return $this;
     }
 
     /**
-     * Gets send_files
+     * Gets sendFiles
      *
      * @return bool
      */
     public function getSendFiles()
     {
-        return $this->container['send_files'];
+        return $this->container['sendFiles'];
     }
 
     /**
-     * Sets send_files
+     * Sets sendFiles
      *
-     * @param bool $send_files send_files
+     * @param bool $sendFiles sendFiles
      *
      * @return $this
      */
-    public function setSendFiles($send_files)
+    public function setSendFiles($sendFiles)
     {
-        $this->container['send_files'] = $send_files;
+        $this->container['sendFiles'] = $sendFiles;
 
         return $this;
     }
 
     /**
-     * Gets receive_files
+     * Gets receiveFiles
      *
      * @return bool
      */
     public function getReceiveFiles()
     {
-        return $this->container['receive_files'];
+        return $this->container['receiveFiles'];
     }
 
     /**
-     * Sets receive_files
+     * Sets receiveFiles
      *
-     * @param bool $receive_files receive_files
+     * @param bool $receiveFiles receiveFiles
      *
      * @return $this
      */
-    public function setReceiveFiles($receive_files)
+    public function setReceiveFiles($receiveFiles)
     {
-        $this->container['receive_files'] = $receive_files;
+        $this->container['receiveFiles'] = $receiveFiles;
 
         return $this;
     }
 
     /**
-     * Gets update_share
+     * Gets updateShare
      *
      * @return bool
      */
     public function getUpdateShare()
     {
-        return $this->container['update_share'];
+        return $this->container['updateShare'];
     }
 
     /**
-     * Sets update_share
+     * Sets updateShare
      *
-     * @param bool $update_share update_share
+     * @param bool $updateShare updateShare
      *
      * @return $this
      */
-    public function setUpdateShare($update_share)
+    public function setUpdateShare($updateShare)
     {
-        $this->container['update_share'] = $update_share;
+        $this->container['updateShare'] = $updateShare;
 
         return $this;
     }
 
     /**
-     * Gets update_receive
+     * Gets updateReceive
      *
      * @return bool
      */
     public function getUpdateReceive()
     {
-        return $this->container['update_receive'];
+        return $this->container['updateReceive'];
     }
 
     /**
-     * Sets update_receive
+     * Sets updateReceive
      *
-     * @param bool $update_receive update_receive
+     * @param bool $updateReceive updateReceive
      *
      * @return $this
      */
-    public function setUpdateReceive($update_receive)
+    public function setUpdateReceive($updateReceive)
     {
-        $this->container['update_receive'] = $update_receive;
+        $this->container['updateReceive'] = $updateReceive;
 
         return $this;
     }
 
     /**
-     * Gets delete_send
+     * Gets deleteSend
      *
      * @return bool
      */
     public function getDeleteSend()
     {
-        return $this->container['delete_send'];
+        return $this->container['deleteSend'];
     }
 
     /**
-     * Sets delete_send
+     * Sets deleteSend
      *
-     * @param bool $delete_send delete_send
+     * @param bool $deleteSend deleteSend
      *
      * @return $this
      */
-    public function setDeleteSend($delete_send)
+    public function setDeleteSend($deleteSend)
     {
-        $this->container['delete_send'] = $delete_send;
+        $this->container['deleteSend'] = $deleteSend;
 
         return $this;
     }
 
     /**
-     * Gets delete_receive
+     * Gets deleteReceive
      *
      * @return bool
      */
     public function getDeleteReceive()
     {
-        return $this->container['delete_receive'];
+        return $this->container['deleteReceive'];
     }
 
     /**
-     * Sets delete_receive
+     * Sets deleteReceive
      *
-     * @param bool $delete_receive delete_receive
+     * @param bool $deleteReceive deleteReceive
      *
      * @return $this
      */
-    public function setDeleteReceive($delete_receive)
+    public function setDeleteReceive($deleteReceive)
     {
-        $this->container['delete_receive'] = $delete_receive;
+        $this->container['deleteReceive'] = $deleteReceive;
 
         return $this;
     }
 
     /**
-     * Gets delete_share
+     * Gets deleteShare
      *
      * @return bool
      */
     public function getDeleteShare()
     {
-        return $this->container['delete_share'];
+        return $this->container['deleteShare'];
     }
 
     /**
-     * Sets delete_share
+     * Sets deleteShare
      *
-     * @param bool $delete_share delete_share
+     * @param bool $deleteShare deleteShare
      *
      * @return $this
      */
-    public function setDeleteShare($delete_share)
+    public function setDeleteShare($deleteShare)
     {
-        $this->container['delete_share'] = $delete_share;
+        $this->container['deleteShare'] = $deleteShare;
 
         return $this;
     }
 
     /**
-     * Gets create_notification
+     * Gets createNotification
      *
      * @return bool
      */
     public function getCreateNotification()
     {
-        return $this->container['create_notification'];
+        return $this->container['createNotification'];
     }
 
     /**
-     * Sets create_notification
+     * Sets createNotification
      *
-     * @param bool $create_notification create_notification
+     * @param bool $createNotification createNotification
      *
      * @return $this
      */
-    public function setCreateNotification($create_notification)
+    public function setCreateNotification($createNotification)
     {
-        $this->container['create_notification'] = $create_notification;
+        $this->container['createNotification'] = $createNotification;
 
         return $this;
     }
 
     /**
-     * Gets update_notification
+     * Gets updateNotification
      *
      * @return bool
      */
     public function getUpdateNotification()
     {
-        return $this->container['update_notification'];
+        return $this->container['updateNotification'];
     }
 
     /**
-     * Sets update_notification
+     * Sets updateNotification
      *
-     * @param bool $update_notification update_notification
+     * @param bool $updateNotification updateNotification
      *
      * @return $this
      */
-    public function setUpdateNotification($update_notification)
+    public function setUpdateNotification($updateNotification)
     {
-        $this->container['update_notification'] = $update_notification;
+        $this->container['updateNotification'] = $updateNotification;
 
         return $this;
     }
 
     /**
-     * Gets delete_notification
+     * Gets deleteNotification
      *
      * @return bool
      */
     public function getDeleteNotification()
     {
-        return $this->container['delete_notification'];
+        return $this->container['deleteNotification'];
     }
 
     /**
-     * Sets delete_notification
+     * Sets deleteNotification
      *
-     * @param bool $delete_notification delete_notification
+     * @param bool $deleteNotification deleteNotification
      *
      * @return $this
      */
-    public function setDeleteNotification($delete_notification)
+    public function setDeleteNotification($deleteNotification)
     {
-        $this->container['delete_notification'] = $delete_notification;
+        $this->container['deleteNotification'] = $deleteNotification;
 
         return $this;
     }
 
     /**
-     * Gets create_user
+     * Gets createUser
      *
      * @return bool
      */
     public function getCreateUser()
     {
-        return $this->container['create_user'];
+        return $this->container['createUser'];
     }
 
     /**
-     * Sets create_user
+     * Sets createUser
      *
-     * @param bool $create_user create_user
+     * @param bool $createUser createUser
      *
      * @return $this
      */
-    public function setCreateUser($create_user)
+    public function setCreateUser($createUser)
     {
-        $this->container['create_user'] = $create_user;
+        $this->container['createUser'] = $createUser;
 
         return $this;
     }
 
     /**
-     * Gets update_user
+     * Gets updateUser
      *
      * @return bool
      */
     public function getUpdateUser()
     {
-        return $this->container['update_user'];
+        return $this->container['updateUser'];
     }
 
     /**
-     * Sets update_user
+     * Sets updateUser
      *
-     * @param bool $update_user update_user
+     * @param bool $updateUser updateUser
      *
      * @return $this
      */
-    public function setUpdateUser($update_user)
+    public function setUpdateUser($updateUser)
     {
-        $this->container['update_user'] = $update_user;
+        $this->container['updateUser'] = $updateUser;
 
         return $this;
     }
 
     /**
-     * Gets delete_user
+     * Gets deleteUser
      *
      * @return bool
      */
     public function getDeleteUser()
     {
-        return $this->container['delete_user'];
+        return $this->container['deleteUser'];
     }
 
     /**
-     * Sets delete_user
+     * Sets deleteUser
      *
-     * @param bool $delete_user delete_user
+     * @param bool $deleteUser deleteUser
      *
      * @return $this
      */
-    public function setDeleteUser($delete_user)
+    public function setDeleteUser($deleteUser)
     {
-        $this->container['delete_user'] = $delete_user;
+        $this->container['deleteUser'] = $deleteUser;
 
         return $this;
     }
 
     /**
-     * Gets user_connect
+     * Gets userConnect
      *
      * @return bool
      */
     public function getUserConnect()
     {
-        return $this->container['user_connect'];
+        return $this->container['userConnect'];
     }
 
     /**
-     * Sets user_connect
+     * Sets userConnect
      *
-     * @param bool $user_connect user_connect
+     * @param bool $userConnect userConnect
      *
      * @return $this
      */
-    public function setUserConnect($user_connect)
+    public function setUserConnect($userConnect)
     {
-        $this->container['user_connect'] = $user_connect;
+        $this->container['userConnect'] = $userConnect;
 
         return $this;
     }
 
     /**
-     * Gets user_disconnect
+     * Gets userDisconnect
      *
      * @return bool
      */
     public function getUserDisconnect()
     {
-        return $this->container['user_disconnect'];
+        return $this->container['userDisconnect'];
     }
 
     /**
-     * Sets user_disconnect
+     * Sets userDisconnect
      *
-     * @param bool $user_disconnect user_disconnect
+     * @param bool $userDisconnect userDisconnect
      *
      * @return $this
      */
-    public function setUserDisconnect($user_disconnect)
+    public function setUserDisconnect($userDisconnect)
     {
-        $this->container['user_disconnect'] = $user_disconnect;
+        $this->container['userDisconnect'] = $userDisconnect;
 
         return $this;
     }

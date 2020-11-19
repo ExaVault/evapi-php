@@ -58,16 +58,16 @@ class UpdateUserRequestBody implements ModelInterface, ArrayAccess
     protected static $swaggerTypes = [
         'username' => 'string',
 'nickname' => 'string',
-'home_resource' => 'string',
+'homeResource' => 'string',
 'email' => 'string',
 'password' => 'string',
 'role' => 'string',
 'permissions' => '\ExaVault\Model\UsersPermissions',
-'time_zone' => 'string',
+'timeZone' => 'string',
 'expiration' => 'string',
 'locked' => 'bool',
 'onboarding' => 'bool',
-'current_user_password' => 'string'    ];
+'currentUserPassword' => 'string'    ];
 
     /**
       * Array of property to format mappings. Used for (de)serialization
@@ -77,16 +77,16 @@ class UpdateUserRequestBody implements ModelInterface, ArrayAccess
     protected static $swaggerFormats = [
         'username' => null,
 'nickname' => null,
-'home_resource' => null,
+'homeResource' => null,
 'email' => 'email',
 'password' => null,
 'role' => null,
 'permissions' => null,
-'time_zone' => null,
+'timeZone' => null,
 'expiration' => null,
 'locked' => null,
 'onboarding' => null,
-'current_user_password' => null    ];
+'currentUserPassword' => null    ];
 
     /**
      * Array of property to type mappings. Used for (de)serialization
@@ -117,16 +117,16 @@ class UpdateUserRequestBody implements ModelInterface, ArrayAccess
     protected static $attributeMap = [
         'username' => 'username',
 'nickname' => 'nickname',
-'home_resource' => 'homeResource',
+'homeResource' => 'homeResource',
 'email' => 'email',
 'password' => 'password',
 'role' => 'role',
 'permissions' => 'permissions',
-'time_zone' => 'timeZone',
+'timeZone' => 'timeZone',
 'expiration' => 'expiration',
 'locked' => 'locked',
 'onboarding' => 'onboarding',
-'current_user_password' => 'currentUserPassword'    ];
+'currentUserPassword' => 'currentUserPassword'    ];
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
@@ -136,16 +136,16 @@ class UpdateUserRequestBody implements ModelInterface, ArrayAccess
     protected static $setters = [
         'username' => 'setUsername',
 'nickname' => 'setNickname',
-'home_resource' => 'setHomeResource',
+'homeResource' => 'setHomeResource',
 'email' => 'setEmail',
 'password' => 'setPassword',
 'role' => 'setRole',
 'permissions' => 'setPermissions',
-'time_zone' => 'setTimeZone',
+'timeZone' => 'setTimeZone',
 'expiration' => 'setExpiration',
 'locked' => 'setLocked',
 'onboarding' => 'setOnboarding',
-'current_user_password' => 'setCurrentUserPassword'    ];
+'currentUserPassword' => 'setCurrentUserPassword'    ];
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
@@ -155,16 +155,16 @@ class UpdateUserRequestBody implements ModelInterface, ArrayAccess
     protected static $getters = [
         'username' => 'getUsername',
 'nickname' => 'getNickname',
-'home_resource' => 'getHomeResource',
+'homeResource' => 'getHomeResource',
 'email' => 'getEmail',
 'password' => 'getPassword',
 'role' => 'getRole',
 'permissions' => 'getPermissions',
-'time_zone' => 'getTimeZone',
+'timeZone' => 'getTimeZone',
 'expiration' => 'getExpiration',
 'locked' => 'getLocked',
 'onboarding' => 'getOnboarding',
-'current_user_password' => 'getCurrentUserPassword'    ];
+'currentUserPassword' => 'getCurrentUserPassword'    ];
 
     /**
      * Array of attributes where the key is the local name,
@@ -239,16 +239,16 @@ self::ROLE_ADMIN,        ];
     {
         $this->container['username'] = isset($data['username']) ? $data['username'] : null;
         $this->container['nickname'] = isset($data['nickname']) ? $data['nickname'] : null;
-        $this->container['home_resource'] = isset($data['home_resource']) ? $data['home_resource'] : null;
+        $this->container['homeResource'] = isset($data['homeResource']) ? $data['homeResource'] : null;
         $this->container['email'] = isset($data['email']) ? $data['email'] : null;
         $this->container['password'] = isset($data['password']) ? $data['password'] : null;
         $this->container['role'] = isset($data['role']) ? $data['role'] : null;
         $this->container['permissions'] = isset($data['permissions']) ? $data['permissions'] : null;
-        $this->container['time_zone'] = isset($data['time_zone']) ? $data['time_zone'] : null;
+        $this->container['timeZone'] = isset($data['timeZone']) ? $data['timeZone'] : null;
         $this->container['expiration'] = isset($data['expiration']) ? $data['expiration'] : null;
         $this->container['locked'] = isset($data['locked']) ? $data['locked'] : null;
         $this->container['onboarding'] = isset($data['onboarding']) ? $data['onboarding'] : null;
-        $this->container['current_user_password'] = isset($data['current_user_password']) ? $data['current_user_password'] : null;
+        $this->container['currentUserPassword'] = isset($data['currentUserPassword']) ? $data['currentUserPassword'] : null;
     }
 
     /**
@@ -332,25 +332,25 @@ self::ROLE_ADMIN,        ];
     }
 
     /**
-     * Gets home_resource
+     * Gets homeResource
      *
      * @return string
      */
     public function getHomeResource()
     {
-        return $this->container['home_resource'];
+        return $this->container['homeResource'];
     }
 
     /**
-     * Sets home_resource
+     * Sets homeResource
      *
-     * @param string $home_resource Resource identifier for the user's home folder. See details on [how to specify resources](#section/Identifying-Resources) above.  The user will be locked to this directory and unable to move 'up' in the account. If the folder does not exist in the account, it will be created when the user logs in.  This setting is ignored for users with the `role` **admin**.
+     * @param string $homeResource Resource identifier for the user's home folder. See details on [how to specify resources](#section/Identifying-Resources) above.  The user will be locked to this directory and unable to move 'up' in the account. If the folder does not exist in the account, it will be created when the user logs in.  This setting is ignored for users with the `role` **admin**.
      *
      * @return $this
      */
-    public function setHomeResource($home_resource)
+    public function setHomeResource($homeResource)
     {
-        $this->container['home_resource'] = $home_resource;
+        $this->container['homeResource'] = $homeResource;
 
         return $this;
     }
@@ -461,25 +461,25 @@ self::ROLE_ADMIN,        ];
     }
 
     /**
-     * Gets time_zone
+     * Gets timeZone
      *
      * @return string
      */
     public function getTimeZone()
     {
-        return $this->container['time_zone'];
+        return $this->container['timeZone'];
     }
 
     /**
-     * Sets time_zone
+     * Sets timeZone
      *
-     * @param string $time_zone Time zone, used for accurate time display within the application. See <a href='https://php.net/manual/en/timezones.php' target='blank'>this page</a> for allowed values.
+     * @param string $timeZone Time zone, used for accurate time display within the application. See <a href='https://php.net/manual/en/timezones.php' target='blank'>this page</a> for allowed values.
      *
      * @return $this
      */
-    public function setTimeZone($time_zone)
+    public function setTimeZone($timeZone)
     {
-        $this->container['time_zone'] = $time_zone;
+        $this->container['timeZone'] = $timeZone;
 
         return $this;
     }
@@ -557,25 +557,25 @@ self::ROLE_ADMIN,        ];
     }
 
     /**
-     * Gets current_user_password
+     * Gets currentUserPassword
      *
      * @return string
      */
     public function getCurrentUserPassword()
     {
-        return $this->container['current_user_password'];
+        return $this->container['currentUserPassword'];
     }
 
     /**
-     * Sets current_user_password
+     * Sets currentUserPassword
      *
-     * @param string $current_user_password The password of the currently authenticated user. Required when updating any user’s email, username or password.
+     * @param string $currentUserPassword The password of the currently authenticated user. Required when updating any user’s email, username or password.
      *
      * @return $this
      */
-    public function setCurrentUserPassword($current_user_password)
+    public function setCurrentUserPassword($currentUserPassword)
     {
-        $this->container['current_user_password'] = $current_user_password;
+        $this->container['currentUserPassword'] = $currentUserPassword;
 
         return $this;
     }

@@ -58,15 +58,15 @@ class AddUserRequestBody implements ModelInterface, ArrayAccess
     protected static $swaggerTypes = [
         'username' => 'string',
 'nickname' => 'string',
-'home_resource' => 'string',
+'homeResource' => 'string',
 'email' => 'string',
 'password' => 'string',
 'role' => 'string',
 'permissions' => '\ExaVault\Model\UsersPermissions',
-'time_zone' => 'string',
+'timeZone' => 'string',
 'expiration' => 'string',
 'locked' => 'bool',
-'welcome_email' => 'bool',
+'welcomeEmail' => 'bool',
 'onboarding' => 'bool'    ];
 
     /**
@@ -77,15 +77,15 @@ class AddUserRequestBody implements ModelInterface, ArrayAccess
     protected static $swaggerFormats = [
         'username' => null,
 'nickname' => null,
-'home_resource' => null,
+'homeResource' => null,
 'email' => 'email',
 'password' => null,
 'role' => null,
 'permissions' => null,
-'time_zone' => null,
+'timeZone' => null,
 'expiration' => null,
 'locked' => null,
-'welcome_email' => null,
+'welcomeEmail' => null,
 'onboarding' => null    ];
 
     /**
@@ -117,15 +117,15 @@ class AddUserRequestBody implements ModelInterface, ArrayAccess
     protected static $attributeMap = [
         'username' => 'username',
 'nickname' => 'nickname',
-'home_resource' => 'homeResource',
+'homeResource' => 'homeResource',
 'email' => 'email',
 'password' => 'password',
 'role' => 'role',
 'permissions' => 'permissions',
-'time_zone' => 'timeZone',
+'timeZone' => 'timeZone',
 'expiration' => 'expiration',
 'locked' => 'locked',
-'welcome_email' => 'welcomeEmail',
+'welcomeEmail' => 'welcomeEmail',
 'onboarding' => 'onboarding'    ];
 
     /**
@@ -136,15 +136,15 @@ class AddUserRequestBody implements ModelInterface, ArrayAccess
     protected static $setters = [
         'username' => 'setUsername',
 'nickname' => 'setNickname',
-'home_resource' => 'setHomeResource',
+'homeResource' => 'setHomeResource',
 'email' => 'setEmail',
 'password' => 'setPassword',
 'role' => 'setRole',
 'permissions' => 'setPermissions',
-'time_zone' => 'setTimeZone',
+'timeZone' => 'setTimeZone',
 'expiration' => 'setExpiration',
 'locked' => 'setLocked',
-'welcome_email' => 'setWelcomeEmail',
+'welcomeEmail' => 'setWelcomeEmail',
 'onboarding' => 'setOnboarding'    ];
 
     /**
@@ -155,15 +155,15 @@ class AddUserRequestBody implements ModelInterface, ArrayAccess
     protected static $getters = [
         'username' => 'getUsername',
 'nickname' => 'getNickname',
-'home_resource' => 'getHomeResource',
+'homeResource' => 'getHomeResource',
 'email' => 'getEmail',
 'password' => 'getPassword',
 'role' => 'getRole',
 'permissions' => 'getPermissions',
-'time_zone' => 'getTimeZone',
+'timeZone' => 'getTimeZone',
 'expiration' => 'getExpiration',
 'locked' => 'getLocked',
-'welcome_email' => 'getWelcomeEmail',
+'welcomeEmail' => 'getWelcomeEmail',
 'onboarding' => 'getOnboarding'    ];
 
     /**
@@ -239,15 +239,15 @@ self::ROLE_ADMIN,        ];
     {
         $this->container['username'] = isset($data['username']) ? $data['username'] : null;
         $this->container['nickname'] = isset($data['nickname']) ? $data['nickname'] : null;
-        $this->container['home_resource'] = isset($data['home_resource']) ? $data['home_resource'] : null;
+        $this->container['homeResource'] = isset($data['homeResource']) ? $data['homeResource'] : null;
         $this->container['email'] = isset($data['email']) ? $data['email'] : null;
         $this->container['password'] = isset($data['password']) ? $data['password'] : null;
         $this->container['role'] = isset($data['role']) ? $data['role'] : null;
         $this->container['permissions'] = isset($data['permissions']) ? $data['permissions'] : null;
-        $this->container['time_zone'] = isset($data['time_zone']) ? $data['time_zone'] : null;
+        $this->container['timeZone'] = isset($data['timeZone']) ? $data['timeZone'] : null;
         $this->container['expiration'] = isset($data['expiration']) ? $data['expiration'] : null;
         $this->container['locked'] = isset($data['locked']) ? $data['locked'] : null;
-        $this->container['welcome_email'] = isset($data['welcome_email']) ? $data['welcome_email'] : null;
+        $this->container['welcomeEmail'] = isset($data['welcomeEmail']) ? $data['welcomeEmail'] : null;
         $this->container['onboarding'] = isset($data['onboarding']) ? $data['onboarding'] : null;
     }
 
@@ -263,8 +263,8 @@ self::ROLE_ADMIN,        ];
         if ($this->container['username'] === null) {
             $invalidProperties[] = "'username' can't be null";
         }
-        if ($this->container['home_resource'] === null) {
-            $invalidProperties[] = "'home_resource' can't be null";
+        if ($this->container['homeResource'] === null) {
+            $invalidProperties[] = "'homeResource' can't be null";
         }
         if ($this->container['email'] === null) {
             $invalidProperties[] = "'email' can't be null";
@@ -286,8 +286,8 @@ self::ROLE_ADMIN,        ];
         if ($this->container['permissions'] === null) {
             $invalidProperties[] = "'permissions' can't be null";
         }
-        if ($this->container['time_zone'] === null) {
-            $invalidProperties[] = "'time_zone' can't be null";
+        if ($this->container['timeZone'] === null) {
+            $invalidProperties[] = "'timeZone' can't be null";
         }
         return $invalidProperties;
     }
@@ -353,25 +353,25 @@ self::ROLE_ADMIN,        ];
     }
 
     /**
-     * Gets home_resource
+     * Gets homeResource
      *
      * @return string
      */
     public function getHomeResource()
     {
-        return $this->container['home_resource'];
+        return $this->container['homeResource'];
     }
 
     /**
-     * Sets home_resource
+     * Sets homeResource
      *
-     * @param string $home_resource Resource identifier for the user's home folder. See details on [how to specify resources](#section/Identifying-Resources) above.  The user will be locked to this directory and unable to move 'up' in the account. If the folder does not exist in the account, it will be created when the user is created.   This setting is ignored for users with the `role` **admin**.
+     * @param string $homeResource Resource identifier for the user's home folder. See details on [how to specify resources](#section/Identifying-Resources) above.  The user will be locked to this directory and unable to move 'up' in the account. If the folder does not exist in the account, it will be created when the user is created.   This setting is ignored for users with the `role` **admin**.
      *
      * @return $this
      */
-    public function setHomeResource($home_resource)
+    public function setHomeResource($homeResource)
     {
-        $this->container['home_resource'] = $home_resource;
+        $this->container['homeResource'] = $homeResource;
 
         return $this;
     }
@@ -482,25 +482,25 @@ self::ROLE_ADMIN,        ];
     }
 
     /**
-     * Gets time_zone
+     * Gets timeZone
      *
      * @return string
      */
     public function getTimeZone()
     {
-        return $this->container['time_zone'];
+        return $this->container['timeZone'];
     }
 
     /**
-     * Sets time_zone
+     * Sets timeZone
      *
-     * @param string $time_zone Time zone, used for accurate time display within the application. See <a href='https://php.net/manual/en/timezones.php' target='blank'>this page</a> for allowed values.
+     * @param string $timeZone Time zone, used for accurate time display within the application. See <a href='https://php.net/manual/en/timezones.php' target='blank'>this page</a> for allowed values.
      *
      * @return $this
      */
-    public function setTimeZone($time_zone)
+    public function setTimeZone($timeZone)
     {
-        $this->container['time_zone'] = $time_zone;
+        $this->container['timeZone'] = $timeZone;
 
         return $this;
     }
@@ -554,25 +554,25 @@ self::ROLE_ADMIN,        ];
     }
 
     /**
-     * Gets welcome_email
+     * Gets welcomeEmail
      *
      * @return bool
      */
     public function getWelcomeEmail()
     {
-        return $this->container['welcome_email'];
+        return $this->container['welcomeEmail'];
     }
 
     /**
-     * Sets welcome_email
+     * Sets welcomeEmail
      *
-     * @param bool $welcome_email If **true**, send this new user a welcome email upon creation. The content of the welcome email can be configured with the [PATCH /accounts](#operation/updateAccount) method.
+     * @param bool $welcomeEmail If **true**, send this new user a welcome email upon creation. The content of the welcome email can be configured with the [PATCH /accounts](#operation/updateAccount) method.
      *
      * @return $this
      */
-    public function setWelcomeEmail($welcome_email)
+    public function setWelcomeEmail($welcomeEmail)
     {
-        $this->container['welcome_email'] = $welcome_email;
+        $this->container['welcomeEmail'] = $welcomeEmail;
 
         return $this;
     }

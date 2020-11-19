@@ -58,10 +58,10 @@ class WebhooksActivityEntryAttributes implements ModelInterface, ArrayAccess
     protected static $swaggerTypes = [
         'attempt' => 'int',
 'created' => 'string',
-'endpoint_url' => 'string',
+'endpointUrl' => 'string',
 'event' => 'string',
 'response' => 'string',
-'response_size' => 'int',
+'responseSize' => 'int',
 'status' => 'int'    ];
 
     /**
@@ -72,10 +72,10 @@ class WebhooksActivityEntryAttributes implements ModelInterface, ArrayAccess
     protected static $swaggerFormats = [
         'attempt' => null,
 'created' => null,
-'endpoint_url' => null,
+'endpointUrl' => null,
 'event' => null,
 'response' => null,
-'response_size' => null,
+'responseSize' => null,
 'status' => null    ];
 
     /**
@@ -107,10 +107,10 @@ class WebhooksActivityEntryAttributes implements ModelInterface, ArrayAccess
     protected static $attributeMap = [
         'attempt' => 'attempt',
 'created' => 'created',
-'endpoint_url' => 'endpointUrl',
+'endpointUrl' => 'endpointUrl',
 'event' => 'event',
 'response' => 'response',
-'response_size' => 'responseSize',
+'responseSize' => 'responseSize',
 'status' => 'status'    ];
 
     /**
@@ -121,10 +121,10 @@ class WebhooksActivityEntryAttributes implements ModelInterface, ArrayAccess
     protected static $setters = [
         'attempt' => 'setAttempt',
 'created' => 'setCreated',
-'endpoint_url' => 'setEndpointUrl',
+'endpointUrl' => 'setEndpointUrl',
 'event' => 'setEvent',
 'response' => 'setResponse',
-'response_size' => 'setResponseSize',
+'responseSize' => 'setResponseSize',
 'status' => 'setStatus'    ];
 
     /**
@@ -135,10 +135,10 @@ class WebhooksActivityEntryAttributes implements ModelInterface, ArrayAccess
     protected static $getters = [
         'attempt' => 'getAttempt',
 'created' => 'getCreated',
-'endpoint_url' => 'getEndpointUrl',
+'endpointUrl' => 'getEndpointUrl',
 'event' => 'getEvent',
 'response' => 'getResponse',
-'response_size' => 'getResponseSize',
+'responseSize' => 'getResponseSize',
 'status' => 'getStatus'    ];
 
     /**
@@ -201,10 +201,10 @@ class WebhooksActivityEntryAttributes implements ModelInterface, ArrayAccess
     {
         $this->container['attempt'] = isset($data['attempt']) ? $data['attempt'] : null;
         $this->container['created'] = isset($data['created']) ? $data['created'] : null;
-        $this->container['endpoint_url'] = isset($data['endpoint_url']) ? $data['endpoint_url'] : null;
+        $this->container['endpointUrl'] = isset($data['endpointUrl']) ? $data['endpointUrl'] : null;
         $this->container['event'] = isset($data['event']) ? $data['event'] : null;
         $this->container['response'] = isset($data['response']) ? $data['response'] : null;
-        $this->container['response_size'] = isset($data['response_size']) ? $data['response_size'] : null;
+        $this->container['responseSize'] = isset($data['responseSize']) ? $data['responseSize'] : null;
         $this->container['status'] = isset($data['status']) ? $data['status'] : null;
     }
 
@@ -281,25 +281,25 @@ class WebhooksActivityEntryAttributes implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets endpoint_url
+     * Gets endpointUrl
      *
      * @return string
      */
     public function getEndpointUrl()
     {
-        return $this->container['endpoint_url'];
+        return $this->container['endpointUrl'];
     }
 
     /**
-     * Sets endpoint_url
+     * Sets endpointUrl
      *
-     * @param string $endpoint_url endpoint_url
+     * @param string $endpointUrl endpointUrl
      *
      * @return $this
      */
-    public function setEndpointUrl($endpoint_url)
+    public function setEndpointUrl($endpointUrl)
     {
-        $this->container['endpoint_url'] = $endpoint_url;
+        $this->container['endpointUrl'] = $endpointUrl;
 
         return $this;
     }
@@ -353,25 +353,25 @@ class WebhooksActivityEntryAttributes implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets response_size
+     * Gets responseSize
      *
      * @return int
      */
     public function getResponseSize()
     {
-        return $this->container['response_size'];
+        return $this->container['responseSize'];
     }
 
     /**
-     * Sets response_size
+     * Sets responseSize
      *
-     * @param int $response_size response_size
+     * @param int $responseSize responseSize
      *
      * @return $this
      */
-    public function setResponseSize($response_size)
+    public function setResponseSize($responseSize)
     {
-        $this->container['response_size'] = $response_size;
+        $this->container['responseSize'] = $responseSize;
 
         return $this;
     }

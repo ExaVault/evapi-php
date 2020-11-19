@@ -61,17 +61,17 @@ class ResourceAttributes implements ModelInterface, ArrayAccess
 'name' => 'string',
 'extension' => 'string',
 'type' => 'string',
-'created_by' => 'string',
-'upload_date' => '\DateTime',
-'created_at' => '\DateTime',
-'updated_at' => '\DateTime',
-'accessed_at' => '\DateTime',
-'created_time' => 'int',
-'updated_time' => 'int',
-'accessed_time' => 'int',
+'createdBy' => 'string',
+'uploadDate' => '\DateTime',
+'createdAt' => '\DateTime',
+'updatedAt' => '\DateTime',
+'accessedAt' => '\DateTime',
+'createdTime' => 'int',
+'updatedTime' => 'int',
+'accessedTime' => 'int',
 'path' => 'string',
 'size' => 'int',
-'file_count' => 'int',
+'fileCount' => 'int',
 'previewable' => 'bool'    ];
 
     /**
@@ -84,17 +84,17 @@ class ResourceAttributes implements ModelInterface, ArrayAccess
 'name' => null,
 'extension' => null,
 'type' => null,
-'created_by' => null,
-'upload_date' => 'date-time',
-'created_at' => 'date-time',
-'updated_at' => 'date-time',
-'accessed_at' => 'date-time',
-'created_time' => 'int32',
-'updated_time' => 'int32',
-'accessed_time' => 'int32',
+'createdBy' => null,
+'uploadDate' => 'date-time',
+'createdAt' => 'date-time',
+'updatedAt' => 'date-time',
+'accessedAt' => 'date-time',
+'createdTime' => 'int32',
+'updatedTime' => 'int32',
+'accessedTime' => 'int32',
 'path' => null,
 'size' => 'int64',
-'file_count' => null,
+'fileCount' => null,
 'previewable' => null    ];
 
     /**
@@ -128,17 +128,17 @@ class ResourceAttributes implements ModelInterface, ArrayAccess
 'name' => 'name',
 'extension' => 'extension',
 'type' => 'type',
-'created_by' => 'createdBy',
-'upload_date' => 'uploadDate',
-'created_at' => 'createdAt',
-'updated_at' => 'updatedAt',
-'accessed_at' => 'accessedAt',
-'created_time' => 'createdTime',
-'updated_time' => 'updatedTime',
-'accessed_time' => 'accessedTime',
+'createdBy' => 'createdBy',
+'uploadDate' => 'uploadDate',
+'createdAt' => 'createdAt',
+'updatedAt' => 'updatedAt',
+'accessedAt' => 'accessedAt',
+'createdTime' => 'createdTime',
+'updatedTime' => 'updatedTime',
+'accessedTime' => 'accessedTime',
 'path' => 'path',
 'size' => 'size',
-'file_count' => 'fileCount',
+'fileCount' => 'fileCount',
 'previewable' => 'previewable'    ];
 
     /**
@@ -151,17 +151,17 @@ class ResourceAttributes implements ModelInterface, ArrayAccess
 'name' => 'setName',
 'extension' => 'setExtension',
 'type' => 'setType',
-'created_by' => 'setCreatedBy',
-'upload_date' => 'setUploadDate',
-'created_at' => 'setCreatedAt',
-'updated_at' => 'setUpdatedAt',
-'accessed_at' => 'setAccessedAt',
-'created_time' => 'setCreatedTime',
-'updated_time' => 'setUpdatedTime',
-'accessed_time' => 'setAccessedTime',
+'createdBy' => 'setCreatedBy',
+'uploadDate' => 'setUploadDate',
+'createdAt' => 'setCreatedAt',
+'updatedAt' => 'setUpdatedAt',
+'accessedAt' => 'setAccessedAt',
+'createdTime' => 'setCreatedTime',
+'updatedTime' => 'setUpdatedTime',
+'accessedTime' => 'setAccessedTime',
 'path' => 'setPath',
 'size' => 'setSize',
-'file_count' => 'setFileCount',
+'fileCount' => 'setFileCount',
 'previewable' => 'setPreviewable'    ];
 
     /**
@@ -174,17 +174,17 @@ class ResourceAttributes implements ModelInterface, ArrayAccess
 'name' => 'getName',
 'extension' => 'getExtension',
 'type' => 'getType',
-'created_by' => 'getCreatedBy',
-'upload_date' => 'getUploadDate',
-'created_at' => 'getCreatedAt',
-'updated_at' => 'getUpdatedAt',
-'accessed_at' => 'getAccessedAt',
-'created_time' => 'getCreatedTime',
-'updated_time' => 'getUpdatedTime',
-'accessed_time' => 'getAccessedTime',
+'createdBy' => 'getCreatedBy',
+'uploadDate' => 'getUploadDate',
+'createdAt' => 'getCreatedAt',
+'updatedAt' => 'getUpdatedAt',
+'accessedAt' => 'getAccessedAt',
+'createdTime' => 'getCreatedTime',
+'updatedTime' => 'getUpdatedTime',
+'accessedTime' => 'getAccessedTime',
 'path' => 'getPath',
 'size' => 'getSize',
-'file_count' => 'getFileCount',
+'fileCount' => 'getFileCount',
 'previewable' => 'getPreviewable'    ];
 
     /**
@@ -262,17 +262,17 @@ self::TYPE_DIR,        ];
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
         $this->container['extension'] = isset($data['extension']) ? $data['extension'] : null;
         $this->container['type'] = isset($data['type']) ? $data['type'] : null;
-        $this->container['created_by'] = isset($data['created_by']) ? $data['created_by'] : null;
-        $this->container['upload_date'] = isset($data['upload_date']) ? $data['upload_date'] : null;
-        $this->container['created_at'] = isset($data['created_at']) ? $data['created_at'] : null;
-        $this->container['updated_at'] = isset($data['updated_at']) ? $data['updated_at'] : null;
-        $this->container['accessed_at'] = isset($data['accessed_at']) ? $data['accessed_at'] : null;
-        $this->container['created_time'] = isset($data['created_time']) ? $data['created_time'] : null;
-        $this->container['updated_time'] = isset($data['updated_time']) ? $data['updated_time'] : null;
-        $this->container['accessed_time'] = isset($data['accessed_time']) ? $data['accessed_time'] : null;
+        $this->container['createdBy'] = isset($data['createdBy']) ? $data['createdBy'] : null;
+        $this->container['uploadDate'] = isset($data['uploadDate']) ? $data['uploadDate'] : null;
+        $this->container['createdAt'] = isset($data['createdAt']) ? $data['createdAt'] : null;
+        $this->container['updatedAt'] = isset($data['updatedAt']) ? $data['updatedAt'] : null;
+        $this->container['accessedAt'] = isset($data['accessedAt']) ? $data['accessedAt'] : null;
+        $this->container['createdTime'] = isset($data['createdTime']) ? $data['createdTime'] : null;
+        $this->container['updatedTime'] = isset($data['updatedTime']) ? $data['updatedTime'] : null;
+        $this->container['accessedTime'] = isset($data['accessedTime']) ? $data['accessedTime'] : null;
         $this->container['path'] = isset($data['path']) ? $data['path'] : null;
         $this->container['size'] = isset($data['size']) ? $data['size'] : null;
-        $this->container['file_count'] = isset($data['file_count']) ? $data['file_count'] : null;
+        $this->container['fileCount'] = isset($data['fileCount']) ? $data['fileCount'] : null;
         $this->container['previewable'] = isset($data['previewable']) ? $data['previewable'] : null;
     }
 
@@ -414,193 +414,193 @@ self::TYPE_DIR,        ];
     }
 
     /**
-     * Gets created_by
+     * Gets createdBy
      *
      * @return string
      */
     public function getCreatedBy()
     {
-        return $this->container['created_by'];
+        return $this->container['createdBy'];
     }
 
     /**
-     * Sets created_by
+     * Sets createdBy
      *
-     * @param string $created_by Username of the creator.
+     * @param string $createdBy Username of the creator.
      *
      * @return $this
      */
-    public function setCreatedBy($created_by)
+    public function setCreatedBy($createdBy)
     {
-        $this->container['created_by'] = $created_by;
+        $this->container['createdBy'] = $createdBy;
 
         return $this;
     }
 
     /**
-     * Gets upload_date
+     * Gets uploadDate
      *
      * @return \DateTime
      */
     public function getUploadDate()
     {
-        return $this->container['upload_date'];
+        return $this->container['uploadDate'];
     }
 
     /**
-     * Sets upload_date
+     * Sets uploadDate
      *
-     * @param \DateTime $upload_date Timestamp of resource upload.
+     * @param \DateTime $uploadDate Timestamp of resource upload.
      *
      * @return $this
      */
-    public function setUploadDate($upload_date)
+    public function setUploadDate($uploadDate)
     {
-        $this->container['upload_date'] = $upload_date;
+        $this->container['uploadDate'] = $uploadDate;
 
         return $this;
     }
 
     /**
-     * Gets created_at
+     * Gets createdAt
      *
      * @return \DateTime
      */
     public function getCreatedAt()
     {
-        return $this->container['created_at'];
+        return $this->container['createdAt'];
     }
 
     /**
-     * Sets created_at
+     * Sets createdAt
      *
-     * @param \DateTime $created_at Date-time of resource creation.
+     * @param \DateTime $createdAt Date-time of resource creation.
      *
      * @return $this
      */
-    public function setCreatedAt($created_at)
+    public function setCreatedAt($createdAt)
     {
-        $this->container['created_at'] = $created_at;
+        $this->container['createdAt'] = $createdAt;
 
         return $this;
     }
 
     /**
-     * Gets updated_at
+     * Gets updatedAt
      *
      * @return \DateTime
      */
     public function getUpdatedAt()
     {
-        return $this->container['updated_at'];
+        return $this->container['updatedAt'];
     }
 
     /**
-     * Sets updated_at
+     * Sets updatedAt
      *
-     * @param \DateTime $updated_at Date-time of resource modification.
+     * @param \DateTime $updatedAt Date-time of resource modification.
      *
      * @return $this
      */
-    public function setUpdatedAt($updated_at)
+    public function setUpdatedAt($updatedAt)
     {
-        $this->container['updated_at'] = $updated_at;
+        $this->container['updatedAt'] = $updatedAt;
 
         return $this;
     }
 
     /**
-     * Gets accessed_at
+     * Gets accessedAt
      *
      * @return \DateTime
      */
     public function getAccessedAt()
     {
-        return $this->container['accessed_at'];
+        return $this->container['accessedAt'];
     }
 
     /**
-     * Sets accessed_at
+     * Sets accessedAt
      *
-     * @param \DateTime $accessed_at Date-time of the time when resource was accessed.
+     * @param \DateTime $accessedAt Date-time of the time when resource was accessed.
      *
      * @return $this
      */
-    public function setAccessedAt($accessed_at)
+    public function setAccessedAt($accessedAt)
     {
-        $this->container['accessed_at'] = $accessed_at;
+        $this->container['accessedAt'] = $accessedAt;
 
         return $this;
     }
 
     /**
-     * Gets created_time
+     * Gets createdTime
      *
      * @return int
      */
     public function getCreatedTime()
     {
-        return $this->container['created_time'];
+        return $this->container['createdTime'];
     }
 
     /**
-     * Sets created_time
+     * Sets createdTime
      *
-     * @param int $created_time UNIX timestamp of resource creation
+     * @param int $createdTime UNIX timestamp of resource creation
      *
      * @return $this
      */
-    public function setCreatedTime($created_time)
+    public function setCreatedTime($createdTime)
     {
-        $this->container['created_time'] = $created_time;
+        $this->container['createdTime'] = $createdTime;
 
         return $this;
     }
 
     /**
-     * Gets updated_time
+     * Gets updatedTime
      *
      * @return int
      */
     public function getUpdatedTime()
     {
-        return $this->container['updated_time'];
+        return $this->container['updatedTime'];
     }
 
     /**
-     * Sets updated_time
+     * Sets updatedTime
      *
-     * @param int $updated_time UNIX timestamp of resource modification
+     * @param int $updatedTime UNIX timestamp of resource modification
      *
      * @return $this
      */
-    public function setUpdatedTime($updated_time)
+    public function setUpdatedTime($updatedTime)
     {
-        $this->container['updated_time'] = $updated_time;
+        $this->container['updatedTime'] = $updatedTime;
 
         return $this;
     }
 
     /**
-     * Gets accessed_time
+     * Gets accessedTime
      *
      * @return int
      */
     public function getAccessedTime()
     {
-        return $this->container['accessed_time'];
+        return $this->container['accessedTime'];
     }
 
     /**
-     * Sets accessed_time
+     * Sets accessedTime
      *
-     * @param int $accessed_time UNIX timestamp of last access
+     * @param int $accessedTime UNIX timestamp of last access
      *
      * @return $this
      */
-    public function setAccessedTime($accessed_time)
+    public function setAccessedTime($accessedTime)
     {
-        $this->container['accessed_time'] = $accessed_time;
+        $this->container['accessedTime'] = $accessedTime;
 
         return $this;
     }
@@ -654,25 +654,25 @@ self::TYPE_DIR,        ];
     }
 
     /**
-     * Gets file_count
+     * Gets fileCount
      *
      * @return int
      */
     public function getFileCount()
     {
-        return $this->container['file_count'];
+        return $this->container['fileCount'];
     }
 
     /**
-     * Sets file_count
+     * Sets fileCount
      *
-     * @param int $file_count Number of files within folder. null if resource type is a file.
+     * @param int $fileCount Number of files within folder. null if resource type is a file.
      *
      * @return $this
      */
-    public function setFileCount($file_count)
+    public function setFileCount($fileCount)
     {
-        $this->container['file_count'] = $file_count;
+        $this->container['fileCount'] = $fileCount;
 
         return $this;
     }

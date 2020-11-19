@@ -56,10 +56,10 @@ class BrandingSettings implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'company_name' => 'string',
-'custom_email' => 'string',
+        'companyName' => 'string',
+'customEmail' => 'string',
 'logo' => 'string',
-'logo_ext' => 'string',
+'logoExt' => 'string',
 'theme' => 'string'    ];
 
     /**
@@ -68,10 +68,10 @@ class BrandingSettings implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'company_name' => null,
-'custom_email' => 'email',
+        'companyName' => null,
+'customEmail' => 'email',
 'logo' => null,
-'logo_ext' => null,
+'logoExt' => null,
 'theme' => null    ];
 
     /**
@@ -101,10 +101,10 @@ class BrandingSettings implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'company_name' => 'companyName',
-'custom_email' => 'customEmail',
+        'companyName' => 'companyName',
+'customEmail' => 'customEmail',
 'logo' => 'logo',
-'logo_ext' => 'logoExt',
+'logoExt' => 'logoExt',
 'theme' => 'theme'    ];
 
     /**
@@ -113,10 +113,10 @@ class BrandingSettings implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'company_name' => 'setCompanyName',
-'custom_email' => 'setCustomEmail',
+        'companyName' => 'setCompanyName',
+'customEmail' => 'setCustomEmail',
 'logo' => 'setLogo',
-'logo_ext' => 'setLogoExt',
+'logoExt' => 'setLogoExt',
 'theme' => 'setTheme'    ];
 
     /**
@@ -125,10 +125,10 @@ class BrandingSettings implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'company_name' => 'getCompanyName',
-'custom_email' => 'getCustomEmail',
+        'companyName' => 'getCompanyName',
+'customEmail' => 'getCustomEmail',
 'logo' => 'getLogo',
-'logo_ext' => 'getLogoExt',
+'logoExt' => 'getLogoExt',
 'theme' => 'getTheme'    ];
 
     /**
@@ -189,10 +189,10 @@ class BrandingSettings implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['company_name'] = isset($data['company_name']) ? $data['company_name'] : null;
-        $this->container['custom_email'] = isset($data['custom_email']) ? $data['custom_email'] : null;
+        $this->container['companyName'] = isset($data['companyName']) ? $data['companyName'] : null;
+        $this->container['customEmail'] = isset($data['customEmail']) ? $data['customEmail'] : null;
         $this->container['logo'] = isset($data['logo']) ? $data['logo'] : null;
-        $this->container['logo_ext'] = isset($data['logo_ext']) ? $data['logo_ext'] : null;
+        $this->container['logoExt'] = isset($data['logoExt']) ? $data['logoExt'] : null;
         $this->container['theme'] = isset($data['theme']) ? $data['theme'] : null;
     }
 
@@ -221,49 +221,49 @@ class BrandingSettings implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets company_name
+     * Gets companyName
      *
      * @return string
      */
     public function getCompanyName()
     {
-        return $this->container['company_name'];
+        return $this->container['companyName'];
     }
 
     /**
-     * Sets company_name
+     * Sets companyName
      *
-     * @param string $company_name null
+     * @param string $companyName null
      *
      * @return $this
      */
-    public function setCompanyName($company_name)
+    public function setCompanyName($companyName)
     {
-        $this->container['company_name'] = $company_name;
+        $this->container['companyName'] = $companyName;
 
         return $this;
     }
 
     /**
-     * Gets custom_email
+     * Gets customEmail
      *
      * @return string
      */
     public function getCustomEmail()
     {
-        return $this->container['custom_email'];
+        return $this->container['customEmail'];
     }
 
     /**
-     * Sets custom_email
+     * Sets customEmail
      *
-     * @param string $custom_email null
+     * @param string $customEmail null
      *
      * @return $this
      */
-    public function setCustomEmail($custom_email)
+    public function setCustomEmail($customEmail)
     {
-        $this->container['custom_email'] = $custom_email;
+        $this->container['customEmail'] = $customEmail;
 
         return $this;
     }
@@ -293,25 +293,25 @@ class BrandingSettings implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets logo_ext
+     * Gets logoExt
      *
      * @return string
      */
     public function getLogoExt()
     {
-        return $this->container['logo_ext'];
+        return $this->container['logoExt'];
     }
 
     /**
-     * Sets logo_ext
+     * Sets logoExt
      *
-     * @param string $logo_ext null
+     * @param string $logoExt null
      *
      * @return $this
      */
-    public function setLogoExt($logo_ext)
+    public function setLogoExt($logoExt)
     {
-        $this->container['logo_ext'] = $logo_ext;
+        $this->container['logoExt'] = $logoExt;
 
         return $this;
     }

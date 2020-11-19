@@ -91,17 +91,17 @@ class FormApi
      *
      * Delete a receive form submission
      *
-     * @param  string $ev_api_key API Key required to make the API call. (required)
-     * @param  string $ev_access_token Access token required to make the API call. (required)
+     * @param  string $evApiKey API Key required to make the API call. (required)
+     * @param  string $evAccessToken Access token required to make the API call. (required)
      * @param  int $id ID of the entry to be deleted data for (required)
      *
      * @throws \ExaVault\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \ExaVault\Model\EmptyResponse
      */
-    public function deleteFormMessageById($ev_api_key, $ev_access_token, $id)
+    public function deleteFormMessageById($evApiKey, $evAccessToken, $id)
     {
-        list($response) = $this->deleteFormMessageByIdWithHttpInfo($ev_api_key, $ev_access_token, $id);
+        list($response) = $this->deleteFormMessageByIdWithHttpInfo($evApiKey, $evAccessToken, $id);
         return $response;
     }
 
@@ -110,18 +110,18 @@ class FormApi
      *
      * Delete a receive form submission
      *
-     * @param  string $ev_api_key API Key required to make the API call. (required)
-     * @param  string $ev_access_token Access token required to make the API call. (required)
+     * @param  string $evApiKey API Key required to make the API call. (required)
+     * @param  string $evAccessToken Access token required to make the API call. (required)
      * @param  int $id ID of the entry to be deleted data for (required)
      *
      * @throws \ExaVault\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \ExaVault\Model\EmptyResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function deleteFormMessageByIdWithHttpInfo($ev_api_key, $ev_access_token, $id)
+    public function deleteFormMessageByIdWithHttpInfo($evApiKey, $evAccessToken, $id)
     {
         $returnType = '\ExaVault\Model\EmptyResponse';
-        $request = $this->deleteFormMessageByIdRequest($ev_api_key, $ev_access_token, $id);
+        $request = $this->deleteFormMessageByIdRequest($evApiKey, $evAccessToken, $id);
 
         try {
             $options = $this->createHttpClientOption();
@@ -187,16 +187,16 @@ class FormApi
      *
      * Delete a receive form submission
      *
-     * @param  string $ev_api_key API Key required to make the API call. (required)
-     * @param  string $ev_access_token Access token required to make the API call. (required)
+     * @param  string $evApiKey API Key required to make the API call. (required)
+     * @param  string $evAccessToken Access token required to make the API call. (required)
      * @param  int $id ID of the entry to be deleted data for (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteFormMessageByIdAsync($ev_api_key, $ev_access_token, $id)
+    public function deleteFormMessageByIdAsync($evApiKey, $evAccessToken, $id)
     {
-        return $this->deleteFormMessageByIdAsyncWithHttpInfo($ev_api_key, $ev_access_token, $id)
+        return $this->deleteFormMessageByIdAsyncWithHttpInfo($evApiKey, $evAccessToken, $id)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -209,17 +209,17 @@ class FormApi
      *
      * Delete a receive form submission
      *
-     * @param  string $ev_api_key API Key required to make the API call. (required)
-     * @param  string $ev_access_token Access token required to make the API call. (required)
+     * @param  string $evApiKey API Key required to make the API call. (required)
+     * @param  string $evAccessToken Access token required to make the API call. (required)
      * @param  int $id ID of the entry to be deleted data for (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteFormMessageByIdAsyncWithHttpInfo($ev_api_key, $ev_access_token, $id)
+    public function deleteFormMessageByIdAsyncWithHttpInfo($evApiKey, $evAccessToken, $id)
     {
         $returnType = '\ExaVault\Model\EmptyResponse';
-        $request = $this->deleteFormMessageByIdRequest($ev_api_key, $ev_access_token, $id);
+        $request = $this->deleteFormMessageByIdRequest($evApiKey, $evAccessToken, $id);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -261,25 +261,25 @@ class FormApi
     /**
      * Create request for operation 'deleteFormMessageById'
      *
-     * @param  string $ev_api_key API Key required to make the API call. (required)
-     * @param  string $ev_access_token Access token required to make the API call. (required)
+     * @param  string $evApiKey API Key required to make the API call. (required)
+     * @param  string $evAccessToken Access token required to make the API call. (required)
      * @param  int $id ID of the entry to be deleted data for (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function deleteFormMessageByIdRequest($ev_api_key, $ev_access_token, $id)
+    protected function deleteFormMessageByIdRequest($evApiKey, $evAccessToken, $id)
     {
-        // verify the required parameter 'ev_api_key' is set
-        if ($ev_api_key === null || (is_array($ev_api_key) && count($ev_api_key) === 0)) {
+        // verify the required parameter 'evApiKey' is set
+        if ($evApiKey === null || (is_array($evApiKey) && count($evApiKey) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $ev_api_key when calling deleteFormMessageById'
+                'Missing the required parameter $evApiKey when calling deleteFormMessageById'
             );
         }
-        // verify the required parameter 'ev_access_token' is set
-        if ($ev_access_token === null || (is_array($ev_access_token) && count($ev_access_token) === 0)) {
+        // verify the required parameter 'evAccessToken' is set
+        if ($evAccessToken === null || (is_array($evAccessToken) && count($evAccessToken) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $ev_access_token when calling deleteFormMessageById'
+                'Missing the required parameter $evAccessToken when calling deleteFormMessageById'
             );
         }
         // verify the required parameter 'id' is set
@@ -297,12 +297,12 @@ class FormApi
         $multipart = false;
 
         // header params
-        if ($ev_api_key !== null) {
-            $headerParams['ev-api-key'] = ObjectSerializer::toHeaderValue($ev_api_key);
+        if ($evApiKey !== null) {
+            $headerParams['ev-api-key'] = ObjectSerializer::toHeaderValue($evApiKey);
         }
         // header params
-        if ($ev_access_token !== null) {
-            $headerParams['ev-access-token'] = ObjectSerializer::toHeaderValue($ev_access_token);
+        if ($evAccessToken !== null) {
+            $headerParams['ev-access-token'] = ObjectSerializer::toHeaderValue($evAccessToken);
         }
 
         // path params
@@ -384,17 +384,17 @@ class FormApi
      * Get receive folder form by Id
      *
      * @param  int $id Form unique ID number. (required)
-     * @param  string $ev_api_key API key required to make the API call. (required)
-     * @param  string $ev_access_token Access Token required to make the API call. (required)
+     * @param  string $evApiKey API key required to make the API call. (required)
+     * @param  string $evAccessToken Access Token required to make the API call. (required)
      * @param  string $include Enter \&quot;**share**\&quot; to get information about associated receive folder. (optional)
      *
      * @throws \ExaVault\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \ExaVault\Model\FormResponse
      */
-    public function getFormById($id, $ev_api_key, $ev_access_token, $include = null)
+    public function getFormById($id, $evApiKey, $evAccessToken, $include = null)
     {
-        list($response) = $this->getFormByIdWithHttpInfo($id, $ev_api_key, $ev_access_token, $include);
+        list($response) = $this->getFormByIdWithHttpInfo($id, $evApiKey, $evAccessToken, $include);
         return $response;
     }
 
@@ -404,18 +404,18 @@ class FormApi
      * Get receive folder form by Id
      *
      * @param  int $id Form unique ID number. (required)
-     * @param  string $ev_api_key API key required to make the API call. (required)
-     * @param  string $ev_access_token Access Token required to make the API call. (required)
+     * @param  string $evApiKey API key required to make the API call. (required)
+     * @param  string $evAccessToken Access Token required to make the API call. (required)
      * @param  string $include Enter \&quot;**share**\&quot; to get information about associated receive folder. (optional)
      *
      * @throws \ExaVault\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \ExaVault\Model\FormResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getFormByIdWithHttpInfo($id, $ev_api_key, $ev_access_token, $include = null)
+    public function getFormByIdWithHttpInfo($id, $evApiKey, $evAccessToken, $include = null)
     {
         $returnType = '\ExaVault\Model\FormResponse';
-        $request = $this->getFormByIdRequest($id, $ev_api_key, $ev_access_token, $include);
+        $request = $this->getFormByIdRequest($id, $evApiKey, $evAccessToken, $include);
 
         try {
             $options = $this->createHttpClientOption();
@@ -482,16 +482,16 @@ class FormApi
      * Get receive folder form by Id
      *
      * @param  int $id Form unique ID number. (required)
-     * @param  string $ev_api_key API key required to make the API call. (required)
-     * @param  string $ev_access_token Access Token required to make the API call. (required)
+     * @param  string $evApiKey API key required to make the API call. (required)
+     * @param  string $evAccessToken Access Token required to make the API call. (required)
      * @param  string $include Enter \&quot;**share**\&quot; to get information about associated receive folder. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getFormByIdAsync($id, $ev_api_key, $ev_access_token, $include = null)
+    public function getFormByIdAsync($id, $evApiKey, $evAccessToken, $include = null)
     {
-        return $this->getFormByIdAsyncWithHttpInfo($id, $ev_api_key, $ev_access_token, $include)
+        return $this->getFormByIdAsyncWithHttpInfo($id, $evApiKey, $evAccessToken, $include)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -505,17 +505,17 @@ class FormApi
      * Get receive folder form by Id
      *
      * @param  int $id Form unique ID number. (required)
-     * @param  string $ev_api_key API key required to make the API call. (required)
-     * @param  string $ev_access_token Access Token required to make the API call. (required)
+     * @param  string $evApiKey API key required to make the API call. (required)
+     * @param  string $evAccessToken Access Token required to make the API call. (required)
      * @param  string $include Enter \&quot;**share**\&quot; to get information about associated receive folder. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getFormByIdAsyncWithHttpInfo($id, $ev_api_key, $ev_access_token, $include = null)
+    public function getFormByIdAsyncWithHttpInfo($id, $evApiKey, $evAccessToken, $include = null)
     {
         $returnType = '\ExaVault\Model\FormResponse';
-        $request = $this->getFormByIdRequest($id, $ev_api_key, $ev_access_token, $include);
+        $request = $this->getFormByIdRequest($id, $evApiKey, $evAccessToken, $include);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -558,14 +558,14 @@ class FormApi
      * Create request for operation 'getFormById'
      *
      * @param  int $id Form unique ID number. (required)
-     * @param  string $ev_api_key API key required to make the API call. (required)
-     * @param  string $ev_access_token Access Token required to make the API call. (required)
+     * @param  string $evApiKey API key required to make the API call. (required)
+     * @param  string $evAccessToken Access Token required to make the API call. (required)
      * @param  string $include Enter \&quot;**share**\&quot; to get information about associated receive folder. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function getFormByIdRequest($id, $ev_api_key, $ev_access_token, $include = null)
+    protected function getFormByIdRequest($id, $evApiKey, $evAccessToken, $include = null)
     {
         // verify the required parameter 'id' is set
         if ($id === null || (is_array($id) && count($id) === 0)) {
@@ -573,16 +573,16 @@ class FormApi
                 'Missing the required parameter $id when calling getFormById'
             );
         }
-        // verify the required parameter 'ev_api_key' is set
-        if ($ev_api_key === null || (is_array($ev_api_key) && count($ev_api_key) === 0)) {
+        // verify the required parameter 'evApiKey' is set
+        if ($evApiKey === null || (is_array($evApiKey) && count($evApiKey) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $ev_api_key when calling getFormById'
+                'Missing the required parameter $evApiKey when calling getFormById'
             );
         }
-        // verify the required parameter 'ev_access_token' is set
-        if ($ev_access_token === null || (is_array($ev_access_token) && count($ev_access_token) === 0)) {
+        // verify the required parameter 'evAccessToken' is set
+        if ($evAccessToken === null || (is_array($evAccessToken) && count($evAccessToken) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $ev_access_token when calling getFormById'
+                'Missing the required parameter $evAccessToken when calling getFormById'
             );
         }
 
@@ -598,12 +598,12 @@ class FormApi
             $queryParams['include'] = ObjectSerializer::toQueryValue($include, null);
         }
         // header params
-        if ($ev_api_key !== null) {
-            $headerParams['ev-api-key'] = ObjectSerializer::toHeaderValue($ev_api_key);
+        if ($evApiKey !== null) {
+            $headerParams['ev-api-key'] = ObjectSerializer::toHeaderValue($evApiKey);
         }
         // header params
-        if ($ev_access_token !== null) {
-            $headerParams['ev-access-token'] = ObjectSerializer::toHeaderValue($ev_access_token);
+        if ($evAccessToken !== null) {
+            $headerParams['ev-access-token'] = ObjectSerializer::toHeaderValue($evAccessToken);
         }
 
         // path params
@@ -684,18 +684,18 @@ class FormApi
      *
      * Get receive folder form settings
      *
-     * @param  string $ev_api_key API key required to make the API call. (required)
-     * @param  string $ev_access_token Access Token required to make the API call. (required)
-     * @param  string $share_hash Share hash to retrieve the form for. (required)
+     * @param  string $evApiKey API key required to make the API call. (required)
+     * @param  string $evAccessToken Access Token required to make the API call. (required)
+     * @param  string $shareHash Share hash to retrieve the form for. (required)
      * @param  string $include Related record types to include in the response. Valid option is **share** (optional)
      *
      * @throws \ExaVault\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \ExaVault\Model\FormResponse
      */
-    public function getFormByShareHash($ev_api_key, $ev_access_token, $share_hash, $include = null)
+    public function getFormByShareHash($evApiKey, $evAccessToken, $shareHash, $include = null)
     {
-        list($response) = $this->getFormByShareHashWithHttpInfo($ev_api_key, $ev_access_token, $share_hash, $include);
+        list($response) = $this->getFormByShareHashWithHttpInfo($evApiKey, $evAccessToken, $shareHash, $include);
         return $response;
     }
 
@@ -704,19 +704,19 @@ class FormApi
      *
      * Get receive folder form settings
      *
-     * @param  string $ev_api_key API key required to make the API call. (required)
-     * @param  string $ev_access_token Access Token required to make the API call. (required)
-     * @param  string $share_hash Share hash to retrieve the form for. (required)
+     * @param  string $evApiKey API key required to make the API call. (required)
+     * @param  string $evAccessToken Access Token required to make the API call. (required)
+     * @param  string $shareHash Share hash to retrieve the form for. (required)
      * @param  string $include Related record types to include in the response. Valid option is **share** (optional)
      *
      * @throws \ExaVault\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \ExaVault\Model\FormResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getFormByShareHashWithHttpInfo($ev_api_key, $ev_access_token, $share_hash, $include = null)
+    public function getFormByShareHashWithHttpInfo($evApiKey, $evAccessToken, $shareHash, $include = null)
     {
         $returnType = '\ExaVault\Model\FormResponse';
-        $request = $this->getFormByShareHashRequest($ev_api_key, $ev_access_token, $share_hash, $include);
+        $request = $this->getFormByShareHashRequest($evApiKey, $evAccessToken, $shareHash, $include);
 
         try {
             $options = $this->createHttpClientOption();
@@ -782,17 +782,17 @@ class FormApi
      *
      * Get receive folder form settings
      *
-     * @param  string $ev_api_key API key required to make the API call. (required)
-     * @param  string $ev_access_token Access Token required to make the API call. (required)
-     * @param  string $share_hash Share hash to retrieve the form for. (required)
+     * @param  string $evApiKey API key required to make the API call. (required)
+     * @param  string $evAccessToken Access Token required to make the API call. (required)
+     * @param  string $shareHash Share hash to retrieve the form for. (required)
      * @param  string $include Related record types to include in the response. Valid option is **share** (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getFormByShareHashAsync($ev_api_key, $ev_access_token, $share_hash, $include = null)
+    public function getFormByShareHashAsync($evApiKey, $evAccessToken, $shareHash, $include = null)
     {
-        return $this->getFormByShareHashAsyncWithHttpInfo($ev_api_key, $ev_access_token, $share_hash, $include)
+        return $this->getFormByShareHashAsyncWithHttpInfo($evApiKey, $evAccessToken, $shareHash, $include)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -805,18 +805,18 @@ class FormApi
      *
      * Get receive folder form settings
      *
-     * @param  string $ev_api_key API key required to make the API call. (required)
-     * @param  string $ev_access_token Access Token required to make the API call. (required)
-     * @param  string $share_hash Share hash to retrieve the form for. (required)
+     * @param  string $evApiKey API key required to make the API call. (required)
+     * @param  string $evAccessToken Access Token required to make the API call. (required)
+     * @param  string $shareHash Share hash to retrieve the form for. (required)
      * @param  string $include Related record types to include in the response. Valid option is **share** (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getFormByShareHashAsyncWithHttpInfo($ev_api_key, $ev_access_token, $share_hash, $include = null)
+    public function getFormByShareHashAsyncWithHttpInfo($evApiKey, $evAccessToken, $shareHash, $include = null)
     {
         $returnType = '\ExaVault\Model\FormResponse';
-        $request = $this->getFormByShareHashRequest($ev_api_key, $ev_access_token, $share_hash, $include);
+        $request = $this->getFormByShareHashRequest($evApiKey, $evAccessToken, $shareHash, $include);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -858,32 +858,32 @@ class FormApi
     /**
      * Create request for operation 'getFormByShareHash'
      *
-     * @param  string $ev_api_key API key required to make the API call. (required)
-     * @param  string $ev_access_token Access Token required to make the API call. (required)
-     * @param  string $share_hash Share hash to retrieve the form for. (required)
+     * @param  string $evApiKey API key required to make the API call. (required)
+     * @param  string $evAccessToken Access Token required to make the API call. (required)
+     * @param  string $shareHash Share hash to retrieve the form for. (required)
      * @param  string $include Related record types to include in the response. Valid option is **share** (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function getFormByShareHashRequest($ev_api_key, $ev_access_token, $share_hash, $include = null)
+    protected function getFormByShareHashRequest($evApiKey, $evAccessToken, $shareHash, $include = null)
     {
-        // verify the required parameter 'ev_api_key' is set
-        if ($ev_api_key === null || (is_array($ev_api_key) && count($ev_api_key) === 0)) {
+        // verify the required parameter 'evApiKey' is set
+        if ($evApiKey === null || (is_array($evApiKey) && count($evApiKey) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $ev_api_key when calling getFormByShareHash'
+                'Missing the required parameter $evApiKey when calling getFormByShareHash'
             );
         }
-        // verify the required parameter 'ev_access_token' is set
-        if ($ev_access_token === null || (is_array($ev_access_token) && count($ev_access_token) === 0)) {
+        // verify the required parameter 'evAccessToken' is set
+        if ($evAccessToken === null || (is_array($evAccessToken) && count($evAccessToken) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $ev_access_token when calling getFormByShareHash'
+                'Missing the required parameter $evAccessToken when calling getFormByShareHash'
             );
         }
-        // verify the required parameter 'share_hash' is set
-        if ($share_hash === null || (is_array($share_hash) && count($share_hash) === 0)) {
+        // verify the required parameter 'shareHash' is set
+        if ($shareHash === null || (is_array($shareHash) && count($shareHash) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $share_hash when calling getFormByShareHash'
+                'Missing the required parameter $shareHash when calling getFormByShareHash'
             );
         }
 
@@ -895,20 +895,20 @@ class FormApi
         $multipart = false;
 
         // query params
-        if ($share_hash !== null) {
-            $queryParams['shareHash'] = ObjectSerializer::toQueryValue($share_hash, null);
+        if ($shareHash !== null) {
+            $queryParams['shareHash'] = ObjectSerializer::toQueryValue($shareHash, null);
         }
         // query params
         if ($include !== null) {
             $queryParams['include'] = ObjectSerializer::toQueryValue($include, null);
         }
         // header params
-        if ($ev_api_key !== null) {
-            $headerParams['ev-api-key'] = ObjectSerializer::toHeaderValue($ev_api_key);
+        if ($evApiKey !== null) {
+            $headerParams['ev-api-key'] = ObjectSerializer::toHeaderValue($evApiKey);
         }
         // header params
-        if ($ev_access_token !== null) {
-            $headerParams['ev-access-token'] = ObjectSerializer::toHeaderValue($ev_access_token);
+        if ($evAccessToken !== null) {
+            $headerParams['ev-access-token'] = ObjectSerializer::toHeaderValue($evAccessToken);
         }
 
 
@@ -981,8 +981,8 @@ class FormApi
      *
      * Get form data entries for a receive
      *
-     * @param  string $ev_api_key API Key required to make the API call. (required)
-     * @param  string $ev_access_token Access token required to make the API call. (required)
+     * @param  string $evApiKey API Key required to make the API call. (required)
+     * @param  string $evAccessToken Access token required to make the API call. (required)
      * @param  int $id ID of the form to retrieve entries for. (required)
      * @param  int $limit Limit of records to be returned (for pagination) (optional)
      * @param  int $offset Current offset of records (for pagination) (optional)
@@ -991,9 +991,9 @@ class FormApi
      * @throws \InvalidArgumentException
      * @return \ExaVault\Model\FormEntryResponse
      */
-    public function getFormEntries($ev_api_key, $ev_access_token, $id, $limit = null, $offset = null)
+    public function getFormEntries($evApiKey, $evAccessToken, $id, $limit = null, $offset = null)
     {
-        list($response) = $this->getFormEntriesWithHttpInfo($ev_api_key, $ev_access_token, $id, $limit, $offset);
+        list($response) = $this->getFormEntriesWithHttpInfo($evApiKey, $evAccessToken, $id, $limit, $offset);
         return $response;
     }
 
@@ -1002,8 +1002,8 @@ class FormApi
      *
      * Get form data entries for a receive
      *
-     * @param  string $ev_api_key API Key required to make the API call. (required)
-     * @param  string $ev_access_token Access token required to make the API call. (required)
+     * @param  string $evApiKey API Key required to make the API call. (required)
+     * @param  string $evAccessToken Access token required to make the API call. (required)
      * @param  int $id ID of the form to retrieve entries for. (required)
      * @param  int $limit Limit of records to be returned (for pagination) (optional)
      * @param  int $offset Current offset of records (for pagination) (optional)
@@ -1012,10 +1012,10 @@ class FormApi
      * @throws \InvalidArgumentException
      * @return array of \ExaVault\Model\FormEntryResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getFormEntriesWithHttpInfo($ev_api_key, $ev_access_token, $id, $limit = null, $offset = null)
+    public function getFormEntriesWithHttpInfo($evApiKey, $evAccessToken, $id, $limit = null, $offset = null)
     {
         $returnType = '\ExaVault\Model\FormEntryResponse';
-        $request = $this->getFormEntriesRequest($ev_api_key, $ev_access_token, $id, $limit, $offset);
+        $request = $this->getFormEntriesRequest($evApiKey, $evAccessToken, $id, $limit, $offset);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1081,8 +1081,8 @@ class FormApi
      *
      * Get form data entries for a receive
      *
-     * @param  string $ev_api_key API Key required to make the API call. (required)
-     * @param  string $ev_access_token Access token required to make the API call. (required)
+     * @param  string $evApiKey API Key required to make the API call. (required)
+     * @param  string $evAccessToken Access token required to make the API call. (required)
      * @param  int $id ID of the form to retrieve entries for. (required)
      * @param  int $limit Limit of records to be returned (for pagination) (optional)
      * @param  int $offset Current offset of records (for pagination) (optional)
@@ -1090,9 +1090,9 @@ class FormApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getFormEntriesAsync($ev_api_key, $ev_access_token, $id, $limit = null, $offset = null)
+    public function getFormEntriesAsync($evApiKey, $evAccessToken, $id, $limit = null, $offset = null)
     {
-        return $this->getFormEntriesAsyncWithHttpInfo($ev_api_key, $ev_access_token, $id, $limit, $offset)
+        return $this->getFormEntriesAsyncWithHttpInfo($evApiKey, $evAccessToken, $id, $limit, $offset)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1105,8 +1105,8 @@ class FormApi
      *
      * Get form data entries for a receive
      *
-     * @param  string $ev_api_key API Key required to make the API call. (required)
-     * @param  string $ev_access_token Access token required to make the API call. (required)
+     * @param  string $evApiKey API Key required to make the API call. (required)
+     * @param  string $evAccessToken Access token required to make the API call. (required)
      * @param  int $id ID of the form to retrieve entries for. (required)
      * @param  int $limit Limit of records to be returned (for pagination) (optional)
      * @param  int $offset Current offset of records (for pagination) (optional)
@@ -1114,10 +1114,10 @@ class FormApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getFormEntriesAsyncWithHttpInfo($ev_api_key, $ev_access_token, $id, $limit = null, $offset = null)
+    public function getFormEntriesAsyncWithHttpInfo($evApiKey, $evAccessToken, $id, $limit = null, $offset = null)
     {
         $returnType = '\ExaVault\Model\FormEntryResponse';
-        $request = $this->getFormEntriesRequest($ev_api_key, $ev_access_token, $id, $limit, $offset);
+        $request = $this->getFormEntriesRequest($evApiKey, $evAccessToken, $id, $limit, $offset);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1159,8 +1159,8 @@ class FormApi
     /**
      * Create request for operation 'getFormEntries'
      *
-     * @param  string $ev_api_key API Key required to make the API call. (required)
-     * @param  string $ev_access_token Access token required to make the API call. (required)
+     * @param  string $evApiKey API Key required to make the API call. (required)
+     * @param  string $evAccessToken Access token required to make the API call. (required)
      * @param  int $id ID of the form to retrieve entries for. (required)
      * @param  int $limit Limit of records to be returned (for pagination) (optional)
      * @param  int $offset Current offset of records (for pagination) (optional)
@@ -1168,18 +1168,18 @@ class FormApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function getFormEntriesRequest($ev_api_key, $ev_access_token, $id, $limit = null, $offset = null)
+    protected function getFormEntriesRequest($evApiKey, $evAccessToken, $id, $limit = null, $offset = null)
     {
-        // verify the required parameter 'ev_api_key' is set
-        if ($ev_api_key === null || (is_array($ev_api_key) && count($ev_api_key) === 0)) {
+        // verify the required parameter 'evApiKey' is set
+        if ($evApiKey === null || (is_array($evApiKey) && count($evApiKey) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $ev_api_key when calling getFormEntries'
+                'Missing the required parameter $evApiKey when calling getFormEntries'
             );
         }
-        // verify the required parameter 'ev_access_token' is set
-        if ($ev_access_token === null || (is_array($ev_access_token) && count($ev_access_token) === 0)) {
+        // verify the required parameter 'evAccessToken' is set
+        if ($evAccessToken === null || (is_array($evAccessToken) && count($evAccessToken) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $ev_access_token when calling getFormEntries'
+                'Missing the required parameter $evAccessToken when calling getFormEntries'
             );
         }
         // verify the required parameter 'id' is set
@@ -1205,12 +1205,12 @@ class FormApi
             $queryParams['offset'] = ObjectSerializer::toQueryValue($offset, null);
         }
         // header params
-        if ($ev_api_key !== null) {
-            $headerParams['ev-api-key'] = ObjectSerializer::toHeaderValue($ev_api_key);
+        if ($evApiKey !== null) {
+            $headerParams['ev-api-key'] = ObjectSerializer::toHeaderValue($evApiKey);
         }
         // header params
-        if ($ev_access_token !== null) {
-            $headerParams['ev-access-token'] = ObjectSerializer::toHeaderValue($ev_access_token);
+        if ($evAccessToken !== null) {
+            $headerParams['ev-access-token'] = ObjectSerializer::toHeaderValue($evAccessToken);
         }
 
         // path params
@@ -1291,8 +1291,8 @@ class FormApi
      *
      * Updates a form with given parameters
      *
-     * @param  string $ev_api_key API Key required to make the API call. (required)
-     * @param  string $ev_access_token Access token required to make the API call. (required)
+     * @param  string $evApiKey API Key required to make the API call. (required)
+     * @param  string $evAccessToken Access token required to make the API call. (required)
      * @param  int $id Form unique ID number. (required)
      * @param  \ExaVault\Model\UpdateFormByIdRequestBody $body body (optional)
      *
@@ -1300,9 +1300,9 @@ class FormApi
      * @throws \InvalidArgumentException
      * @return \ExaVault\Model\FormResponse
      */
-    public function updateFormById($ev_api_key, $ev_access_token, $id, $body = null)
+    public function updateFormById($evApiKey, $evAccessToken, $id, $body = null)
     {
-        list($response) = $this->updateFormByIdWithHttpInfo($ev_api_key, $ev_access_token, $id, $body);
+        list($response) = $this->updateFormByIdWithHttpInfo($evApiKey, $evAccessToken, $id, $body);
         return $response;
     }
 
@@ -1311,8 +1311,8 @@ class FormApi
      *
      * Updates a form with given parameters
      *
-     * @param  string $ev_api_key API Key required to make the API call. (required)
-     * @param  string $ev_access_token Access token required to make the API call. (required)
+     * @param  string $evApiKey API Key required to make the API call. (required)
+     * @param  string $evAccessToken Access token required to make the API call. (required)
      * @param  int $id Form unique ID number. (required)
      * @param  \ExaVault\Model\UpdateFormByIdRequestBody $body (optional)
      *
@@ -1320,10 +1320,10 @@ class FormApi
      * @throws \InvalidArgumentException
      * @return array of \ExaVault\Model\FormResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function updateFormByIdWithHttpInfo($ev_api_key, $ev_access_token, $id, $body = null)
+    public function updateFormByIdWithHttpInfo($evApiKey, $evAccessToken, $id, $body = null)
     {
         $returnType = '\ExaVault\Model\FormResponse';
-        $request = $this->updateFormByIdRequest($ev_api_key, $ev_access_token, $id, $body);
+        $request = $this->updateFormByIdRequest($evApiKey, $evAccessToken, $id, $body);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1389,17 +1389,17 @@ class FormApi
      *
      * Updates a form with given parameters
      *
-     * @param  string $ev_api_key API Key required to make the API call. (required)
-     * @param  string $ev_access_token Access token required to make the API call. (required)
+     * @param  string $evApiKey API Key required to make the API call. (required)
+     * @param  string $evAccessToken Access token required to make the API call. (required)
      * @param  int $id Form unique ID number. (required)
      * @param  \ExaVault\Model\UpdateFormByIdRequestBody $body (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateFormByIdAsync($ev_api_key, $ev_access_token, $id, $body = null)
+    public function updateFormByIdAsync($evApiKey, $evAccessToken, $id, $body = null)
     {
-        return $this->updateFormByIdAsyncWithHttpInfo($ev_api_key, $ev_access_token, $id, $body)
+        return $this->updateFormByIdAsyncWithHttpInfo($evApiKey, $evAccessToken, $id, $body)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1412,18 +1412,18 @@ class FormApi
      *
      * Updates a form with given parameters
      *
-     * @param  string $ev_api_key API Key required to make the API call. (required)
-     * @param  string $ev_access_token Access token required to make the API call. (required)
+     * @param  string $evApiKey API Key required to make the API call. (required)
+     * @param  string $evAccessToken Access token required to make the API call. (required)
      * @param  int $id Form unique ID number. (required)
      * @param  \ExaVault\Model\UpdateFormByIdRequestBody $body (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateFormByIdAsyncWithHttpInfo($ev_api_key, $ev_access_token, $id, $body = null)
+    public function updateFormByIdAsyncWithHttpInfo($evApiKey, $evAccessToken, $id, $body = null)
     {
         $returnType = '\ExaVault\Model\FormResponse';
-        $request = $this->updateFormByIdRequest($ev_api_key, $ev_access_token, $id, $body);
+        $request = $this->updateFormByIdRequest($evApiKey, $evAccessToken, $id, $body);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1465,26 +1465,26 @@ class FormApi
     /**
      * Create request for operation 'updateFormById'
      *
-     * @param  string $ev_api_key API Key required to make the API call. (required)
-     * @param  string $ev_access_token Access token required to make the API call. (required)
+     * @param  string $evApiKey API Key required to make the API call. (required)
+     * @param  string $evAccessToken Access token required to make the API call. (required)
      * @param  int $id Form unique ID number. (required)
      * @param  \ExaVault\Model\UpdateFormByIdRequestBody $body (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function updateFormByIdRequest($ev_api_key, $ev_access_token, $id, $body = null)
+    protected function updateFormByIdRequest($evApiKey, $evAccessToken, $id, $body = null)
     {
-        // verify the required parameter 'ev_api_key' is set
-        if ($ev_api_key === null || (is_array($ev_api_key) && count($ev_api_key) === 0)) {
+        // verify the required parameter 'evApiKey' is set
+        if ($evApiKey === null || (is_array($evApiKey) && count($evApiKey) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $ev_api_key when calling updateFormById'
+                'Missing the required parameter $evApiKey when calling updateFormById'
             );
         }
-        // verify the required parameter 'ev_access_token' is set
-        if ($ev_access_token === null || (is_array($ev_access_token) && count($ev_access_token) === 0)) {
+        // verify the required parameter 'evAccessToken' is set
+        if ($evAccessToken === null || (is_array($evAccessToken) && count($evAccessToken) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $ev_access_token when calling updateFormById'
+                'Missing the required parameter $evAccessToken when calling updateFormById'
             );
         }
         // verify the required parameter 'id' is set
@@ -1502,12 +1502,12 @@ class FormApi
         $multipart = false;
 
         // header params
-        if ($ev_api_key !== null) {
-            $headerParams['ev-api-key'] = ObjectSerializer::toHeaderValue($ev_api_key);
+        if ($evApiKey !== null) {
+            $headerParams['ev-api-key'] = ObjectSerializer::toHeaderValue($evApiKey);
         }
         // header params
-        if ($ev_access_token !== null) {
-            $headerParams['ev-access-token'] = ObjectSerializer::toHeaderValue($ev_access_token);
+        if ($evAccessToken !== null) {
+            $headerParams['ev-access-token'] = ObjectSerializer::toHeaderValue($evAccessToken);
         }
 
         // path params

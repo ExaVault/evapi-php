@@ -57,8 +57,8 @@ class CompressFilesRequestBody implements ModelInterface, ArrayAccess
       */
     protected static $swaggerTypes = [
         'resources' => 'string[]',
-'parent_resource' => 'string',
-'archive_name' => 'string'    ];
+'parentResource' => 'string',
+'archiveName' => 'string'    ];
 
     /**
       * Array of property to format mappings. Used for (de)serialization
@@ -67,8 +67,8 @@ class CompressFilesRequestBody implements ModelInterface, ArrayAccess
       */
     protected static $swaggerFormats = [
         'resources' => null,
-'parent_resource' => null,
-'archive_name' => null    ];
+'parentResource' => null,
+'archiveName' => null    ];
 
     /**
      * Array of property to type mappings. Used for (de)serialization
@@ -98,8 +98,8 @@ class CompressFilesRequestBody implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'resources' => 'resources',
-'parent_resource' => 'parentResource',
-'archive_name' => 'archiveName'    ];
+'parentResource' => 'parentResource',
+'archiveName' => 'archiveName'    ];
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
@@ -108,8 +108,8 @@ class CompressFilesRequestBody implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'resources' => 'setResources',
-'parent_resource' => 'setParentResource',
-'archive_name' => 'setArchiveName'    ];
+'parentResource' => 'setParentResource',
+'archiveName' => 'setArchiveName'    ];
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
@@ -118,8 +118,8 @@ class CompressFilesRequestBody implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'resources' => 'getResources',
-'parent_resource' => 'getParentResource',
-'archive_name' => 'getArchiveName'    ];
+'parentResource' => 'getParentResource',
+'archiveName' => 'getArchiveName'    ];
 
     /**
      * Array of attributes where the key is the local name,
@@ -180,8 +180,8 @@ class CompressFilesRequestBody implements ModelInterface, ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['resources'] = isset($data['resources']) ? $data['resources'] : null;
-        $this->container['parent_resource'] = isset($data['parent_resource']) ? $data['parent_resource'] : null;
-        $this->container['archive_name'] = isset($data['archive_name']) ? $data['archive_name'] : null;
+        $this->container['parentResource'] = isset($data['parentResource']) ? $data['parentResource'] : null;
+        $this->container['archiveName'] = isset($data['archiveName']) ? $data['archiveName'] : null;
     }
 
     /**
@@ -236,49 +236,49 @@ class CompressFilesRequestBody implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets parent_resource
+     * Gets parentResource
      *
      * @return string
      */
     public function getParentResource()
     {
-        return $this->container['parent_resource'];
+        return $this->container['parentResource'];
     }
 
     /**
-     * Sets parent_resource
+     * Sets parentResource
      *
-     * @param string $parent_resource Full path to folder new archive will be created in. If left blank, \"/\" will be used.
+     * @param string $parentResource Full path to folder new archive will be created in. If left blank, \"/\" will be used.
      *
      * @return $this
      */
-    public function setParentResource($parent_resource)
+    public function setParentResource($parentResource)
     {
-        $this->container['parent_resource'] = $parent_resource;
+        $this->container['parentResource'] = $parentResource;
 
         return $this;
     }
 
     /**
-     * Gets archive_name
+     * Gets archiveName
      *
      * @return string
      */
     public function getArchiveName()
     {
-        return $this->container['archive_name'];
+        return $this->container['archiveName'];
     }
 
     /**
-     * Sets archive_name
+     * Sets archiveName
      *
-     * @param string $archive_name Name of the zip archive to create. If left blank, current date will be used.
+     * @param string $archiveName Name of the zip archive to create. If left blank, current date will be used.
      *
      * @return $this
      */
-    public function setArchiveName($archive_name)
+    public function setArchiveName($archiveName)
     {
-        $this->container['archive_name'] = $archive_name;
+        $this->container['archiveName'] = $archiveName;
 
         return $this;
     }

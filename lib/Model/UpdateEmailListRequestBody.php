@@ -239,7 +239,7 @@ class UpdateEmailListRequestBody implements ModelInterface, ArrayAccess
     /**
      * Sets emails
      *
-     * @param string[] $emails Array of email addresses to add to the email list.
+     * @param string[] $emails Email addresses that replace existing list.
      *
      * @return $this
      */

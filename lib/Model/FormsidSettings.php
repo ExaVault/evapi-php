@@ -56,9 +56,9 @@ class FormsidSettings implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'is_required' => 'bool',
-'sender_email' => 'bool',
-'use_as_folder_name' => 'bool'    ];
+        'isRequired' => 'bool',
+'senderEmail' => 'bool',
+'useAsFolderName' => 'bool'    ];
 
     /**
       * Array of property to format mappings. Used for (de)serialization
@@ -66,9 +66,9 @@ class FormsidSettings implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'is_required' => null,
-'sender_email' => null,
-'use_as_folder_name' => null    ];
+        'isRequired' => null,
+'senderEmail' => null,
+'useAsFolderName' => null    ];
 
     /**
      * Array of property to type mappings. Used for (de)serialization
@@ -97,9 +97,9 @@ class FormsidSettings implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'is_required' => 'isRequired',
-'sender_email' => 'senderEmail',
-'use_as_folder_name' => 'useAsFolderName'    ];
+        'isRequired' => 'isRequired',
+'senderEmail' => 'senderEmail',
+'useAsFolderName' => 'useAsFolderName'    ];
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
@@ -107,9 +107,9 @@ class FormsidSettings implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'is_required' => 'setIsRequired',
-'sender_email' => 'setSenderEmail',
-'use_as_folder_name' => 'setUseAsFolderName'    ];
+        'isRequired' => 'setIsRequired',
+'senderEmail' => 'setSenderEmail',
+'useAsFolderName' => 'setUseAsFolderName'    ];
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
@@ -117,9 +117,9 @@ class FormsidSettings implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'is_required' => 'getIsRequired',
-'sender_email' => 'getSenderEmail',
-'use_as_folder_name' => 'getUseAsFolderName'    ];
+        'isRequired' => 'getIsRequired',
+'senderEmail' => 'getSenderEmail',
+'useAsFolderName' => 'getUseAsFolderName'    ];
 
     /**
      * Array of attributes where the key is the local name,
@@ -179,9 +179,9 @@ class FormsidSettings implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['is_required'] = isset($data['is_required']) ? $data['is_required'] : null;
-        $this->container['sender_email'] = isset($data['sender_email']) ? $data['sender_email'] : null;
-        $this->container['use_as_folder_name'] = isset($data['use_as_folder_name']) ? $data['use_as_folder_name'] : null;
+        $this->container['isRequired'] = isset($data['isRequired']) ? $data['isRequired'] : null;
+        $this->container['senderEmail'] = isset($data['senderEmail']) ? $data['senderEmail'] : null;
+        $this->container['useAsFolderName'] = isset($data['useAsFolderName']) ? $data['useAsFolderName'] : null;
     }
 
     /**
@@ -209,73 +209,73 @@ class FormsidSettings implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets is_required
+     * Gets isRequired
      *
      * @return bool
      */
     public function getIsRequired()
     {
-        return $this->container['is_required'];
+        return $this->container['isRequired'];
     }
 
     /**
-     * Sets is_required
+     * Sets isRequired
      *
-     * @param bool $is_required True is the form element is required for submission.
+     * @param bool $isRequired True is the form element is required for submission.
      *
      * @return $this
      */
-    public function setIsRequired($is_required)
+    public function setIsRequired($isRequired)
     {
-        $this->container['is_required'] = $is_required;
+        $this->container['isRequired'] = $isRequired;
 
         return $this;
     }
 
     /**
-     * Gets sender_email
+     * Gets senderEmail
      *
      * @return bool
      */
     public function getSenderEmail()
     {
-        return $this->container['sender_email'];
+        return $this->container['senderEmail'];
     }
 
     /**
-     * Sets sender_email
+     * Sets senderEmail
      *
-     * @param bool $sender_email sender_email
+     * @param bool $senderEmail senderEmail
      *
      * @return $this
      */
-    public function setSenderEmail($sender_email)
+    public function setSenderEmail($senderEmail)
     {
-        $this->container['sender_email'] = $sender_email;
+        $this->container['senderEmail'] = $senderEmail;
 
         return $this;
     }
 
     /**
-     * Gets use_as_folder_name
+     * Gets useAsFolderName
      *
      * @return bool
      */
     public function getUseAsFolderName()
     {
-        return $this->container['use_as_folder_name'];
+        return $this->container['useAsFolderName'];
     }
 
     /**
-     * Sets use_as_folder_name
+     * Sets useAsFolderName
      *
-     * @param bool $use_as_folder_name True if the submitted response should be used as the name for the new folder.
+     * @param bool $useAsFolderName True if the submitted response should be used as the name for the new folder.
      *
      * @return $this
      */
-    public function setUseAsFolderName($use_as_folder_name)
+    public function setUseAsFolderName($useAsFolderName)
     {
-        $this->container['use_as_folder_name'] = $use_as_folder_name;
+        $this->container['useAsFolderName'] = $useAsFolderName;
 
         return $this;
     }

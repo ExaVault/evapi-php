@@ -58,21 +58,21 @@ class UserAttributes implements ModelInterface, ArrayAccess
       */
     protected static $swaggerTypes = [
         'status' => 'int',
+'locked' => 'bool',
 'expiration' => 'string',
 'created' => '\DateTime',
 'modified' => '\DateTime',
-'access_timestamp' => 'string',
-'account_name' => 'string',
+'accessTimestamp' => 'string',
+'accountName' => 'string',
 'username' => 'string',
 'nickname' => 'string',
 'email' => 'string',
-'home_dir' => 'string',
+'homePath' => 'string',
 'permissions' => '\ExaVault\Model\UserPermissions',
 'role' => 'string',
-'time_zone' => 'string',
+'timeZone' => 'string',
 'onboarding' => 'bool',
-'first_login' => 'bool',
-'locked' => 'bool'    ];
+'firstLogin' => 'bool'    ];
 
     /**
       * Array of property to format mappings. Used for (de)serialization
@@ -81,21 +81,21 @@ class UserAttributes implements ModelInterface, ArrayAccess
       */
     protected static $swaggerFormats = [
         'status' => 'int32',
+'locked' => null,
 'expiration' => null,
 'created' => 'date-time',
 'modified' => 'date-time',
-'access_timestamp' => null,
-'account_name' => null,
+'accessTimestamp' => null,
+'accountName' => null,
 'username' => null,
 'nickname' => null,
 'email' => null,
-'home_dir' => null,
+'homePath' => null,
 'permissions' => null,
 'role' => null,
-'time_zone' => null,
+'timeZone' => null,
 'onboarding' => null,
-'first_login' => null,
-'locked' => null    ];
+'firstLogin' => null    ];
 
     /**
      * Array of property to type mappings. Used for (de)serialization
@@ -125,21 +125,21 @@ class UserAttributes implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'status' => 'status',
+'locked' => 'locked',
 'expiration' => 'expiration',
 'created' => 'created',
 'modified' => 'modified',
-'access_timestamp' => 'accessTimestamp',
-'account_name' => 'accountName',
+'accessTimestamp' => 'accessTimestamp',
+'accountName' => 'accountName',
 'username' => 'username',
 'nickname' => 'nickname',
 'email' => 'email',
-'home_dir' => 'homeDir',
+'homePath' => 'homePath',
 'permissions' => 'permissions',
 'role' => 'role',
-'time_zone' => 'timeZone',
+'timeZone' => 'timeZone',
 'onboarding' => 'onboarding',
-'first_login' => 'firstLogin',
-'locked' => 'locked'    ];
+'firstLogin' => 'firstLogin'    ];
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
@@ -148,21 +148,21 @@ class UserAttributes implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'status' => 'setStatus',
+'locked' => 'setLocked',
 'expiration' => 'setExpiration',
 'created' => 'setCreated',
 'modified' => 'setModified',
-'access_timestamp' => 'setAccessTimestamp',
-'account_name' => 'setAccountName',
+'accessTimestamp' => 'setAccessTimestamp',
+'accountName' => 'setAccountName',
 'username' => 'setUsername',
 'nickname' => 'setNickname',
 'email' => 'setEmail',
-'home_dir' => 'setHomeDir',
+'homePath' => 'setHomePath',
 'permissions' => 'setPermissions',
 'role' => 'setRole',
-'time_zone' => 'setTimeZone',
+'timeZone' => 'setTimeZone',
 'onboarding' => 'setOnboarding',
-'first_login' => 'setFirstLogin',
-'locked' => 'setLocked'    ];
+'firstLogin' => 'setFirstLogin'    ];
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
@@ -171,21 +171,21 @@ class UserAttributes implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'status' => 'getStatus',
+'locked' => 'getLocked',
 'expiration' => 'getExpiration',
 'created' => 'getCreated',
 'modified' => 'getModified',
-'access_timestamp' => 'getAccessTimestamp',
-'account_name' => 'getAccountName',
+'accessTimestamp' => 'getAccessTimestamp',
+'accountName' => 'getAccountName',
 'username' => 'getUsername',
 'nickname' => 'getNickname',
 'email' => 'getEmail',
-'home_dir' => 'getHomeDir',
+'homePath' => 'getHomePath',
 'permissions' => 'getPermissions',
 'role' => 'getRole',
-'time_zone' => 'getTimeZone',
+'timeZone' => 'getTimeZone',
 'onboarding' => 'getOnboarding',
-'first_login' => 'getFirstLogin',
-'locked' => 'getLocked'    ];
+'firstLogin' => 'getFirstLogin'    ];
 
     /**
      * Array of attributes where the key is the local name,
@@ -274,21 +274,21 @@ self::ROLE_MASTER,        ];
     public function __construct(array $data = null)
     {
         $this->container['status'] = isset($data['status']) ? $data['status'] : null;
+        $this->container['locked'] = isset($data['locked']) ? $data['locked'] : null;
         $this->container['expiration'] = isset($data['expiration']) ? $data['expiration'] : null;
         $this->container['created'] = isset($data['created']) ? $data['created'] : null;
         $this->container['modified'] = isset($data['modified']) ? $data['modified'] : null;
-        $this->container['access_timestamp'] = isset($data['access_timestamp']) ? $data['access_timestamp'] : null;
-        $this->container['account_name'] = isset($data['account_name']) ? $data['account_name'] : null;
+        $this->container['accessTimestamp'] = isset($data['accessTimestamp']) ? $data['accessTimestamp'] : null;
+        $this->container['accountName'] = isset($data['accountName']) ? $data['accountName'] : null;
         $this->container['username'] = isset($data['username']) ? $data['username'] : null;
         $this->container['nickname'] = isset($data['nickname']) ? $data['nickname'] : null;
         $this->container['email'] = isset($data['email']) ? $data['email'] : null;
-        $this->container['home_dir'] = isset($data['home_dir']) ? $data['home_dir'] : null;
+        $this->container['homePath'] = isset($data['homePath']) ? $data['homePath'] : null;
         $this->container['permissions'] = isset($data['permissions']) ? $data['permissions'] : null;
         $this->container['role'] = isset($data['role']) ? $data['role'] : null;
-        $this->container['time_zone'] = isset($data['time_zone']) ? $data['time_zone'] : null;
+        $this->container['timeZone'] = isset($data['timeZone']) ? $data['timeZone'] : null;
         $this->container['onboarding'] = isset($data['onboarding']) ? $data['onboarding'] : null;
-        $this->container['first_login'] = isset($data['first_login']) ? $data['first_login'] : null;
-        $this->container['locked'] = isset($data['locked']) ? $data['locked'] : null;
+        $this->container['firstLogin'] = isset($data['firstLogin']) ? $data['firstLogin'] : null;
     }
 
     /**
@@ -317,17 +317,14 @@ self::ROLE_MASTER,        ];
         if ($this->container['modified'] === null) {
             $invalidProperties[] = "'modified' can't be null";
         }
-        if ($this->container['account_name'] === null) {
-            $invalidProperties[] = "'account_name' can't be null";
+        if ($this->container['accountName'] === null) {
+            $invalidProperties[] = "'accountName' can't be null";
         }
         if ($this->container['username'] === null) {
             $invalidProperties[] = "'username' can't be null";
         }
         if ($this->container['nickname'] === null) {
             $invalidProperties[] = "'nickname' can't be null";
-        }
-        if ($this->container['home_dir'] === null) {
-            $invalidProperties[] = "'home_dir' can't be null";
         }
         if ($this->container['permissions'] === null) {
             $invalidProperties[] = "'permissions' can't be null";
@@ -343,8 +340,8 @@ self::ROLE_MASTER,        ];
             );
         }
 
-        if ($this->container['time_zone'] === null) {
-            $invalidProperties[] = "'time_zone' can't be null";
+        if ($this->container['timeZone'] === null) {
+            $invalidProperties[] = "'timeZone' can't be null";
         }
         if ($this->container['onboarding'] === null) {
             $invalidProperties[] = "'onboarding' can't be null";
@@ -393,6 +390,30 @@ self::ROLE_MASTER,        ];
             );
         }
         $this->container['status'] = $status;
+
+        return $this;
+    }
+
+    /**
+     * Gets locked
+     *
+     * @return bool
+     */
+    public function getLocked()
+    {
+        return $this->container['locked'];
+    }
+
+    /**
+     * Sets locked
+     *
+     * @param bool $locked `true` if the user is locked and cannot log in.
+     *
+     * @return $this
+     */
+    public function setLocked($locked)
+    {
+        $this->container['locked'] = $locked;
 
         return $this;
     }
@@ -470,49 +491,49 @@ self::ROLE_MASTER,        ];
     }
 
     /**
-     * Gets access_timestamp
+     * Gets accessTimestamp
      *
      * @return string
      */
     public function getAccessTimestamp()
     {
-        return $this->container['access_timestamp'];
+        return $this->container['accessTimestamp'];
     }
 
     /**
-     * Sets access_timestamp
+     * Sets accessTimestamp
      *
-     * @param string $access_timestamp Timestamp of most recent successful user login.
+     * @param string $accessTimestamp Timestamp of most recent successful user login.
      *
      * @return $this
      */
-    public function setAccessTimestamp($access_timestamp)
+    public function setAccessTimestamp($accessTimestamp)
     {
-        $this->container['access_timestamp'] = $access_timestamp;
+        $this->container['accessTimestamp'] = $accessTimestamp;
 
         return $this;
     }
 
     /**
-     * Gets account_name
+     * Gets accountName
      *
      * @return string
      */
     public function getAccountName()
     {
-        return $this->container['account_name'];
+        return $this->container['accountName'];
     }
 
     /**
-     * Sets account_name
+     * Sets accountName
      *
-     * @param string $account_name Name of the account this user belongs to.
+     * @param string $accountName Name of the account this user belongs to.
      *
      * @return $this
      */
-    public function setAccountName($account_name)
+    public function setAccountName($accountName)
     {
-        $this->container['account_name'] = $account_name;
+        $this->container['accountName'] = $accountName;
 
         return $this;
     }
@@ -590,25 +611,25 @@ self::ROLE_MASTER,        ];
     }
 
     /**
-     * Gets home_dir
+     * Gets homePath
      *
      * @return string
      */
-    public function getHomeDir()
+    public function getHomePath()
     {
-        return $this->container['home_dir'];
+        return $this->container['homePath'];
     }
 
     /**
-     * Sets home_dir
+     * Sets homePath
      *
-     * @param string $home_dir Path to the user's home folder.
+     * @param string $homePath Path to the user's home folder.
      *
      * @return $this
      */
-    public function setHomeDir($home_dir)
+    public function setHomePath($homePath)
     {
-        $this->container['home_dir'] = $home_dir;
+        $this->container['homePath'] = $homePath;
 
         return $this;
     }
@@ -671,25 +692,25 @@ self::ROLE_MASTER,        ];
     }
 
     /**
-     * Gets time_zone
+     * Gets timeZone
      *
      * @return string
      */
     public function getTimeZone()
     {
-        return $this->container['time_zone'];
+        return $this->container['timeZone'];
     }
 
     /**
-     * Sets time_zone
+     * Sets timeZone
      *
-     * @param string $time_zone User's timezone. See <a href='https://php.net/manual/en/timezones.php' target='blank'>this page</a> for allowed values.
+     * @param string $timeZone User's timezone. See <a href='https://php.net/manual/en/timezones.php' target='blank'>this page</a> for allowed values.
      *
      * @return $this
      */
-    public function setTimeZone($time_zone)
+    public function setTimeZone($timeZone)
     {
-        $this->container['time_zone'] = $time_zone;
+        $this->container['timeZone'] = $timeZone;
 
         return $this;
     }
@@ -719,49 +740,25 @@ self::ROLE_MASTER,        ];
     }
 
     /**
-     * Gets first_login
+     * Gets firstLogin
      *
      * @return bool
      */
     public function getFirstLogin()
     {
-        return $this->container['first_login'];
+        return $this->container['firstLogin'];
     }
 
     /**
-     * Sets first_login
+     * Sets firstLogin
      *
-     * @param bool $first_login `true` if the user has logged into the system.
+     * @param bool $firstLogin `true` if the user has logged into the system.
      *
      * @return $this
      */
-    public function setFirstLogin($first_login)
+    public function setFirstLogin($firstLogin)
     {
-        $this->container['first_login'] = $first_login;
-
-        return $this;
-    }
-
-    /**
-     * Gets locked
-     *
-     * @return bool
-     */
-    public function getLocked()
-    {
-        return $this->container['locked'];
-    }
-
-    /**
-     * Sets locked
-     *
-     * @param bool $locked `true` if the user is locked and cannot log in.
-     *
-     * @return $this
-     */
-    public function setLocked($locked)
-    {
-        $this->container['locked'] = $locked;
+        $this->container['firstLogin'] = $firstLogin;
 
         return $this;
     }

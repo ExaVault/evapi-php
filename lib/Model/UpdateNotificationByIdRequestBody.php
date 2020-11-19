@@ -58,7 +58,7 @@ class UpdateNotificationByIdRequestBody implements ModelInterface, ArrayAccess
     protected static $swaggerTypes = [
         'action' => 'string',
 'usernames' => 'string[]',
-'send_email' => 'bool',
+'sendEmail' => 'bool',
 'recipients' => 'string[]',
 'message' => 'string'    ];
 
@@ -70,7 +70,7 @@ class UpdateNotificationByIdRequestBody implements ModelInterface, ArrayAccess
     protected static $swaggerFormats = [
         'action' => null,
 'usernames' => null,
-'send_email' => null,
+'sendEmail' => null,
 'recipients' => 'email',
 'message' => null    ];
 
@@ -103,7 +103,7 @@ class UpdateNotificationByIdRequestBody implements ModelInterface, ArrayAccess
     protected static $attributeMap = [
         'action' => 'action',
 'usernames' => 'usernames',
-'send_email' => 'sendEmail',
+'sendEmail' => 'sendEmail',
 'recipients' => 'recipients',
 'message' => 'message'    ];
 
@@ -115,7 +115,7 @@ class UpdateNotificationByIdRequestBody implements ModelInterface, ArrayAccess
     protected static $setters = [
         'action' => 'setAction',
 'usernames' => 'setUsernames',
-'send_email' => 'setSendEmail',
+'sendEmail' => 'setSendEmail',
 'recipients' => 'setRecipients',
 'message' => 'setMessage'    ];
 
@@ -127,7 +127,7 @@ class UpdateNotificationByIdRequestBody implements ModelInterface, ArrayAccess
     protected static $getters = [
         'action' => 'getAction',
 'usernames' => 'getUsernames',
-'send_email' => 'getSendEmail',
+'sendEmail' => 'getSendEmail',
 'recipients' => 'getRecipients',
 'message' => 'getMessage'    ];
 
@@ -208,7 +208,7 @@ self::ACTION_ALL,        ];
     {
         $this->container['action'] = isset($data['action']) ? $data['action'] : null;
         $this->container['usernames'] = isset($data['usernames']) ? $data['usernames'] : null;
-        $this->container['send_email'] = isset($data['send_email']) ? $data['send_email'] : null;
+        $this->container['sendEmail'] = isset($data['sendEmail']) ? $data['sendEmail'] : null;
         $this->container['recipients'] = isset($data['recipients']) ? $data['recipients'] : null;
         $this->container['message'] = isset($data['message']) ? $data['message'] : null;
     }
@@ -303,25 +303,25 @@ self::ACTION_ALL,        ];
     }
 
     /**
-     * Gets send_email
+     * Gets sendEmail
      *
      * @return bool
      */
     public function getSendEmail()
     {
-        return $this->container['send_email'];
+        return $this->container['sendEmail'];
     }
 
     /**
-     * Sets send_email
+     * Sets sendEmail
      *
-     * @param bool $send_email Whether an email should be sent to the recipients when matching activity happens.
+     * @param bool $sendEmail Whether an email should be sent to the recipients when matching activity happens.
      *
      * @return $this
      */
-    public function setSendEmail($send_email)
+    public function setSendEmail($sendEmail)
     {
-        $this->container['send_email'] = $send_email;
+        $this->container['sendEmail'] = $sendEmail;
 
         return $this;
     }

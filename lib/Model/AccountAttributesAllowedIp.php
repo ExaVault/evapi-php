@@ -56,8 +56,8 @@ class AccountAttributesAllowedIp implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'ip_start' => 'string',
-'ip_end' => 'string'    ];
+        'ipStart' => 'string',
+'ipEnd' => 'string'    ];
 
     /**
       * Array of property to format mappings. Used for (de)serialization
@@ -65,8 +65,8 @@ class AccountAttributesAllowedIp implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'ip_start' => null,
-'ip_end' => null    ];
+        'ipStart' => null,
+'ipEnd' => null    ];
 
     /**
      * Array of property to type mappings. Used for (de)serialization
@@ -95,8 +95,8 @@ class AccountAttributesAllowedIp implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'ip_start' => 'ip_start',
-'ip_end' => 'ip_end'    ];
+        'ipStart' => 'ip_start',
+'ipEnd' => 'ip_end'    ];
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
@@ -104,8 +104,8 @@ class AccountAttributesAllowedIp implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'ip_start' => 'setIpStart',
-'ip_end' => 'setIpEnd'    ];
+        'ipStart' => 'setIpStart',
+'ipEnd' => 'setIpEnd'    ];
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
@@ -113,8 +113,8 @@ class AccountAttributesAllowedIp implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'ip_start' => 'getIpStart',
-'ip_end' => 'getIpEnd'    ];
+        'ipStart' => 'getIpStart',
+'ipEnd' => 'getIpEnd'    ];
 
     /**
      * Array of attributes where the key is the local name,
@@ -174,8 +174,8 @@ class AccountAttributesAllowedIp implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['ip_start'] = isset($data['ip_start']) ? $data['ip_start'] : null;
-        $this->container['ip_end'] = isset($data['ip_end']) ? $data['ip_end'] : null;
+        $this->container['ipStart'] = isset($data['ipStart']) ? $data['ipStart'] : null;
+        $this->container['ipEnd'] = isset($data['ipEnd']) ? $data['ipEnd'] : null;
     }
 
     /**
@@ -203,49 +203,49 @@ class AccountAttributesAllowedIp implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets ip_start
+     * Gets ipStart
      *
      * @return string
      */
     public function getIpStart()
     {
-        return $this->container['ip_start'];
+        return $this->container['ipStart'];
     }
 
     /**
-     * Sets ip_start
+     * Sets ipStart
      *
-     * @param string $ip_start ip_start
+     * @param string $ipStart ipStart
      *
      * @return $this
      */
-    public function setIpStart($ip_start)
+    public function setIpStart($ipStart)
     {
-        $this->container['ip_start'] = $ip_start;
+        $this->container['ipStart'] = $ipStart;
 
         return $this;
     }
 
     /**
-     * Gets ip_end
+     * Gets ipEnd
      *
      * @return string
      */
     public function getIpEnd()
     {
-        return $this->container['ip_end'];
+        return $this->container['ipEnd'];
     }
 
     /**
-     * Sets ip_end
+     * Sets ipEnd
      *
-     * @param string $ip_end ip_end
+     * @param string $ipEnd ipEnd
      *
      * @return $this
      */
-    public function setIpEnd($ip_end)
+    public function setIpEnd($ipEnd)
     {
-        $this->container['ip_end'] = $ip_end;
+        $this->container['ipEnd'] = $ipEnd;
 
         return $this;
     }

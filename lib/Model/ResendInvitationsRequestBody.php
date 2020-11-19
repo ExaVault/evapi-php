@@ -56,7 +56,7 @@ class ResendInvitationsRequestBody implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'recipient_id' => 'int'    ];
+        'recipientId' => 'int'    ];
 
     /**
       * Array of property to format mappings. Used for (de)serialization
@@ -64,7 +64,7 @@ class ResendInvitationsRequestBody implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'recipient_id' => 'int32'    ];
+        'recipientId' => 'int32'    ];
 
     /**
      * Array of property to type mappings. Used for (de)serialization
@@ -93,7 +93,7 @@ class ResendInvitationsRequestBody implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'recipient_id' => 'recipientId'    ];
+        'recipientId' => 'recipientId'    ];
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
@@ -101,7 +101,7 @@ class ResendInvitationsRequestBody implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'recipient_id' => 'setRecipientId'    ];
+        'recipientId' => 'setRecipientId'    ];
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
@@ -109,7 +109,7 @@ class ResendInvitationsRequestBody implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'recipient_id' => 'getRecipientId'    ];
+        'recipientId' => 'getRecipientId'    ];
 
     /**
      * Array of attributes where the key is the local name,
@@ -169,7 +169,7 @@ class ResendInvitationsRequestBody implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['recipient_id'] = isset($data['recipient_id']) ? $data['recipient_id'] : null;
+        $this->container['recipientId'] = isset($data['recipientId']) ? $data['recipientId'] : null;
     }
 
     /**
@@ -197,25 +197,25 @@ class ResendInvitationsRequestBody implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets recipient_id
+     * Gets recipientId
      *
      * @return int
      */
     public function getRecipientId()
     {
-        return $this->container['recipient_id'];
+        return $this->container['recipientId'];
     }
 
     /**
-     * Sets recipient_id
+     * Sets recipientId
      *
-     * @param int $recipient_id ID number of recipient to send a new invitation to.
+     * @param int $recipientId ID number of recipient to send a new invitation to.
      *
      * @return $this
      */
-    public function setRecipientId($recipient_id)
+    public function setRecipientId($recipientId)
     {
-        $this->container['recipient_id'] = $recipient_id;
+        $this->container['recipientId'] = $recipientId;
 
         return $this;
     }

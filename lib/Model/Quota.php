@@ -56,10 +56,10 @@ class Quota implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'disk_limit' => 'int',
-'disk_used' => 'int',
-'notice_enabled' => 'bool',
-'notice_threshold' => 'int'    ];
+        'diskLimit' => 'int',
+'diskUsed' => 'int',
+'noticeEnabled' => 'bool',
+'noticeThreshold' => 'int'    ];
 
     /**
       * Array of property to format mappings. Used for (de)serialization
@@ -67,10 +67,10 @@ class Quota implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'disk_limit' => 'int64',
-'disk_used' => 'int64',
-'notice_enabled' => null,
-'notice_threshold' => 'int32'    ];
+        'diskLimit' => 'int64',
+'diskUsed' => 'int64',
+'noticeEnabled' => null,
+'noticeThreshold' => 'int32'    ];
 
     /**
      * Array of property to type mappings. Used for (de)serialization
@@ -99,10 +99,10 @@ class Quota implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'disk_limit' => 'diskLimit',
-'disk_used' => 'diskUsed',
-'notice_enabled' => 'noticeEnabled',
-'notice_threshold' => 'noticeThreshold'    ];
+        'diskLimit' => 'diskLimit',
+'diskUsed' => 'diskUsed',
+'noticeEnabled' => 'noticeEnabled',
+'noticeThreshold' => 'noticeThreshold'    ];
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
@@ -110,10 +110,10 @@ class Quota implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'disk_limit' => 'setDiskLimit',
-'disk_used' => 'setDiskUsed',
-'notice_enabled' => 'setNoticeEnabled',
-'notice_threshold' => 'setNoticeThreshold'    ];
+        'diskLimit' => 'setDiskLimit',
+'diskUsed' => 'setDiskUsed',
+'noticeEnabled' => 'setNoticeEnabled',
+'noticeThreshold' => 'setNoticeThreshold'    ];
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
@@ -121,10 +121,10 @@ class Quota implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'disk_limit' => 'getDiskLimit',
-'disk_used' => 'getDiskUsed',
-'notice_enabled' => 'getNoticeEnabled',
-'notice_threshold' => 'getNoticeThreshold'    ];
+        'diskLimit' => 'getDiskLimit',
+'diskUsed' => 'getDiskUsed',
+'noticeEnabled' => 'getNoticeEnabled',
+'noticeThreshold' => 'getNoticeThreshold'    ];
 
     /**
      * Array of attributes where the key is the local name,
@@ -184,10 +184,10 @@ class Quota implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['disk_limit'] = isset($data['disk_limit']) ? $data['disk_limit'] : null;
-        $this->container['disk_used'] = isset($data['disk_used']) ? $data['disk_used'] : null;
-        $this->container['notice_enabled'] = isset($data['notice_enabled']) ? $data['notice_enabled'] : null;
-        $this->container['notice_threshold'] = isset($data['notice_threshold']) ? $data['notice_threshold'] : null;
+        $this->container['diskLimit'] = isset($data['diskLimit']) ? $data['diskLimit'] : null;
+        $this->container['diskUsed'] = isset($data['diskUsed']) ? $data['diskUsed'] : null;
+        $this->container['noticeEnabled'] = isset($data['noticeEnabled']) ? $data['noticeEnabled'] : null;
+        $this->container['noticeThreshold'] = isset($data['noticeThreshold']) ? $data['noticeThreshold'] : null;
     }
 
     /**
@@ -215,97 +215,97 @@ class Quota implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets disk_limit
+     * Gets diskLimit
      *
      * @return int
      */
     public function getDiskLimit()
     {
-        return $this->container['disk_limit'];
+        return $this->container['diskLimit'];
     }
 
     /**
-     * Sets disk_limit
+     * Sets diskLimit
      *
-     * @param int $disk_limit Amount of disk space that the account has available to it. This may be increased by upgrading to a larger plan.
+     * @param int $diskLimit Amount of disk space that the account has available to it. This may be increased by upgrading to a larger plan.
      *
      * @return $this
      */
-    public function setDiskLimit($disk_limit)
+    public function setDiskLimit($diskLimit)
     {
-        $this->container['disk_limit'] = $disk_limit;
+        $this->container['diskLimit'] = $diskLimit;
 
         return $this;
     }
 
     /**
-     * Gets disk_used
+     * Gets diskUsed
      *
      * @return int
      */
     public function getDiskUsed()
     {
-        return $this->container['disk_used'];
+        return $this->container['diskUsed'];
     }
 
     /**
-     * Sets disk_used
+     * Sets diskUsed
      *
-     * @param int $disk_used Amount of disk space currently in use.
+     * @param int $diskUsed Amount of disk space currently in use.
      *
      * @return $this
      */
-    public function setDiskUsed($disk_used)
+    public function setDiskUsed($diskUsed)
     {
-        $this->container['disk_used'] = $disk_used;
+        $this->container['diskUsed'] = $diskUsed;
 
         return $this;
     }
 
     /**
-     * Gets notice_enabled
+     * Gets noticeEnabled
      *
      * @return bool
      */
     public function getNoticeEnabled()
     {
-        return $this->container['notice_enabled'];
+        return $this->container['noticeEnabled'];
     }
 
     /**
-     * Sets notice_enabled
+     * Sets noticeEnabled
      *
-     * @param bool $notice_enabled Should a quota warning be sent to the account owner when a threshold level of space utilization is reached?
+     * @param bool $noticeEnabled Should a quota warning be sent to the account owner when a threshold level of space utilization is reached?
      *
      * @return $this
      */
-    public function setNoticeEnabled($notice_enabled)
+    public function setNoticeEnabled($noticeEnabled)
     {
-        $this->container['notice_enabled'] = $notice_enabled;
+        $this->container['noticeEnabled'] = $noticeEnabled;
 
         return $this;
     }
 
     /**
-     * Gets notice_threshold
+     * Gets noticeThreshold
      *
      * @return int
      */
     public function getNoticeThreshold()
     {
-        return $this->container['notice_threshold'];
+        return $this->container['noticeThreshold'];
     }
 
     /**
-     * Sets notice_threshold
+     * Sets noticeThreshold
      *
-     * @param int $notice_threshold Treshold that triggers a quota notification. This represents the \"percent full\" your account must be before the quota notification is generated.
+     * @param int $noticeThreshold Treshold that triggers a quota notification. This represents the \"percent full\" your account must be before the quota notification is generated.
      *
      * @return $this
      */
-    public function setNoticeThreshold($notice_threshold)
+    public function setNoticeThreshold($noticeThreshold)
     {
-        $this->container['notice_threshold'] = $notice_threshold;
+        $this->container['noticeThreshold'] = $noticeThreshold;
 
         return $this;
     }

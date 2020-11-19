@@ -57,9 +57,9 @@ class WebhooksActivityResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'response_status' => 'int',
-'total_results' => 'int',
-'returned_results' => 'int',
+        'responseStatus' => 'int',
+'totalResults' => 'int',
+'returnedResults' => 'int',
 'data' => '\ExaVault\Model\WebhooksActivityEntry[]'    ];
 
     /**
@@ -68,9 +68,9 @@ class WebhooksActivityResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'response_status' => null,
-'total_results' => null,
-'returned_results' => null,
+        'responseStatus' => null,
+'totalResults' => null,
+'returnedResults' => null,
 'data' => null    ];
 
     /**
@@ -100,9 +100,9 @@ class WebhooksActivityResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'response_status' => 'responseStatus',
-'total_results' => 'totalResults',
-'returned_results' => 'returnedResults',
+        'responseStatus' => 'responseStatus',
+'totalResults' => 'totalResults',
+'returnedResults' => 'returnedResults',
 'data' => 'data'    ];
 
     /**
@@ -111,9 +111,9 @@ class WebhooksActivityResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'response_status' => 'setResponseStatus',
-'total_results' => 'setTotalResults',
-'returned_results' => 'setReturnedResults',
+        'responseStatus' => 'setResponseStatus',
+'totalResults' => 'setTotalResults',
+'returnedResults' => 'setReturnedResults',
 'data' => 'setData'    ];
 
     /**
@@ -122,9 +122,9 @@ class WebhooksActivityResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'response_status' => 'getResponseStatus',
-'total_results' => 'getTotalResults',
-'returned_results' => 'getReturnedResults',
+        'responseStatus' => 'getResponseStatus',
+'totalResults' => 'getTotalResults',
+'returnedResults' => 'getReturnedResults',
 'data' => 'getData'    ];
 
     /**
@@ -185,9 +185,9 @@ class WebhooksActivityResponse implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['response_status'] = isset($data['response_status']) ? $data['response_status'] : null;
-        $this->container['total_results'] = isset($data['total_results']) ? $data['total_results'] : null;
-        $this->container['returned_results'] = isset($data['returned_results']) ? $data['returned_results'] : null;
+        $this->container['responseStatus'] = isset($data['responseStatus']) ? $data['responseStatus'] : null;
+        $this->container['totalResults'] = isset($data['totalResults']) ? $data['totalResults'] : null;
+        $this->container['returnedResults'] = isset($data['returnedResults']) ? $data['returnedResults'] : null;
         $this->container['data'] = isset($data['data']) ? $data['data'] : null;
     }
 
@@ -216,73 +216,73 @@ class WebhooksActivityResponse implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets response_status
+     * Gets responseStatus
      *
      * @return int
      */
     public function getResponseStatus()
     {
-        return $this->container['response_status'];
+        return $this->container['responseStatus'];
     }
 
     /**
-     * Sets response_status
+     * Sets responseStatus
      *
-     * @param int $response_status Http status code of the response.
+     * @param int $responseStatus Http status code of the response.
      *
      * @return $this
      */
-    public function setResponseStatus($response_status)
+    public function setResponseStatus($responseStatus)
     {
-        $this->container['response_status'] = $response_status;
+        $this->container['responseStatus'] = $responseStatus;
 
         return $this;
     }
 
     /**
-     * Gets total_results
+     * Gets totalResults
      *
      * @return int
      */
     public function getTotalResults()
     {
-        return $this->container['total_results'];
+        return $this->container['totalResults'];
     }
 
     /**
-     * Sets total_results
+     * Sets totalResults
      *
-     * @param int $total_results Total results found.
+     * @param int $totalResults Total results found.
      *
      * @return $this
      */
-    public function setTotalResults($total_results)
+    public function setTotalResults($totalResults)
     {
-        $this->container['total_results'] = $total_results;
+        $this->container['totalResults'] = $totalResults;
 
         return $this;
     }
 
     /**
-     * Gets returned_results
+     * Gets returnedResults
      *
      * @return int
      */
     public function getReturnedResults()
     {
-        return $this->container['returned_results'];
+        return $this->container['returnedResults'];
     }
 
     /**
-     * Sets returned_results
+     * Sets returnedResults
      *
-     * @param int $returned_results Number of results returned.
+     * @param int $returnedResults Number of results returned.
      *
      * @return $this
      */
-    public function setReturnedResults($returned_results)
+    public function setReturnedResults($returnedResults)
     {
-        $this->container['returned_results'] = $returned_results;
+        $this->container['returnedResults'] = $returnedResults;
 
         return $this;
     }

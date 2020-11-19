@@ -56,7 +56,7 @@ class CallbackSettingsValues implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'endpoint_url' => 'string',
+        'endpointUrl' => 'string',
 'triggers' => '\ExaVault\Model\CallbackSettingsValuesTriggers'    ];
 
     /**
@@ -65,7 +65,7 @@ class CallbackSettingsValues implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'endpoint_url' => 'uri',
+        'endpointUrl' => 'uri',
 'triggers' => null    ];
 
     /**
@@ -95,7 +95,7 @@ class CallbackSettingsValues implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'endpoint_url' => 'endpointUrl',
+        'endpointUrl' => 'endpointUrl',
 'triggers' => 'triggers'    ];
 
     /**
@@ -104,7 +104,7 @@ class CallbackSettingsValues implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'endpoint_url' => 'setEndpointUrl',
+        'endpointUrl' => 'setEndpointUrl',
 'triggers' => 'setTriggers'    ];
 
     /**
@@ -113,7 +113,7 @@ class CallbackSettingsValues implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'endpoint_url' => 'getEndpointUrl',
+        'endpointUrl' => 'getEndpointUrl',
 'triggers' => 'getTriggers'    ];
 
     /**
@@ -174,7 +174,7 @@ class CallbackSettingsValues implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['endpoint_url'] = isset($data['endpoint_url']) ? $data['endpoint_url'] : null;
+        $this->container['endpointUrl'] = isset($data['endpointUrl']) ? $data['endpointUrl'] : null;
         $this->container['triggers'] = isset($data['triggers']) ? $data['triggers'] : null;
     }
 
@@ -203,25 +203,25 @@ class CallbackSettingsValues implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets endpoint_url
+     * Gets endpointUrl
      *
      * @return string
      */
     public function getEndpointUrl()
     {
-        return $this->container['endpoint_url'];
+        return $this->container['endpointUrl'];
     }
 
     /**
-     * Sets endpoint_url
+     * Sets endpointUrl
      *
-     * @param string $endpoint_url endpoint_url
+     * @param string $endpointUrl endpointUrl
      *
      * @return $this
      */
-    public function setEndpointUrl($endpoint_url)
+    public function setEndpointUrl($endpointUrl)
     {
-        $this->container['endpoint_url'] = $endpoint_url;
+        $this->container['endpointUrl'] = $endpointUrl;
 
         return $this;
     }

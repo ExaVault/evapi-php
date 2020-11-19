@@ -60,7 +60,7 @@ class AddNotificationRequestBody implements ModelInterface, ArrayAccess
 'resource' => 'string',
 'action' => 'string',
 'usernames' => 'string[]',
-'send_email' => 'bool',
+'sendEmail' => 'bool',
 'recipients' => 'string[]',
 'message' => 'string'    ];
 
@@ -74,7 +74,7 @@ class AddNotificationRequestBody implements ModelInterface, ArrayAccess
 'resource' => null,
 'action' => null,
 'usernames' => null,
-'send_email' => null,
+'sendEmail' => null,
 'recipients' => 'email',
 'message' => null    ];
 
@@ -109,7 +109,7 @@ class AddNotificationRequestBody implements ModelInterface, ArrayAccess
 'resource' => 'resource',
 'action' => 'action',
 'usernames' => 'usernames',
-'send_email' => 'sendEmail',
+'sendEmail' => 'sendEmail',
 'recipients' => 'recipients',
 'message' => 'message'    ];
 
@@ -123,7 +123,7 @@ class AddNotificationRequestBody implements ModelInterface, ArrayAccess
 'resource' => 'setResource',
 'action' => 'setAction',
 'usernames' => 'setUsernames',
-'send_email' => 'setSendEmail',
+'sendEmail' => 'setSendEmail',
 'recipients' => 'setRecipients',
 'message' => 'setMessage'    ];
 
@@ -137,7 +137,7 @@ class AddNotificationRequestBody implements ModelInterface, ArrayAccess
 'resource' => 'getResource',
 'action' => 'getAction',
 'usernames' => 'getUsernames',
-'send_email' => 'getSendEmail',
+'sendEmail' => 'getSendEmail',
 'recipients' => 'getRecipients',
 'message' => 'getMessage'    ];
 
@@ -233,7 +233,7 @@ self::ACTION_ALL,        ];
         $this->container['resource'] = isset($data['resource']) ? $data['resource'] : null;
         $this->container['action'] = isset($data['action']) ? $data['action'] : null;
         $this->container['usernames'] = isset($data['usernames']) ? $data['usernames'] : null;
-        $this->container['send_email'] = isset($data['send_email']) ? $data['send_email'] : null;
+        $this->container['sendEmail'] = isset($data['sendEmail']) ? $data['sendEmail'] : null;
         $this->container['recipients'] = isset($data['recipients']) ? $data['recipients'] : null;
         $this->container['message'] = isset($data['message']) ? $data['message'] : null;
     }
@@ -275,8 +275,8 @@ self::ACTION_ALL,        ];
         if ($this->container['usernames'] === null) {
             $invalidProperties[] = "'usernames' can't be null";
         }
-        if ($this->container['send_email'] === null) {
-            $invalidProperties[] = "'send_email' can't be null";
+        if ($this->container['sendEmail'] === null) {
+            $invalidProperties[] = "'sendEmail' can't be null";
         }
         return $invalidProperties;
     }
@@ -408,25 +408,25 @@ self::ACTION_ALL,        ];
     }
 
     /**
-     * Gets send_email
+     * Gets sendEmail
      *
      * @return bool
      */
     public function getSendEmail()
     {
-        return $this->container['send_email'];
+        return $this->container['sendEmail'];
     }
 
     /**
-     * Sets send_email
+     * Sets sendEmail
      *
-     * @param bool $send_email Set to true if the user should be notified by email when the notification is triggered.
+     * @param bool $sendEmail Set to true if the user should be notified by email when the notification is triggered.
      *
      * @return $this
      */
-    public function setSendEmail($send_email)
+    public function setSendEmail($sendEmail)
     {
-        $this->container['send_email'] = $send_email;
+        $this->container['sendEmail'] = $sendEmail;
 
         return $this;
     }

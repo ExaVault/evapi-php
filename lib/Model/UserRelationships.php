@@ -57,8 +57,8 @@ class UserRelationships implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'home_resource' => '\ExaVault\Model\UserRelationshipsHomeResource',
-'owner_account' => '\ExaVault\Model\UserRelationshipsOwnerAccount'    ];
+        'homeResource' => '\ExaVault\Model\UserRelationshipsHomeResource',
+'ownerAccount' => '\ExaVault\Model\UserRelationshipsOwnerAccount'    ];
 
     /**
       * Array of property to format mappings. Used for (de)serialization
@@ -66,8 +66,8 @@ class UserRelationships implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'home_resource' => null,
-'owner_account' => null    ];
+        'homeResource' => null,
+'ownerAccount' => null    ];
 
     /**
      * Array of property to type mappings. Used for (de)serialization
@@ -96,8 +96,8 @@ class UserRelationships implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'home_resource' => 'homeResource',
-'owner_account' => 'ownerAccount'    ];
+        'homeResource' => 'homeResource',
+'ownerAccount' => 'ownerAccount'    ];
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
@@ -105,8 +105,8 @@ class UserRelationships implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'home_resource' => 'setHomeResource',
-'owner_account' => 'setOwnerAccount'    ];
+        'homeResource' => 'setHomeResource',
+'ownerAccount' => 'setOwnerAccount'    ];
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
@@ -114,8 +114,8 @@ class UserRelationships implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'home_resource' => 'getHomeResource',
-'owner_account' => 'getOwnerAccount'    ];
+        'homeResource' => 'getHomeResource',
+'ownerAccount' => 'getOwnerAccount'    ];
 
     /**
      * Array of attributes where the key is the local name,
@@ -175,8 +175,8 @@ class UserRelationships implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['home_resource'] = isset($data['home_resource']) ? $data['home_resource'] : null;
-        $this->container['owner_account'] = isset($data['owner_account']) ? $data['owner_account'] : null;
+        $this->container['homeResource'] = isset($data['homeResource']) ? $data['homeResource'] : null;
+        $this->container['ownerAccount'] = isset($data['ownerAccount']) ? $data['ownerAccount'] : null;
     }
 
     /**
@@ -188,8 +188,8 @@ class UserRelationships implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['owner_account'] === null) {
-            $invalidProperties[] = "'owner_account' can't be null";
+        if ($this->container['ownerAccount'] === null) {
+            $invalidProperties[] = "'ownerAccount' can't be null";
         }
         return $invalidProperties;
     }
@@ -207,49 +207,49 @@ class UserRelationships implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets home_resource
+     * Gets homeResource
      *
      * @return \ExaVault\Model\UserRelationshipsHomeResource
      */
     public function getHomeResource()
     {
-        return $this->container['home_resource'];
+        return $this->container['homeResource'];
     }
 
     /**
-     * Sets home_resource
+     * Sets homeResource
      *
-     * @param \ExaVault\Model\UserRelationshipsHomeResource $home_resource home_resource
+     * @param \ExaVault\Model\UserRelationshipsHomeResource $homeResource homeResource
      *
      * @return $this
      */
-    public function setHomeResource($home_resource)
+    public function setHomeResource($homeResource)
     {
-        $this->container['home_resource'] = $home_resource;
+        $this->container['homeResource'] = $homeResource;
 
         return $this;
     }
 
     /**
-     * Gets owner_account
+     * Gets ownerAccount
      *
      * @return \ExaVault\Model\UserRelationshipsOwnerAccount
      */
     public function getOwnerAccount()
     {
-        return $this->container['owner_account'];
+        return $this->container['ownerAccount'];
     }
 
     /**
-     * Sets owner_account
+     * Sets ownerAccount
      *
-     * @param \ExaVault\Model\UserRelationshipsOwnerAccount $owner_account owner_account
+     * @param \ExaVault\Model\UserRelationshipsOwnerAccount $ownerAccount ownerAccount
      *
      * @return $this
      */
-    public function setOwnerAccount($owner_account)
+    public function setOwnerAccount($ownerAccount)
     {
-        $this->container['owner_account'] = $owner_account;
+        $this->container['ownerAccount'] = $ownerAccount;
 
         return $this;
     }

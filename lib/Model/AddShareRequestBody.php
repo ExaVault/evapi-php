@@ -59,19 +59,19 @@ class AddShareRequestBody implements ModelInterface, ArrayAccess
         'type' => 'string',
 'name' => 'string',
 'resources' => 'string[]',
-'access_mode' => 'string[]',
+'accessMode' => 'string[]',
 'embed' => 'bool',
 'recipients' => '\ExaVault\Model\SharesRecipients[]',
 'expiration' => '\DateTime',
-'has_notification' => 'bool',
-'is_public' => 'bool',
-'message' => 'string',
-'notification_emails' => 'string[]',
+'hasNotification' => 'bool',
+'isPublic' => 'bool',
+'messageBody' => 'string',
+'notificationEmails' => 'string[]',
 'password' => 'string',
-'require_email' => 'bool',
-'message_subject' => 'string',
-'file_drop_create_folders' => 'bool',
-'sending_local_files' => 'bool'    ];
+'requireEmail' => 'bool',
+'messageSubject' => 'string',
+'fileDropCreateFolders' => 'bool',
+'sendingLocalFiles' => 'bool'    ];
 
     /**
       * Array of property to format mappings. Used for (de)serialization
@@ -82,19 +82,19 @@ class AddShareRequestBody implements ModelInterface, ArrayAccess
         'type' => null,
 'name' => null,
 'resources' => null,
-'access_mode' => null,
+'accessMode' => null,
 'embed' => null,
 'recipients' => null,
 'expiration' => 'date-time',
-'has_notification' => null,
-'is_public' => null,
-'message' => null,
-'notification_emails' => 'email',
+'hasNotification' => null,
+'isPublic' => null,
+'messageBody' => null,
+'notificationEmails' => 'email',
 'password' => null,
-'require_email' => null,
-'message_subject' => null,
-'file_drop_create_folders' => null,
-'sending_local_files' => null    ];
+'requireEmail' => null,
+'messageSubject' => null,
+'fileDropCreateFolders' => null,
+'sendingLocalFiles' => null    ];
 
     /**
      * Array of property to type mappings. Used for (de)serialization
@@ -126,19 +126,19 @@ class AddShareRequestBody implements ModelInterface, ArrayAccess
         'type' => 'type',
 'name' => 'name',
 'resources' => 'resources',
-'access_mode' => 'accessMode',
+'accessMode' => 'accessMode',
 'embed' => 'embed',
 'recipients' => 'recipients',
 'expiration' => 'expiration',
-'has_notification' => 'hasNotification',
-'is_public' => 'isPublic',
-'message' => 'message',
-'notification_emails' => 'notificationEmails',
+'hasNotification' => 'hasNotification',
+'isPublic' => 'isPublic',
+'messageBody' => 'messageBody',
+'notificationEmails' => 'notificationEmails',
 'password' => 'password',
-'require_email' => 'requireEmail',
-'message_subject' => 'messageSubject',
-'file_drop_create_folders' => 'fileDropCreateFolders',
-'sending_local_files' => 'sendingLocalFiles'    ];
+'requireEmail' => 'requireEmail',
+'messageSubject' => 'messageSubject',
+'fileDropCreateFolders' => 'fileDropCreateFolders',
+'sendingLocalFiles' => 'sendingLocalFiles'    ];
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
@@ -149,19 +149,19 @@ class AddShareRequestBody implements ModelInterface, ArrayAccess
         'type' => 'setType',
 'name' => 'setName',
 'resources' => 'setResources',
-'access_mode' => 'setAccessMode',
+'accessMode' => 'setAccessMode',
 'embed' => 'setEmbed',
 'recipients' => 'setRecipients',
 'expiration' => 'setExpiration',
-'has_notification' => 'setHasNotification',
-'is_public' => 'setIsPublic',
-'message' => 'setMessage',
-'notification_emails' => 'setNotificationEmails',
+'hasNotification' => 'setHasNotification',
+'isPublic' => 'setIsPublic',
+'messageBody' => 'setMessageBody',
+'notificationEmails' => 'setNotificationEmails',
 'password' => 'setPassword',
-'require_email' => 'setRequireEmail',
-'message_subject' => 'setMessageSubject',
-'file_drop_create_folders' => 'setFileDropCreateFolders',
-'sending_local_files' => 'setSendingLocalFiles'    ];
+'requireEmail' => 'setRequireEmail',
+'messageSubject' => 'setMessageSubject',
+'fileDropCreateFolders' => 'setFileDropCreateFolders',
+'sendingLocalFiles' => 'setSendingLocalFiles'    ];
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
@@ -172,19 +172,19 @@ class AddShareRequestBody implements ModelInterface, ArrayAccess
         'type' => 'getType',
 'name' => 'getName',
 'resources' => 'getResources',
-'access_mode' => 'getAccessMode',
+'accessMode' => 'getAccessMode',
 'embed' => 'getEmbed',
 'recipients' => 'getRecipients',
 'expiration' => 'getExpiration',
-'has_notification' => 'getHasNotification',
-'is_public' => 'getIsPublic',
-'message' => 'getMessage',
-'notification_emails' => 'getNotificationEmails',
+'hasNotification' => 'getHasNotification',
+'isPublic' => 'getIsPublic',
+'messageBody' => 'getMessageBody',
+'notificationEmails' => 'getNotificationEmails',
 'password' => 'getPassword',
-'require_email' => 'getRequireEmail',
-'message_subject' => 'getMessageSubject',
-'file_drop_create_folders' => 'getFileDropCreateFolders',
-'sending_local_files' => 'getSendingLocalFiles'    ];
+'requireEmail' => 'getRequireEmail',
+'messageSubject' => 'getMessageSubject',
+'fileDropCreateFolders' => 'getFileDropCreateFolders',
+'sendingLocalFiles' => 'getSendingLocalFiles'    ];
 
     /**
      * Array of attributes where the key is the local name,
@@ -279,19 +279,19 @@ self::ACCESS_MODE_MODIFY,        ];
         $this->container['type'] = isset($data['type']) ? $data['type'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
         $this->container['resources'] = isset($data['resources']) ? $data['resources'] : null;
-        $this->container['access_mode'] = isset($data['access_mode']) ? $data['access_mode'] : null;
+        $this->container['accessMode'] = isset($data['accessMode']) ? $data['accessMode'] : null;
         $this->container['embed'] = isset($data['embed']) ? $data['embed'] : null;
         $this->container['recipients'] = isset($data['recipients']) ? $data['recipients'] : null;
         $this->container['expiration'] = isset($data['expiration']) ? $data['expiration'] : null;
-        $this->container['has_notification'] = isset($data['has_notification']) ? $data['has_notification'] : null;
-        $this->container['is_public'] = isset($data['is_public']) ? $data['is_public'] : null;
-        $this->container['message'] = isset($data['message']) ? $data['message'] : null;
-        $this->container['notification_emails'] = isset($data['notification_emails']) ? $data['notification_emails'] : null;
+        $this->container['hasNotification'] = isset($data['hasNotification']) ? $data['hasNotification'] : null;
+        $this->container['isPublic'] = isset($data['isPublic']) ? $data['isPublic'] : null;
+        $this->container['messageBody'] = isset($data['messageBody']) ? $data['messageBody'] : null;
+        $this->container['notificationEmails'] = isset($data['notificationEmails']) ? $data['notificationEmails'] : null;
         $this->container['password'] = isset($data['password']) ? $data['password'] : null;
-        $this->container['require_email'] = isset($data['require_email']) ? $data['require_email'] : null;
-        $this->container['message_subject'] = isset($data['message_subject']) ? $data['message_subject'] : null;
-        $this->container['file_drop_create_folders'] = isset($data['file_drop_create_folders']) ? $data['file_drop_create_folders'] : null;
-        $this->container['sending_local_files'] = isset($data['sending_local_files']) ? $data['sending_local_files'] : null;
+        $this->container['requireEmail'] = isset($data['requireEmail']) ? $data['requireEmail'] : null;
+        $this->container['messageSubject'] = isset($data['messageSubject']) ? $data['messageSubject'] : null;
+        $this->container['fileDropCreateFolders'] = isset($data['fileDropCreateFolders']) ? $data['fileDropCreateFolders'] : null;
+        $this->container['sendingLocalFiles'] = isset($data['sendingLocalFiles']) ? $data['sendingLocalFiles'] : null;
     }
 
     /**
@@ -317,8 +317,8 @@ self::ACCESS_MODE_MODIFY,        ];
         if ($this->container['name'] === null) {
             $invalidProperties[] = "'name' can't be null";
         }
-        if ($this->container['access_mode'] === null) {
-            $invalidProperties[] = "'access_mode' can't be null";
+        if ($this->container['accessMode'] === null) {
+            $invalidProperties[] = "'accessMode' can't be null";
         }
         return $invalidProperties;
     }
@@ -417,34 +417,34 @@ self::ACCESS_MODE_MODIFY,        ];
     }
 
     /**
-     * Gets access_mode
+     * Gets accessMode
      *
      * @return string[]
      */
     public function getAccessMode()
     {
-        return $this->container['access_mode'];
+        return $this->container['accessMode'];
     }
 
     /**
-     * Sets access_mode
+     * Sets accessMode
      *
-     * @param string[] $access_mode Array of permissions that describes what people can do when they visit the share. Valid options are `upload` `download` `modify` and `delete`  Not all permissions work with all shares - **receive** shares must always have the permission to **upload** and never provide a method for visitors to **download**.  If you are creating a share of type **send** and plan to upload files from your own computer before completing the send with [POST /shares/complete-send/{id}](#operation/completeDirectSend), use the access mode **upload**
+     * @param string[] $accessMode Array of permissions that describes what people can do when they visit the share. Valid options are `upload` `download` `modify` and `delete`  Not all permissions work with all shares - **receive** shares must always have the permission to **upload** and never provide a method for visitors to **download**.  If you are creating a share of type **send** and plan to upload files from your own computer before completing the send with [POST /shares/complete-send/{id}](#operation/completeDirectSend), use the access mode **upload**
      *
      * @return $this
      */
-    public function setAccessMode($access_mode)
+    public function setAccessMode($accessMode)
     {
         $allowedValues = $this->getAccessModeAllowableValues();
-        if (array_diff($access_mode, $allowedValues)) {
+        if (array_diff($accessMode, $allowedValues)) {
             throw new \InvalidArgumentException(
                 sprintf(
-                    "Invalid value for 'access_mode', must be one of '%s'",
+                    "Invalid value for 'accessMode', must be one of '%s'",
                     implode("', '", $allowedValues)
                 )
             );
         }
-        $this->container['access_mode'] = $access_mode;
+        $this->container['accessMode'] = $accessMode;
 
         return $this;
     }
@@ -522,97 +522,97 @@ self::ACCESS_MODE_MODIFY,        ];
     }
 
     /**
-     * Gets has_notification
+     * Gets hasNotification
      *
      * @return bool
      */
     public function getHasNotification()
     {
-        return $this->container['has_notification'];
+        return $this->container['hasNotification'];
     }
 
     /**
-     * Sets has_notification
+     * Sets hasNotification
      *
-     * @param bool $has_notification Whether delivery receipts should be sent.
+     * @param bool $hasNotification Whether delivery receipts should be sent.
      *
      * @return $this
      */
-    public function setHasNotification($has_notification)
+    public function setHasNotification($hasNotification)
     {
-        $this->container['has_notification'] = $has_notification;
+        $this->container['hasNotification'] = $hasNotification;
 
         return $this;
     }
 
     /**
-     * Gets is_public
+     * Gets isPublic
      *
      * @return bool
      */
     public function getIsPublic()
     {
-        return $this->container['is_public'];
+        return $this->container['isPublic'];
     }
 
     /**
-     * Sets is_public
+     * Sets isPublic
      *
-     * @param bool $is_public Whether someone can visit the share without following a personalized recipient link.
+     * @param bool $isPublic Whether someone can visit the share without following a personalized recipient link.
      *
      * @return $this
      */
-    public function setIsPublic($is_public)
+    public function setIsPublic($isPublic)
     {
-        $this->container['is_public'] = $is_public;
+        $this->container['isPublic'] = $isPublic;
 
         return $this;
     }
 
     /**
-     * Gets message
+     * Gets messageBody
      *
      * @return string
      */
-    public function getMessage()
+    public function getMessageBody()
     {
-        return $this->container['message'];
+        return $this->container['messageBody'];
     }
 
     /**
-     * Sets message
+     * Sets messageBody
      *
-     * @param string $message The message to be included in email invitations for your recipients. Ignored if you have not also provided `recipients` and `subject`
+     * @param string $messageBody The message to be included in email invitations for your recipients. Ignored if you have not also provided `recipients` and `messageSubject`
      *
      * @return $this
      */
-    public function setMessage($message)
+    public function setMessageBody($messageBody)
     {
-        $this->container['message'] = $message;
+        $this->container['messageBody'] = $messageBody;
 
         return $this;
     }
 
     /**
-     * Gets notification_emails
+     * Gets notificationEmails
      *
      * @return string[]
      */
     public function getNotificationEmails()
     {
-        return $this->container['notification_emails'];
+        return $this->container['notificationEmails'];
     }
 
     /**
-     * Sets notification_emails
+     * Sets notificationEmails
      *
-     * @param string[] $notification_emails Emails that will receive delivery receipts for this share. `hasNotification` must be **true** for delivery receipts will be sent.
+     * @param string[] $notificationEmails Emails that will receive delivery receipts for this share. `hasNotification` must be **true** for delivery receipts will be sent.
      *
      * @return $this
      */
-    public function setNotificationEmails($notification_emails)
+    public function setNotificationEmails($notificationEmails)
     {
-        $this->container['notification_emails'] = $notification_emails;
+        $this->container['notificationEmails'] = $notificationEmails;
 
         return $this;
     }
@@ -642,97 +642,97 @@ self::ACCESS_MODE_MODIFY,        ];
     }
 
     /**
-     * Gets require_email
+     * Gets requireEmail
      *
      * @return bool
      */
     public function getRequireEmail()
     {
-        return $this->container['require_email'];
+        return $this->container['requireEmail'];
     }
 
     /**
-     * Sets require_email
+     * Sets requireEmail
      *
-     * @param bool $require_email True if recipients must provide their email to view the share.
+     * @param bool $requireEmail True if recipients must provide their email to view the share.
      *
      * @return $this
      */
-    public function setRequireEmail($require_email)
+    public function setRequireEmail($requireEmail)
     {
-        $this->container['require_email'] = $require_email;
+        $this->container['requireEmail'] = $requireEmail;
 
         return $this;
     }
 
     /**
-     * Gets message_subject
+     * Gets messageSubject
      *
      * @return string
      */
     public function getMessageSubject()
     {
-        return $this->container['message_subject'];
+        return $this->container['messageSubject'];
     }
 
     /**
-     * Sets message_subject
+     * Sets messageSubject
      *
-     * @param string $message_subject Subject to use on emails inviting recipients to the share. Ignored if you have not also provided `recipients` and a `message`
+     * @param string $messageSubject Subject to use on emails inviting recipients to the share. Ignored if you have not also provided `recipients` and a `messageBody`
      *
      * @return $this
      */
-    public function setMessageSubject($message_subject)
+    public function setMessageSubject($messageSubject)
     {
-        $this->container['message_subject'] = $message_subject;
+        $this->container['messageSubject'] = $messageSubject;
 
         return $this;
     }
 
     /**
-     * Gets file_drop_create_folders
+     * Gets fileDropCreateFolders
      *
      * @return bool
      */
     public function getFileDropCreateFolders()
     {
-        return $this->container['file_drop_create_folders'];
+        return $this->container['fileDropCreateFolders'];
     }
 
     /**
-     * Sets file_drop_create_folders
+     * Sets fileDropCreateFolders
      *
-     * @param bool $file_drop_create_folders Only used for **receive** shares. If true, uploads will be automatically placed into sub-folders of the folder, named after the chosen field on your form.
+     * @param bool $fileDropCreateFolders Only used for **receive** shares. If true, uploads will be automatically placed into sub-folders of the folder, named after the chosen field on your form.
      *
      * @return $this
      */
-    public function setFileDropCreateFolders($file_drop_create_folders)
+    public function setFileDropCreateFolders($fileDropCreateFolders)
     {
-        $this->container['file_drop_create_folders'] = $file_drop_create_folders;
+        $this->container['fileDropCreateFolders'] = $fileDropCreateFolders;
 
         return $this;
     }
 
     /**
-     * Gets sending_local_files
+     * Gets sendingLocalFiles
      *
      * @return bool
      */
     public function getSendingLocalFiles()
     {
-        return $this->container['sending_local_files'];
+        return $this->container['sendingLocalFiles'];
     }
 
     /**
-     * Sets sending_local_files
+     * Sets sendingLocalFiles
      *
-     * @param bool $sending_local_files Use this only for **send** shares. Flag to indicate that you are going to upload additional files from your computer to the share. If this is **true**, you will also need to use the [POST /shares/complete-send/{id}](#operation/completeDirectSend) call to finish setting up your share after the files are uploaded.
+     * @param bool $sendingLocalFiles Use this only for **send** shares. Flag to indicate that you are going to upload additional files from your computer to the share. If this is **true**, you will also need to use the [POST /shares/complete-send/{id}](#operation/completeDirectSend) call to finish setting up your share after the files are uploaded.
      *
      * @return $this
      */
-    public function setSendingLocalFiles($sending_local_files)
+    public function setSendingLocalFiles($sendingLocalFiles)
     {
-        $this->container['sending_local_files'] = $sending_local_files;
+        $this->container['sendingLocalFiles'] = $sendingLocalFiles;
 
         return $this;
     }

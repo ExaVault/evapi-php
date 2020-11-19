@@ -56,7 +56,7 @@ class AccountResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'response_status' => 'int',
+        'responseStatus' => 'int',
 'data' => '\ExaVault\Model\Account',
 'included' => '\ExaVault\Model\User[]'    ];
 
@@ -66,7 +66,7 @@ class AccountResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'response_status' => null,
+        'responseStatus' => null,
 'data' => null,
 'included' => null    ];
 
@@ -97,7 +97,7 @@ class AccountResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'response_status' => 'responseStatus',
+        'responseStatus' => 'responseStatus',
 'data' => 'data',
 'included' => 'included'    ];
 
@@ -107,7 +107,7 @@ class AccountResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'response_status' => 'setResponseStatus',
+        'responseStatus' => 'setResponseStatus',
 'data' => 'setData',
 'included' => 'setIncluded'    ];
 
@@ -117,7 +117,7 @@ class AccountResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'response_status' => 'getResponseStatus',
+        'responseStatus' => 'getResponseStatus',
 'data' => 'getData',
 'included' => 'getIncluded'    ];
 
@@ -179,7 +179,7 @@ class AccountResponse implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['response_status'] = isset($data['response_status']) ? $data['response_status'] : null;
+        $this->container['responseStatus'] = isset($data['responseStatus']) ? $data['responseStatus'] : null;
         $this->container['data'] = isset($data['data']) ? $data['data'] : null;
         $this->container['included'] = isset($data['included']) ? $data['included'] : null;
     }
@@ -209,25 +209,25 @@ class AccountResponse implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets response_status
+     * Gets responseStatus
      *
      * @return int
      */
     public function getResponseStatus()
     {
-        return $this->container['response_status'];
+        return $this->container['responseStatus'];
     }
 
     /**
-     * Sets response_status
+     * Sets responseStatus
      *
-     * @param int $response_status response_status
+     * @param int $responseStatus responseStatus
      *
      * @return $this
      */
-    public function setResponseStatus($response_status)
+    public function setResponseStatus($responseStatus)
     {
-        $this->container['response_status'] = $response_status;
+        $this->container['responseStatus'] = $responseStatus;
 
         return $this;
     }

@@ -91,17 +91,17 @@ class EmailApi
      *
      * Send referral email to a given address
      *
-     * @param  string $ev_api_key API Key required to make the API call. (required)
-     * @param  string $ev_access_token Access token required to make the API call. (required)
+     * @param  string $evApiKey API Key required to make the API call. (required)
+     * @param  string $evAccessToken Access token required to make the API call. (required)
      * @param  \ExaVault\Model\SendReferralEmailRequestBody $body body (optional)
      *
      * @throws \ExaVault\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \ExaVault\Model\EmptyResponse
      */
-    public function sendReferralEmail($ev_api_key, $ev_access_token, $body = null)
+    public function sendReferralEmail($evApiKey, $evAccessToken, $body = null)
     {
-        list($response) = $this->sendReferralEmailWithHttpInfo($ev_api_key, $ev_access_token, $body);
+        list($response) = $this->sendReferralEmailWithHttpInfo($evApiKey, $evAccessToken, $body);
         return $response;
     }
 
@@ -110,18 +110,18 @@ class EmailApi
      *
      * Send referral email to a given address
      *
-     * @param  string $ev_api_key API Key required to make the API call. (required)
-     * @param  string $ev_access_token Access token required to make the API call. (required)
+     * @param  string $evApiKey API Key required to make the API call. (required)
+     * @param  string $evAccessToken Access token required to make the API call. (required)
      * @param  \ExaVault\Model\SendReferralEmailRequestBody $body (optional)
      *
      * @throws \ExaVault\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \ExaVault\Model\EmptyResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function sendReferralEmailWithHttpInfo($ev_api_key, $ev_access_token, $body = null)
+    public function sendReferralEmailWithHttpInfo($evApiKey, $evAccessToken, $body = null)
     {
         $returnType = '\ExaVault\Model\EmptyResponse';
-        $request = $this->sendReferralEmailRequest($ev_api_key, $ev_access_token, $body);
+        $request = $this->sendReferralEmailRequest($evApiKey, $evAccessToken, $body);
 
         try {
             $options = $this->createHttpClientOption();
@@ -187,16 +187,16 @@ class EmailApi
      *
      * Send referral email to a given address
      *
-     * @param  string $ev_api_key API Key required to make the API call. (required)
-     * @param  string $ev_access_token Access token required to make the API call. (required)
+     * @param  string $evApiKey API Key required to make the API call. (required)
+     * @param  string $evAccessToken Access token required to make the API call. (required)
      * @param  \ExaVault\Model\SendReferralEmailRequestBody $body (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function sendReferralEmailAsync($ev_api_key, $ev_access_token, $body = null)
+    public function sendReferralEmailAsync($evApiKey, $evAccessToken, $body = null)
     {
-        return $this->sendReferralEmailAsyncWithHttpInfo($ev_api_key, $ev_access_token, $body)
+        return $this->sendReferralEmailAsyncWithHttpInfo($evApiKey, $evAccessToken, $body)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -209,17 +209,17 @@ class EmailApi
      *
      * Send referral email to a given address
      *
-     * @param  string $ev_api_key API Key required to make the API call. (required)
-     * @param  string $ev_access_token Access token required to make the API call. (required)
+     * @param  string $evApiKey API Key required to make the API call. (required)
+     * @param  string $evAccessToken Access token required to make the API call. (required)
      * @param  \ExaVault\Model\SendReferralEmailRequestBody $body (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function sendReferralEmailAsyncWithHttpInfo($ev_api_key, $ev_access_token, $body = null)
+    public function sendReferralEmailAsyncWithHttpInfo($evApiKey, $evAccessToken, $body = null)
     {
         $returnType = '\ExaVault\Model\EmptyResponse';
-        $request = $this->sendReferralEmailRequest($ev_api_key, $ev_access_token, $body);
+        $request = $this->sendReferralEmailRequest($evApiKey, $evAccessToken, $body);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -261,25 +261,25 @@ class EmailApi
     /**
      * Create request for operation 'sendReferralEmail'
      *
-     * @param  string $ev_api_key API Key required to make the API call. (required)
-     * @param  string $ev_access_token Access token required to make the API call. (required)
+     * @param  string $evApiKey API Key required to make the API call. (required)
+     * @param  string $evAccessToken Access token required to make the API call. (required)
      * @param  \ExaVault\Model\SendReferralEmailRequestBody $body (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function sendReferralEmailRequest($ev_api_key, $ev_access_token, $body = null)
+    protected function sendReferralEmailRequest($evApiKey, $evAccessToken, $body = null)
     {
-        // verify the required parameter 'ev_api_key' is set
-        if ($ev_api_key === null || (is_array($ev_api_key) && count($ev_api_key) === 0)) {
+        // verify the required parameter 'evApiKey' is set
+        if ($evApiKey === null || (is_array($evApiKey) && count($evApiKey) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $ev_api_key when calling sendReferralEmail'
+                'Missing the required parameter $evApiKey when calling sendReferralEmail'
             );
         }
-        // verify the required parameter 'ev_access_token' is set
-        if ($ev_access_token === null || (is_array($ev_access_token) && count($ev_access_token) === 0)) {
+        // verify the required parameter 'evAccessToken' is set
+        if ($evAccessToken === null || (is_array($evAccessToken) && count($evAccessToken) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $ev_access_token when calling sendReferralEmail'
+                'Missing the required parameter $evAccessToken when calling sendReferralEmail'
             );
         }
 
@@ -291,12 +291,12 @@ class EmailApi
         $multipart = false;
 
         // header params
-        if ($ev_api_key !== null) {
-            $headerParams['ev-api-key'] = ObjectSerializer::toHeaderValue($ev_api_key);
+        if ($evApiKey !== null) {
+            $headerParams['ev-api-key'] = ObjectSerializer::toHeaderValue($evApiKey);
         }
         // header params
-        if ($ev_access_token !== null) {
-            $headerParams['ev-access-token'] = ObjectSerializer::toHeaderValue($ev_access_token);
+        if ($evAccessToken !== null) {
+            $headerParams['ev-access-token'] = ObjectSerializer::toHeaderValue($evAccessToken);
         }
 
 
@@ -372,17 +372,17 @@ class EmailApi
      *
      * Resend welcome email to specific user
      *
-     * @param  string $ev_api_key API Key required to make the API call. (required)
-     * @param  string $ev_access_token Access token required to make the API call. (required)
+     * @param  string $evApiKey API Key required to make the API call. (required)
+     * @param  string $evAccessToken Access token required to make the API call. (required)
      * @param  string $username A username to send the welcome email to. (required)
      *
      * @throws \ExaVault\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \ExaVault\Model\EmptyResponse
      */
-    public function sendWelcomeEmail($ev_api_key, $ev_access_token, $username)
+    public function sendWelcomeEmail($evApiKey, $evAccessToken, $username)
     {
-        list($response) = $this->sendWelcomeEmailWithHttpInfo($ev_api_key, $ev_access_token, $username);
+        list($response) = $this->sendWelcomeEmailWithHttpInfo($evApiKey, $evAccessToken, $username);
         return $response;
     }
 
@@ -391,18 +391,18 @@ class EmailApi
      *
      * Resend welcome email to specific user
      *
-     * @param  string $ev_api_key API Key required to make the API call. (required)
-     * @param  string $ev_access_token Access token required to make the API call. (required)
+     * @param  string $evApiKey API Key required to make the API call. (required)
+     * @param  string $evAccessToken Access token required to make the API call. (required)
      * @param  string $username A username to send the welcome email to. (required)
      *
      * @throws \ExaVault\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \ExaVault\Model\EmptyResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function sendWelcomeEmailWithHttpInfo($ev_api_key, $ev_access_token, $username)
+    public function sendWelcomeEmailWithHttpInfo($evApiKey, $evAccessToken, $username)
     {
         $returnType = '\ExaVault\Model\EmptyResponse';
-        $request = $this->sendWelcomeEmailRequest($ev_api_key, $ev_access_token, $username);
+        $request = $this->sendWelcomeEmailRequest($evApiKey, $evAccessToken, $username);
 
         try {
             $options = $this->createHttpClientOption();
@@ -468,16 +468,16 @@ class EmailApi
      *
      * Resend welcome email to specific user
      *
-     * @param  string $ev_api_key API Key required to make the API call. (required)
-     * @param  string $ev_access_token Access token required to make the API call. (required)
+     * @param  string $evApiKey API Key required to make the API call. (required)
+     * @param  string $evAccessToken Access token required to make the API call. (required)
      * @param  string $username A username to send the welcome email to. (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function sendWelcomeEmailAsync($ev_api_key, $ev_access_token, $username)
+    public function sendWelcomeEmailAsync($evApiKey, $evAccessToken, $username)
     {
-        return $this->sendWelcomeEmailAsyncWithHttpInfo($ev_api_key, $ev_access_token, $username)
+        return $this->sendWelcomeEmailAsyncWithHttpInfo($evApiKey, $evAccessToken, $username)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -490,17 +490,17 @@ class EmailApi
      *
      * Resend welcome email to specific user
      *
-     * @param  string $ev_api_key API Key required to make the API call. (required)
-     * @param  string $ev_access_token Access token required to make the API call. (required)
+     * @param  string $evApiKey API Key required to make the API call. (required)
+     * @param  string $evAccessToken Access token required to make the API call. (required)
      * @param  string $username A username to send the welcome email to. (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function sendWelcomeEmailAsyncWithHttpInfo($ev_api_key, $ev_access_token, $username)
+    public function sendWelcomeEmailAsyncWithHttpInfo($evApiKey, $evAccessToken, $username)
     {
         $returnType = '\ExaVault\Model\EmptyResponse';
-        $request = $this->sendWelcomeEmailRequest($ev_api_key, $ev_access_token, $username);
+        $request = $this->sendWelcomeEmailRequest($evApiKey, $evAccessToken, $username);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -542,25 +542,25 @@ class EmailApi
     /**
      * Create request for operation 'sendWelcomeEmail'
      *
-     * @param  string $ev_api_key API Key required to make the API call. (required)
-     * @param  string $ev_access_token Access token required to make the API call. (required)
+     * @param  string $evApiKey API Key required to make the API call. (required)
+     * @param  string $evAccessToken Access token required to make the API call. (required)
      * @param  string $username A username to send the welcome email to. (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function sendWelcomeEmailRequest($ev_api_key, $ev_access_token, $username)
+    protected function sendWelcomeEmailRequest($evApiKey, $evAccessToken, $username)
     {
-        // verify the required parameter 'ev_api_key' is set
-        if ($ev_api_key === null || (is_array($ev_api_key) && count($ev_api_key) === 0)) {
+        // verify the required parameter 'evApiKey' is set
+        if ($evApiKey === null || (is_array($evApiKey) && count($evApiKey) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $ev_api_key when calling sendWelcomeEmail'
+                'Missing the required parameter $evApiKey when calling sendWelcomeEmail'
             );
         }
-        // verify the required parameter 'ev_access_token' is set
-        if ($ev_access_token === null || (is_array($ev_access_token) && count($ev_access_token) === 0)) {
+        // verify the required parameter 'evAccessToken' is set
+        if ($evAccessToken === null || (is_array($evAccessToken) && count($evAccessToken) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $ev_access_token when calling sendWelcomeEmail'
+                'Missing the required parameter $evAccessToken when calling sendWelcomeEmail'
             );
         }
         // verify the required parameter 'username' is set
@@ -578,12 +578,12 @@ class EmailApi
         $multipart = false;
 
         // header params
-        if ($ev_api_key !== null) {
-            $headerParams['ev-api-key'] = ObjectSerializer::toHeaderValue($ev_api_key);
+        if ($evApiKey !== null) {
+            $headerParams['ev-api-key'] = ObjectSerializer::toHeaderValue($evApiKey);
         }
         // header params
-        if ($ev_access_token !== null) {
-            $headerParams['ev-access-token'] = ObjectSerializer::toHeaderValue($ev_access_token);
+        if ($evAccessToken !== null) {
+            $headerParams['ev-access-token'] = ObjectSerializer::toHeaderValue($evAccessToken);
         }
 
         // path params

@@ -56,19 +56,19 @@ class UpdateAccountRequestBody implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'quota_notice_enabled' => 'bool',
-'quota_notice_threshold' => 'int',
-'secure_only' => 'bool',
-'complex_passwords' => 'bool',
-'show_referral_links' => 'bool',
-'external_domain' => 'string',
-'email_content' => 'string',
-'email_subject' => 'string',
-'allowed_ip_ranges' => '\ExaVault\Model\AccountAllowedIpRanges[]',
-'callback_settings' => '\ExaVault\Model\CallbackSettingsValues',
-'branding_settings' => '\ExaVault\Model\BrandingSettingsValues',
-'account_onboarding' => 'bool',
-'custom_signature' => 'string'    ];
+        'quotaNoticeEnabled' => 'bool',
+'quotaNoticeThreshold' => 'int',
+'secureOnly' => 'bool',
+'complexPasswords' => 'bool',
+'showReferralLinks' => 'bool',
+'externalDomain' => 'string',
+'emailContent' => 'string',
+'emailSubject' => 'string',
+'allowedIpRanges' => '\ExaVault\Model\AccountAllowedIpRanges[]',
+'callbackSettings' => '\ExaVault\Model\CallbackSettingsValues',
+'brandingSettings' => '\ExaVault\Model\BrandingSettingsValues',
+'accountOnboarding' => 'bool',
+'customSignature' => 'string'    ];
 
     /**
       * Array of property to format mappings. Used for (de)serialization
@@ -76,19 +76,19 @@ class UpdateAccountRequestBody implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'quota_notice_enabled' => null,
-'quota_notice_threshold' => null,
-'secure_only' => null,
-'complex_passwords' => null,
-'show_referral_links' => null,
-'external_domain' => null,
-'email_content' => null,
-'email_subject' => null,
-'allowed_ip_ranges' => null,
-'callback_settings' => null,
-'branding_settings' => null,
-'account_onboarding' => null,
-'custom_signature' => null    ];
+        'quotaNoticeEnabled' => null,
+'quotaNoticeThreshold' => null,
+'secureOnly' => null,
+'complexPasswords' => null,
+'showReferralLinks' => null,
+'externalDomain' => null,
+'emailContent' => null,
+'emailSubject' => null,
+'allowedIpRanges' => null,
+'callbackSettings' => null,
+'brandingSettings' => null,
+'accountOnboarding' => null,
+'customSignature' => null    ];
 
     /**
      * Array of property to type mappings. Used for (de)serialization
@@ -117,19 +117,19 @@ class UpdateAccountRequestBody implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'quota_notice_enabled' => 'quotaNoticeEnabled',
-'quota_notice_threshold' => 'quotaNoticeThreshold',
-'secure_only' => 'secureOnly',
-'complex_passwords' => 'complexPasswords',
-'show_referral_links' => 'showReferralLinks',
-'external_domain' => 'externalDomain',
-'email_content' => 'emailContent',
-'email_subject' => 'emailSubject',
-'allowed_ip_ranges' => 'allowedIpRanges',
-'callback_settings' => 'callbackSettings',
-'branding_settings' => 'brandingSettings',
-'account_onboarding' => 'accountOnboarding',
-'custom_signature' => 'customSignature'    ];
+        'quotaNoticeEnabled' => 'quotaNoticeEnabled',
+'quotaNoticeThreshold' => 'quotaNoticeThreshold',
+'secureOnly' => 'secureOnly',
+'complexPasswords' => 'complexPasswords',
+'showReferralLinks' => 'showReferralLinks',
+'externalDomain' => 'externalDomain',
+'emailContent' => 'emailContent',
+'emailSubject' => 'emailSubject',
+'allowedIpRanges' => 'allowedIpRanges',
+'callbackSettings' => 'callbackSettings',
+'brandingSettings' => 'brandingSettings',
+'accountOnboarding' => 'accountOnboarding',
+'customSignature' => 'customSignature'    ];
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
@@ -137,19 +137,19 @@ class UpdateAccountRequestBody implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'quota_notice_enabled' => 'setQuotaNoticeEnabled',
-'quota_notice_threshold' => 'setQuotaNoticeThreshold',
-'secure_only' => 'setSecureOnly',
-'complex_passwords' => 'setComplexPasswords',
-'show_referral_links' => 'setShowReferralLinks',
-'external_domain' => 'setExternalDomain',
-'email_content' => 'setEmailContent',
-'email_subject' => 'setEmailSubject',
-'allowed_ip_ranges' => 'setAllowedIpRanges',
-'callback_settings' => 'setCallbackSettings',
-'branding_settings' => 'setBrandingSettings',
-'account_onboarding' => 'setAccountOnboarding',
-'custom_signature' => 'setCustomSignature'    ];
+        'quotaNoticeEnabled' => 'setQuotaNoticeEnabled',
+'quotaNoticeThreshold' => 'setQuotaNoticeThreshold',
+'secureOnly' => 'setSecureOnly',
+'complexPasswords' => 'setComplexPasswords',
+'showReferralLinks' => 'setShowReferralLinks',
+'externalDomain' => 'setExternalDomain',
+'emailContent' => 'setEmailContent',
+'emailSubject' => 'setEmailSubject',
+'allowedIpRanges' => 'setAllowedIpRanges',
+'callbackSettings' => 'setCallbackSettings',
+'brandingSettings' => 'setBrandingSettings',
+'accountOnboarding' => 'setAccountOnboarding',
+'customSignature' => 'setCustomSignature'    ];
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
@@ -157,19 +157,19 @@ class UpdateAccountRequestBody implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'quota_notice_enabled' => 'getQuotaNoticeEnabled',
-'quota_notice_threshold' => 'getQuotaNoticeThreshold',
-'secure_only' => 'getSecureOnly',
-'complex_passwords' => 'getComplexPasswords',
-'show_referral_links' => 'getShowReferralLinks',
-'external_domain' => 'getExternalDomain',
-'email_content' => 'getEmailContent',
-'email_subject' => 'getEmailSubject',
-'allowed_ip_ranges' => 'getAllowedIpRanges',
-'callback_settings' => 'getCallbackSettings',
-'branding_settings' => 'getBrandingSettings',
-'account_onboarding' => 'getAccountOnboarding',
-'custom_signature' => 'getCustomSignature'    ];
+        'quotaNoticeEnabled' => 'getQuotaNoticeEnabled',
+'quotaNoticeThreshold' => 'getQuotaNoticeThreshold',
+'secureOnly' => 'getSecureOnly',
+'complexPasswords' => 'getComplexPasswords',
+'showReferralLinks' => 'getShowReferralLinks',
+'externalDomain' => 'getExternalDomain',
+'emailContent' => 'getEmailContent',
+'emailSubject' => 'getEmailSubject',
+'allowedIpRanges' => 'getAllowedIpRanges',
+'callbackSettings' => 'getCallbackSettings',
+'brandingSettings' => 'getBrandingSettings',
+'accountOnboarding' => 'getAccountOnboarding',
+'customSignature' => 'getCustomSignature'    ];
 
     /**
      * Array of attributes where the key is the local name,
@@ -229,19 +229,19 @@ class UpdateAccountRequestBody implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['quota_notice_enabled'] = isset($data['quota_notice_enabled']) ? $data['quota_notice_enabled'] : null;
-        $this->container['quota_notice_threshold'] = isset($data['quota_notice_threshold']) ? $data['quota_notice_threshold'] : null;
-        $this->container['secure_only'] = isset($data['secure_only']) ? $data['secure_only'] : null;
-        $this->container['complex_passwords'] = isset($data['complex_passwords']) ? $data['complex_passwords'] : null;
-        $this->container['show_referral_links'] = isset($data['show_referral_links']) ? $data['show_referral_links'] : null;
-        $this->container['external_domain'] = isset($data['external_domain']) ? $data['external_domain'] : null;
-        $this->container['email_content'] = isset($data['email_content']) ? $data['email_content'] : null;
-        $this->container['email_subject'] = isset($data['email_subject']) ? $data['email_subject'] : null;
-        $this->container['allowed_ip_ranges'] = isset($data['allowed_ip_ranges']) ? $data['allowed_ip_ranges'] : null;
-        $this->container['callback_settings'] = isset($data['callback_settings']) ? $data['callback_settings'] : null;
-        $this->container['branding_settings'] = isset($data['branding_settings']) ? $data['branding_settings'] : null;
-        $this->container['account_onboarding'] = isset($data['account_onboarding']) ? $data['account_onboarding'] : null;
-        $this->container['custom_signature'] = isset($data['custom_signature']) ? $data['custom_signature'] : null;
+        $this->container['quotaNoticeEnabled'] = isset($data['quotaNoticeEnabled']) ? $data['quotaNoticeEnabled'] : null;
+        $this->container['quotaNoticeThreshold'] = isset($data['quotaNoticeThreshold']) ? $data['quotaNoticeThreshold'] : null;
+        $this->container['secureOnly'] = isset($data['secureOnly']) ? $data['secureOnly'] : null;
+        $this->container['complexPasswords'] = isset($data['complexPasswords']) ? $data['complexPasswords'] : null;
+        $this->container['showReferralLinks'] = isset($data['showReferralLinks']) ? $data['showReferralLinks'] : null;
+        $this->container['externalDomain'] = isset($data['externalDomain']) ? $data['externalDomain'] : null;
+        $this->container['emailContent'] = isset($data['emailContent']) ? $data['emailContent'] : null;
+        $this->container['emailSubject'] = isset($data['emailSubject']) ? $data['emailSubject'] : null;
+        $this->container['allowedIpRanges'] = isset($data['allowedIpRanges']) ? $data['allowedIpRanges'] : null;
+        $this->container['callbackSettings'] = isset($data['callbackSettings']) ? $data['callbackSettings'] : null;
+        $this->container['brandingSettings'] = isset($data['brandingSettings']) ? $data['brandingSettings'] : null;
+        $this->container['accountOnboarding'] = isset($data['accountOnboarding']) ? $data['accountOnboarding'] : null;
+        $this->container['customSignature'] = isset($data['customSignature']) ? $data['customSignature'] : null;
     }
 
     /**
@@ -269,313 +269,313 @@ class UpdateAccountRequestBody implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets quota_notice_enabled
+     * Gets quotaNoticeEnabled
      *
      * @return bool
      */
     public function getQuotaNoticeEnabled()
     {
-        return $this->container['quota_notice_enabled'];
+        return $this->container['quotaNoticeEnabled'];
     }
 
     /**
-     * Sets quota_notice_enabled
+     * Sets quotaNoticeEnabled
      *
-     * @param bool $quota_notice_enabled Whether the system should email the account owner when usage exceeds quotaNoticeThreshold value
+     * @param bool $quotaNoticeEnabled Whether the system should email the account owner when usage exceeds quotaNoticeThreshold value
      *
      * @return $this
      */
-    public function setQuotaNoticeEnabled($quota_notice_enabled)
+    public function setQuotaNoticeEnabled($quotaNoticeEnabled)
     {
-        $this->container['quota_notice_enabled'] = $quota_notice_enabled;
+        $this->container['quotaNoticeEnabled'] = $quotaNoticeEnabled;
 
         return $this;
     }
 
     /**
-     * Gets quota_notice_threshold
+     * Gets quotaNoticeThreshold
      *
      * @return int
      */
     public function getQuotaNoticeThreshold()
     {
-        return $this->container['quota_notice_threshold'];
+        return $this->container['quotaNoticeThreshold'];
     }
 
     /**
-     * Sets quota_notice_threshold
+     * Sets quotaNoticeThreshold
      *
-     * @param int $quota_notice_threshold Percent of account usage to trigger quota notices for.
+     * @param int $quotaNoticeThreshold Percent of account usage to trigger quota notices for.
      *
      * @return $this
      */
-    public function setQuotaNoticeThreshold($quota_notice_threshold)
+    public function setQuotaNoticeThreshold($quotaNoticeThreshold)
     {
-        $this->container['quota_notice_threshold'] = $quota_notice_threshold;
+        $this->container['quotaNoticeThreshold'] = $quotaNoticeThreshold;
 
         return $this;
     }
 
     /**
-     * Gets secure_only
+     * Gets secureOnly
      *
      * @return bool
      */
     public function getSecureOnly()
     {
-        return $this->container['secure_only'];
+        return $this->container['secureOnly'];
     }
 
     /**
-     * Sets secure_only
+     * Sets secureOnly
      *
-     * @param bool $secure_only Whether unencrypted FTP connections should be denied for the account.
+     * @param bool $secureOnly Whether unencrypted FTP connections should be denied for the account.
      *
      * @return $this
      */
-    public function setSecureOnly($secure_only)
+    public function setSecureOnly($secureOnly)
     {
-        $this->container['secure_only'] = $secure_only;
+        $this->container['secureOnly'] = $secureOnly;
 
         return $this;
     }
 
     /**
-     * Gets complex_passwords
+     * Gets complexPasswords
      *
      * @return bool
      */
     public function getComplexPasswords()
     {
-        return $this->container['complex_passwords'];
+        return $this->container['complexPasswords'];
     }
 
     /**
-     * Sets complex_passwords
+     * Sets complexPasswords
      *
-     * @param bool $complex_passwords Whether to require complex passwords for all passwords.
+     * @param bool $complexPasswords Whether to require complex passwords for all passwords.
      *
      * @return $this
      */
-    public function setComplexPasswords($complex_passwords)
+    public function setComplexPasswords($complexPasswords)
     {
-        $this->container['complex_passwords'] = $complex_passwords;
+        $this->container['complexPasswords'] = $complexPasswords;
 
         return $this;
     }
 
     /**
-     * Gets show_referral_links
+     * Gets showReferralLinks
      *
      * @return bool
      */
     public function getShowReferralLinks()
     {
-        return $this->container['show_referral_links'];
+        return $this->container['showReferralLinks'];
     }
 
     /**
-     * Sets show_referral_links
+     * Sets showReferralLinks
      *
-     * @param bool $show_referral_links Whether to display links for others to sign up on share views and invitation emails
+     * @param bool $showReferralLinks Whether to display links for others to sign up on share views and invitation emails
      *
      * @return $this
      */
-    public function setShowReferralLinks($show_referral_links)
+    public function setShowReferralLinks($showReferralLinks)
     {
-        $this->container['show_referral_links'] = $show_referral_links;
+        $this->container['showReferralLinks'] = $showReferralLinks;
 
         return $this;
     }
 
     /**
-     * Gets external_domain
+     * Gets externalDomain
      *
      * @return string
      */
     public function getExternalDomain()
     {
-        return $this->container['external_domain'];
+        return $this->container['externalDomain'];
     }
 
     /**
-     * Sets external_domain
+     * Sets externalDomain
      *
-     * @param string $external_domain Custom address used for web file manager. Not available for all account types.
+     * @param string $externalDomain Custom address used for web file manager. Not available for all account types.
      *
      * @return $this
      */
-    public function setExternalDomain($external_domain)
+    public function setExternalDomain($externalDomain)
     {
-        $this->container['external_domain'] = $external_domain;
+        $this->container['externalDomain'] = $externalDomain;
 
         return $this;
     }
 
     /**
-     * Gets email_content
+     * Gets emailContent
      *
      * @return string
      */
     public function getEmailContent()
     {
-        return $this->container['email_content'];
+        return $this->container['emailContent'];
     }
 
     /**
-     * Sets email_content
+     * Sets emailContent
      *
-     * @param string $email_content Content of welcome email template.
+     * @param string $emailContent Content of welcome email template.
      *
      * @return $this
      */
-    public function setEmailContent($email_content)
+    public function setEmailContent($emailContent)
     {
-        $this->container['email_content'] = $email_content;
+        $this->container['emailContent'] = $emailContent;
 
         return $this;
     }
 
     /**
-     * Gets email_subject
+     * Gets emailSubject
      *
      * @return string
      */
     public function getEmailSubject()
     {
-        return $this->container['email_subject'];
+        return $this->container['emailSubject'];
     }
 
     /**
-     * Sets email_subject
+     * Sets emailSubject
      *
-     * @param string $email_subject Subject line for welcome emails
+     * @param string $emailSubject Subject line for welcome emails
      *
      * @return $this
      */
-    public function setEmailSubject($email_subject)
+    public function setEmailSubject($emailSubject)
     {
-        $this->container['email_subject'] = $email_subject;
+        $this->container['emailSubject'] = $emailSubject;
 
         return $this;
     }
 
     /**
-     * Gets allowed_ip_ranges
+     * Gets allowedIpRanges
      *
      * @return \ExaVault\Model\AccountAllowedIpRanges[]
      */
     public function getAllowedIpRanges()
     {
-        return $this->container['allowed_ip_ranges'];
+        return $this->container['allowedIpRanges'];
     }
 
     /**
-     * Sets allowed_ip_ranges
+     * Sets allowedIpRanges
      *
-     * @param \ExaVault\Model\AccountAllowedIpRanges[] $allowed_ip_ranges IP Address Ranges for restricting account access
+     * @param \ExaVault\Model\AccountAllowedIpRanges[] $allowedIpRanges IP Address Ranges for restricting account access
      *
      * @return $this
      */
-    public function setAllowedIpRanges($allowed_ip_ranges)
+    public function setAllowedIpRanges($allowedIpRanges)
     {
-        $this->container['allowed_ip_ranges'] = $allowed_ip_ranges;
+        $this->container['allowedIpRanges'] = $allowedIpRanges;
 
         return $this;
     }
 
     /**
-     * Gets callback_settings
+     * Gets callbackSettings
      *
      * @return \ExaVault\Model\CallbackSettingsValues
      */
     public function getCallbackSettings()
     {
-        return $this->container['callback_settings'];
+        return $this->container['callbackSettings'];
     }
 
     /**
-     * Sets callback_settings
+     * Sets callbackSettings
      *
-     * @param \ExaVault\Model\CallbackSettingsValues $callback_settings callback_settings
+     * @param \ExaVault\Model\CallbackSettingsValues $callbackSettings callbackSettings
      *
      * @return $this
      */
-    public function setCallbackSettings($callback_settings)
+    public function setCallbackSettings($callbackSettings)
     {
-        $this->container['callback_settings'] = $callback_settings;
+        $this->container['callbackSettings'] = $callbackSettings;
 
         return $this;
     }
 
     /**
-     * Gets branding_settings
+     * Gets brandingSettings
      *
      * @return \ExaVault\Model\BrandingSettingsValues
      */
     public function getBrandingSettings()
     {
-        return $this->container['branding_settings'];
+        return $this->container['brandingSettings'];
     }
 
     /**
-     * Sets branding_settings
+     * Sets brandingSettings
      *
-     * @param \ExaVault\Model\BrandingSettingsValues $branding_settings branding_settings
+     * @param \ExaVault\Model\BrandingSettingsValues $brandingSettings brandingSettings
      *
      * @return $this
      */
-    public function setBrandingSettings($branding_settings)
+    public function setBrandingSettings($brandingSettings)
     {
-        $this->container['branding_settings'] = $branding_settings;
+        $this->container['brandingSettings'] = $brandingSettings;
 
         return $this;
     }
 
     /**
-     * Gets account_onboarding
+     * Gets accountOnboarding
      *
      * @return bool
      */
     public function getAccountOnboarding()
     {
-        return $this->container['account_onboarding'];
+        return $this->container['accountOnboarding'];
     }
 
     /**
-     * Sets account_onboarding
+     * Sets accountOnboarding
      *
-     * @param bool $account_onboarding Whether extra help popups can be enabled for users in the web file manager.
+     * @param bool $accountOnboarding Whether extra help popups can be enabled for users in the web file manager.
      *
      * @return $this
      */
-    public function setAccountOnboarding($account_onboarding)
+    public function setAccountOnboarding($accountOnboarding)
     {
-        $this->container['account_onboarding'] = $account_onboarding;
+        $this->container['accountOnboarding'] = $accountOnboarding;
 
         return $this;
     }
 
     /**
-     * Gets custom_signature
+     * Gets customSignature
      *
      * @return string
      */
     public function getCustomSignature()
     {
-        return $this->container['custom_signature'];
+        return $this->container['customSignature'];
     }
 
     /**
-     * Sets custom_signature
+     * Sets customSignature
      *
-     * @param string $custom_signature Signature to be automatically added to the bottom of emails generated by the account.
+     * @param string $customSignature Signature to be automatically added to the bottom of emails generated by the account.
      *
      * @return $this
      */
-    public function setCustomSignature($custom_signature)
+    public function setCustomSignature($customSignature)
     {
-        $this->container['custom_signature'] = $custom_signature;
+        $this->container['customSignature'] = $customSignature;
 
         return $this;
     }

@@ -57,11 +57,11 @@ class UpdateFormByIdRequestBody implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'form_description' => 'string',
-'submit_button_text' => 'string',
-'success_message' => 'string',
+        'formDescription' => 'string',
+'submitButtonText' => 'string',
+'successMessage' => 'string',
 'elements' => '\ExaVault\Model\FormsidElements[]',
-'css_styles' => 'string'    ];
+'cssStyles' => 'string'    ];
 
     /**
       * Array of property to format mappings. Used for (de)serialization
@@ -69,11 +69,11 @@ class UpdateFormByIdRequestBody implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'form_description' => null,
-'submit_button_text' => null,
-'success_message' => null,
+        'formDescription' => null,
+'submitButtonText' => null,
+'successMessage' => null,
 'elements' => null,
-'css_styles' => null    ];
+'cssStyles' => null    ];
 
     /**
      * Array of property to type mappings. Used for (de)serialization
@@ -102,11 +102,11 @@ class UpdateFormByIdRequestBody implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'form_description' => 'formDescription',
-'submit_button_text' => 'submitButtonText',
-'success_message' => 'successMessage',
+        'formDescription' => 'formDescription',
+'submitButtonText' => 'submitButtonText',
+'successMessage' => 'successMessage',
 'elements' => 'elements',
-'css_styles' => 'cssStyles'    ];
+'cssStyles' => 'cssStyles'    ];
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
@@ -114,11 +114,11 @@ class UpdateFormByIdRequestBody implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'form_description' => 'setFormDescription',
-'submit_button_text' => 'setSubmitButtonText',
-'success_message' => 'setSuccessMessage',
+        'formDescription' => 'setFormDescription',
+'submitButtonText' => 'setSubmitButtonText',
+'successMessage' => 'setSuccessMessage',
 'elements' => 'setElements',
-'css_styles' => 'setCssStyles'    ];
+'cssStyles' => 'setCssStyles'    ];
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
@@ -126,11 +126,11 @@ class UpdateFormByIdRequestBody implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'form_description' => 'getFormDescription',
-'submit_button_text' => 'getSubmitButtonText',
-'success_message' => 'getSuccessMessage',
+        'formDescription' => 'getFormDescription',
+'submitButtonText' => 'getSubmitButtonText',
+'successMessage' => 'getSuccessMessage',
 'elements' => 'getElements',
-'css_styles' => 'getCssStyles'    ];
+'cssStyles' => 'getCssStyles'    ];
 
     /**
      * Array of attributes where the key is the local name,
@@ -190,11 +190,11 @@ class UpdateFormByIdRequestBody implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['form_description'] = isset($data['form_description']) ? $data['form_description'] : null;
-        $this->container['submit_button_text'] = isset($data['submit_button_text']) ? $data['submit_button_text'] : null;
-        $this->container['success_message'] = isset($data['success_message']) ? $data['success_message'] : null;
+        $this->container['formDescription'] = isset($data['formDescription']) ? $data['formDescription'] : null;
+        $this->container['submitButtonText'] = isset($data['submitButtonText']) ? $data['submitButtonText'] : null;
+        $this->container['successMessage'] = isset($data['successMessage']) ? $data['successMessage'] : null;
         $this->container['elements'] = isset($data['elements']) ? $data['elements'] : null;
-        $this->container['css_styles'] = isset($data['css_styles']) ? $data['css_styles'] : null;
+        $this->container['cssStyles'] = isset($data['cssStyles']) ? $data['cssStyles'] : null;
     }
 
     /**
@@ -222,73 +222,73 @@ class UpdateFormByIdRequestBody implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets form_description
+     * Gets formDescription
      *
      * @return string
      */
     public function getFormDescription()
     {
-        return $this->container['form_description'];
+        return $this->container['formDescription'];
     }
 
     /**
-     * Sets form_description
+     * Sets formDescription
      *
-     * @param string $form_description Set a description for the form that will be visible to recipients.
+     * @param string $formDescription Set a description for the form that will be visible to recipients.
      *
      * @return $this
      */
-    public function setFormDescription($form_description)
+    public function setFormDescription($formDescription)
     {
-        $this->container['form_description'] = $form_description;
+        $this->container['formDescription'] = $formDescription;
 
         return $this;
     }
 
     /**
-     * Gets submit_button_text
+     * Gets submitButtonText
      *
      * @return string
      */
     public function getSubmitButtonText()
     {
-        return $this->container['submit_button_text'];
+        return $this->container['submitButtonText'];
     }
 
     /**
-     * Sets submit_button_text
+     * Sets submitButtonText
      *
-     * @param string $submit_button_text Text to be displayed on the submission button.
+     * @param string $submitButtonText Text to be displayed on the submission button.
      *
      * @return $this
      */
-    public function setSubmitButtonText($submit_button_text)
+    public function setSubmitButtonText($submitButtonText)
     {
-        $this->container['submit_button_text'] = $submit_button_text;
+        $this->container['submitButtonText'] = $submitButtonText;
 
         return $this;
     }
 
     /**
-     * Gets success_message
+     * Gets successMessage
      *
      * @return string
      */
     public function getSuccessMessage()
     {
-        return $this->container['success_message'];
+        return $this->container['successMessage'];
     }
 
     /**
-     * Sets success_message
+     * Sets successMessage
      *
-     * @param string $success_message Text to be displayed when a recipient has submitted the form.
+     * @param string $successMessage Text to be displayed when a recipient has submitted the form.
      *
      * @return $this
      */
-    public function setSuccessMessage($success_message)
+    public function setSuccessMessage($successMessage)
     {
-        $this->container['success_message'] = $success_message;
+        $this->container['successMessage'] = $successMessage;
 
         return $this;
     }
@@ -318,25 +318,25 @@ class UpdateFormByIdRequestBody implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets css_styles
+     * Gets cssStyles
      *
      * @return string
      */
     public function getCssStyles()
     {
-        return $this->container['css_styles'];
+        return $this->container['cssStyles'];
     }
 
     /**
-     * Sets css_styles
+     * Sets cssStyles
      *
-     * @param string $css_styles css_styles
+     * @param string $cssStyles cssStyles
      *
      * @return $this
      */
-    public function setCssStyles($css_styles)
+    public function setCssStyles($cssStyles)
     {
-        $this->container['css_styles'] = $css_styles;
+        $this->container['cssStyles'] = $cssStyles;
 
         return $this;
     }

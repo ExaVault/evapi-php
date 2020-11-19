@@ -58,8 +58,8 @@ class ResourceRelationships implements ModelInterface, ArrayAccess
     protected static $swaggerTypes = [
         'share' => '\ExaVault\Model\ResourceRelationshipsShare',
 'notifications' => '\ExaVault\Model\ResourceRelationshipsNotifications[]',
-'direct_file' => '\ExaVault\Model\ResourceRelationshipsDirectFile',
-'parent_resource' => '\ExaVault\Model\ResourceRelationshipsParentResource'    ];
+'directFile' => '\ExaVault\Model\ResourceRelationshipsDirectFile',
+'parentResource' => '\ExaVault\Model\ResourceRelationshipsParentResource'    ];
 
     /**
       * Array of property to format mappings. Used for (de)serialization
@@ -69,8 +69,8 @@ class ResourceRelationships implements ModelInterface, ArrayAccess
     protected static $swaggerFormats = [
         'share' => null,
 'notifications' => null,
-'direct_file' => null,
-'parent_resource' => null    ];
+'directFile' => null,
+'parentResource' => null    ];
 
     /**
      * Array of property to type mappings. Used for (de)serialization
@@ -101,8 +101,8 @@ class ResourceRelationships implements ModelInterface, ArrayAccess
     protected static $attributeMap = [
         'share' => 'share',
 'notifications' => 'notifications',
-'direct_file' => 'directFile',
-'parent_resource' => 'parentResource'    ];
+'directFile' => 'directFile',
+'parentResource' => 'parentResource'    ];
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
@@ -112,8 +112,8 @@ class ResourceRelationships implements ModelInterface, ArrayAccess
     protected static $setters = [
         'share' => 'setShare',
 'notifications' => 'setNotifications',
-'direct_file' => 'setDirectFile',
-'parent_resource' => 'setParentResource'    ];
+'directFile' => 'setDirectFile',
+'parentResource' => 'setParentResource'    ];
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
@@ -123,8 +123,8 @@ class ResourceRelationships implements ModelInterface, ArrayAccess
     protected static $getters = [
         'share' => 'getShare',
 'notifications' => 'getNotifications',
-'direct_file' => 'getDirectFile',
-'parent_resource' => 'getParentResource'    ];
+'directFile' => 'getDirectFile',
+'parentResource' => 'getParentResource'    ];
 
     /**
      * Array of attributes where the key is the local name,
@@ -186,8 +186,8 @@ class ResourceRelationships implements ModelInterface, ArrayAccess
     {
         $this->container['share'] = isset($data['share']) ? $data['share'] : null;
         $this->container['notifications'] = isset($data['notifications']) ? $data['notifications'] : null;
-        $this->container['direct_file'] = isset($data['direct_file']) ? $data['direct_file'] : null;
-        $this->container['parent_resource'] = isset($data['parent_resource']) ? $data['parent_resource'] : null;
+        $this->container['directFile'] = isset($data['directFile']) ? $data['directFile'] : null;
+        $this->container['parentResource'] = isset($data['parentResource']) ? $data['parentResource'] : null;
     }
 
     /**
@@ -263,49 +263,49 @@ class ResourceRelationships implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets direct_file
+     * Gets directFile
      *
      * @return \ExaVault\Model\ResourceRelationshipsDirectFile
      */
     public function getDirectFile()
     {
-        return $this->container['direct_file'];
+        return $this->container['directFile'];
     }
 
     /**
-     * Sets direct_file
+     * Sets directFile
      *
-     * @param \ExaVault\Model\ResourceRelationshipsDirectFile $direct_file direct_file
+     * @param \ExaVault\Model\ResourceRelationshipsDirectFile $directFile directFile
      *
      * @return $this
      */
-    public function setDirectFile($direct_file)
+    public function setDirectFile($directFile)
     {
-        $this->container['direct_file'] = $direct_file;
+        $this->container['directFile'] = $directFile;
 
         return $this;
     }
 
     /**
-     * Gets parent_resource
+     * Gets parentResource
      *
      * @return \ExaVault\Model\ResourceRelationshipsParentResource
      */
     public function getParentResource()
     {
-        return $this->container['parent_resource'];
+        return $this->container['parentResource'];
     }
 
     /**
-     * Sets parent_resource
+     * Sets parentResource
      *
-     * @param \ExaVault\Model\ResourceRelationshipsParentResource $parent_resource parent_resource
+     * @param \ExaVault\Model\ResourceRelationshipsParentResource $parentResource parentResource
      *
      * @return $this
      */
-    public function setParentResource($parent_resource)
+    public function setParentResource($parentResource)
     {
-        $this->container['parent_resource'] = $parent_resource;
+        $this->container['parentResource'] = $parentResource;
 
         return $this;
     }
