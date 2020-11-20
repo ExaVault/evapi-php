@@ -59,7 +59,7 @@ class AddShareRequestBody implements ModelInterface, ArrayAccess
         'type' => 'string',
 'name' => 'string',
 'resources' => 'string[]',
-'accessMode' => 'string[]',
+'accessMode' => '\ExaVault\Model\AccessMode',
 'embed' => 'bool',
 'recipients' => '\ExaVault\Model\SharesRecipients[]',
 'expiration' => '\DateTime',
@@ -230,10 +230,6 @@ class AddShareRequestBody implements ModelInterface, ArrayAccess
     const TYPE_SHARED_FOLDER = 'shared_folder';
 const TYPE_RECEIVE = 'receive';
 const TYPE_SEND = 'send';
-const ACCESS_MODE_UPLOAD = 'upload';
-const ACCESS_MODE_DOWNLOAD = 'download';
-const ACCESS_MODE_DELETE = 'delete';
-const ACCESS_MODE_MODIFY = 'modify';
 
     /**
      * Gets allowable values of the enum
@@ -246,19 +242,6 @@ const ACCESS_MODE_MODIFY = 'modify';
             self::TYPE_SHARED_FOLDER,
 self::TYPE_RECEIVE,
 self::TYPE_SEND,        ];
-    }
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getAccessModeAllowableValues()
-    {
-        return [
-            self::ACCESS_MODE_UPLOAD,
-self::ACCESS_MODE_DOWNLOAD,
-self::ACCESS_MODE_DELETE,
-self::ACCESS_MODE_MODIFY,        ];
     }
 
     /**
@@ -316,9 +299,6 @@ self::ACCESS_MODE_MODIFY,        ];
 
         if ($this->container['name'] === null) {
             $invalidProperties[] = "'name' can't be null";
-        }
-        if ($this->container['accessMode'] === null) {
-            $invalidProperties[] = "'accessMode' can't be null";
         }
         return $invalidProperties;
     }
@@ -419,7 +399,7 @@ self::ACCESS_MODE_MODIFY,        ];
     /**
      * Gets accessMode
      *
-     * @return string[]
+     * @return \ExaVault\Model\AccessMode
      */
     public function getAccessMode()
     {
@@ -429,21 +409,12 @@ self::ACCESS_MODE_MODIFY,        ];
     /**
      * Sets accessMode
      *
-     * @param string[] $accessMode Array of permissions that describes what people can do when they visit the share. Valid options are `upload` `download` `modify` and `delete`  Not all permissions work with all shares - **receive** shares must always have the permission to **upload** and never provide a method for visitors to **download**.  If you are creating a share of type **send** and plan to upload files from your own computer before completing the send with [POST /shares/complete-send/{id}](#operation/completeDirectSend), use the access mode **upload**
+     * @param \ExaVault\Model\AccessMode $accessMode accessMode
      *
      * @return $this
      */
     public function setAccessMode($accessMode)
     {
-        $allowedValues = $this->getAccessModeAllowableValues();
-        if (array_diff($accessMode, $allowedValues)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value for 'accessMode', must be one of '%s'",
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
         $this->container['accessMode'] = $accessMode;
 
         return $this;

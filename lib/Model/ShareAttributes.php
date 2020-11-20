@@ -60,7 +60,7 @@ class ShareAttributes implements ModelInterface, ArrayAccess
         'name' => 'string',
 'hasPassword' => 'bool',
 'public' => 'bool',
-'accessMode' => 'string[]',
+'accessMode' => '\ExaVault\Model\AccessMode',
 'accessDescription' => 'string',
 'embed' => 'bool',
 'hash' => 'string',
@@ -268,11 +268,7 @@ class ShareAttributes implements ModelInterface, ArrayAccess
         return self::$swaggerModelName;
     }
 
-    const ACCESS_MODE_DOWNLOAD = 'download';
-const ACCESS_MODE_UPLOAD = 'upload';
-const ACCESS_MODE_MODIFY = 'modify';
-const ACCESS_MODE_DELETE = 'delete';
-const TYPE_SHARED_FOLDER = 'shared_folder';
+    const TYPE_SHARED_FOLDER = 'shared_folder';
 const TYPE_SEND = 'send';
 const TYPE_RECEIVE = 'receive';
 const STATUS_0 = 0;
@@ -281,19 +277,6 @@ const TRACKING_STATUS_COMPLETE = 'complete';
 const TRACKING_STATUS_INCOMPLETE = 'incomplete';
 const TRACKING_STATUS_PENDING = 'pending';
 
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getAccessModeAllowableValues()
-    {
-        return [
-            self::ACCESS_MODE_DOWNLOAD,
-self::ACCESS_MODE_UPLOAD,
-self::ACCESS_MODE_MODIFY,
-self::ACCESS_MODE_DELETE,        ];
-    }
     /**
      * Gets allowable values of the enum
      *
@@ -494,7 +477,7 @@ self::TRACKING_STATUS_PENDING,        ];
     /**
      * Gets accessMode
      *
-     * @return string[]
+     * @return \ExaVault\Model\AccessMode
      */
     public function getAccessMode()
     {
@@ -504,21 +487,12 @@ self::TRACKING_STATUS_PENDING,        ];
     /**
      * Sets accessMode
      *
-     * @param string[] $accessMode Access rights for the share.
+     * @param \ExaVault\Model\AccessMode $accessMode accessMode
      *
      * @return $this
      */
     public function setAccessMode($accessMode)
     {
-        $allowedValues = $this->getAccessModeAllowableValues();
-        if (!is_null($accessMode) && array_diff($accessMode, $allowedValues)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value for 'accessMode', must be one of '%s'",
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
         $this->container['accessMode'] = $accessMode;
 
         return $this;

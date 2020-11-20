@@ -58,7 +58,7 @@ class UpdateShareRequestBody implements ModelInterface, ArrayAccess
     protected static $swaggerTypes = [
         'name' => 'string',
 'resources' => 'string[]',
-'accessMode' => 'string[]',
+'accessMode' => '\ExaVault\Model\AccessMode',
 'embed' => 'bool',
 'recipients' => '\ExaVault\Model\SharesRecipients[]',
 'expiration' => '\DateTime',
@@ -331,7 +331,7 @@ class UpdateShareRequestBody implements ModelInterface, ArrayAccess
     /**
      * Gets accessMode
      *
-     * @return string[]
+     * @return \ExaVault\Model\AccessMode
      */
     public function getAccessMode()
     {
@@ -341,7 +341,7 @@ class UpdateShareRequestBody implements ModelInterface, ArrayAccess
     /**
      * Sets accessMode
      *
-     * @param string[] $accessMode What visitors who view this share can do. Valid options include **download**, **upload**, **delete**, **modify**
+     * @param \ExaVault\Model\AccessMode $accessMode accessMode
      *
      * @return $this
      */
