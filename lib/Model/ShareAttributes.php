@@ -58,29 +58,29 @@ class ShareAttributes implements ModelInterface, ArrayAccess
       */
     protected static $swaggerTypes = [
         'name' => 'string',
-'has_password' => 'bool',
+'hasPassword' => 'bool',
 'public' => 'bool',
-'access_mode' => 'string',
-'access_description' => 'string',
+'accessMode' => '\ExaVault\Model\AccessMode',
+'accessDescription' => 'string',
 'embed' => 'bool',
 'hash' => 'string',
-'owner_hash' => 'string',
+'ownerHash' => 'string',
 'expiration' => 'string',
 'expired' => 'bool',
 'resent' => '\DateTime',
 'type' => 'string',
-'require_email' => 'bool',
-'file_drop_create_folders' => 'bool',
+'requireEmail' => 'bool',
+'fileDropCreateFolders' => 'bool',
 'paths' => 'string[]',
-'recipients' => '\ExaVault\Model\ShareRecipient1[]',
+'recipients' => '\ExaVault\Model\ShareRecipient[]',
 'messages' => '\ExaVault\Model\ShareMessage[]',
 'inherited' => 'bool',
 'status' => 'int',
-'has_notification' => 'bool',
+'hasNotification' => 'bool',
 'created' => '\DateTime',
 'modified' => '\DateTime',
-'tracking_status' => 'string',
-'form_id' => 'int'    ];
+'trackingStatus' => 'string',
+'formId' => 'int'    ];
 
     /**
       * Array of property to format mappings. Used for (de)serialization
@@ -89,29 +89,29 @@ class ShareAttributes implements ModelInterface, ArrayAccess
       */
     protected static $swaggerFormats = [
         'name' => null,
-'has_password' => null,
+'hasPassword' => null,
 'public' => null,
-'access_mode' => null,
-'access_description' => null,
+'accessMode' => null,
+'accessDescription' => null,
 'embed' => null,
 'hash' => null,
-'owner_hash' => null,
+'ownerHash' => null,
 'expiration' => null,
 'expired' => null,
 'resent' => 'date-time',
 'type' => null,
-'require_email' => null,
-'file_drop_create_folders' => null,
+'requireEmail' => null,
+'fileDropCreateFolders' => null,
 'paths' => null,
 'recipients' => null,
 'messages' => null,
 'inherited' => null,
 'status' => 'int32',
-'has_notification' => null,
+'hasNotification' => null,
 'created' => 'date-time',
 'modified' => 'date-time',
-'tracking_status' => null,
-'form_id' => null    ];
+'trackingStatus' => null,
+'formId' => null    ];
 
     /**
      * Array of property to type mappings. Used for (de)serialization
@@ -141,29 +141,29 @@ class ShareAttributes implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'name' => 'name',
-'has_password' => 'hasPassword',
+'hasPassword' => 'hasPassword',
 'public' => 'public',
-'access_mode' => 'accessMode',
-'access_description' => 'accessDescription',
+'accessMode' => 'accessMode',
+'accessDescription' => 'accessDescription',
 'embed' => 'embed',
 'hash' => 'hash',
-'owner_hash' => 'ownerHash',
+'ownerHash' => 'ownerHash',
 'expiration' => 'expiration',
 'expired' => 'expired',
 'resent' => 'resent',
 'type' => 'type',
-'require_email' => 'requireEmail',
-'file_drop_create_folders' => 'fileDropCreateFolders',
+'requireEmail' => 'requireEmail',
+'fileDropCreateFolders' => 'fileDropCreateFolders',
 'paths' => 'paths',
 'recipients' => 'recipients',
 'messages' => 'messages',
 'inherited' => 'inherited',
 'status' => 'status',
-'has_notification' => 'hasNotification',
+'hasNotification' => 'hasNotification',
 'created' => 'created',
 'modified' => 'modified',
-'tracking_status' => 'trackingStatus',
-'form_id' => 'formId'    ];
+'trackingStatus' => 'trackingStatus',
+'formId' => 'formId'    ];
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
@@ -172,29 +172,29 @@ class ShareAttributes implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'name' => 'setName',
-'has_password' => 'setHasPassword',
+'hasPassword' => 'setHasPassword',
 'public' => 'setPublic',
-'access_mode' => 'setAccessMode',
-'access_description' => 'setAccessDescription',
+'accessMode' => 'setAccessMode',
+'accessDescription' => 'setAccessDescription',
 'embed' => 'setEmbed',
 'hash' => 'setHash',
-'owner_hash' => 'setOwnerHash',
+'ownerHash' => 'setOwnerHash',
 'expiration' => 'setExpiration',
 'expired' => 'setExpired',
 'resent' => 'setResent',
 'type' => 'setType',
-'require_email' => 'setRequireEmail',
-'file_drop_create_folders' => 'setFileDropCreateFolders',
+'requireEmail' => 'setRequireEmail',
+'fileDropCreateFolders' => 'setFileDropCreateFolders',
 'paths' => 'setPaths',
 'recipients' => 'setRecipients',
 'messages' => 'setMessages',
 'inherited' => 'setInherited',
 'status' => 'setStatus',
-'has_notification' => 'setHasNotification',
+'hasNotification' => 'setHasNotification',
 'created' => 'setCreated',
 'modified' => 'setModified',
-'tracking_status' => 'setTrackingStatus',
-'form_id' => 'setFormId'    ];
+'trackingStatus' => 'setTrackingStatus',
+'formId' => 'setFormId'    ];
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
@@ -203,29 +203,29 @@ class ShareAttributes implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'name' => 'getName',
-'has_password' => 'getHasPassword',
+'hasPassword' => 'getHasPassword',
 'public' => 'getPublic',
-'access_mode' => 'getAccessMode',
-'access_description' => 'getAccessDescription',
+'accessMode' => 'getAccessMode',
+'accessDescription' => 'getAccessDescription',
 'embed' => 'getEmbed',
 'hash' => 'getHash',
-'owner_hash' => 'getOwnerHash',
+'ownerHash' => 'getOwnerHash',
 'expiration' => 'getExpiration',
 'expired' => 'getExpired',
 'resent' => 'getResent',
 'type' => 'getType',
-'require_email' => 'getRequireEmail',
-'file_drop_create_folders' => 'getFileDropCreateFolders',
+'requireEmail' => 'getRequireEmail',
+'fileDropCreateFolders' => 'getFileDropCreateFolders',
 'paths' => 'getPaths',
 'recipients' => 'getRecipients',
 'messages' => 'getMessages',
 'inherited' => 'getInherited',
 'status' => 'getStatus',
-'has_notification' => 'getHasNotification',
+'hasNotification' => 'getHasNotification',
 'created' => 'getCreated',
 'modified' => 'getModified',
-'tracking_status' => 'getTrackingStatus',
-'form_id' => 'getFormId'    ];
+'trackingStatus' => 'getTrackingStatus',
+'formId' => 'getFormId'    ];
 
     /**
      * Array of attributes where the key is the local name,
@@ -268,11 +268,7 @@ class ShareAttributes implements ModelInterface, ArrayAccess
         return self::$swaggerModelName;
     }
 
-    const ACCESS_MODE_UPLOAD = 'upload';
-const ACCESS_MODE_DOWNLOAD = 'download';
-const ACCESS_MODE_DOWNLOAD_UPLOAD = 'download_upload';
-const ACCESS_MODE_DOWNLOAD_UPLOAD_MODIFY_DELETE = 'download_upload_modify_delete';
-const TYPE_SHARED_FOLDER = 'shared_folder';
+    const TYPE_SHARED_FOLDER = 'shared_folder';
 const TYPE_SEND = 'send';
 const TYPE_RECEIVE = 'receive';
 const STATUS_0 = 0;
@@ -281,19 +277,6 @@ const TRACKING_STATUS_COMPLETE = 'complete';
 const TRACKING_STATUS_INCOMPLETE = 'incomplete';
 const TRACKING_STATUS_PENDING = 'pending';
 
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getAccessModeAllowableValues()
-    {
-        return [
-            self::ACCESS_MODE_UPLOAD,
-self::ACCESS_MODE_DOWNLOAD,
-self::ACCESS_MODE_DOWNLOAD_UPLOAD,
-self::ACCESS_MODE_DOWNLOAD_UPLOAD_MODIFY_DELETE,        ];
-    }
     /**
      * Gets allowable values of the enum
      *
@@ -346,29 +329,29 @@ self::TRACKING_STATUS_PENDING,        ];
     public function __construct(array $data = null)
     {
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
-        $this->container['has_password'] = isset($data['has_password']) ? $data['has_password'] : null;
+        $this->container['hasPassword'] = isset($data['hasPassword']) ? $data['hasPassword'] : null;
         $this->container['public'] = isset($data['public']) ? $data['public'] : null;
-        $this->container['access_mode'] = isset($data['access_mode']) ? $data['access_mode'] : null;
-        $this->container['access_description'] = isset($data['access_description']) ? $data['access_description'] : null;
+        $this->container['accessMode'] = isset($data['accessMode']) ? $data['accessMode'] : null;
+        $this->container['accessDescription'] = isset($data['accessDescription']) ? $data['accessDescription'] : null;
         $this->container['embed'] = isset($data['embed']) ? $data['embed'] : null;
         $this->container['hash'] = isset($data['hash']) ? $data['hash'] : null;
-        $this->container['owner_hash'] = isset($data['owner_hash']) ? $data['owner_hash'] : null;
+        $this->container['ownerHash'] = isset($data['ownerHash']) ? $data['ownerHash'] : null;
         $this->container['expiration'] = isset($data['expiration']) ? $data['expiration'] : null;
         $this->container['expired'] = isset($data['expired']) ? $data['expired'] : null;
         $this->container['resent'] = isset($data['resent']) ? $data['resent'] : null;
         $this->container['type'] = isset($data['type']) ? $data['type'] : null;
-        $this->container['require_email'] = isset($data['require_email']) ? $data['require_email'] : null;
-        $this->container['file_drop_create_folders'] = isset($data['file_drop_create_folders']) ? $data['file_drop_create_folders'] : null;
+        $this->container['requireEmail'] = isset($data['requireEmail']) ? $data['requireEmail'] : null;
+        $this->container['fileDropCreateFolders'] = isset($data['fileDropCreateFolders']) ? $data['fileDropCreateFolders'] : null;
         $this->container['paths'] = isset($data['paths']) ? $data['paths'] : null;
         $this->container['recipients'] = isset($data['recipients']) ? $data['recipients'] : null;
         $this->container['messages'] = isset($data['messages']) ? $data['messages'] : null;
         $this->container['inherited'] = isset($data['inherited']) ? $data['inherited'] : null;
         $this->container['status'] = isset($data['status']) ? $data['status'] : null;
-        $this->container['has_notification'] = isset($data['has_notification']) ? $data['has_notification'] : null;
+        $this->container['hasNotification'] = isset($data['hasNotification']) ? $data['hasNotification'] : null;
         $this->container['created'] = isset($data['created']) ? $data['created'] : null;
         $this->container['modified'] = isset($data['modified']) ? $data['modified'] : null;
-        $this->container['tracking_status'] = isset($data['tracking_status']) ? $data['tracking_status'] : null;
-        $this->container['form_id'] = isset($data['form_id']) ? $data['form_id'] : null;
+        $this->container['trackingStatus'] = isset($data['trackingStatus']) ? $data['trackingStatus'] : null;
+        $this->container['formId'] = isset($data['formId']) ? $data['formId'] : null;
     }
 
     /**
@@ -379,14 +362,6 @@ self::TRACKING_STATUS_PENDING,        ];
     public function listInvalidProperties()
     {
         $invalidProperties = [];
-
-        $allowedValues = $this->getAccessModeAllowableValues();
-        if (!is_null($this->container['access_mode']) && !in_array($this->container['access_mode'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value for 'access_mode', must be one of '%s'",
-                implode("', '", $allowedValues)
-            );
-        }
 
         $allowedValues = $this->getTypeAllowableValues();
         if (!is_null($this->container['type']) && !in_array($this->container['type'], $allowedValues, true)) {
@@ -405,9 +380,9 @@ self::TRACKING_STATUS_PENDING,        ];
         }
 
         $allowedValues = $this->getTrackingStatusAllowableValues();
-        if (!is_null($this->container['tracking_status']) && !in_array($this->container['tracking_status'], $allowedValues, true)) {
+        if (!is_null($this->container['trackingStatus']) && !in_array($this->container['trackingStatus'], $allowedValues, true)) {
             $invalidProperties[] = sprintf(
-                "invalid value for 'tracking_status', must be one of '%s'",
+                "invalid value for 'trackingStatus', must be one of '%s'",
                 implode("', '", $allowedValues)
             );
         }
@@ -452,25 +427,25 @@ self::TRACKING_STATUS_PENDING,        ];
     }
 
     /**
-     * Gets has_password
+     * Gets hasPassword
      *
      * @return bool
      */
     public function getHasPassword()
     {
-        return $this->container['has_password'];
+        return $this->container['hasPassword'];
     }
 
     /**
-     * Sets has_password
+     * Sets hasPassword
      *
-     * @param bool $has_password True if the share has password.
+     * @param bool $hasPassword True if the share has password.
      *
      * @return $this
      */
-    public function setHasPassword($has_password)
+    public function setHasPassword($hasPassword)
     {
-        $this->container['has_password'] = $has_password;
+        $this->container['hasPassword'] = $hasPassword;
 
         return $this;
     }
@@ -500,58 +475,49 @@ self::TRACKING_STATUS_PENDING,        ];
     }
 
     /**
-     * Gets access_mode
+     * Gets accessMode
      *
-     * @return string
+     * @return \ExaVault\Model\AccessMode
      */
     public function getAccessMode()
     {
-        return $this->container['access_mode'];
+        return $this->container['accessMode'];
     }
 
     /**
-     * Sets access_mode
+     * Sets accessMode
      *
-     * @param string $access_mode Access rights for the share.
+     * @param \ExaVault\Model\AccessMode $accessMode accessMode
      *
      * @return $this
      */
-    public function setAccessMode($access_mode)
+    public function setAccessMode($accessMode)
     {
-        $allowedValues = $this->getAccessModeAllowableValues();
-        if (!is_null($access_mode) && !in_array($access_mode, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value for 'access_mode', must be one of '%s'",
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
-        $this->container['access_mode'] = $access_mode;
+        $this->container['accessMode'] = $accessMode;
 
         return $this;
     }
 
     /**
-     * Gets access_description
+     * Gets accessDescription
      *
      * @return string
      */
     public function getAccessDescription()
     {
-        return $this->container['access_description'];
+        return $this->container['accessDescription'];
     }
 
     /**
-     * Sets access_description
+     * Sets accessDescription
      *
-     * @param string $access_description Description of the share access rights.
+     * @param string $accessDescription Description of the share access rights.
      *
      * @return $this
      */
-    public function setAccessDescription($access_description)
+    public function setAccessDescription($accessDescription)
     {
-        $this->container['access_description'] = $access_description;
+        $this->container['accessDescription'] = $accessDescription;
 
         return $this;
     }
@@ -605,25 +571,25 @@ self::TRACKING_STATUS_PENDING,        ];
     }
 
     /**
-     * Gets owner_hash
+     * Gets ownerHash
      *
      * @return string
      */
     public function getOwnerHash()
     {
-        return $this->container['owner_hash'];
+        return $this->container['ownerHash'];
     }
 
     /**
-     * Sets owner_hash
+     * Sets ownerHash
      *
-     * @param string $owner_hash Share owner's hash.
+     * @param string $ownerHash Share owner's hash.
      *
      * @return $this
      */
-    public function setOwnerHash($owner_hash)
+    public function setOwnerHash($ownerHash)
     {
-        $this->container['owner_hash'] = $owner_hash;
+        $this->container['ownerHash'] = $ownerHash;
 
         return $this;
     }
@@ -734,49 +700,49 @@ self::TRACKING_STATUS_PENDING,        ];
     }
 
     /**
-     * Gets require_email
+     * Gets requireEmail
      *
      * @return bool
      */
     public function getRequireEmail()
     {
-        return $this->container['require_email'];
+        return $this->container['requireEmail'];
     }
 
     /**
-     * Sets require_email
+     * Sets requireEmail
      *
-     * @param bool $require_email True if share requires email to access.
+     * @param bool $requireEmail True if share requires email to access.
      *
      * @return $this
      */
-    public function setRequireEmail($require_email)
+    public function setRequireEmail($requireEmail)
     {
-        $this->container['require_email'] = $require_email;
+        $this->container['requireEmail'] = $requireEmail;
 
         return $this;
     }
 
     /**
-     * Gets file_drop_create_folders
+     * Gets fileDropCreateFolders
      *
      * @return bool
      */
     public function getFileDropCreateFolders()
     {
-        return $this->container['file_drop_create_folders'];
+        return $this->container['fileDropCreateFolders'];
     }
 
     /**
-     * Sets file_drop_create_folders
+     * Sets fileDropCreateFolders
      *
-     * @param bool $file_drop_create_folders Flag to show if separate folders should be created for each file upload to receive folder.
+     * @param bool $fileDropCreateFolders Flag to show if separate folders should be created for each file upload to receive folder.
      *
      * @return $this
      */
-    public function setFileDropCreateFolders($file_drop_create_folders)
+    public function setFileDropCreateFolders($fileDropCreateFolders)
     {
-        $this->container['file_drop_create_folders'] = $file_drop_create_folders;
+        $this->container['fileDropCreateFolders'] = $fileDropCreateFolders;
 
         return $this;
     }
@@ -808,7 +774,7 @@ self::TRACKING_STATUS_PENDING,        ];
     /**
      * Gets recipients
      *
-     * @return \ExaVault\Model\ShareRecipient1[]
+     * @return \ExaVault\Model\ShareRecipient[]
      */
     public function getRecipients()
     {
@@ -818,7 +784,7 @@ self::TRACKING_STATUS_PENDING,        ];
     /**
      * Sets recipients
      *
-     * @param \ExaVault\Model\ShareRecipient1[] $recipients Array of recipients.
+     * @param \ExaVault\Model\ShareRecipient[] $recipients Array of recipients.
      *
      * @return $this
      */
@@ -911,25 +877,25 @@ self::TRACKING_STATUS_PENDING,        ];
     }
 
     /**
-     * Gets has_notification
+     * Gets hasNotification
      *
      * @return bool
      */
     public function getHasNotification()
     {
-        return $this->container['has_notification'];
+        return $this->container['hasNotification'];
     }
 
     /**
-     * Sets has_notification
+     * Sets hasNotification
      *
-     * @param bool $has_notification True if share has notification.
+     * @param bool $hasNotification True if share has notification.
      *
      * @return $this
      */
-    public function setHasNotification($has_notification)
+    public function setHasNotification($hasNotification)
     {
-        $this->container['has_notification'] = $has_notification;
+        $this->container['hasNotification'] = $hasNotification;
 
         return $this;
     }
@@ -983,58 +949,58 @@ self::TRACKING_STATUS_PENDING,        ];
     }
 
     /**
-     * Gets tracking_status
+     * Gets trackingStatus
      *
      * @return string
      */
     public function getTrackingStatus()
     {
-        return $this->container['tracking_status'];
+        return $this->container['trackingStatus'];
     }
 
     /**
-     * Sets tracking_status
+     * Sets trackingStatus
      *
-     * @param string $tracking_status Checks recipient received status and returns whether it's been recevied (`complete`,) partial recevied (`incomplete`,) or not recevied yet (`pending`.)
+     * @param string $trackingStatus Checks recipient received status and returns whether it's been received (`complete`,) partial received (`incomplete`,) or not received yet (`pending`.)
      *
      * @return $this
      */
-    public function setTrackingStatus($tracking_status)
+    public function setTrackingStatus($trackingStatus)
     {
         $allowedValues = $this->getTrackingStatusAllowableValues();
-        if (!is_null($tracking_status) && !in_array($tracking_status, $allowedValues, true)) {
+        if (!is_null($trackingStatus) && !in_array($trackingStatus, $allowedValues, true)) {
             throw new \InvalidArgumentException(
                 sprintf(
-                    "Invalid value for 'tracking_status', must be one of '%s'",
+                    "Invalid value for 'trackingStatus', must be one of '%s'",
                     implode("', '", $allowedValues)
                 )
             );
         }
-        $this->container['tracking_status'] = $tracking_status;
+        $this->container['trackingStatus'] = $trackingStatus;
 
         return $this;
     }
 
     /**
-     * Gets form_id
+     * Gets formId
      *
      * @return int
      */
     public function getFormId()
     {
-        return $this->container['form_id'];
+        return $this->container['formId'];
     }
 
     /**
-     * Sets form_id
+     * Sets formId
      *
-     * @param int $form_id ID of the form.
+     * @param int $formId ID of the form.
      *
      * @return $this
      */
-    public function setFormId($form_id)
+    public function setFormId($formId)
     {
-        $this->container['form_id'] = $form_id;
+        $this->container['formId'] = $formId;
 
         return $this;
     }

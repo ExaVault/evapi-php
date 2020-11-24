@@ -48,7 +48,7 @@ class ShareRelationshipsOwner implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'Share_relationships_owner';
+    protected static $swaggerModelName = 'ShareRelationshipsOwner';
 
     /**
       * Array of property to type mappings. Used for (de)serialization

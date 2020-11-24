@@ -57,7 +57,7 @@ class ShareRecipient implements ModelInterface, ArrayAccess
       */
     protected static $swaggerTypes = [
         'id' => 'int',
-'share_id' => 'string',
+'shareId' => 'string',
 'type' => 'string',
 'hash' => 'string',
 'email' => 'string',
@@ -72,7 +72,7 @@ class ShareRecipient implements ModelInterface, ArrayAccess
       */
     protected static $swaggerFormats = [
         'id' => 'int32',
-'share_id' => null,
+'shareId' => null,
 'type' => null,
 'hash' => null,
 'email' => null,
@@ -108,7 +108,7 @@ class ShareRecipient implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'id' => 'id',
-'share_id' => 'shareId',
+'shareId' => 'shareId',
 'type' => 'type',
 'hash' => 'hash',
 'email' => 'email',
@@ -123,7 +123,7 @@ class ShareRecipient implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'id' => 'setId',
-'share_id' => 'setShareId',
+'shareId' => 'setShareId',
 'type' => 'setType',
 'hash' => 'setHash',
 'email' => 'setEmail',
@@ -138,7 +138,7 @@ class ShareRecipient implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'id' => 'getId',
-'share_id' => 'getShareId',
+'shareId' => 'getShareId',
 'type' => 'getType',
 'hash' => 'getHash',
 'email' => 'getEmail',
@@ -218,7 +218,7 @@ self::TYPE_DIRECT,        ];
     public function __construct(array $data = null)
     {
         $this->container['id'] = isset($data['id']) ? $data['id'] : null;
-        $this->container['share_id'] = isset($data['share_id']) ? $data['share_id'] : null;
+        $this->container['shareId'] = isset($data['shareId']) ? $data['shareId'] : null;
         $this->container['type'] = isset($data['type']) ? $data['type'] : null;
         $this->container['hash'] = isset($data['hash']) ? $data['hash'] : null;
         $this->container['email'] = isset($data['email']) ? $data['email'] : null;
@@ -284,25 +284,25 @@ self::TYPE_DIRECT,        ];
     }
 
     /**
-     * Gets share_id
+     * Gets shareId
      *
      * @return string
      */
     public function getShareId()
     {
-        return $this->container['share_id'];
+        return $this->container['shareId'];
     }
 
     /**
-     * Sets share_id
+     * Sets shareId
      *
-     * @param string $share_id ID of the share that the recipoient belongs to.
+     * @param string $shareId ID of the share that the recipoient belongs to.
      *
      * @return $this
      */
-    public function setShareId($share_id)
+    public function setShareId($shareId)
     {
-        $this->container['share_id'] = $share_id;
+        $this->container['shareId'] = $shareId;
 
         return $this;
     }

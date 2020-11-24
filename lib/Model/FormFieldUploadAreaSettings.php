@@ -57,7 +57,7 @@ class FormFieldUploadAreaSettings implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'file_types' => 'string'    ];
+        'fileTypes' => 'string'    ];
 
     /**
       * Array of property to format mappings. Used for (de)serialization
@@ -65,7 +65,7 @@ class FormFieldUploadAreaSettings implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'file_types' => null    ];
+        'fileTypes' => null    ];
 
     /**
      * Array of property to type mappings. Used for (de)serialization
@@ -94,7 +94,7 @@ class FormFieldUploadAreaSettings implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'file_types' => 'fileTypes'    ];
+        'fileTypes' => 'fileTypes'    ];
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
@@ -102,7 +102,7 @@ class FormFieldUploadAreaSettings implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'file_types' => 'setFileTypes'    ];
+        'fileTypes' => 'setFileTypes'    ];
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
@@ -110,7 +110,7 @@ class FormFieldUploadAreaSettings implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'file_types' => 'getFileTypes'    ];
+        'fileTypes' => 'getFileTypes'    ];
 
     /**
      * Array of attributes where the key is the local name,
@@ -170,7 +170,7 @@ class FormFieldUploadAreaSettings implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['file_types'] = isset($data['file_types']) ? $data['file_types'] : null;
+        $this->container['fileTypes'] = isset($data['fileTypes']) ? $data['fileTypes'] : null;
     }
 
     /**
@@ -198,25 +198,25 @@ class FormFieldUploadAreaSettings implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets file_types
+     * Gets fileTypes
      *
      * @return string
      */
     public function getFileTypes()
     {
-        return $this->container['file_types'];
+        return $this->container['fileTypes'];
     }
 
     /**
-     * Sets file_types
+     * Sets fileTypes
      *
-     * @param string $file_types File types that can be uploaded. Comma-delimited string of MIME file types.
+     * @param string $fileTypes File types that can be uploaded. Comma-delimited string of MIME file types.
      *
      * @return $this
      */
-    public function setFileTypes($file_types)
+    public function setFileTypes($fileTypes)
     {
-        $this->container['file_types'] = $file_types;
+        $this->container['fileTypes'] = $fileTypes;
 
         return $this;
     }

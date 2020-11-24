@@ -66,7 +66,7 @@ class NotificationRelationshipsResourceData implements ModelInterface, ArrayAcce
       */
     protected static $swaggerFormats = [
         'type' => null,
-'id' => 'int32'    ];
+'id' => 'int64'    ];
 
     /**
      * Array of property to type mappings. Used for (de)serialization

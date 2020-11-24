@@ -91,17 +91,17 @@ class AccountApi
      *
      * Get account settings
      *
-     * @param  string $ev_api_key API Key required for the request (required)
-     * @param  string $ev_access_token Access Token for the request (required)
+     * @param  string $evApiKey API Key required for the request (required)
+     * @param  string $evAccessToken Access Token for the request (required)
      * @param  string $include Related records to include in the response. Valid option is **masterUser** (optional)
      *
      * @throws \ExaVault\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \ExaVault\Model\AccountResponse
      */
-    public function getAccount($ev_api_key, $ev_access_token, $include = null)
+    public function getAccount($evApiKey, $evAccessToken, $include = null)
     {
-        list($response) = $this->getAccountWithHttpInfo($ev_api_key, $ev_access_token, $include);
+        list($response) = $this->getAccountWithHttpInfo($evApiKey, $evAccessToken, $include);
         return $response;
     }
 
@@ -110,18 +110,18 @@ class AccountApi
      *
      * Get account settings
      *
-     * @param  string $ev_api_key API Key required for the request (required)
-     * @param  string $ev_access_token Access Token for the request (required)
+     * @param  string $evApiKey API Key required for the request (required)
+     * @param  string $evAccessToken Access Token for the request (required)
      * @param  string $include Related records to include in the response. Valid option is **masterUser** (optional)
      *
      * @throws \ExaVault\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \ExaVault\Model\AccountResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getAccountWithHttpInfo($ev_api_key, $ev_access_token, $include = null)
+    public function getAccountWithHttpInfo($evApiKey, $evAccessToken, $include = null)
     {
         $returnType = '\ExaVault\Model\AccountResponse';
-        $request = $this->getAccountRequest($ev_api_key, $ev_access_token, $include);
+        $request = $this->getAccountRequest($evApiKey, $evAccessToken, $include);
 
         try {
             $options = $this->createHttpClientOption();
@@ -187,16 +187,16 @@ class AccountApi
      *
      * Get account settings
      *
-     * @param  string $ev_api_key API Key required for the request (required)
-     * @param  string $ev_access_token Access Token for the request (required)
+     * @param  string $evApiKey API Key required for the request (required)
+     * @param  string $evAccessToken Access Token for the request (required)
      * @param  string $include Related records to include in the response. Valid option is **masterUser** (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getAccountAsync($ev_api_key, $ev_access_token, $include = null)
+    public function getAccountAsync($evApiKey, $evAccessToken, $include = null)
     {
-        return $this->getAccountAsyncWithHttpInfo($ev_api_key, $ev_access_token, $include)
+        return $this->getAccountAsyncWithHttpInfo($evApiKey, $evAccessToken, $include)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -209,17 +209,17 @@ class AccountApi
      *
      * Get account settings
      *
-     * @param  string $ev_api_key API Key required for the request (required)
-     * @param  string $ev_access_token Access Token for the request (required)
+     * @param  string $evApiKey API Key required for the request (required)
+     * @param  string $evAccessToken Access Token for the request (required)
      * @param  string $include Related records to include in the response. Valid option is **masterUser** (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getAccountAsyncWithHttpInfo($ev_api_key, $ev_access_token, $include = null)
+    public function getAccountAsyncWithHttpInfo($evApiKey, $evAccessToken, $include = null)
     {
         $returnType = '\ExaVault\Model\AccountResponse';
-        $request = $this->getAccountRequest($ev_api_key, $ev_access_token, $include);
+        $request = $this->getAccountRequest($evApiKey, $evAccessToken, $include);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -261,25 +261,25 @@ class AccountApi
     /**
      * Create request for operation 'getAccount'
      *
-     * @param  string $ev_api_key API Key required for the request (required)
-     * @param  string $ev_access_token Access Token for the request (required)
+     * @param  string $evApiKey API Key required for the request (required)
+     * @param  string $evAccessToken Access Token for the request (required)
      * @param  string $include Related records to include in the response. Valid option is **masterUser** (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function getAccountRequest($ev_api_key, $ev_access_token, $include = null)
+    protected function getAccountRequest($evApiKey, $evAccessToken, $include = null)
     {
-        // verify the required parameter 'ev_api_key' is set
-        if ($ev_api_key === null || (is_array($ev_api_key) && count($ev_api_key) === 0)) {
+        // verify the required parameter 'evApiKey' is set
+        if ($evApiKey === null || (is_array($evApiKey) && count($evApiKey) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $ev_api_key when calling getAccount'
+                'Missing the required parameter $evApiKey when calling getAccount'
             );
         }
-        // verify the required parameter 'ev_access_token' is set
-        if ($ev_access_token === null || (is_array($ev_access_token) && count($ev_access_token) === 0)) {
+        // verify the required parameter 'evAccessToken' is set
+        if ($evAccessToken === null || (is_array($evAccessToken) && count($evAccessToken) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $ev_access_token when calling getAccount'
+                'Missing the required parameter $evAccessToken when calling getAccount'
             );
         }
 
@@ -295,12 +295,12 @@ class AccountApi
             $queryParams['include'] = ObjectSerializer::toQueryValue($include, null);
         }
         // header params
-        if ($ev_api_key !== null) {
-            $headerParams['ev-api-key'] = ObjectSerializer::toHeaderValue($ev_api_key);
+        if ($evApiKey !== null) {
+            $headerParams['ev-api-key'] = ObjectSerializer::toHeaderValue($evApiKey);
         }
         // header params
-        if ($ev_access_token !== null) {
-            $headerParams['ev-access-token'] = ObjectSerializer::toHeaderValue($ev_access_token);
+        if ($evAccessToken !== null) {
+            $headerParams['ev-access-token'] = ObjectSerializer::toHeaderValue($evAccessToken);
         }
 
 
@@ -373,17 +373,17 @@ class AccountApi
      *
      * Update account settings
      *
-     * @param  string $ev_api_key API Key required to make the API call. (required)
-     * @param  string $ev_access_token Access token required to make the API call. (required)
-     * @param  \ExaVault\Model\UpdateAccountBody $body Update Account Settings (optional)
+     * @param  string $evApiKey API Key required to make the API call. (required)
+     * @param  string $evAccessToken Access token required to make the API call. (required)
+     * @param  \ExaVault\Model\UpdateAccountRequestBody $body Update Account Settings (optional)
      *
      * @throws \ExaVault\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \ExaVault\Model\AccountResponse
      */
-    public function updateAccount($ev_api_key, $ev_access_token, $body = null)
+    public function updateAccount($evApiKey, $evAccessToken, $body = null)
     {
-        list($response) = $this->updateAccountWithHttpInfo($ev_api_key, $ev_access_token, $body);
+        list($response) = $this->updateAccountWithHttpInfo($evApiKey, $evAccessToken, $body);
         return $response;
     }
 
@@ -392,18 +392,18 @@ class AccountApi
      *
      * Update account settings
      *
-     * @param  string $ev_api_key API Key required to make the API call. (required)
-     * @param  string $ev_access_token Access token required to make the API call. (required)
-     * @param  \ExaVault\Model\UpdateAccountBody $body Update Account Settings (optional)
+     * @param  string $evApiKey API Key required to make the API call. (required)
+     * @param  string $evAccessToken Access token required to make the API call. (required)
+     * @param  \ExaVault\Model\UpdateAccountRequestBody $body Update Account Settings (optional)
      *
      * @throws \ExaVault\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \ExaVault\Model\AccountResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function updateAccountWithHttpInfo($ev_api_key, $ev_access_token, $body = null)
+    public function updateAccountWithHttpInfo($evApiKey, $evAccessToken, $body = null)
     {
         $returnType = '\ExaVault\Model\AccountResponse';
-        $request = $this->updateAccountRequest($ev_api_key, $ev_access_token, $body);
+        $request = $this->updateAccountRequest($evApiKey, $evAccessToken, $body);
 
         try {
             $options = $this->createHttpClientOption();
@@ -469,16 +469,16 @@ class AccountApi
      *
      * Update account settings
      *
-     * @param  string $ev_api_key API Key required to make the API call. (required)
-     * @param  string $ev_access_token Access token required to make the API call. (required)
-     * @param  \ExaVault\Model\UpdateAccountBody $body Update Account Settings (optional)
+     * @param  string $evApiKey API Key required to make the API call. (required)
+     * @param  string $evAccessToken Access token required to make the API call. (required)
+     * @param  \ExaVault\Model\UpdateAccountRequestBody $body Update Account Settings (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateAccountAsync($ev_api_key, $ev_access_token, $body = null)
+    public function updateAccountAsync($evApiKey, $evAccessToken, $body = null)
     {
-        return $this->updateAccountAsyncWithHttpInfo($ev_api_key, $ev_access_token, $body)
+        return $this->updateAccountAsyncWithHttpInfo($evApiKey, $evAccessToken, $body)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -491,17 +491,17 @@ class AccountApi
      *
      * Update account settings
      *
-     * @param  string $ev_api_key API Key required to make the API call. (required)
-     * @param  string $ev_access_token Access token required to make the API call. (required)
-     * @param  \ExaVault\Model\UpdateAccountBody $body Update Account Settings (optional)
+     * @param  string $evApiKey API Key required to make the API call. (required)
+     * @param  string $evAccessToken Access token required to make the API call. (required)
+     * @param  \ExaVault\Model\UpdateAccountRequestBody $body Update Account Settings (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateAccountAsyncWithHttpInfo($ev_api_key, $ev_access_token, $body = null)
+    public function updateAccountAsyncWithHttpInfo($evApiKey, $evAccessToken, $body = null)
     {
         $returnType = '\ExaVault\Model\AccountResponse';
-        $request = $this->updateAccountRequest($ev_api_key, $ev_access_token, $body);
+        $request = $this->updateAccountRequest($evApiKey, $evAccessToken, $body);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -543,25 +543,25 @@ class AccountApi
     /**
      * Create request for operation 'updateAccount'
      *
-     * @param  string $ev_api_key API Key required to make the API call. (required)
-     * @param  string $ev_access_token Access token required to make the API call. (required)
-     * @param  \ExaVault\Model\UpdateAccountBody $body Update Account Settings (optional)
+     * @param  string $evApiKey API Key required to make the API call. (required)
+     * @param  string $evAccessToken Access token required to make the API call. (required)
+     * @param  \ExaVault\Model\UpdateAccountRequestBody $body Update Account Settings (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function updateAccountRequest($ev_api_key, $ev_access_token, $body = null)
+    protected function updateAccountRequest($evApiKey, $evAccessToken, $body = null)
     {
-        // verify the required parameter 'ev_api_key' is set
-        if ($ev_api_key === null || (is_array($ev_api_key) && count($ev_api_key) === 0)) {
+        // verify the required parameter 'evApiKey' is set
+        if ($evApiKey === null || (is_array($evApiKey) && count($evApiKey) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $ev_api_key when calling updateAccount'
+                'Missing the required parameter $evApiKey when calling updateAccount'
             );
         }
-        // verify the required parameter 'ev_access_token' is set
-        if ($ev_access_token === null || (is_array($ev_access_token) && count($ev_access_token) === 0)) {
+        // verify the required parameter 'evAccessToken' is set
+        if ($evAccessToken === null || (is_array($evAccessToken) && count($evAccessToken) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $ev_access_token when calling updateAccount'
+                'Missing the required parameter $evAccessToken when calling updateAccount'
             );
         }
 
@@ -573,12 +573,12 @@ class AccountApi
         $multipart = false;
 
         // header params
-        if ($ev_api_key !== null) {
-            $headerParams['ev-api-key'] = ObjectSerializer::toHeaderValue($ev_api_key);
+        if ($evApiKey !== null) {
+            $headerParams['ev-api-key'] = ObjectSerializer::toHeaderValue($evApiKey);
         }
         // header params
-        if ($ev_access_token !== null) {
-            $headerParams['ev-access-token'] = ObjectSerializer::toHeaderValue($ev_access_token);
+        if ($evAccessToken !== null) {
+            $headerParams['ev-access-token'] = ObjectSerializer::toHeaderValue($evAccessToken);
         }
 
 

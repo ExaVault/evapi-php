@@ -56,7 +56,7 @@ class MasterUser implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'master_user' => '\ExaVault\Model\MasterUserMasterUser'    ];
+        'masterUser' => '\ExaVault\Model\MasterUserMasterUser'    ];
 
     /**
       * Array of property to format mappings. Used for (de)serialization
@@ -64,7 +64,7 @@ class MasterUser implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'master_user' => null    ];
+        'masterUser' => null    ];
 
     /**
      * Array of property to type mappings. Used for (de)serialization
@@ -93,7 +93,7 @@ class MasterUser implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'master_user' => 'masterUser'    ];
+        'masterUser' => 'masterUser'    ];
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
@@ -101,7 +101,7 @@ class MasterUser implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'master_user' => 'setMasterUser'    ];
+        'masterUser' => 'setMasterUser'    ];
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
@@ -109,7 +109,7 @@ class MasterUser implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'master_user' => 'getMasterUser'    ];
+        'masterUser' => 'getMasterUser'    ];
 
     /**
      * Array of attributes where the key is the local name,
@@ -169,7 +169,7 @@ class MasterUser implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['master_user'] = isset($data['master_user']) ? $data['master_user'] : null;
+        $this->container['masterUser'] = isset($data['masterUser']) ? $data['masterUser'] : null;
     }
 
     /**
@@ -197,25 +197,25 @@ class MasterUser implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets master_user
+     * Gets masterUser
      *
      * @return \ExaVault\Model\MasterUserMasterUser
      */
     public function getMasterUser()
     {
-        return $this->container['master_user'];
+        return $this->container['masterUser'];
     }
 
     /**
-     * Sets master_user
+     * Sets masterUser
      *
-     * @param \ExaVault\Model\MasterUserMasterUser $master_user master_user
+     * @param \ExaVault\Model\MasterUserMasterUser $masterUser masterUser
      *
      * @return $this
      */
-    public function setMasterUser($master_user)
+    public function setMasterUser($masterUser)
     {
-        $this->container['master_user'] = $master_user;
+        $this->container['masterUser'] = $masterUser;
 
         return $this;
     }

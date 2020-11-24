@@ -91,17 +91,17 @@ class EmailListsApi
      *
      * Create new email list
      *
-     * @param  string $ev_api_key API Key required to make the API call. (required)
-     * @param  string $ev_access_token Access token required to make the API call. (required)
-     * @param  \ExaVault\Model\Body $body body (optional)
+     * @param  string $evApiKey API Key required to make the API call. (required)
+     * @param  string $evAccessToken Access token required to make the API call. (required)
+     * @param  \ExaVault\Model\AddEmailListRequestBody $body body (optional)
      *
      * @throws \ExaVault\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \ExaVault\Model\EmailListResponse
      */
-    public function addEmailList($ev_api_key, $ev_access_token, $body = null)
+    public function addEmailList($evApiKey, $evAccessToken, $body = null)
     {
-        list($response) = $this->addEmailListWithHttpInfo($ev_api_key, $ev_access_token, $body);
+        list($response) = $this->addEmailListWithHttpInfo($evApiKey, $evAccessToken, $body);
         return $response;
     }
 
@@ -110,18 +110,18 @@ class EmailListsApi
      *
      * Create new email list
      *
-     * @param  string $ev_api_key API Key required to make the API call. (required)
-     * @param  string $ev_access_token Access token required to make the API call. (required)
-     * @param  \ExaVault\Model\Body $body (optional)
+     * @param  string $evApiKey API Key required to make the API call. (required)
+     * @param  string $evAccessToken Access token required to make the API call. (required)
+     * @param  \ExaVault\Model\AddEmailListRequestBody $body (optional)
      *
      * @throws \ExaVault\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \ExaVault\Model\EmailListResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function addEmailListWithHttpInfo($ev_api_key, $ev_access_token, $body = null)
+    public function addEmailListWithHttpInfo($evApiKey, $evAccessToken, $body = null)
     {
         $returnType = '\ExaVault\Model\EmailListResponse';
-        $request = $this->addEmailListRequest($ev_api_key, $ev_access_token, $body);
+        $request = $this->addEmailListRequest($evApiKey, $evAccessToken, $body);
 
         try {
             $options = $this->createHttpClientOption();
@@ -187,16 +187,16 @@ class EmailListsApi
      *
      * Create new email list
      *
-     * @param  string $ev_api_key API Key required to make the API call. (required)
-     * @param  string $ev_access_token Access token required to make the API call. (required)
-     * @param  \ExaVault\Model\Body $body (optional)
+     * @param  string $evApiKey API Key required to make the API call. (required)
+     * @param  string $evAccessToken Access token required to make the API call. (required)
+     * @param  \ExaVault\Model\AddEmailListRequestBody $body (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function addEmailListAsync($ev_api_key, $ev_access_token, $body = null)
+    public function addEmailListAsync($evApiKey, $evAccessToken, $body = null)
     {
-        return $this->addEmailListAsyncWithHttpInfo($ev_api_key, $ev_access_token, $body)
+        return $this->addEmailListAsyncWithHttpInfo($evApiKey, $evAccessToken, $body)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -209,17 +209,17 @@ class EmailListsApi
      *
      * Create new email list
      *
-     * @param  string $ev_api_key API Key required to make the API call. (required)
-     * @param  string $ev_access_token Access token required to make the API call. (required)
-     * @param  \ExaVault\Model\Body $body (optional)
+     * @param  string $evApiKey API Key required to make the API call. (required)
+     * @param  string $evAccessToken Access token required to make the API call. (required)
+     * @param  \ExaVault\Model\AddEmailListRequestBody $body (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function addEmailListAsyncWithHttpInfo($ev_api_key, $ev_access_token, $body = null)
+    public function addEmailListAsyncWithHttpInfo($evApiKey, $evAccessToken, $body = null)
     {
         $returnType = '\ExaVault\Model\EmailListResponse';
-        $request = $this->addEmailListRequest($ev_api_key, $ev_access_token, $body);
+        $request = $this->addEmailListRequest($evApiKey, $evAccessToken, $body);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -261,25 +261,25 @@ class EmailListsApi
     /**
      * Create request for operation 'addEmailList'
      *
-     * @param  string $ev_api_key API Key required to make the API call. (required)
-     * @param  string $ev_access_token Access token required to make the API call. (required)
-     * @param  \ExaVault\Model\Body $body (optional)
+     * @param  string $evApiKey API Key required to make the API call. (required)
+     * @param  string $evAccessToken Access token required to make the API call. (required)
+     * @param  \ExaVault\Model\AddEmailListRequestBody $body (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function addEmailListRequest($ev_api_key, $ev_access_token, $body = null)
+    protected function addEmailListRequest($evApiKey, $evAccessToken, $body = null)
     {
-        // verify the required parameter 'ev_api_key' is set
-        if ($ev_api_key === null || (is_array($ev_api_key) && count($ev_api_key) === 0)) {
+        // verify the required parameter 'evApiKey' is set
+        if ($evApiKey === null || (is_array($evApiKey) && count($evApiKey) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $ev_api_key when calling addEmailList'
+                'Missing the required parameter $evApiKey when calling addEmailList'
             );
         }
-        // verify the required parameter 'ev_access_token' is set
-        if ($ev_access_token === null || (is_array($ev_access_token) && count($ev_access_token) === 0)) {
+        // verify the required parameter 'evAccessToken' is set
+        if ($evAccessToken === null || (is_array($evAccessToken) && count($evAccessToken) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $ev_access_token when calling addEmailList'
+                'Missing the required parameter $evAccessToken when calling addEmailList'
             );
         }
 
@@ -291,12 +291,12 @@ class EmailListsApi
         $multipart = false;
 
         // header params
-        if ($ev_api_key !== null) {
-            $headerParams['ev-api-key'] = ObjectSerializer::toHeaderValue($ev_api_key);
+        if ($evApiKey !== null) {
+            $headerParams['ev-api-key'] = ObjectSerializer::toHeaderValue($evApiKey);
         }
         // header params
-        if ($ev_access_token !== null) {
-            $headerParams['ev-access-token'] = ObjectSerializer::toHeaderValue($ev_access_token);
+        if ($evAccessToken !== null) {
+            $headerParams['ev-access-token'] = ObjectSerializer::toHeaderValue($evAccessToken);
         }
 
 
@@ -372,17 +372,17 @@ class EmailListsApi
      *
      * Delete an email group with given id
      *
-     * @param  string $ev_api_key API Key required to make the API call. (required)
-     * @param  string $ev_access_token Access token required to make the API call. (required)
+     * @param  string $evApiKey API Key required to make the API call. (required)
+     * @param  string $evAccessToken Access token required to make the API call. (required)
      * @param  int $id ID of the email list to delete (required)
      *
      * @throws \ExaVault\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \ExaVault\Model\EmptyResponse
      */
-    public function deleteEmailListById($ev_api_key, $ev_access_token, $id)
+    public function deleteEmailListById($evApiKey, $evAccessToken, $id)
     {
-        list($response) = $this->deleteEmailListByIdWithHttpInfo($ev_api_key, $ev_access_token, $id);
+        list($response) = $this->deleteEmailListByIdWithHttpInfo($evApiKey, $evAccessToken, $id);
         return $response;
     }
 
@@ -391,18 +391,18 @@ class EmailListsApi
      *
      * Delete an email group with given id
      *
-     * @param  string $ev_api_key API Key required to make the API call. (required)
-     * @param  string $ev_access_token Access token required to make the API call. (required)
+     * @param  string $evApiKey API Key required to make the API call. (required)
+     * @param  string $evAccessToken Access token required to make the API call. (required)
      * @param  int $id ID of the email list to delete (required)
      *
      * @throws \ExaVault\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \ExaVault\Model\EmptyResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function deleteEmailListByIdWithHttpInfo($ev_api_key, $ev_access_token, $id)
+    public function deleteEmailListByIdWithHttpInfo($evApiKey, $evAccessToken, $id)
     {
         $returnType = '\ExaVault\Model\EmptyResponse';
-        $request = $this->deleteEmailListByIdRequest($ev_api_key, $ev_access_token, $id);
+        $request = $this->deleteEmailListByIdRequest($evApiKey, $evAccessToken, $id);
 
         try {
             $options = $this->createHttpClientOption();
@@ -468,16 +468,16 @@ class EmailListsApi
      *
      * Delete an email group with given id
      *
-     * @param  string $ev_api_key API Key required to make the API call. (required)
-     * @param  string $ev_access_token Access token required to make the API call. (required)
+     * @param  string $evApiKey API Key required to make the API call. (required)
+     * @param  string $evAccessToken Access token required to make the API call. (required)
      * @param  int $id ID of the email list to delete (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteEmailListByIdAsync($ev_api_key, $ev_access_token, $id)
+    public function deleteEmailListByIdAsync($evApiKey, $evAccessToken, $id)
     {
-        return $this->deleteEmailListByIdAsyncWithHttpInfo($ev_api_key, $ev_access_token, $id)
+        return $this->deleteEmailListByIdAsyncWithHttpInfo($evApiKey, $evAccessToken, $id)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -490,17 +490,17 @@ class EmailListsApi
      *
      * Delete an email group with given id
      *
-     * @param  string $ev_api_key API Key required to make the API call. (required)
-     * @param  string $ev_access_token Access token required to make the API call. (required)
+     * @param  string $evApiKey API Key required to make the API call. (required)
+     * @param  string $evAccessToken Access token required to make the API call. (required)
      * @param  int $id ID of the email list to delete (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteEmailListByIdAsyncWithHttpInfo($ev_api_key, $ev_access_token, $id)
+    public function deleteEmailListByIdAsyncWithHttpInfo($evApiKey, $evAccessToken, $id)
     {
         $returnType = '\ExaVault\Model\EmptyResponse';
-        $request = $this->deleteEmailListByIdRequest($ev_api_key, $ev_access_token, $id);
+        $request = $this->deleteEmailListByIdRequest($evApiKey, $evAccessToken, $id);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -542,25 +542,25 @@ class EmailListsApi
     /**
      * Create request for operation 'deleteEmailListById'
      *
-     * @param  string $ev_api_key API Key required to make the API call. (required)
-     * @param  string $ev_access_token Access token required to make the API call. (required)
+     * @param  string $evApiKey API Key required to make the API call. (required)
+     * @param  string $evAccessToken Access token required to make the API call. (required)
      * @param  int $id ID of the email list to delete (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function deleteEmailListByIdRequest($ev_api_key, $ev_access_token, $id)
+    protected function deleteEmailListByIdRequest($evApiKey, $evAccessToken, $id)
     {
-        // verify the required parameter 'ev_api_key' is set
-        if ($ev_api_key === null || (is_array($ev_api_key) && count($ev_api_key) === 0)) {
+        // verify the required parameter 'evApiKey' is set
+        if ($evApiKey === null || (is_array($evApiKey) && count($evApiKey) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $ev_api_key when calling deleteEmailListById'
+                'Missing the required parameter $evApiKey when calling deleteEmailListById'
             );
         }
-        // verify the required parameter 'ev_access_token' is set
-        if ($ev_access_token === null || (is_array($ev_access_token) && count($ev_access_token) === 0)) {
+        // verify the required parameter 'evAccessToken' is set
+        if ($evAccessToken === null || (is_array($evAccessToken) && count($evAccessToken) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $ev_access_token when calling deleteEmailListById'
+                'Missing the required parameter $evAccessToken when calling deleteEmailListById'
             );
         }
         // verify the required parameter 'id' is set
@@ -578,12 +578,12 @@ class EmailListsApi
         $multipart = false;
 
         // header params
-        if ($ev_api_key !== null) {
-            $headerParams['ev-api-key'] = ObjectSerializer::toHeaderValue($ev_api_key);
+        if ($evApiKey !== null) {
+            $headerParams['ev-api-key'] = ObjectSerializer::toHeaderValue($evApiKey);
         }
         // header params
-        if ($ev_access_token !== null) {
-            $headerParams['ev-access-token'] = ObjectSerializer::toHeaderValue($ev_access_token);
+        if ($evAccessToken !== null) {
+            $headerParams['ev-access-token'] = ObjectSerializer::toHeaderValue($evAccessToken);
         }
 
         // path params
@@ -664,8 +664,8 @@ class EmailListsApi
      *
      * Get individual email group
      *
-     * @param  string $ev_api_key API Key required to make the API call. (required)
-     * @param  string $ev_access_token Access token required to make the API call. (required)
+     * @param  string $evApiKey API Key required to make the API call. (required)
+     * @param  string $evAccessToken Access token required to make the API call. (required)
      * @param  int $id ID of the email list to return. (required)
      * @param  string $include Related record types to include in the response. Valid option is &#x60;ownerUser&#x60; (optional)
      *
@@ -673,9 +673,9 @@ class EmailListsApi
      * @throws \InvalidArgumentException
      * @return \ExaVault\Model\EmailListResponse
      */
-    public function getEmailListById($ev_api_key, $ev_access_token, $id, $include = null)
+    public function getEmailListById($evApiKey, $evAccessToken, $id, $include = null)
     {
-        list($response) = $this->getEmailListByIdWithHttpInfo($ev_api_key, $ev_access_token, $id, $include);
+        list($response) = $this->getEmailListByIdWithHttpInfo($evApiKey, $evAccessToken, $id, $include);
         return $response;
     }
 
@@ -684,8 +684,8 @@ class EmailListsApi
      *
      * Get individual email group
      *
-     * @param  string $ev_api_key API Key required to make the API call. (required)
-     * @param  string $ev_access_token Access token required to make the API call. (required)
+     * @param  string $evApiKey API Key required to make the API call. (required)
+     * @param  string $evAccessToken Access token required to make the API call. (required)
      * @param  int $id ID of the email list to return. (required)
      * @param  string $include Related record types to include in the response. Valid option is &#x60;ownerUser&#x60; (optional)
      *
@@ -693,10 +693,10 @@ class EmailListsApi
      * @throws \InvalidArgumentException
      * @return array of \ExaVault\Model\EmailListResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getEmailListByIdWithHttpInfo($ev_api_key, $ev_access_token, $id, $include = null)
+    public function getEmailListByIdWithHttpInfo($evApiKey, $evAccessToken, $id, $include = null)
     {
         $returnType = '\ExaVault\Model\EmailListResponse';
-        $request = $this->getEmailListByIdRequest($ev_api_key, $ev_access_token, $id, $include);
+        $request = $this->getEmailListByIdRequest($evApiKey, $evAccessToken, $id, $include);
 
         try {
             $options = $this->createHttpClientOption();
@@ -762,17 +762,17 @@ class EmailListsApi
      *
      * Get individual email group
      *
-     * @param  string $ev_api_key API Key required to make the API call. (required)
-     * @param  string $ev_access_token Access token required to make the API call. (required)
+     * @param  string $evApiKey API Key required to make the API call. (required)
+     * @param  string $evAccessToken Access token required to make the API call. (required)
      * @param  int $id ID of the email list to return. (required)
      * @param  string $include Related record types to include in the response. Valid option is &#x60;ownerUser&#x60; (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getEmailListByIdAsync($ev_api_key, $ev_access_token, $id, $include = null)
+    public function getEmailListByIdAsync($evApiKey, $evAccessToken, $id, $include = null)
     {
-        return $this->getEmailListByIdAsyncWithHttpInfo($ev_api_key, $ev_access_token, $id, $include)
+        return $this->getEmailListByIdAsyncWithHttpInfo($evApiKey, $evAccessToken, $id, $include)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -785,18 +785,18 @@ class EmailListsApi
      *
      * Get individual email group
      *
-     * @param  string $ev_api_key API Key required to make the API call. (required)
-     * @param  string $ev_access_token Access token required to make the API call. (required)
+     * @param  string $evApiKey API Key required to make the API call. (required)
+     * @param  string $evAccessToken Access token required to make the API call. (required)
      * @param  int $id ID of the email list to return. (required)
      * @param  string $include Related record types to include in the response. Valid option is &#x60;ownerUser&#x60; (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getEmailListByIdAsyncWithHttpInfo($ev_api_key, $ev_access_token, $id, $include = null)
+    public function getEmailListByIdAsyncWithHttpInfo($evApiKey, $evAccessToken, $id, $include = null)
     {
         $returnType = '\ExaVault\Model\EmailListResponse';
-        $request = $this->getEmailListByIdRequest($ev_api_key, $ev_access_token, $id, $include);
+        $request = $this->getEmailListByIdRequest($evApiKey, $evAccessToken, $id, $include);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -838,26 +838,26 @@ class EmailListsApi
     /**
      * Create request for operation 'getEmailListById'
      *
-     * @param  string $ev_api_key API Key required to make the API call. (required)
-     * @param  string $ev_access_token Access token required to make the API call. (required)
+     * @param  string $evApiKey API Key required to make the API call. (required)
+     * @param  string $evAccessToken Access token required to make the API call. (required)
      * @param  int $id ID of the email list to return. (required)
      * @param  string $include Related record types to include in the response. Valid option is &#x60;ownerUser&#x60; (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function getEmailListByIdRequest($ev_api_key, $ev_access_token, $id, $include = null)
+    protected function getEmailListByIdRequest($evApiKey, $evAccessToken, $id, $include = null)
     {
-        // verify the required parameter 'ev_api_key' is set
-        if ($ev_api_key === null || (is_array($ev_api_key) && count($ev_api_key) === 0)) {
+        // verify the required parameter 'evApiKey' is set
+        if ($evApiKey === null || (is_array($evApiKey) && count($evApiKey) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $ev_api_key when calling getEmailListById'
+                'Missing the required parameter $evApiKey when calling getEmailListById'
             );
         }
-        // verify the required parameter 'ev_access_token' is set
-        if ($ev_access_token === null || (is_array($ev_access_token) && count($ev_access_token) === 0)) {
+        // verify the required parameter 'evAccessToken' is set
+        if ($evAccessToken === null || (is_array($evAccessToken) && count($evAccessToken) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $ev_access_token when calling getEmailListById'
+                'Missing the required parameter $evAccessToken when calling getEmailListById'
             );
         }
         // verify the required parameter 'id' is set
@@ -879,12 +879,12 @@ class EmailListsApi
             $queryParams['include'] = ObjectSerializer::toQueryValue($include, null);
         }
         // header params
-        if ($ev_api_key !== null) {
-            $headerParams['ev-api-key'] = ObjectSerializer::toHeaderValue($ev_api_key);
+        if ($evApiKey !== null) {
+            $headerParams['ev-api-key'] = ObjectSerializer::toHeaderValue($evApiKey);
         }
         // header params
-        if ($ev_access_token !== null) {
-            $headerParams['ev-access-token'] = ObjectSerializer::toHeaderValue($ev_access_token);
+        if ($evAccessToken !== null) {
+            $headerParams['ev-access-token'] = ObjectSerializer::toHeaderValue($evAccessToken);
         }
 
         // path params
@@ -965,17 +965,17 @@ class EmailListsApi
      *
      * Get all email groups
      *
-     * @param  string $ev_api_key API Key required to make the API call. (required)
-     * @param  string $ev_access_token Access token required to make the API call. (required)
+     * @param  string $evApiKey API Key required to make the API call. (required)
+     * @param  string $evAccessToken Access token required to make the API call. (required)
      * @param  string $include Related record types to include in the response. Valid option is &#x60;ownerUser&#x60; (optional)
      *
      * @throws \ExaVault\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \ExaVault\Model\EmailListCollectionResponse
      */
-    public function getEmailLists($ev_api_key, $ev_access_token, $include = null)
+    public function getEmailLists($evApiKey, $evAccessToken, $include = null)
     {
-        list($response) = $this->getEmailListsWithHttpInfo($ev_api_key, $ev_access_token, $include);
+        list($response) = $this->getEmailListsWithHttpInfo($evApiKey, $evAccessToken, $include);
         return $response;
     }
 
@@ -984,18 +984,18 @@ class EmailListsApi
      *
      * Get all email groups
      *
-     * @param  string $ev_api_key API Key required to make the API call. (required)
-     * @param  string $ev_access_token Access token required to make the API call. (required)
+     * @param  string $evApiKey API Key required to make the API call. (required)
+     * @param  string $evAccessToken Access token required to make the API call. (required)
      * @param  string $include Related record types to include in the response. Valid option is &#x60;ownerUser&#x60; (optional)
      *
      * @throws \ExaVault\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \ExaVault\Model\EmailListCollectionResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getEmailListsWithHttpInfo($ev_api_key, $ev_access_token, $include = null)
+    public function getEmailListsWithHttpInfo($evApiKey, $evAccessToken, $include = null)
     {
         $returnType = '\ExaVault\Model\EmailListCollectionResponse';
-        $request = $this->getEmailListsRequest($ev_api_key, $ev_access_token, $include);
+        $request = $this->getEmailListsRequest($evApiKey, $evAccessToken, $include);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1061,16 +1061,16 @@ class EmailListsApi
      *
      * Get all email groups
      *
-     * @param  string $ev_api_key API Key required to make the API call. (required)
-     * @param  string $ev_access_token Access token required to make the API call. (required)
+     * @param  string $evApiKey API Key required to make the API call. (required)
+     * @param  string $evAccessToken Access token required to make the API call. (required)
      * @param  string $include Related record types to include in the response. Valid option is &#x60;ownerUser&#x60; (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getEmailListsAsync($ev_api_key, $ev_access_token, $include = null)
+    public function getEmailListsAsync($evApiKey, $evAccessToken, $include = null)
     {
-        return $this->getEmailListsAsyncWithHttpInfo($ev_api_key, $ev_access_token, $include)
+        return $this->getEmailListsAsyncWithHttpInfo($evApiKey, $evAccessToken, $include)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1083,17 +1083,17 @@ class EmailListsApi
      *
      * Get all email groups
      *
-     * @param  string $ev_api_key API Key required to make the API call. (required)
-     * @param  string $ev_access_token Access token required to make the API call. (required)
+     * @param  string $evApiKey API Key required to make the API call. (required)
+     * @param  string $evAccessToken Access token required to make the API call. (required)
      * @param  string $include Related record types to include in the response. Valid option is &#x60;ownerUser&#x60; (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getEmailListsAsyncWithHttpInfo($ev_api_key, $ev_access_token, $include = null)
+    public function getEmailListsAsyncWithHttpInfo($evApiKey, $evAccessToken, $include = null)
     {
         $returnType = '\ExaVault\Model\EmailListCollectionResponse';
-        $request = $this->getEmailListsRequest($ev_api_key, $ev_access_token, $include);
+        $request = $this->getEmailListsRequest($evApiKey, $evAccessToken, $include);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1135,25 +1135,25 @@ class EmailListsApi
     /**
      * Create request for operation 'getEmailLists'
      *
-     * @param  string $ev_api_key API Key required to make the API call. (required)
-     * @param  string $ev_access_token Access token required to make the API call. (required)
+     * @param  string $evApiKey API Key required to make the API call. (required)
+     * @param  string $evAccessToken Access token required to make the API call. (required)
      * @param  string $include Related record types to include in the response. Valid option is &#x60;ownerUser&#x60; (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function getEmailListsRequest($ev_api_key, $ev_access_token, $include = null)
+    protected function getEmailListsRequest($evApiKey, $evAccessToken, $include = null)
     {
-        // verify the required parameter 'ev_api_key' is set
-        if ($ev_api_key === null || (is_array($ev_api_key) && count($ev_api_key) === 0)) {
+        // verify the required parameter 'evApiKey' is set
+        if ($evApiKey === null || (is_array($evApiKey) && count($evApiKey) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $ev_api_key when calling getEmailLists'
+                'Missing the required parameter $evApiKey when calling getEmailLists'
             );
         }
-        // verify the required parameter 'ev_access_token' is set
-        if ($ev_access_token === null || (is_array($ev_access_token) && count($ev_access_token) === 0)) {
+        // verify the required parameter 'evAccessToken' is set
+        if ($evAccessToken === null || (is_array($evAccessToken) && count($evAccessToken) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $ev_access_token when calling getEmailLists'
+                'Missing the required parameter $evAccessToken when calling getEmailLists'
             );
         }
 
@@ -1169,12 +1169,12 @@ class EmailListsApi
             $queryParams['include'] = ObjectSerializer::toQueryValue($include, null);
         }
         // header params
-        if ($ev_api_key !== null) {
-            $headerParams['ev-api-key'] = ObjectSerializer::toHeaderValue($ev_api_key);
+        if ($evApiKey !== null) {
+            $headerParams['ev-api-key'] = ObjectSerializer::toHeaderValue($evApiKey);
         }
         // header params
-        if ($ev_access_token !== null) {
-            $headerParams['ev-access-token'] = ObjectSerializer::toHeaderValue($ev_access_token);
+        if ($evAccessToken !== null) {
+            $headerParams['ev-access-token'] = ObjectSerializer::toHeaderValue($evAccessToken);
         }
 
 
@@ -1247,18 +1247,18 @@ class EmailListsApi
      *
      * Update an email group
      *
-     * @param  string $ev_api_key API Key required to make the API call. (required)
-     * @param  string $ev_access_token Access token required to make the API call. (required)
+     * @param  string $evApiKey API Key required to make the API call. (required)
+     * @param  string $evAccessToken Access token required to make the API call. (required)
      * @param  int $id ID of the email list to update. (required)
-     * @param  \ExaVault\Model\Body1 $body body (optional)
+     * @param  \ExaVault\Model\UpdateEmailListRequestBody $body body (optional)
      *
      * @throws \ExaVault\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \ExaVault\Model\EmailListResponse
      */
-    public function updateEmailListById($ev_api_key, $ev_access_token, $id, $body = null)
+    public function updateEmailListById($evApiKey, $evAccessToken, $id, $body = null)
     {
-        list($response) = $this->updateEmailListByIdWithHttpInfo($ev_api_key, $ev_access_token, $id, $body);
+        list($response) = $this->updateEmailListByIdWithHttpInfo($evApiKey, $evAccessToken, $id, $body);
         return $response;
     }
 
@@ -1267,19 +1267,19 @@ class EmailListsApi
      *
      * Update an email group
      *
-     * @param  string $ev_api_key API Key required to make the API call. (required)
-     * @param  string $ev_access_token Access token required to make the API call. (required)
+     * @param  string $evApiKey API Key required to make the API call. (required)
+     * @param  string $evAccessToken Access token required to make the API call. (required)
      * @param  int $id ID of the email list to update. (required)
-     * @param  \ExaVault\Model\Body1 $body (optional)
+     * @param  \ExaVault\Model\UpdateEmailListRequestBody $body (optional)
      *
      * @throws \ExaVault\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \ExaVault\Model\EmailListResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function updateEmailListByIdWithHttpInfo($ev_api_key, $ev_access_token, $id, $body = null)
+    public function updateEmailListByIdWithHttpInfo($evApiKey, $evAccessToken, $id, $body = null)
     {
         $returnType = '\ExaVault\Model\EmailListResponse';
-        $request = $this->updateEmailListByIdRequest($ev_api_key, $ev_access_token, $id, $body);
+        $request = $this->updateEmailListByIdRequest($evApiKey, $evAccessToken, $id, $body);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1345,17 +1345,17 @@ class EmailListsApi
      *
      * Update an email group
      *
-     * @param  string $ev_api_key API Key required to make the API call. (required)
-     * @param  string $ev_access_token Access token required to make the API call. (required)
+     * @param  string $evApiKey API Key required to make the API call. (required)
+     * @param  string $evAccessToken Access token required to make the API call. (required)
      * @param  int $id ID of the email list to update. (required)
-     * @param  \ExaVault\Model\Body1 $body (optional)
+     * @param  \ExaVault\Model\UpdateEmailListRequestBody $body (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateEmailListByIdAsync($ev_api_key, $ev_access_token, $id, $body = null)
+    public function updateEmailListByIdAsync($evApiKey, $evAccessToken, $id, $body = null)
     {
-        return $this->updateEmailListByIdAsyncWithHttpInfo($ev_api_key, $ev_access_token, $id, $body)
+        return $this->updateEmailListByIdAsyncWithHttpInfo($evApiKey, $evAccessToken, $id, $body)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1368,18 +1368,18 @@ class EmailListsApi
      *
      * Update an email group
      *
-     * @param  string $ev_api_key API Key required to make the API call. (required)
-     * @param  string $ev_access_token Access token required to make the API call. (required)
+     * @param  string $evApiKey API Key required to make the API call. (required)
+     * @param  string $evAccessToken Access token required to make the API call. (required)
      * @param  int $id ID of the email list to update. (required)
-     * @param  \ExaVault\Model\Body1 $body (optional)
+     * @param  \ExaVault\Model\UpdateEmailListRequestBody $body (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateEmailListByIdAsyncWithHttpInfo($ev_api_key, $ev_access_token, $id, $body = null)
+    public function updateEmailListByIdAsyncWithHttpInfo($evApiKey, $evAccessToken, $id, $body = null)
     {
         $returnType = '\ExaVault\Model\EmailListResponse';
-        $request = $this->updateEmailListByIdRequest($ev_api_key, $ev_access_token, $id, $body);
+        $request = $this->updateEmailListByIdRequest($evApiKey, $evAccessToken, $id, $body);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1421,26 +1421,26 @@ class EmailListsApi
     /**
      * Create request for operation 'updateEmailListById'
      *
-     * @param  string $ev_api_key API Key required to make the API call. (required)
-     * @param  string $ev_access_token Access token required to make the API call. (required)
+     * @param  string $evApiKey API Key required to make the API call. (required)
+     * @param  string $evAccessToken Access token required to make the API call. (required)
      * @param  int $id ID of the email list to update. (required)
-     * @param  \ExaVault\Model\Body1 $body (optional)
+     * @param  \ExaVault\Model\UpdateEmailListRequestBody $body (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function updateEmailListByIdRequest($ev_api_key, $ev_access_token, $id, $body = null)
+    protected function updateEmailListByIdRequest($evApiKey, $evAccessToken, $id, $body = null)
     {
-        // verify the required parameter 'ev_api_key' is set
-        if ($ev_api_key === null || (is_array($ev_api_key) && count($ev_api_key) === 0)) {
+        // verify the required parameter 'evApiKey' is set
+        if ($evApiKey === null || (is_array($evApiKey) && count($evApiKey) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $ev_api_key when calling updateEmailListById'
+                'Missing the required parameter $evApiKey when calling updateEmailListById'
             );
         }
-        // verify the required parameter 'ev_access_token' is set
-        if ($ev_access_token === null || (is_array($ev_access_token) && count($ev_access_token) === 0)) {
+        // verify the required parameter 'evAccessToken' is set
+        if ($evAccessToken === null || (is_array($evAccessToken) && count($evAccessToken) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $ev_access_token when calling updateEmailListById'
+                'Missing the required parameter $evAccessToken when calling updateEmailListById'
             );
         }
         // verify the required parameter 'id' is set
@@ -1458,12 +1458,12 @@ class EmailListsApi
         $multipart = false;
 
         // header params
-        if ($ev_api_key !== null) {
-            $headerParams['ev-api-key'] = ObjectSerializer::toHeaderValue($ev_api_key);
+        if ($evApiKey !== null) {
+            $headerParams['ev-api-key'] = ObjectSerializer::toHeaderValue($evApiKey);
         }
         // header params
-        if ($ev_access_token !== null) {
-            $headerParams['ev-access-token'] = ObjectSerializer::toHeaderValue($ev_access_token);
+        if ($evAccessToken !== null) {
+            $headerParams['ev-access-token'] = ObjectSerializer::toHeaderValue($evAccessToken);
         }
 
         // path params

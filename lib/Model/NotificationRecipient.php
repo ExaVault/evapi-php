@@ -57,7 +57,7 @@ class NotificationRecipient implements ModelInterface, ArrayAccess
       */
     protected static $swaggerTypes = [
         'id' => 'int',
-'notification_id' => 'int',
+'notificationId' => 'int',
 'email' => 'string',
 'created' => '\DateTime',
 'modified' => '\DateTime'    ];
@@ -69,7 +69,7 @@ class NotificationRecipient implements ModelInterface, ArrayAccess
       */
     protected static $swaggerFormats = [
         'id' => 'int32',
-'notification_id' => null,
+'notificationId' => null,
 'email' => null,
 'created' => 'date-time',
 'modified' => 'date-time'    ];
@@ -102,7 +102,7 @@ class NotificationRecipient implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'id' => 'id',
-'notification_id' => 'notificationId',
+'notificationId' => 'notificationId',
 'email' => 'email',
 'created' => 'created',
 'modified' => 'modified'    ];
@@ -114,7 +114,7 @@ class NotificationRecipient implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'id' => 'setId',
-'notification_id' => 'setNotificationId',
+'notificationId' => 'setNotificationId',
 'email' => 'setEmail',
 'created' => 'setCreated',
 'modified' => 'setModified'    ];
@@ -126,7 +126,7 @@ class NotificationRecipient implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'id' => 'getId',
-'notification_id' => 'getNotificationId',
+'notificationId' => 'getNotificationId',
 'email' => 'getEmail',
 'created' => 'getCreated',
 'modified' => 'getModified'    ];
@@ -190,7 +190,7 @@ class NotificationRecipient implements ModelInterface, ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['id'] = isset($data['id']) ? $data['id'] : null;
-        $this->container['notification_id'] = isset($data['notification_id']) ? $data['notification_id'] : null;
+        $this->container['notificationId'] = isset($data['notificationId']) ? $data['notificationId'] : null;
         $this->container['email'] = isset($data['email']) ? $data['email'] : null;
         $this->container['created'] = isset($data['created']) ? $data['created'] : null;
         $this->container['modified'] = isset($data['modified']) ? $data['modified'] : null;
@@ -245,25 +245,25 @@ class NotificationRecipient implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets notification_id
+     * Gets notificationId
      *
      * @return int
      */
     public function getNotificationId()
     {
-        return $this->container['notification_id'];
+        return $this->container['notificationId'];
     }
 
     /**
-     * Sets notification_id
+     * Sets notificationId
      *
-     * @param int $notification_id ID of the notification that the recipient belongs to.
+     * @param int $notificationId ID of the notification that the recipient belongs to.
      *
      * @return $this
      */
-    public function setNotificationId($notification_id)
+    public function setNotificationId($notificationId)
     {
-        $this->container['notification_id'] = $notification_id;
+        $this->container['notificationId'] = $notificationId;
 
         return $this;
     }

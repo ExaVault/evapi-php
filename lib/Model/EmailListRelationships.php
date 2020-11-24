@@ -57,7 +57,7 @@ class EmailListRelationships implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'owner_user' => '\ExaVault\Model\EmailListOwnerUser'    ];
+        'ownerUser' => '\ExaVault\Model\EmailListOwnerUser'    ];
 
     /**
       * Array of property to format mappings. Used for (de)serialization
@@ -65,7 +65,7 @@ class EmailListRelationships implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'owner_user' => null    ];
+        'ownerUser' => null    ];
 
     /**
      * Array of property to type mappings. Used for (de)serialization
@@ -94,7 +94,7 @@ class EmailListRelationships implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'owner_user' => 'ownerUser'    ];
+        'ownerUser' => 'ownerUser'    ];
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
@@ -102,7 +102,7 @@ class EmailListRelationships implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'owner_user' => 'setOwnerUser'    ];
+        'ownerUser' => 'setOwnerUser'    ];
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
@@ -110,7 +110,7 @@ class EmailListRelationships implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'owner_user' => 'getOwnerUser'    ];
+        'ownerUser' => 'getOwnerUser'    ];
 
     /**
      * Array of attributes where the key is the local name,
@@ -170,7 +170,7 @@ class EmailListRelationships implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['owner_user'] = isset($data['owner_user']) ? $data['owner_user'] : null;
+        $this->container['ownerUser'] = isset($data['ownerUser']) ? $data['ownerUser'] : null;
     }
 
     /**
@@ -198,25 +198,25 @@ class EmailListRelationships implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets owner_user
+     * Gets ownerUser
      *
      * @return \ExaVault\Model\EmailListOwnerUser
      */
     public function getOwnerUser()
     {
-        return $this->container['owner_user'];
+        return $this->container['ownerUser'];
     }
 
     /**
-     * Sets owner_user
+     * Sets ownerUser
      *
-     * @param \ExaVault\Model\EmailListOwnerUser $owner_user owner_user
+     * @param \ExaVault\Model\EmailListOwnerUser $ownerUser ownerUser
      *
      * @return $this
      */
-    public function setOwnerUser($owner_user)
+    public function setOwnerUser($ownerUser)
     {
-        $this->container['owner_user'] = $owner_user;
+        $this->container['ownerUser'] = $ownerUser;
 
         return $this;
     }

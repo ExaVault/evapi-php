@@ -91,17 +91,17 @@ class SharesApi
      *
      * Creates a share
      *
-     * @param  string $ev_api_key API Key required to make the API call. (required)
-     * @param  string $ev_access_token Access token required to make the API call. (required)
-     * @param  \ExaVault\Model\Body16 $body body (optional)
+     * @param  string $evApiKey API Key required to make the API call. (required)
+     * @param  string $evAccessToken Access token required to make the API call. (required)
+     * @param  \ExaVault\Model\AddShareRequestBody $body body (optional)
      *
      * @throws \ExaVault\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \ExaVault\Model\ShareResponse
      */
-    public function addShare($ev_api_key, $ev_access_token, $body = null)
+    public function addShare($evApiKey, $evAccessToken, $body = null)
     {
-        list($response) = $this->addShareWithHttpInfo($ev_api_key, $ev_access_token, $body);
+        list($response) = $this->addShareWithHttpInfo($evApiKey, $evAccessToken, $body);
         return $response;
     }
 
@@ -110,18 +110,18 @@ class SharesApi
      *
      * Creates a share
      *
-     * @param  string $ev_api_key API Key required to make the API call. (required)
-     * @param  string $ev_access_token Access token required to make the API call. (required)
-     * @param  \ExaVault\Model\Body16 $body (optional)
+     * @param  string $evApiKey API Key required to make the API call. (required)
+     * @param  string $evAccessToken Access token required to make the API call. (required)
+     * @param  \ExaVault\Model\AddShareRequestBody $body (optional)
      *
      * @throws \ExaVault\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \ExaVault\Model\ShareResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function addShareWithHttpInfo($ev_api_key, $ev_access_token, $body = null)
+    public function addShareWithHttpInfo($evApiKey, $evAccessToken, $body = null)
     {
         $returnType = '\ExaVault\Model\ShareResponse';
-        $request = $this->addShareRequest($ev_api_key, $ev_access_token, $body);
+        $request = $this->addShareRequest($evApiKey, $evAccessToken, $body);
 
         try {
             $options = $this->createHttpClientOption();
@@ -187,16 +187,16 @@ class SharesApi
      *
      * Creates a share
      *
-     * @param  string $ev_api_key API Key required to make the API call. (required)
-     * @param  string $ev_access_token Access token required to make the API call. (required)
-     * @param  \ExaVault\Model\Body16 $body (optional)
+     * @param  string $evApiKey API Key required to make the API call. (required)
+     * @param  string $evAccessToken Access token required to make the API call. (required)
+     * @param  \ExaVault\Model\AddShareRequestBody $body (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function addShareAsync($ev_api_key, $ev_access_token, $body = null)
+    public function addShareAsync($evApiKey, $evAccessToken, $body = null)
     {
-        return $this->addShareAsyncWithHttpInfo($ev_api_key, $ev_access_token, $body)
+        return $this->addShareAsyncWithHttpInfo($evApiKey, $evAccessToken, $body)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -209,17 +209,17 @@ class SharesApi
      *
      * Creates a share
      *
-     * @param  string $ev_api_key API Key required to make the API call. (required)
-     * @param  string $ev_access_token Access token required to make the API call. (required)
-     * @param  \ExaVault\Model\Body16 $body (optional)
+     * @param  string $evApiKey API Key required to make the API call. (required)
+     * @param  string $evAccessToken Access token required to make the API call. (required)
+     * @param  \ExaVault\Model\AddShareRequestBody $body (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function addShareAsyncWithHttpInfo($ev_api_key, $ev_access_token, $body = null)
+    public function addShareAsyncWithHttpInfo($evApiKey, $evAccessToken, $body = null)
     {
         $returnType = '\ExaVault\Model\ShareResponse';
-        $request = $this->addShareRequest($ev_api_key, $ev_access_token, $body);
+        $request = $this->addShareRequest($evApiKey, $evAccessToken, $body);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -261,25 +261,25 @@ class SharesApi
     /**
      * Create request for operation 'addShare'
      *
-     * @param  string $ev_api_key API Key required to make the API call. (required)
-     * @param  string $ev_access_token Access token required to make the API call. (required)
-     * @param  \ExaVault\Model\Body16 $body (optional)
+     * @param  string $evApiKey API Key required to make the API call. (required)
+     * @param  string $evAccessToken Access token required to make the API call. (required)
+     * @param  \ExaVault\Model\AddShareRequestBody $body (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function addShareRequest($ev_api_key, $ev_access_token, $body = null)
+    protected function addShareRequest($evApiKey, $evAccessToken, $body = null)
     {
-        // verify the required parameter 'ev_api_key' is set
-        if ($ev_api_key === null || (is_array($ev_api_key) && count($ev_api_key) === 0)) {
+        // verify the required parameter 'evApiKey' is set
+        if ($evApiKey === null || (is_array($evApiKey) && count($evApiKey) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $ev_api_key when calling addShare'
+                'Missing the required parameter $evApiKey when calling addShare'
             );
         }
-        // verify the required parameter 'ev_access_token' is set
-        if ($ev_access_token === null || (is_array($ev_access_token) && count($ev_access_token) === 0)) {
+        // verify the required parameter 'evAccessToken' is set
+        if ($evAccessToken === null || (is_array($evAccessToken) && count($evAccessToken) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $ev_access_token when calling addShare'
+                'Missing the required parameter $evAccessToken when calling addShare'
             );
         }
 
@@ -291,12 +291,12 @@ class SharesApi
         $multipart = false;
 
         // header params
-        if ($ev_api_key !== null) {
-            $headerParams['ev-api-key'] = ObjectSerializer::toHeaderValue($ev_api_key);
+        if ($evApiKey !== null) {
+            $headerParams['ev-api-key'] = ObjectSerializer::toHeaderValue($evApiKey);
         }
         // header params
-        if ($ev_access_token !== null) {
-            $headerParams['ev-access-token'] = ObjectSerializer::toHeaderValue($ev_access_token);
+        if ($evAccessToken !== null) {
+            $headerParams['ev-access-token'] = ObjectSerializer::toHeaderValue($evAccessToken);
         }
 
 
@@ -372,17 +372,17 @@ class SharesApi
      *
      * Complete send files
      *
-     * @param  string $ev_api_key API Key (required)
-     * @param  string $ev_access_token Access Token (required)
+     * @param  string $evApiKey API Key (required)
+     * @param  string $evAccessToken Access Token (required)
      * @param  int $id ID of the share to trigger invitations for. (required)
      *
      * @throws \ExaVault\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \ExaVault\Model\ShareResponse
      */
-    public function completeDirectSend($ev_api_key, $ev_access_token, $id)
+    public function completeDirectSend($evApiKey, $evAccessToken, $id)
     {
-        list($response) = $this->completeDirectSendWithHttpInfo($ev_api_key, $ev_access_token, $id);
+        list($response) = $this->completeDirectSendWithHttpInfo($evApiKey, $evAccessToken, $id);
         return $response;
     }
 
@@ -391,18 +391,18 @@ class SharesApi
      *
      * Complete send files
      *
-     * @param  string $ev_api_key API Key (required)
-     * @param  string $ev_access_token Access Token (required)
+     * @param  string $evApiKey API Key (required)
+     * @param  string $evAccessToken Access Token (required)
      * @param  int $id ID of the share to trigger invitations for. (required)
      *
      * @throws \ExaVault\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \ExaVault\Model\ShareResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function completeDirectSendWithHttpInfo($ev_api_key, $ev_access_token, $id)
+    public function completeDirectSendWithHttpInfo($evApiKey, $evAccessToken, $id)
     {
         $returnType = '\ExaVault\Model\ShareResponse';
-        $request = $this->completeDirectSendRequest($ev_api_key, $ev_access_token, $id);
+        $request = $this->completeDirectSendRequest($evApiKey, $evAccessToken, $id);
 
         try {
             $options = $this->createHttpClientOption();
@@ -468,16 +468,16 @@ class SharesApi
      *
      * Complete send files
      *
-     * @param  string $ev_api_key API Key (required)
-     * @param  string $ev_access_token Access Token (required)
+     * @param  string $evApiKey API Key (required)
+     * @param  string $evAccessToken Access Token (required)
      * @param  int $id ID of the share to trigger invitations for. (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function completeDirectSendAsync($ev_api_key, $ev_access_token, $id)
+    public function completeDirectSendAsync($evApiKey, $evAccessToken, $id)
     {
-        return $this->completeDirectSendAsyncWithHttpInfo($ev_api_key, $ev_access_token, $id)
+        return $this->completeDirectSendAsyncWithHttpInfo($evApiKey, $evAccessToken, $id)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -490,17 +490,17 @@ class SharesApi
      *
      * Complete send files
      *
-     * @param  string $ev_api_key API Key (required)
-     * @param  string $ev_access_token Access Token (required)
+     * @param  string $evApiKey API Key (required)
+     * @param  string $evAccessToken Access Token (required)
      * @param  int $id ID of the share to trigger invitations for. (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function completeDirectSendAsyncWithHttpInfo($ev_api_key, $ev_access_token, $id)
+    public function completeDirectSendAsyncWithHttpInfo($evApiKey, $evAccessToken, $id)
     {
         $returnType = '\ExaVault\Model\ShareResponse';
-        $request = $this->completeDirectSendRequest($ev_api_key, $ev_access_token, $id);
+        $request = $this->completeDirectSendRequest($evApiKey, $evAccessToken, $id);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -542,25 +542,25 @@ class SharesApi
     /**
      * Create request for operation 'completeDirectSend'
      *
-     * @param  string $ev_api_key API Key (required)
-     * @param  string $ev_access_token Access Token (required)
+     * @param  string $evApiKey API Key (required)
+     * @param  string $evAccessToken Access Token (required)
      * @param  int $id ID of the share to trigger invitations for. (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function completeDirectSendRequest($ev_api_key, $ev_access_token, $id)
+    protected function completeDirectSendRequest($evApiKey, $evAccessToken, $id)
     {
-        // verify the required parameter 'ev_api_key' is set
-        if ($ev_api_key === null || (is_array($ev_api_key) && count($ev_api_key) === 0)) {
+        // verify the required parameter 'evApiKey' is set
+        if ($evApiKey === null || (is_array($evApiKey) && count($evApiKey) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $ev_api_key when calling completeDirectSend'
+                'Missing the required parameter $evApiKey when calling completeDirectSend'
             );
         }
-        // verify the required parameter 'ev_access_token' is set
-        if ($ev_access_token === null || (is_array($ev_access_token) && count($ev_access_token) === 0)) {
+        // verify the required parameter 'evAccessToken' is set
+        if ($evAccessToken === null || (is_array($evAccessToken) && count($evAccessToken) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $ev_access_token when calling completeDirectSend'
+                'Missing the required parameter $evAccessToken when calling completeDirectSend'
             );
         }
         // verify the required parameter 'id' is set
@@ -578,12 +578,12 @@ class SharesApi
         $multipart = false;
 
         // header params
-        if ($ev_api_key !== null) {
-            $headerParams['ev-api-key'] = ObjectSerializer::toHeaderValue($ev_api_key);
+        if ($evApiKey !== null) {
+            $headerParams['ev-api-key'] = ObjectSerializer::toHeaderValue($evApiKey);
         }
         // header params
-        if ($ev_access_token !== null) {
-            $headerParams['ev-access-token'] = ObjectSerializer::toHeaderValue($ev_access_token);
+        if ($evAccessToken !== null) {
+            $headerParams['ev-access-token'] = ObjectSerializer::toHeaderValue($evAccessToken);
         }
 
         // path params
@@ -665,16 +665,16 @@ class SharesApi
      * Deactivate a share
      *
      * @param  int $id ID of the share entry (required)
-     * @param  string $ev_api_key API Key required to make the API call. (required)
-     * @param  string $ev_access_token Access token required to make the API call. (required)
+     * @param  string $evApiKey API Key required to make the API call. (required)
+     * @param  string $evAccessToken Access token required to make the API call. (required)
      *
      * @throws \ExaVault\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \ExaVault\Model\EmptyResponse
      */
-    public function deleteShareById($id, $ev_api_key, $ev_access_token)
+    public function deleteShareById($id, $evApiKey, $evAccessToken)
     {
-        list($response) = $this->deleteShareByIdWithHttpInfo($id, $ev_api_key, $ev_access_token);
+        list($response) = $this->deleteShareByIdWithHttpInfo($id, $evApiKey, $evAccessToken);
         return $response;
     }
 
@@ -684,17 +684,17 @@ class SharesApi
      * Deactivate a share
      *
      * @param  int $id ID of the share entry (required)
-     * @param  string $ev_api_key API Key required to make the API call. (required)
-     * @param  string $ev_access_token Access token required to make the API call. (required)
+     * @param  string $evApiKey API Key required to make the API call. (required)
+     * @param  string $evAccessToken Access token required to make the API call. (required)
      *
      * @throws \ExaVault\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \ExaVault\Model\EmptyResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function deleteShareByIdWithHttpInfo($id, $ev_api_key, $ev_access_token)
+    public function deleteShareByIdWithHttpInfo($id, $evApiKey, $evAccessToken)
     {
         $returnType = '\ExaVault\Model\EmptyResponse';
-        $request = $this->deleteShareByIdRequest($id, $ev_api_key, $ev_access_token);
+        $request = $this->deleteShareByIdRequest($id, $evApiKey, $evAccessToken);
 
         try {
             $options = $this->createHttpClientOption();
@@ -761,15 +761,15 @@ class SharesApi
      * Deactivate a share
      *
      * @param  int $id ID of the share entry (required)
-     * @param  string $ev_api_key API Key required to make the API call. (required)
-     * @param  string $ev_access_token Access token required to make the API call. (required)
+     * @param  string $evApiKey API Key required to make the API call. (required)
+     * @param  string $evAccessToken Access token required to make the API call. (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteShareByIdAsync($id, $ev_api_key, $ev_access_token)
+    public function deleteShareByIdAsync($id, $evApiKey, $evAccessToken)
     {
-        return $this->deleteShareByIdAsyncWithHttpInfo($id, $ev_api_key, $ev_access_token)
+        return $this->deleteShareByIdAsyncWithHttpInfo($id, $evApiKey, $evAccessToken)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -783,16 +783,16 @@ class SharesApi
      * Deactivate a share
      *
      * @param  int $id ID of the share entry (required)
-     * @param  string $ev_api_key API Key required to make the API call. (required)
-     * @param  string $ev_access_token Access token required to make the API call. (required)
+     * @param  string $evApiKey API Key required to make the API call. (required)
+     * @param  string $evAccessToken Access token required to make the API call. (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteShareByIdAsyncWithHttpInfo($id, $ev_api_key, $ev_access_token)
+    public function deleteShareByIdAsyncWithHttpInfo($id, $evApiKey, $evAccessToken)
     {
         $returnType = '\ExaVault\Model\EmptyResponse';
-        $request = $this->deleteShareByIdRequest($id, $ev_api_key, $ev_access_token);
+        $request = $this->deleteShareByIdRequest($id, $evApiKey, $evAccessToken);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -835,13 +835,13 @@ class SharesApi
      * Create request for operation 'deleteShareById'
      *
      * @param  int $id ID of the share entry (required)
-     * @param  string $ev_api_key API Key required to make the API call. (required)
-     * @param  string $ev_access_token Access token required to make the API call. (required)
+     * @param  string $evApiKey API Key required to make the API call. (required)
+     * @param  string $evAccessToken Access token required to make the API call. (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function deleteShareByIdRequest($id, $ev_api_key, $ev_access_token)
+    protected function deleteShareByIdRequest($id, $evApiKey, $evAccessToken)
     {
         // verify the required parameter 'id' is set
         if ($id === null || (is_array($id) && count($id) === 0)) {
@@ -849,16 +849,16 @@ class SharesApi
                 'Missing the required parameter $id when calling deleteShareById'
             );
         }
-        // verify the required parameter 'ev_api_key' is set
-        if ($ev_api_key === null || (is_array($ev_api_key) && count($ev_api_key) === 0)) {
+        // verify the required parameter 'evApiKey' is set
+        if ($evApiKey === null || (is_array($evApiKey) && count($evApiKey) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $ev_api_key when calling deleteShareById'
+                'Missing the required parameter $evApiKey when calling deleteShareById'
             );
         }
-        // verify the required parameter 'ev_access_token' is set
-        if ($ev_access_token === null || (is_array($ev_access_token) && count($ev_access_token) === 0)) {
+        // verify the required parameter 'evAccessToken' is set
+        if ($evAccessToken === null || (is_array($evAccessToken) && count($evAccessToken) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $ev_access_token when calling deleteShareById'
+                'Missing the required parameter $evAccessToken when calling deleteShareById'
             );
         }
 
@@ -870,12 +870,12 @@ class SharesApi
         $multipart = false;
 
         // header params
-        if ($ev_api_key !== null) {
-            $headerParams['ev-api-key'] = ObjectSerializer::toHeaderValue($ev_api_key);
+        if ($evApiKey !== null) {
+            $headerParams['ev-api-key'] = ObjectSerializer::toHeaderValue($evApiKey);
         }
         // header params
-        if ($ev_access_token !== null) {
-            $headerParams['ev-access-token'] = ObjectSerializer::toHeaderValue($ev_access_token);
+        if ($evAccessToken !== null) {
+            $headerParams['ev-access-token'] = ObjectSerializer::toHeaderValue($evAccessToken);
         }
 
         // path params
@@ -957,17 +957,17 @@ class SharesApi
      * Get a share
      *
      * @param  int $id ID of the share entry (required)
-     * @param  string $ev_api_key API Key (required)
-     * @param  string $ev_access_token Access Token (required)
+     * @param  string $evApiKey API Key (required)
+     * @param  string $evAccessToken Access Token (required)
      * @param  string $include Comma separated list of relationships to include in response. Possible values are **owner**, **resources**, **notifications**, **activity**. (optional)
      *
      * @throws \ExaVault\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \ExaVault\Model\ShareResponse
      */
-    public function getShareById($id, $ev_api_key, $ev_access_token, $include = null)
+    public function getShareById($id, $evApiKey, $evAccessToken, $include = null)
     {
-        list($response) = $this->getShareByIdWithHttpInfo($id, $ev_api_key, $ev_access_token, $include);
+        list($response) = $this->getShareByIdWithHttpInfo($id, $evApiKey, $evAccessToken, $include);
         return $response;
     }
 
@@ -977,18 +977,18 @@ class SharesApi
      * Get a share
      *
      * @param  int $id ID of the share entry (required)
-     * @param  string $ev_api_key API Key (required)
-     * @param  string $ev_access_token Access Token (required)
+     * @param  string $evApiKey API Key (required)
+     * @param  string $evAccessToken Access Token (required)
      * @param  string $include Comma separated list of relationships to include in response. Possible values are **owner**, **resources**, **notifications**, **activity**. (optional)
      *
      * @throws \ExaVault\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \ExaVault\Model\ShareResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getShareByIdWithHttpInfo($id, $ev_api_key, $ev_access_token, $include = null)
+    public function getShareByIdWithHttpInfo($id, $evApiKey, $evAccessToken, $include = null)
     {
         $returnType = '\ExaVault\Model\ShareResponse';
-        $request = $this->getShareByIdRequest($id, $ev_api_key, $ev_access_token, $include);
+        $request = $this->getShareByIdRequest($id, $evApiKey, $evAccessToken, $include);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1055,16 +1055,16 @@ class SharesApi
      * Get a share
      *
      * @param  int $id ID of the share entry (required)
-     * @param  string $ev_api_key API Key (required)
-     * @param  string $ev_access_token Access Token (required)
+     * @param  string $evApiKey API Key (required)
+     * @param  string $evAccessToken Access Token (required)
      * @param  string $include Comma separated list of relationships to include in response. Possible values are **owner**, **resources**, **notifications**, **activity**. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getShareByIdAsync($id, $ev_api_key, $ev_access_token, $include = null)
+    public function getShareByIdAsync($id, $evApiKey, $evAccessToken, $include = null)
     {
-        return $this->getShareByIdAsyncWithHttpInfo($id, $ev_api_key, $ev_access_token, $include)
+        return $this->getShareByIdAsyncWithHttpInfo($id, $evApiKey, $evAccessToken, $include)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1078,17 +1078,17 @@ class SharesApi
      * Get a share
      *
      * @param  int $id ID of the share entry (required)
-     * @param  string $ev_api_key API Key (required)
-     * @param  string $ev_access_token Access Token (required)
+     * @param  string $evApiKey API Key (required)
+     * @param  string $evAccessToken Access Token (required)
      * @param  string $include Comma separated list of relationships to include in response. Possible values are **owner**, **resources**, **notifications**, **activity**. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getShareByIdAsyncWithHttpInfo($id, $ev_api_key, $ev_access_token, $include = null)
+    public function getShareByIdAsyncWithHttpInfo($id, $evApiKey, $evAccessToken, $include = null)
     {
         $returnType = '\ExaVault\Model\ShareResponse';
-        $request = $this->getShareByIdRequest($id, $ev_api_key, $ev_access_token, $include);
+        $request = $this->getShareByIdRequest($id, $evApiKey, $evAccessToken, $include);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1131,14 +1131,14 @@ class SharesApi
      * Create request for operation 'getShareById'
      *
      * @param  int $id ID of the share entry (required)
-     * @param  string $ev_api_key API Key (required)
-     * @param  string $ev_access_token Access Token (required)
+     * @param  string $evApiKey API Key (required)
+     * @param  string $evAccessToken Access Token (required)
      * @param  string $include Comma separated list of relationships to include in response. Possible values are **owner**, **resources**, **notifications**, **activity**. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function getShareByIdRequest($id, $ev_api_key, $ev_access_token, $include = null)
+    protected function getShareByIdRequest($id, $evApiKey, $evAccessToken, $include = null)
     {
         // verify the required parameter 'id' is set
         if ($id === null || (is_array($id) && count($id) === 0)) {
@@ -1146,16 +1146,16 @@ class SharesApi
                 'Missing the required parameter $id when calling getShareById'
             );
         }
-        // verify the required parameter 'ev_api_key' is set
-        if ($ev_api_key === null || (is_array($ev_api_key) && count($ev_api_key) === 0)) {
+        // verify the required parameter 'evApiKey' is set
+        if ($evApiKey === null || (is_array($evApiKey) && count($evApiKey) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $ev_api_key when calling getShareById'
+                'Missing the required parameter $evApiKey when calling getShareById'
             );
         }
-        // verify the required parameter 'ev_access_token' is set
-        if ($ev_access_token === null || (is_array($ev_access_token) && count($ev_access_token) === 0)) {
+        // verify the required parameter 'evAccessToken' is set
+        if ($evAccessToken === null || (is_array($evAccessToken) && count($evAccessToken) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $ev_access_token when calling getShareById'
+                'Missing the required parameter $evAccessToken when calling getShareById'
             );
         }
 
@@ -1171,12 +1171,12 @@ class SharesApi
             $queryParams['include'] = ObjectSerializer::toQueryValue($include, null);
         }
         // header params
-        if ($ev_api_key !== null) {
-            $headerParams['ev-api-key'] = ObjectSerializer::toHeaderValue($ev_api_key);
+        if ($evApiKey !== null) {
+            $headerParams['ev-api-key'] = ObjectSerializer::toHeaderValue($evApiKey);
         }
         // header params
-        if ($ev_access_token !== null) {
-            $headerParams['ev-access-token'] = ObjectSerializer::toHeaderValue($ev_access_token);
+        if ($evAccessToken !== null) {
+            $headerParams['ev-access-token'] = ObjectSerializer::toHeaderValue($evAccessToken);
         }
 
         // path params
@@ -1257,8 +1257,8 @@ class SharesApi
      *
      * Get a list of shares
      *
-     * @param  string $ev_api_key API Key required to make the API call. (required)
-     * @param  string $ev_access_token Access token required to make the API call. (required)
+     * @param  string $evApiKey API Key required to make the API call. (required)
+     * @param  string $evAccessToken Access token required to make the API call. (required)
      * @param  int $offset Current offset of records (for pagination) (optional)
      * @param  int $limit Limit of records to be returned (for pagination) (optional, default to 100)
      * @param  string $scope Set of shares to return. (**all**&#x3D;all of them, **active**&#x3D;shares that are currently active, **curentUser**&#x3D;shares created by you) (optional)
@@ -1267,7 +1267,7 @@ class SharesApi
      * @param  string $include Comma separated list of relationships to include in response. Possible values are **owner**, **resources**, **notifications**, **activity**. (optional)
      * @param  string $name When provided, only shares whose names include this value will be in the list. Supports wildcards, such as **send\\*** to return everything starting with \&quot;send\&quot;.  Use this parameter if you are searching for shares or receives for a specific folder name. For example **_/Clients/ACME/To Be Processed**. (optional)
      * @param  string $recipient Filter the results to include only shares that invited a certain email address. Supports wildcard matching so that **\\*@example.com** will give back entries shared with addresses ending in \&quot;@example.com\&quot;. (optional)
-     * @param  string $message When provided, only shares with a message that contains the text will be included in the list of matches. Both the subject and the body of all messages will be checked for matches. This will allways be a wildcard match, so that searching for **taxes** will return any shares with a message that contains the word \&quot;taxes\&quot;. (optional)
+     * @param  string $message When provided, only shares with a message that contains the text will be included in the list of matches. Both the subject and the body of all messages will be checked for matches. This will always be a wildcard match, so that searching for **taxes** will return any shares with a message that contains the word \&quot;taxes\&quot;. (optional)
      * @param  string $username When provided, only shares created by the user with that &#x60;username&#x60; will be included in the list. Does not support wildcard searching. (optional)
      * @param  string $search Searches the share name, username, recipients, share messages fields for the provided value. Supports wildcard searches. (optional)
      *
@@ -1275,9 +1275,9 @@ class SharesApi
      * @throws \InvalidArgumentException
      * @return \ExaVault\Model\ShareCollectionResponse
      */
-    public function listShares($ev_api_key, $ev_access_token, $offset = null, $limit = '100', $scope = null, $sort = null, $type = null, $include = null, $name = null, $recipient = null, $message = null, $username = null, $search = null)
+    public function listShares($evApiKey, $evAccessToken, $offset = null, $limit = '100', $scope = null, $sort = null, $type = null, $include = null, $name = null, $recipient = null, $message = null, $username = null, $search = null)
     {
-        list($response) = $this->listSharesWithHttpInfo($ev_api_key, $ev_access_token, $offset, $limit, $scope, $sort, $type, $include, $name, $recipient, $message, $username, $search);
+        list($response) = $this->listSharesWithHttpInfo($evApiKey, $evAccessToken, $offset, $limit, $scope, $sort, $type, $include, $name, $recipient, $message, $username, $search);
         return $response;
     }
 
@@ -1286,8 +1286,8 @@ class SharesApi
      *
      * Get a list of shares
      *
-     * @param  string $ev_api_key API Key required to make the API call. (required)
-     * @param  string $ev_access_token Access token required to make the API call. (required)
+     * @param  string $evApiKey API Key required to make the API call. (required)
+     * @param  string $evAccessToken Access token required to make the API call. (required)
      * @param  int $offset Current offset of records (for pagination) (optional)
      * @param  int $limit Limit of records to be returned (for pagination) (optional, default to 100)
      * @param  string $scope Set of shares to return. (**all**&#x3D;all of them, **active**&#x3D;shares that are currently active, **curentUser**&#x3D;shares created by you) (optional)
@@ -1296,7 +1296,7 @@ class SharesApi
      * @param  string $include Comma separated list of relationships to include in response. Possible values are **owner**, **resources**, **notifications**, **activity**. (optional)
      * @param  string $name When provided, only shares whose names include this value will be in the list. Supports wildcards, such as **send\\*** to return everything starting with \&quot;send\&quot;.  Use this parameter if you are searching for shares or receives for a specific folder name. For example **_/Clients/ACME/To Be Processed**. (optional)
      * @param  string $recipient Filter the results to include only shares that invited a certain email address. Supports wildcard matching so that **\\*@example.com** will give back entries shared with addresses ending in \&quot;@example.com\&quot;. (optional)
-     * @param  string $message When provided, only shares with a message that contains the text will be included in the list of matches. Both the subject and the body of all messages will be checked for matches. This will allways be a wildcard match, so that searching for **taxes** will return any shares with a message that contains the word \&quot;taxes\&quot;. (optional)
+     * @param  string $message When provided, only shares with a message that contains the text will be included in the list of matches. Both the subject and the body of all messages will be checked for matches. This will always be a wildcard match, so that searching for **taxes** will return any shares with a message that contains the word \&quot;taxes\&quot;. (optional)
      * @param  string $username When provided, only shares created by the user with that &#x60;username&#x60; will be included in the list. Does not support wildcard searching. (optional)
      * @param  string $search Searches the share name, username, recipients, share messages fields for the provided value. Supports wildcard searches. (optional)
      *
@@ -1304,10 +1304,10 @@ class SharesApi
      * @throws \InvalidArgumentException
      * @return array of \ExaVault\Model\ShareCollectionResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function listSharesWithHttpInfo($ev_api_key, $ev_access_token, $offset = null, $limit = '100', $scope = null, $sort = null, $type = null, $include = null, $name = null, $recipient = null, $message = null, $username = null, $search = null)
+    public function listSharesWithHttpInfo($evApiKey, $evAccessToken, $offset = null, $limit = '100', $scope = null, $sort = null, $type = null, $include = null, $name = null, $recipient = null, $message = null, $username = null, $search = null)
     {
         $returnType = '\ExaVault\Model\ShareCollectionResponse';
-        $request = $this->listSharesRequest($ev_api_key, $ev_access_token, $offset, $limit, $scope, $sort, $type, $include, $name, $recipient, $message, $username, $search);
+        $request = $this->listSharesRequest($evApiKey, $evAccessToken, $offset, $limit, $scope, $sort, $type, $include, $name, $recipient, $message, $username, $search);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1373,8 +1373,8 @@ class SharesApi
      *
      * Get a list of shares
      *
-     * @param  string $ev_api_key API Key required to make the API call. (required)
-     * @param  string $ev_access_token Access token required to make the API call. (required)
+     * @param  string $evApiKey API Key required to make the API call. (required)
+     * @param  string $evAccessToken Access token required to make the API call. (required)
      * @param  int $offset Current offset of records (for pagination) (optional)
      * @param  int $limit Limit of records to be returned (for pagination) (optional, default to 100)
      * @param  string $scope Set of shares to return. (**all**&#x3D;all of them, **active**&#x3D;shares that are currently active, **curentUser**&#x3D;shares created by you) (optional)
@@ -1383,16 +1383,16 @@ class SharesApi
      * @param  string $include Comma separated list of relationships to include in response. Possible values are **owner**, **resources**, **notifications**, **activity**. (optional)
      * @param  string $name When provided, only shares whose names include this value will be in the list. Supports wildcards, such as **send\\*** to return everything starting with \&quot;send\&quot;.  Use this parameter if you are searching for shares or receives for a specific folder name. For example **_/Clients/ACME/To Be Processed**. (optional)
      * @param  string $recipient Filter the results to include only shares that invited a certain email address. Supports wildcard matching so that **\\*@example.com** will give back entries shared with addresses ending in \&quot;@example.com\&quot;. (optional)
-     * @param  string $message When provided, only shares with a message that contains the text will be included in the list of matches. Both the subject and the body of all messages will be checked for matches. This will allways be a wildcard match, so that searching for **taxes** will return any shares with a message that contains the word \&quot;taxes\&quot;. (optional)
+     * @param  string $message When provided, only shares with a message that contains the text will be included in the list of matches. Both the subject and the body of all messages will be checked for matches. This will always be a wildcard match, so that searching for **taxes** will return any shares with a message that contains the word \&quot;taxes\&quot;. (optional)
      * @param  string $username When provided, only shares created by the user with that &#x60;username&#x60; will be included in the list. Does not support wildcard searching. (optional)
      * @param  string $search Searches the share name, username, recipients, share messages fields for the provided value. Supports wildcard searches. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function listSharesAsync($ev_api_key, $ev_access_token, $offset = null, $limit = '100', $scope = null, $sort = null, $type = null, $include = null, $name = null, $recipient = null, $message = null, $username = null, $search = null)
+    public function listSharesAsync($evApiKey, $evAccessToken, $offset = null, $limit = '100', $scope = null, $sort = null, $type = null, $include = null, $name = null, $recipient = null, $message = null, $username = null, $search = null)
     {
-        return $this->listSharesAsyncWithHttpInfo($ev_api_key, $ev_access_token, $offset, $limit, $scope, $sort, $type, $include, $name, $recipient, $message, $username, $search)
+        return $this->listSharesAsyncWithHttpInfo($evApiKey, $evAccessToken, $offset, $limit, $scope, $sort, $type, $include, $name, $recipient, $message, $username, $search)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1405,8 +1405,8 @@ class SharesApi
      *
      * Get a list of shares
      *
-     * @param  string $ev_api_key API Key required to make the API call. (required)
-     * @param  string $ev_access_token Access token required to make the API call. (required)
+     * @param  string $evApiKey API Key required to make the API call. (required)
+     * @param  string $evAccessToken Access token required to make the API call. (required)
      * @param  int $offset Current offset of records (for pagination) (optional)
      * @param  int $limit Limit of records to be returned (for pagination) (optional, default to 100)
      * @param  string $scope Set of shares to return. (**all**&#x3D;all of them, **active**&#x3D;shares that are currently active, **curentUser**&#x3D;shares created by you) (optional)
@@ -1415,17 +1415,17 @@ class SharesApi
      * @param  string $include Comma separated list of relationships to include in response. Possible values are **owner**, **resources**, **notifications**, **activity**. (optional)
      * @param  string $name When provided, only shares whose names include this value will be in the list. Supports wildcards, such as **send\\*** to return everything starting with \&quot;send\&quot;.  Use this parameter if you are searching for shares or receives for a specific folder name. For example **_/Clients/ACME/To Be Processed**. (optional)
      * @param  string $recipient Filter the results to include only shares that invited a certain email address. Supports wildcard matching so that **\\*@example.com** will give back entries shared with addresses ending in \&quot;@example.com\&quot;. (optional)
-     * @param  string $message When provided, only shares with a message that contains the text will be included in the list of matches. Both the subject and the body of all messages will be checked for matches. This will allways be a wildcard match, so that searching for **taxes** will return any shares with a message that contains the word \&quot;taxes\&quot;. (optional)
+     * @param  string $message When provided, only shares with a message that contains the text will be included in the list of matches. Both the subject and the body of all messages will be checked for matches. This will always be a wildcard match, so that searching for **taxes** will return any shares with a message that contains the word \&quot;taxes\&quot;. (optional)
      * @param  string $username When provided, only shares created by the user with that &#x60;username&#x60; will be included in the list. Does not support wildcard searching. (optional)
      * @param  string $search Searches the share name, username, recipients, share messages fields for the provided value. Supports wildcard searches. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function listSharesAsyncWithHttpInfo($ev_api_key, $ev_access_token, $offset = null, $limit = '100', $scope = null, $sort = null, $type = null, $include = null, $name = null, $recipient = null, $message = null, $username = null, $search = null)
+    public function listSharesAsyncWithHttpInfo($evApiKey, $evAccessToken, $offset = null, $limit = '100', $scope = null, $sort = null, $type = null, $include = null, $name = null, $recipient = null, $message = null, $username = null, $search = null)
     {
         $returnType = '\ExaVault\Model\ShareCollectionResponse';
-        $request = $this->listSharesRequest($ev_api_key, $ev_access_token, $offset, $limit, $scope, $sort, $type, $include, $name, $recipient, $message, $username, $search);
+        $request = $this->listSharesRequest($evApiKey, $evAccessToken, $offset, $limit, $scope, $sort, $type, $include, $name, $recipient, $message, $username, $search);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1467,8 +1467,8 @@ class SharesApi
     /**
      * Create request for operation 'listShares'
      *
-     * @param  string $ev_api_key API Key required to make the API call. (required)
-     * @param  string $ev_access_token Access token required to make the API call. (required)
+     * @param  string $evApiKey API Key required to make the API call. (required)
+     * @param  string $evAccessToken Access token required to make the API call. (required)
      * @param  int $offset Current offset of records (for pagination) (optional)
      * @param  int $limit Limit of records to be returned (for pagination) (optional, default to 100)
      * @param  string $scope Set of shares to return. (**all**&#x3D;all of them, **active**&#x3D;shares that are currently active, **curentUser**&#x3D;shares created by you) (optional)
@@ -1477,25 +1477,25 @@ class SharesApi
      * @param  string $include Comma separated list of relationships to include in response. Possible values are **owner**, **resources**, **notifications**, **activity**. (optional)
      * @param  string $name When provided, only shares whose names include this value will be in the list. Supports wildcards, such as **send\\*** to return everything starting with \&quot;send\&quot;.  Use this parameter if you are searching for shares or receives for a specific folder name. For example **_/Clients/ACME/To Be Processed**. (optional)
      * @param  string $recipient Filter the results to include only shares that invited a certain email address. Supports wildcard matching so that **\\*@example.com** will give back entries shared with addresses ending in \&quot;@example.com\&quot;. (optional)
-     * @param  string $message When provided, only shares with a message that contains the text will be included in the list of matches. Both the subject and the body of all messages will be checked for matches. This will allways be a wildcard match, so that searching for **taxes** will return any shares with a message that contains the word \&quot;taxes\&quot;. (optional)
+     * @param  string $message When provided, only shares with a message that contains the text will be included in the list of matches. Both the subject and the body of all messages will be checked for matches. This will always be a wildcard match, so that searching for **taxes** will return any shares with a message that contains the word \&quot;taxes\&quot;. (optional)
      * @param  string $username When provided, only shares created by the user with that &#x60;username&#x60; will be included in the list. Does not support wildcard searching. (optional)
      * @param  string $search Searches the share name, username, recipients, share messages fields for the provided value. Supports wildcard searches. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function listSharesRequest($ev_api_key, $ev_access_token, $offset = null, $limit = '100', $scope = null, $sort = null, $type = null, $include = null, $name = null, $recipient = null, $message = null, $username = null, $search = null)
+    protected function listSharesRequest($evApiKey, $evAccessToken, $offset = null, $limit = '100', $scope = null, $sort = null, $type = null, $include = null, $name = null, $recipient = null, $message = null, $username = null, $search = null)
     {
-        // verify the required parameter 'ev_api_key' is set
-        if ($ev_api_key === null || (is_array($ev_api_key) && count($ev_api_key) === 0)) {
+        // verify the required parameter 'evApiKey' is set
+        if ($evApiKey === null || (is_array($evApiKey) && count($evApiKey) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $ev_api_key when calling listShares'
+                'Missing the required parameter $evApiKey when calling listShares'
             );
         }
-        // verify the required parameter 'ev_access_token' is set
-        if ($ev_access_token === null || (is_array($ev_access_token) && count($ev_access_token) === 0)) {
+        // verify the required parameter 'evAccessToken' is set
+        if ($evAccessToken === null || (is_array($evAccessToken) && count($evAccessToken) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $ev_access_token when calling listShares'
+                'Missing the required parameter $evAccessToken when calling listShares'
             );
         }
 
@@ -1551,12 +1551,12 @@ class SharesApi
             $queryParams['search'] = ObjectSerializer::toQueryValue($search, null);
         }
         // header params
-        if ($ev_api_key !== null) {
-            $headerParams['ev-api-key'] = ObjectSerializer::toHeaderValue($ev_api_key);
+        if ($evApiKey !== null) {
+            $headerParams['ev-api-key'] = ObjectSerializer::toHeaderValue($evApiKey);
         }
         // header params
-        if ($ev_access_token !== null) {
-            $headerParams['ev-access-token'] = ObjectSerializer::toHeaderValue($ev_access_token);
+        if ($evAccessToken !== null) {
+            $headerParams['ev-access-token'] = ObjectSerializer::toHeaderValue($evAccessToken);
         }
 
 
@@ -1629,18 +1629,18 @@ class SharesApi
      *
      * Update a share
      *
-     * @param  \ExaVault\Model\Body17 $body body (required)
-     * @param  string $ev_api_key API Key (required)
-     * @param  string $ev_access_token Access Token (required)
+     * @param  \ExaVault\Model\UpdateShareRequestBody $body body (required)
+     * @param  string $evApiKey API Key (required)
+     * @param  string $evAccessToken Access Token (required)
      * @param  int $id ID of the share entry (required)
      *
      * @throws \ExaVault\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \ExaVault\Model\ShareResponse
      */
-    public function updateShareById($body, $ev_api_key, $ev_access_token, $id)
+    public function updateShareById($body, $evApiKey, $evAccessToken, $id)
     {
-        list($response) = $this->updateShareByIdWithHttpInfo($body, $ev_api_key, $ev_access_token, $id);
+        list($response) = $this->updateShareByIdWithHttpInfo($body, $evApiKey, $evAccessToken, $id);
         return $response;
     }
 
@@ -1649,19 +1649,19 @@ class SharesApi
      *
      * Update a share
      *
-     * @param  \ExaVault\Model\Body17 $body (required)
-     * @param  string $ev_api_key API Key (required)
-     * @param  string $ev_access_token Access Token (required)
+     * @param  \ExaVault\Model\UpdateShareRequestBody $body (required)
+     * @param  string $evApiKey API Key (required)
+     * @param  string $evAccessToken Access Token (required)
      * @param  int $id ID of the share entry (required)
      *
      * @throws \ExaVault\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \ExaVault\Model\ShareResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function updateShareByIdWithHttpInfo($body, $ev_api_key, $ev_access_token, $id)
+    public function updateShareByIdWithHttpInfo($body, $evApiKey, $evAccessToken, $id)
     {
         $returnType = '\ExaVault\Model\ShareResponse';
-        $request = $this->updateShareByIdRequest($body, $ev_api_key, $ev_access_token, $id);
+        $request = $this->updateShareByIdRequest($body, $evApiKey, $evAccessToken, $id);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1727,17 +1727,17 @@ class SharesApi
      *
      * Update a share
      *
-     * @param  \ExaVault\Model\Body17 $body (required)
-     * @param  string $ev_api_key API Key (required)
-     * @param  string $ev_access_token Access Token (required)
+     * @param  \ExaVault\Model\UpdateShareRequestBody $body (required)
+     * @param  string $evApiKey API Key (required)
+     * @param  string $evAccessToken Access Token (required)
      * @param  int $id ID of the share entry (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateShareByIdAsync($body, $ev_api_key, $ev_access_token, $id)
+    public function updateShareByIdAsync($body, $evApiKey, $evAccessToken, $id)
     {
-        return $this->updateShareByIdAsyncWithHttpInfo($body, $ev_api_key, $ev_access_token, $id)
+        return $this->updateShareByIdAsyncWithHttpInfo($body, $evApiKey, $evAccessToken, $id)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1750,18 +1750,18 @@ class SharesApi
      *
      * Update a share
      *
-     * @param  \ExaVault\Model\Body17 $body (required)
-     * @param  string $ev_api_key API Key (required)
-     * @param  string $ev_access_token Access Token (required)
+     * @param  \ExaVault\Model\UpdateShareRequestBody $body (required)
+     * @param  string $evApiKey API Key (required)
+     * @param  string $evAccessToken Access Token (required)
      * @param  int $id ID of the share entry (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateShareByIdAsyncWithHttpInfo($body, $ev_api_key, $ev_access_token, $id)
+    public function updateShareByIdAsyncWithHttpInfo($body, $evApiKey, $evAccessToken, $id)
     {
         $returnType = '\ExaVault\Model\ShareResponse';
-        $request = $this->updateShareByIdRequest($body, $ev_api_key, $ev_access_token, $id);
+        $request = $this->updateShareByIdRequest($body, $evApiKey, $evAccessToken, $id);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1803,15 +1803,15 @@ class SharesApi
     /**
      * Create request for operation 'updateShareById'
      *
-     * @param  \ExaVault\Model\Body17 $body (required)
-     * @param  string $ev_api_key API Key (required)
-     * @param  string $ev_access_token Access Token (required)
+     * @param  \ExaVault\Model\UpdateShareRequestBody $body (required)
+     * @param  string $evApiKey API Key (required)
+     * @param  string $evAccessToken Access Token (required)
      * @param  int $id ID of the share entry (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function updateShareByIdRequest($body, $ev_api_key, $ev_access_token, $id)
+    protected function updateShareByIdRequest($body, $evApiKey, $evAccessToken, $id)
     {
         // verify the required parameter 'body' is set
         if ($body === null || (is_array($body) && count($body) === 0)) {
@@ -1819,16 +1819,16 @@ class SharesApi
                 'Missing the required parameter $body when calling updateShareById'
             );
         }
-        // verify the required parameter 'ev_api_key' is set
-        if ($ev_api_key === null || (is_array($ev_api_key) && count($ev_api_key) === 0)) {
+        // verify the required parameter 'evApiKey' is set
+        if ($evApiKey === null || (is_array($evApiKey) && count($evApiKey) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $ev_api_key when calling updateShareById'
+                'Missing the required parameter $evApiKey when calling updateShareById'
             );
         }
-        // verify the required parameter 'ev_access_token' is set
-        if ($ev_access_token === null || (is_array($ev_access_token) && count($ev_access_token) === 0)) {
+        // verify the required parameter 'evAccessToken' is set
+        if ($evAccessToken === null || (is_array($evAccessToken) && count($evAccessToken) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $ev_access_token when calling updateShareById'
+                'Missing the required parameter $evAccessToken when calling updateShareById'
             );
         }
         // verify the required parameter 'id' is set
@@ -1846,12 +1846,12 @@ class SharesApi
         $multipart = false;
 
         // header params
-        if ($ev_api_key !== null) {
-            $headerParams['ev-api-key'] = ObjectSerializer::toHeaderValue($ev_api_key);
+        if ($evApiKey !== null) {
+            $headerParams['ev-api-key'] = ObjectSerializer::toHeaderValue($evApiKey);
         }
         // header params
-        if ($ev_access_token !== null) {
-            $headerParams['ev-access-token'] = ObjectSerializer::toHeaderValue($ev_access_token);
+        if ($evAccessToken !== null) {
+            $headerParams['ev-access-token'] = ObjectSerializer::toHeaderValue($evAccessToken);
         }
 
         // path params

@@ -56,26 +56,26 @@ class AccountAttributes implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'account_name' => 'string',
+        'accountName' => 'string',
 'username' => 'string',
-'max_users' => 'int',
-'user_count' => 'int',
+'maxUsers' => 'int',
+'userCount' => 'int',
 'status' => 'int',
 'branding' => 'bool',
-'custom_domain' => 'bool',
+'customDomain' => 'bool',
 'quota' => '\ExaVault\Model\Quota',
-'secure_only' => 'bool',
-'complex_passwords' => 'bool',
-'show_referral_links' => 'bool',
-'external_domains' => 'string[]',
-'allowed_ip' => '\ExaVault\Model\AccountAttributesAllowedIp[]',
-'callback_settings' => '\ExaVault\Model\CallbackSettings',
-'branding_settings' => '\ExaVault\Model\BrandingSettings',
-'client_id' => 'int',
-'welcome_email_content' => 'string',
-'welcome_email_subject' => 'string',
-'custom_signature' => 'string',
-'account_onboarding' => 'bool',
+'secureOnly' => 'bool',
+'complexPasswords' => 'bool',
+'showReferralLinks' => 'bool',
+'externalDomains' => 'string[]',
+'allowedIp' => '\ExaVault\Model\AccountAttributesAllowedIp[]',
+'callbackSettings' => '\ExaVault\Model\CallbackSettings',
+'brandingSettings' => '\ExaVault\Model\BrandingSettings',
+'clientId' => 'int',
+'welcomeEmailContent' => 'string',
+'welcomeEmailSubject' => 'string',
+'customSignature' => 'string',
+'accountOnboarding' => 'bool',
 'created' => '\DateTime',
 'modified' => '\DateTime'    ];
 
@@ -85,26 +85,26 @@ class AccountAttributes implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'account_name' => null,
+        'accountName' => null,
 'username' => null,
-'max_users' => 'int32',
-'user_count' => 'int32',
+'maxUsers' => 'int32',
+'userCount' => 'int32',
 'status' => 'int32',
 'branding' => null,
-'custom_domain' => null,
+'customDomain' => null,
 'quota' => null,
-'secure_only' => null,
-'complex_passwords' => null,
-'show_referral_links' => null,
-'external_domains' => null,
-'allowed_ip' => null,
-'callback_settings' => null,
-'branding_settings' => null,
-'client_id' => 'int32',
-'welcome_email_content' => null,
-'welcome_email_subject' => null,
-'custom_signature' => null,
-'account_onboarding' => null,
+'secureOnly' => null,
+'complexPasswords' => null,
+'showReferralLinks' => null,
+'externalDomains' => null,
+'allowedIp' => null,
+'callbackSettings' => null,
+'brandingSettings' => null,
+'clientId' => 'int32',
+'welcomeEmailContent' => null,
+'welcomeEmailSubject' => null,
+'customSignature' => null,
+'accountOnboarding' => null,
 'created' => 'date-time',
 'modified' => 'date-time'    ];
 
@@ -135,26 +135,26 @@ class AccountAttributes implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'account_name' => 'accountName',
+        'accountName' => 'accountName',
 'username' => 'username',
-'max_users' => 'maxUsers',
-'user_count' => 'userCount',
+'maxUsers' => 'maxUsers',
+'userCount' => 'userCount',
 'status' => 'status',
 'branding' => 'branding',
-'custom_domain' => 'customDomain',
+'customDomain' => 'customDomain',
 'quota' => 'quota',
-'secure_only' => 'secureOnly',
-'complex_passwords' => 'complexPasswords',
-'show_referral_links' => 'showReferralLinks',
-'external_domains' => 'externalDomains',
-'allowed_ip' => 'allowedIp',
-'callback_settings' => 'callbackSettings',
-'branding_settings' => 'brandingSettings',
-'client_id' => 'clientId',
-'welcome_email_content' => 'welcomeEmailContent',
-'welcome_email_subject' => 'welcomeEmailSubject',
-'custom_signature' => 'customSignature',
-'account_onboarding' => 'accountOnboarding',
+'secureOnly' => 'secureOnly',
+'complexPasswords' => 'complexPasswords',
+'showReferralLinks' => 'showReferralLinks',
+'externalDomains' => 'externalDomains',
+'allowedIp' => 'allowedIp',
+'callbackSettings' => 'callbackSettings',
+'brandingSettings' => 'brandingSettings',
+'clientId' => 'clientId',
+'welcomeEmailContent' => 'welcomeEmailContent',
+'welcomeEmailSubject' => 'welcomeEmailSubject',
+'customSignature' => 'customSignature',
+'accountOnboarding' => 'accountOnboarding',
 'created' => 'created',
 'modified' => 'modified'    ];
 
@@ -164,26 +164,26 @@ class AccountAttributes implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'account_name' => 'setAccountName',
+        'accountName' => 'setAccountName',
 'username' => 'setUsername',
-'max_users' => 'setMaxUsers',
-'user_count' => 'setUserCount',
+'maxUsers' => 'setMaxUsers',
+'userCount' => 'setUserCount',
 'status' => 'setStatus',
 'branding' => 'setBranding',
-'custom_domain' => 'setCustomDomain',
+'customDomain' => 'setCustomDomain',
 'quota' => 'setQuota',
-'secure_only' => 'setSecureOnly',
-'complex_passwords' => 'setComplexPasswords',
-'show_referral_links' => 'setShowReferralLinks',
-'external_domains' => 'setExternalDomains',
-'allowed_ip' => 'setAllowedIp',
-'callback_settings' => 'setCallbackSettings',
-'branding_settings' => 'setBrandingSettings',
-'client_id' => 'setClientId',
-'welcome_email_content' => 'setWelcomeEmailContent',
-'welcome_email_subject' => 'setWelcomeEmailSubject',
-'custom_signature' => 'setCustomSignature',
-'account_onboarding' => 'setAccountOnboarding',
+'secureOnly' => 'setSecureOnly',
+'complexPasswords' => 'setComplexPasswords',
+'showReferralLinks' => 'setShowReferralLinks',
+'externalDomains' => 'setExternalDomains',
+'allowedIp' => 'setAllowedIp',
+'callbackSettings' => 'setCallbackSettings',
+'brandingSettings' => 'setBrandingSettings',
+'clientId' => 'setClientId',
+'welcomeEmailContent' => 'setWelcomeEmailContent',
+'welcomeEmailSubject' => 'setWelcomeEmailSubject',
+'customSignature' => 'setCustomSignature',
+'accountOnboarding' => 'setAccountOnboarding',
 'created' => 'setCreated',
 'modified' => 'setModified'    ];
 
@@ -193,26 +193,26 @@ class AccountAttributes implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'account_name' => 'getAccountName',
+        'accountName' => 'getAccountName',
 'username' => 'getUsername',
-'max_users' => 'getMaxUsers',
-'user_count' => 'getUserCount',
+'maxUsers' => 'getMaxUsers',
+'userCount' => 'getUserCount',
 'status' => 'getStatus',
 'branding' => 'getBranding',
-'custom_domain' => 'getCustomDomain',
+'customDomain' => 'getCustomDomain',
 'quota' => 'getQuota',
-'secure_only' => 'getSecureOnly',
-'complex_passwords' => 'getComplexPasswords',
-'show_referral_links' => 'getShowReferralLinks',
-'external_domains' => 'getExternalDomains',
-'allowed_ip' => 'getAllowedIp',
-'callback_settings' => 'getCallbackSettings',
-'branding_settings' => 'getBrandingSettings',
-'client_id' => 'getClientId',
-'welcome_email_content' => 'getWelcomeEmailContent',
-'welcome_email_subject' => 'getWelcomeEmailSubject',
-'custom_signature' => 'getCustomSignature',
-'account_onboarding' => 'getAccountOnboarding',
+'secureOnly' => 'getSecureOnly',
+'complexPasswords' => 'getComplexPasswords',
+'showReferralLinks' => 'getShowReferralLinks',
+'externalDomains' => 'getExternalDomains',
+'allowedIp' => 'getAllowedIp',
+'callbackSettings' => 'getCallbackSettings',
+'brandingSettings' => 'getBrandingSettings',
+'clientId' => 'getClientId',
+'welcomeEmailContent' => 'getWelcomeEmailContent',
+'welcomeEmailSubject' => 'getWelcomeEmailSubject',
+'customSignature' => 'getCustomSignature',
+'accountOnboarding' => 'getAccountOnboarding',
 'created' => 'getCreated',
 'modified' => 'getModified'    ];
 
@@ -287,26 +287,26 @@ self::STATUS_0,        ];
      */
     public function __construct(array $data = null)
     {
-        $this->container['account_name'] = isset($data['account_name']) ? $data['account_name'] : null;
+        $this->container['accountName'] = isset($data['accountName']) ? $data['accountName'] : null;
         $this->container['username'] = isset($data['username']) ? $data['username'] : null;
-        $this->container['max_users'] = isset($data['max_users']) ? $data['max_users'] : null;
-        $this->container['user_count'] = isset($data['user_count']) ? $data['user_count'] : null;
+        $this->container['maxUsers'] = isset($data['maxUsers']) ? $data['maxUsers'] : null;
+        $this->container['userCount'] = isset($data['userCount']) ? $data['userCount'] : null;
         $this->container['status'] = isset($data['status']) ? $data['status'] : null;
         $this->container['branding'] = isset($data['branding']) ? $data['branding'] : null;
-        $this->container['custom_domain'] = isset($data['custom_domain']) ? $data['custom_domain'] : null;
+        $this->container['customDomain'] = isset($data['customDomain']) ? $data['customDomain'] : null;
         $this->container['quota'] = isset($data['quota']) ? $data['quota'] : null;
-        $this->container['secure_only'] = isset($data['secure_only']) ? $data['secure_only'] : null;
-        $this->container['complex_passwords'] = isset($data['complex_passwords']) ? $data['complex_passwords'] : null;
-        $this->container['show_referral_links'] = isset($data['show_referral_links']) ? $data['show_referral_links'] : null;
-        $this->container['external_domains'] = isset($data['external_domains']) ? $data['external_domains'] : null;
-        $this->container['allowed_ip'] = isset($data['allowed_ip']) ? $data['allowed_ip'] : null;
-        $this->container['callback_settings'] = isset($data['callback_settings']) ? $data['callback_settings'] : null;
-        $this->container['branding_settings'] = isset($data['branding_settings']) ? $data['branding_settings'] : null;
-        $this->container['client_id'] = isset($data['client_id']) ? $data['client_id'] : null;
-        $this->container['welcome_email_content'] = isset($data['welcome_email_content']) ? $data['welcome_email_content'] : null;
-        $this->container['welcome_email_subject'] = isset($data['welcome_email_subject']) ? $data['welcome_email_subject'] : null;
-        $this->container['custom_signature'] = isset($data['custom_signature']) ? $data['custom_signature'] : null;
-        $this->container['account_onboarding'] = isset($data['account_onboarding']) ? $data['account_onboarding'] : null;
+        $this->container['secureOnly'] = isset($data['secureOnly']) ? $data['secureOnly'] : null;
+        $this->container['complexPasswords'] = isset($data['complexPasswords']) ? $data['complexPasswords'] : null;
+        $this->container['showReferralLinks'] = isset($data['showReferralLinks']) ? $data['showReferralLinks'] : null;
+        $this->container['externalDomains'] = isset($data['externalDomains']) ? $data['externalDomains'] : null;
+        $this->container['allowedIp'] = isset($data['allowedIp']) ? $data['allowedIp'] : null;
+        $this->container['callbackSettings'] = isset($data['callbackSettings']) ? $data['callbackSettings'] : null;
+        $this->container['brandingSettings'] = isset($data['brandingSettings']) ? $data['brandingSettings'] : null;
+        $this->container['clientId'] = isset($data['clientId']) ? $data['clientId'] : null;
+        $this->container['welcomeEmailContent'] = isset($data['welcomeEmailContent']) ? $data['welcomeEmailContent'] : null;
+        $this->container['welcomeEmailSubject'] = isset($data['welcomeEmailSubject']) ? $data['welcomeEmailSubject'] : null;
+        $this->container['customSignature'] = isset($data['customSignature']) ? $data['customSignature'] : null;
+        $this->container['accountOnboarding'] = isset($data['accountOnboarding']) ? $data['accountOnboarding'] : null;
         $this->container['created'] = isset($data['created']) ? $data['created'] : null;
         $this->container['modified'] = isset($data['modified']) ? $data['modified'] : null;
     }
@@ -344,25 +344,25 @@ self::STATUS_0,        ];
 
 
     /**
-     * Gets account_name
+     * Gets accountName
      *
      * @return string
      */
     public function getAccountName()
     {
-        return $this->container['account_name'];
+        return $this->container['accountName'];
     }
 
     /**
-     * Sets account_name
+     * Sets accountName
      *
-     * @param string $account_name Name of the account
+     * @param string $accountName Name of the account
      *
      * @return $this
      */
-    public function setAccountName($account_name)
+    public function setAccountName($accountName)
     {
-        $this->container['account_name'] = $account_name;
+        $this->container['accountName'] = $accountName;
 
         return $this;
     }
@@ -392,49 +392,49 @@ self::STATUS_0,        ];
     }
 
     /**
-     * Gets max_users
+     * Gets maxUsers
      *
      * @return int
      */
     public function getMaxUsers()
     {
-        return $this->container['max_users'];
+        return $this->container['maxUsers'];
     }
 
     /**
-     * Sets max_users
+     * Sets maxUsers
      *
-     * @param int $max_users Maximum number of users the account can have. This can be increased by contacting ExaVault Support.
+     * @param int $maxUsers Maximum number of users the account can have. This can be increased by contacting ExaVault Support.
      *
      * @return $this
      */
-    public function setMaxUsers($max_users)
+    public function setMaxUsers($maxUsers)
     {
-        $this->container['max_users'] = $max_users;
+        $this->container['maxUsers'] = $maxUsers;
 
         return $this;
     }
 
     /**
-     * Gets user_count
+     * Gets userCount
      *
      * @return int
      */
     public function getUserCount()
     {
-        return $this->container['user_count'];
+        return $this->container['userCount'];
     }
 
     /**
-     * Sets user_count
+     * Sets userCount
      *
-     * @param int $user_count Current number of users on the account.
+     * @param int $userCount Current number of users on the account.
      *
      * @return $this
      */
-    public function setUserCount($user_count)
+    public function setUserCount($userCount)
     {
-        $this->container['user_count'] = $user_count;
+        $this->container['userCount'] = $userCount;
 
         return $this;
     }
@@ -497,25 +497,25 @@ self::STATUS_0,        ];
     }
 
     /**
-     * Gets custom_domain
+     * Gets customDomain
      *
      * @return bool
      */
     public function getCustomDomain()
     {
-        return $this->container['custom_domain'];
+        return $this->container['customDomain'];
     }
 
     /**
-     * Sets custom_domain
+     * Sets customDomain
      *
-     * @param bool $custom_domain Custom domain flag. Set to `true` if account type allows custom domain functionality.
+     * @param bool $customDomain Custom domain flag. Set to `true` if account type allows custom domain functionality.
      *
      * @return $this
      */
-    public function setCustomDomain($custom_domain)
+    public function setCustomDomain($customDomain)
     {
-        $this->container['custom_domain'] = $custom_domain;
+        $this->container['customDomain'] = $customDomain;
 
         return $this;
     }
@@ -545,289 +545,289 @@ self::STATUS_0,        ];
     }
 
     /**
-     * Gets secure_only
+     * Gets secureOnly
      *
      * @return bool
      */
     public function getSecureOnly()
     {
-        return $this->container['secure_only'];
+        return $this->container['secureOnly'];
     }
 
     /**
-     * Sets secure_only
+     * Sets secureOnly
      *
-     * @param bool $secure_only Flag to indicate whether the account disables connections via insecure protocols (e.g. FTP). Set to `true` to disable all traffic over port 21.
+     * @param bool $secureOnly Flag to indicate whether the account disables connections via insecure protocols (e.g. FTP). Set to `true` to disable all traffic over port 21.
      *
      * @return $this
      */
-    public function setSecureOnly($secure_only)
+    public function setSecureOnly($secureOnly)
     {
-        $this->container['secure_only'] = $secure_only;
+        $this->container['secureOnly'] = $secureOnly;
 
         return $this;
     }
 
     /**
-     * Gets complex_passwords
+     * Gets complexPasswords
      *
      * @return bool
      */
     public function getComplexPasswords()
     {
-        return $this->container['complex_passwords'];
+        return $this->container['complexPasswords'];
     }
 
     /**
-     * Sets complex_passwords
+     * Sets complexPasswords
      *
-     * @param bool $complex_passwords Flag to indicate whether the account requires complex passwords. Set to `true` to require complex passwords on all users and shares.
+     * @param bool $complexPasswords Flag to indicate whether the account requires complex passwords. Set to `true` to require complex passwords on all users and shares.
      *
      * @return $this
      */
-    public function setComplexPasswords($complex_passwords)
+    public function setComplexPasswords($complexPasswords)
     {
-        $this->container['complex_passwords'] = $complex_passwords;
+        $this->container['complexPasswords'] = $complexPasswords;
 
         return $this;
     }
 
     /**
-     * Gets show_referral_links
+     * Gets showReferralLinks
      *
      * @return bool
      */
     public function getShowReferralLinks()
     {
-        return $this->container['show_referral_links'];
+        return $this->container['showReferralLinks'];
     }
 
     /**
-     * Sets show_referral_links
+     * Sets showReferralLinks
      *
-     * @param bool $show_referral_links Flag to indicate showing of referrals links in the account. Set to `true` to include marketing messages in share invitations.
+     * @param bool $showReferralLinks Flag to indicate showing of referrals links in the account. Set to `true` to include marketing messages in share invitations.
      *
      * @return $this
      */
-    public function setShowReferralLinks($show_referral_links)
+    public function setShowReferralLinks($showReferralLinks)
     {
-        $this->container['show_referral_links'] = $show_referral_links;
+        $this->container['showReferralLinks'] = $showReferralLinks;
 
         return $this;
     }
 
     /**
-     * Gets external_domains
+     * Gets externalDomains
      *
      * @return string[]
      */
     public function getExternalDomains()
     {
-        return $this->container['external_domains'];
+        return $this->container['externalDomains'];
     }
 
     /**
-     * Sets external_domains
+     * Sets externalDomains
      *
-     * @param string[] $external_domains Custom domain used to brand this account.
+     * @param string[] $externalDomains Custom domain used to brand this account.
      *
      * @return $this
      */
-    public function setExternalDomains($external_domains)
+    public function setExternalDomains($externalDomains)
     {
-        $this->container['external_domains'] = $external_domains;
+        $this->container['externalDomains'] = $externalDomains;
 
         return $this;
     }
 
     /**
-     * Gets allowed_ip
+     * Gets allowedIp
      *
      * @return \ExaVault\Model\AccountAttributesAllowedIp[]
      */
     public function getAllowedIp()
     {
-        return $this->container['allowed_ip'];
+        return $this->container['allowedIp'];
     }
 
     /**
-     * Sets allowed_ip
+     * Sets allowedIp
      *
-     * @param \ExaVault\Model\AccountAttributesAllowedIp[] $allowed_ip Range of IP addresses allowed to access this account.
+     * @param \ExaVault\Model\AccountAttributesAllowedIp[] $allowedIp Range of IP addresses allowed to access this account.
      *
      * @return $this
      */
-    public function setAllowedIp($allowed_ip)
+    public function setAllowedIp($allowedIp)
     {
-        $this->container['allowed_ip'] = $allowed_ip;
+        $this->container['allowedIp'] = $allowedIp;
 
         return $this;
     }
 
     /**
-     * Gets callback_settings
+     * Gets callbackSettings
      *
      * @return \ExaVault\Model\CallbackSettings
      */
     public function getCallbackSettings()
     {
-        return $this->container['callback_settings'];
+        return $this->container['callbackSettings'];
     }
 
     /**
-     * Sets callback_settings
+     * Sets callbackSettings
      *
-     * @param \ExaVault\Model\CallbackSettings $callback_settings callback_settings
+     * @param \ExaVault\Model\CallbackSettings $callbackSettings callbackSettings
      *
      * @return $this
      */
-    public function setCallbackSettings($callback_settings)
+    public function setCallbackSettings($callbackSettings)
     {
-        $this->container['callback_settings'] = $callback_settings;
+        $this->container['callbackSettings'] = $callbackSettings;
 
         return $this;
     }
 
     /**
-     * Gets branding_settings
+     * Gets brandingSettings
      *
      * @return \ExaVault\Model\BrandingSettings
      */
     public function getBrandingSettings()
     {
-        return $this->container['branding_settings'];
+        return $this->container['brandingSettings'];
     }
 
     /**
-     * Sets branding_settings
+     * Sets brandingSettings
      *
-     * @param \ExaVault\Model\BrandingSettings $branding_settings branding_settings
+     * @param \ExaVault\Model\BrandingSettings $brandingSettings brandingSettings
      *
      * @return $this
      */
-    public function setBrandingSettings($branding_settings)
+    public function setBrandingSettings($brandingSettings)
     {
-        $this->container['branding_settings'] = $branding_settings;
+        $this->container['brandingSettings'] = $brandingSettings;
 
         return $this;
     }
 
     /**
-     * Gets client_id
+     * Gets clientId
      *
      * @return int
      */
     public function getClientId()
     {
-        return $this->container['client_id'];
+        return $this->container['clientId'];
     }
 
     /**
-     * Sets client_id
+     * Sets clientId
      *
-     * @param int $client_id (ExaVault Use Only) Internal ID of the account in CMS.
+     * @param int $clientId (ExaVault Use Only) Internal ID of the account in CMS.
      *
      * @return $this
      */
-    public function setClientId($client_id)
+    public function setClientId($clientId)
     {
-        $this->container['client_id'] = $client_id;
+        $this->container['clientId'] = $clientId;
 
         return $this;
     }
 
     /**
-     * Gets welcome_email_content
+     * Gets welcomeEmailContent
      *
      * @return string
      */
     public function getWelcomeEmailContent()
     {
-        return $this->container['welcome_email_content'];
+        return $this->container['welcomeEmailContent'];
     }
 
     /**
-     * Sets welcome_email_content
+     * Sets welcomeEmailContent
      *
-     * @param string $welcome_email_content Content of welcome email each new user will receive.
+     * @param string $welcomeEmailContent Content of welcome email each new user will receive.
      *
      * @return $this
      */
-    public function setWelcomeEmailContent($welcome_email_content)
+    public function setWelcomeEmailContent($welcomeEmailContent)
     {
-        $this->container['welcome_email_content'] = $welcome_email_content;
+        $this->container['welcomeEmailContent'] = $welcomeEmailContent;
 
         return $this;
     }
 
     /**
-     * Gets welcome_email_subject
+     * Gets welcomeEmailSubject
      *
      * @return string
      */
     public function getWelcomeEmailSubject()
     {
-        return $this->container['welcome_email_subject'];
+        return $this->container['welcomeEmailSubject'];
     }
 
     /**
-     * Sets welcome_email_subject
+     * Sets welcomeEmailSubject
      *
-     * @param string $welcome_email_subject Subject of welcome email each new user will receive.
+     * @param string $welcomeEmailSubject Subject of welcome email each new user will receive.
      *
      * @return $this
      */
-    public function setWelcomeEmailSubject($welcome_email_subject)
+    public function setWelcomeEmailSubject($welcomeEmailSubject)
     {
-        $this->container['welcome_email_subject'] = $welcome_email_subject;
+        $this->container['welcomeEmailSubject'] = $welcomeEmailSubject;
 
         return $this;
     }
 
     /**
-     * Gets custom_signature
+     * Gets customSignature
      *
      * @return string
      */
     public function getCustomSignature()
     {
-        return $this->container['custom_signature'];
+        return $this->container['customSignature'];
     }
 
     /**
-     * Sets custom_signature
+     * Sets customSignature
      *
-     * @param string $custom_signature Custom signature for all account emails users or recipients will receive.
+     * @param string $customSignature Custom signature for all account emails users or recipients will receive.
      *
      * @return $this
      */
-    public function setCustomSignature($custom_signature)
+    public function setCustomSignature($customSignature)
     {
-        $this->container['custom_signature'] = $custom_signature;
+        $this->container['customSignature'] = $customSignature;
 
         return $this;
     }
 
     /**
-     * Gets account_onboarding
+     * Gets accountOnboarding
      *
      * @return bool
      */
     public function getAccountOnboarding()
     {
-        return $this->container['account_onboarding'];
+        return $this->container['accountOnboarding'];
     }
 
     /**
-     * Sets account_onboarding
+     * Sets accountOnboarding
      *
-     * @param bool $account_onboarding Whether the web application onboarding help is enabled for new users in the account.
+     * @param bool $accountOnboarding Whether the web application onboarding help is enabled for new users in the account.
      *
      * @return $this
      */
-    public function setAccountOnboarding($account_onboarding)
+    public function setAccountOnboarding($accountOnboarding)
     {
-        $this->container['account_onboarding'] = $account_onboarding;
+        $this->container['accountOnboarding'] = $accountOnboarding;
 
         return $this;
     }

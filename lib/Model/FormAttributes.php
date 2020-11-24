@@ -57,10 +57,10 @@ class FormAttributes implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'form_description' => 'string',
-'submit_button_text' => 'string',
-'success_message' => 'string',
-'css_styles' => 'string',
+        'formDescription' => 'string',
+'submitButtonText' => 'string',
+'successMessage' => 'string',
+'cssStyles' => 'string',
 'elements' => '\ExaVault\Model\FormField[]'    ];
 
     /**
@@ -69,10 +69,10 @@ class FormAttributes implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'form_description' => null,
-'submit_button_text' => null,
-'success_message' => null,
-'css_styles' => null,
+        'formDescription' => null,
+'submitButtonText' => null,
+'successMessage' => null,
+'cssStyles' => null,
 'elements' => null    ];
 
     /**
@@ -102,10 +102,10 @@ class FormAttributes implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'form_description' => 'formDescription',
-'submit_button_text' => 'submitButtonText',
-'success_message' => 'successMessage',
-'css_styles' => 'cssStyles',
+        'formDescription' => 'formDescription',
+'submitButtonText' => 'submitButtonText',
+'successMessage' => 'successMessage',
+'cssStyles' => 'cssStyles',
 'elements' => 'elements'    ];
 
     /**
@@ -114,10 +114,10 @@ class FormAttributes implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'form_description' => 'setFormDescription',
-'submit_button_text' => 'setSubmitButtonText',
-'success_message' => 'setSuccessMessage',
-'css_styles' => 'setCssStyles',
+        'formDescription' => 'setFormDescription',
+'submitButtonText' => 'setSubmitButtonText',
+'successMessage' => 'setSuccessMessage',
+'cssStyles' => 'setCssStyles',
 'elements' => 'setElements'    ];
 
     /**
@@ -126,10 +126,10 @@ class FormAttributes implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'form_description' => 'getFormDescription',
-'submit_button_text' => 'getSubmitButtonText',
-'success_message' => 'getSuccessMessage',
-'css_styles' => 'getCssStyles',
+        'formDescription' => 'getFormDescription',
+'submitButtonText' => 'getSubmitButtonText',
+'successMessage' => 'getSuccessMessage',
+'cssStyles' => 'getCssStyles',
 'elements' => 'getElements'    ];
 
     /**
@@ -190,10 +190,10 @@ class FormAttributes implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['form_description'] = isset($data['form_description']) ? $data['form_description'] : null;
-        $this->container['submit_button_text'] = isset($data['submit_button_text']) ? $data['submit_button_text'] : null;
-        $this->container['success_message'] = isset($data['success_message']) ? $data['success_message'] : null;
-        $this->container['css_styles'] = isset($data['css_styles']) ? $data['css_styles'] : null;
+        $this->container['formDescription'] = isset($data['formDescription']) ? $data['formDescription'] : null;
+        $this->container['submitButtonText'] = isset($data['submitButtonText']) ? $data['submitButtonText'] : null;
+        $this->container['successMessage'] = isset($data['successMessage']) ? $data['successMessage'] : null;
+        $this->container['cssStyles'] = isset($data['cssStyles']) ? $data['cssStyles'] : null;
         $this->container['elements'] = isset($data['elements']) ? $data['elements'] : null;
     }
 
@@ -222,97 +222,97 @@ class FormAttributes implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets form_description
+     * Gets formDescription
      *
      * @return string
      */
     public function getFormDescription()
     {
-        return $this->container['form_description'];
+        return $this->container['formDescription'];
     }
 
     /**
-     * Sets form_description
+     * Sets formDescription
      *
-     * @param string $form_description Text that appears at the top of a receive form
+     * @param string $formDescription Text that appears at the top of a receive form
      *
      * @return $this
      */
-    public function setFormDescription($form_description)
+    public function setFormDescription($formDescription)
     {
-        $this->container['form_description'] = $form_description;
+        $this->container['formDescription'] = $formDescription;
 
         return $this;
     }
 
     /**
-     * Gets submit_button_text
+     * Gets submitButtonText
      *
      * @return string
      */
     public function getSubmitButtonText()
     {
-        return $this->container['submit_button_text'];
+        return $this->container['submitButtonText'];
     }
 
     /**
-     * Sets submit_button_text
+     * Sets submitButtonText
      *
-     * @param string $submit_button_text Text that appears on the submit button for the form
+     * @param string $submitButtonText Text that appears on the submit button for the form
      *
      * @return $this
      */
-    public function setSubmitButtonText($submit_button_text)
+    public function setSubmitButtonText($submitButtonText)
     {
-        $this->container['submit_button_text'] = $submit_button_text;
+        $this->container['submitButtonText'] = $submitButtonText;
 
         return $this;
     }
 
     /**
-     * Gets success_message
+     * Gets successMessage
      *
      * @return string
      */
     public function getSuccessMessage()
     {
-        return $this->container['success_message'];
+        return $this->container['successMessage'];
     }
 
     /**
-     * Sets success_message
+     * Sets successMessage
      *
-     * @param string $success_message Message displayed to submitter after files are uploaded
+     * @param string $successMessage Message displayed to submitter after files are uploaded
      *
      * @return $this
      */
-    public function setSuccessMessage($success_message)
+    public function setSuccessMessage($successMessage)
     {
-        $this->container['success_message'] = $success_message;
+        $this->container['successMessage'] = $successMessage;
 
         return $this;
     }
 
     /**
-     * Gets css_styles
+     * Gets cssStyles
      *
      * @return string
      */
     public function getCssStyles()
     {
-        return $this->container['css_styles'];
+        return $this->container['cssStyles'];
     }
 
     /**
-     * Sets css_styles
+     * Sets cssStyles
      *
-     * @param string $css_styles CSS Styles of the form.
+     * @param string $cssStyles CSS Styles of the form.
      *
      * @return $this
      */
-    public function setCssStyles($css_styles)
+    public function setCssStyles($cssStyles)
     {
-        $this->container['css_styles'] = $css_styles;
+        $this->container['cssStyles'] = $cssStyles;
 
         return $this;
     }

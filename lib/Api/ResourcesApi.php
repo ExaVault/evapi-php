@@ -91,17 +91,17 @@ class ResourcesApi
      *
      * Create a folder
      *
-     * @param  string $ev_api_key API Key required to make the API call. (required)
-     * @param  string $ev_access_token Access token required to make the API call. (required)
-     * @param  \ExaVault\Model\Body8 $body body (optional)
+     * @param  string $evApiKey API Key required to make the API call. (required)
+     * @param  string $evAccessToken Access token required to make the API call. (required)
+     * @param  \ExaVault\Model\AddFolderRequestBody $body body (optional)
      *
      * @throws \ExaVault\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \ExaVault\Model\ResourceResponse
      */
-    public function addFolder($ev_api_key, $ev_access_token, $body = null)
+    public function addFolder($evApiKey, $evAccessToken, $body = null)
     {
-        list($response) = $this->addFolderWithHttpInfo($ev_api_key, $ev_access_token, $body);
+        list($response) = $this->addFolderWithHttpInfo($evApiKey, $evAccessToken, $body);
         return $response;
     }
 
@@ -110,18 +110,18 @@ class ResourcesApi
      *
      * Create a folder
      *
-     * @param  string $ev_api_key API Key required to make the API call. (required)
-     * @param  string $ev_access_token Access token required to make the API call. (required)
-     * @param  \ExaVault\Model\Body8 $body (optional)
+     * @param  string $evApiKey API Key required to make the API call. (required)
+     * @param  string $evAccessToken Access token required to make the API call. (required)
+     * @param  \ExaVault\Model\AddFolderRequestBody $body (optional)
      *
      * @throws \ExaVault\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \ExaVault\Model\ResourceResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function addFolderWithHttpInfo($ev_api_key, $ev_access_token, $body = null)
+    public function addFolderWithHttpInfo($evApiKey, $evAccessToken, $body = null)
     {
         $returnType = '\ExaVault\Model\ResourceResponse';
-        $request = $this->addFolderRequest($ev_api_key, $ev_access_token, $body);
+        $request = $this->addFolderRequest($evApiKey, $evAccessToken, $body);
 
         try {
             $options = $this->createHttpClientOption();
@@ -187,16 +187,16 @@ class ResourcesApi
      *
      * Create a folder
      *
-     * @param  string $ev_api_key API Key required to make the API call. (required)
-     * @param  string $ev_access_token Access token required to make the API call. (required)
-     * @param  \ExaVault\Model\Body8 $body (optional)
+     * @param  string $evApiKey API Key required to make the API call. (required)
+     * @param  string $evAccessToken Access token required to make the API call. (required)
+     * @param  \ExaVault\Model\AddFolderRequestBody $body (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function addFolderAsync($ev_api_key, $ev_access_token, $body = null)
+    public function addFolderAsync($evApiKey, $evAccessToken, $body = null)
     {
-        return $this->addFolderAsyncWithHttpInfo($ev_api_key, $ev_access_token, $body)
+        return $this->addFolderAsyncWithHttpInfo($evApiKey, $evAccessToken, $body)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -209,17 +209,17 @@ class ResourcesApi
      *
      * Create a folder
      *
-     * @param  string $ev_api_key API Key required to make the API call. (required)
-     * @param  string $ev_access_token Access token required to make the API call. (required)
-     * @param  \ExaVault\Model\Body8 $body (optional)
+     * @param  string $evApiKey API Key required to make the API call. (required)
+     * @param  string $evAccessToken Access token required to make the API call. (required)
+     * @param  \ExaVault\Model\AddFolderRequestBody $body (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function addFolderAsyncWithHttpInfo($ev_api_key, $ev_access_token, $body = null)
+    public function addFolderAsyncWithHttpInfo($evApiKey, $evAccessToken, $body = null)
     {
         $returnType = '\ExaVault\Model\ResourceResponse';
-        $request = $this->addFolderRequest($ev_api_key, $ev_access_token, $body);
+        $request = $this->addFolderRequest($evApiKey, $evAccessToken, $body);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -261,25 +261,25 @@ class ResourcesApi
     /**
      * Create request for operation 'addFolder'
      *
-     * @param  string $ev_api_key API Key required to make the API call. (required)
-     * @param  string $ev_access_token Access token required to make the API call. (required)
-     * @param  \ExaVault\Model\Body8 $body (optional)
+     * @param  string $evApiKey API Key required to make the API call. (required)
+     * @param  string $evAccessToken Access token required to make the API call. (required)
+     * @param  \ExaVault\Model\AddFolderRequestBody $body (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function addFolderRequest($ev_api_key, $ev_access_token, $body = null)
+    protected function addFolderRequest($evApiKey, $evAccessToken, $body = null)
     {
-        // verify the required parameter 'ev_api_key' is set
-        if ($ev_api_key === null || (is_array($ev_api_key) && count($ev_api_key) === 0)) {
+        // verify the required parameter 'evApiKey' is set
+        if ($evApiKey === null || (is_array($evApiKey) && count($evApiKey) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $ev_api_key when calling addFolder'
+                'Missing the required parameter $evApiKey when calling addFolder'
             );
         }
-        // verify the required parameter 'ev_access_token' is set
-        if ($ev_access_token === null || (is_array($ev_access_token) && count($ev_access_token) === 0)) {
+        // verify the required parameter 'evAccessToken' is set
+        if ($evAccessToken === null || (is_array($evAccessToken) && count($evAccessToken) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $ev_access_token when calling addFolder'
+                'Missing the required parameter $evAccessToken when calling addFolder'
             );
         }
 
@@ -291,12 +291,12 @@ class ResourcesApi
         $multipart = false;
 
         // header params
-        if ($ev_api_key !== null) {
-            $headerParams['ev-api-key'] = ObjectSerializer::toHeaderValue($ev_api_key);
+        if ($evApiKey !== null) {
+            $headerParams['ev-api-key'] = ObjectSerializer::toHeaderValue($evApiKey);
         }
         // header params
-        if ($ev_access_token !== null) {
-            $headerParams['ev-access-token'] = ObjectSerializer::toHeaderValue($ev_access_token);
+        if ($evAccessToken !== null) {
+            $headerParams['ev-access-token'] = ObjectSerializer::toHeaderValue($evAccessToken);
         }
 
 
@@ -372,17 +372,17 @@ class ResourcesApi
      *
      * Compress resources
      *
-     * @param  string $ev_api_key API Key required to make the API call. (required)
-     * @param  string $ev_access_token Access token required to make the API call. (required)
-     * @param  \ExaVault\Model\Body10 $body body (optional)
+     * @param  string $evApiKey API Key required to make the API call. (required)
+     * @param  string $evAccessToken Access token required to make the API call. (required)
+     * @param  \ExaVault\Model\CompressFilesRequestBody $body body (optional)
      *
      * @throws \ExaVault\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \ExaVault\Model\ResourceResponse
      */
-    public function compressFiles($ev_api_key, $ev_access_token, $body = null)
+    public function compressFiles($evApiKey, $evAccessToken, $body = null)
     {
-        list($response) = $this->compressFilesWithHttpInfo($ev_api_key, $ev_access_token, $body);
+        list($response) = $this->compressFilesWithHttpInfo($evApiKey, $evAccessToken, $body);
         return $response;
     }
 
@@ -391,18 +391,18 @@ class ResourcesApi
      *
      * Compress resources
      *
-     * @param  string $ev_api_key API Key required to make the API call. (required)
-     * @param  string $ev_access_token Access token required to make the API call. (required)
-     * @param  \ExaVault\Model\Body10 $body (optional)
+     * @param  string $evApiKey API Key required to make the API call. (required)
+     * @param  string $evAccessToken Access token required to make the API call. (required)
+     * @param  \ExaVault\Model\CompressFilesRequestBody $body (optional)
      *
      * @throws \ExaVault\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \ExaVault\Model\ResourceResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function compressFilesWithHttpInfo($ev_api_key, $ev_access_token, $body = null)
+    public function compressFilesWithHttpInfo($evApiKey, $evAccessToken, $body = null)
     {
         $returnType = '\ExaVault\Model\ResourceResponse';
-        $request = $this->compressFilesRequest($ev_api_key, $ev_access_token, $body);
+        $request = $this->compressFilesRequest($evApiKey, $evAccessToken, $body);
 
         try {
             $options = $this->createHttpClientOption();
@@ -468,16 +468,16 @@ class ResourcesApi
      *
      * Compress resources
      *
-     * @param  string $ev_api_key API Key required to make the API call. (required)
-     * @param  string $ev_access_token Access token required to make the API call. (required)
-     * @param  \ExaVault\Model\Body10 $body (optional)
+     * @param  string $evApiKey API Key required to make the API call. (required)
+     * @param  string $evAccessToken Access token required to make the API call. (required)
+     * @param  \ExaVault\Model\CompressFilesRequestBody $body (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function compressFilesAsync($ev_api_key, $ev_access_token, $body = null)
+    public function compressFilesAsync($evApiKey, $evAccessToken, $body = null)
     {
-        return $this->compressFilesAsyncWithHttpInfo($ev_api_key, $ev_access_token, $body)
+        return $this->compressFilesAsyncWithHttpInfo($evApiKey, $evAccessToken, $body)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -490,17 +490,17 @@ class ResourcesApi
      *
      * Compress resources
      *
-     * @param  string $ev_api_key API Key required to make the API call. (required)
-     * @param  string $ev_access_token Access token required to make the API call. (required)
-     * @param  \ExaVault\Model\Body10 $body (optional)
+     * @param  string $evApiKey API Key required to make the API call. (required)
+     * @param  string $evAccessToken Access token required to make the API call. (required)
+     * @param  \ExaVault\Model\CompressFilesRequestBody $body (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function compressFilesAsyncWithHttpInfo($ev_api_key, $ev_access_token, $body = null)
+    public function compressFilesAsyncWithHttpInfo($evApiKey, $evAccessToken, $body = null)
     {
         $returnType = '\ExaVault\Model\ResourceResponse';
-        $request = $this->compressFilesRequest($ev_api_key, $ev_access_token, $body);
+        $request = $this->compressFilesRequest($evApiKey, $evAccessToken, $body);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -542,25 +542,25 @@ class ResourcesApi
     /**
      * Create request for operation 'compressFiles'
      *
-     * @param  string $ev_api_key API Key required to make the API call. (required)
-     * @param  string $ev_access_token Access token required to make the API call. (required)
-     * @param  \ExaVault\Model\Body10 $body (optional)
+     * @param  string $evApiKey API Key required to make the API call. (required)
+     * @param  string $evAccessToken Access token required to make the API call. (required)
+     * @param  \ExaVault\Model\CompressFilesRequestBody $body (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function compressFilesRequest($ev_api_key, $ev_access_token, $body = null)
+    protected function compressFilesRequest($evApiKey, $evAccessToken, $body = null)
     {
-        // verify the required parameter 'ev_api_key' is set
-        if ($ev_api_key === null || (is_array($ev_api_key) && count($ev_api_key) === 0)) {
+        // verify the required parameter 'evApiKey' is set
+        if ($evApiKey === null || (is_array($evApiKey) && count($evApiKey) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $ev_api_key when calling compressFiles'
+                'Missing the required parameter $evApiKey when calling compressFiles'
             );
         }
-        // verify the required parameter 'ev_access_token' is set
-        if ($ev_access_token === null || (is_array($ev_access_token) && count($ev_access_token) === 0)) {
+        // verify the required parameter 'evAccessToken' is set
+        if ($evAccessToken === null || (is_array($evAccessToken) && count($evAccessToken) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $ev_access_token when calling compressFiles'
+                'Missing the required parameter $evAccessToken when calling compressFiles'
             );
         }
 
@@ -572,12 +572,12 @@ class ResourcesApi
         $multipart = false;
 
         // header params
-        if ($ev_api_key !== null) {
-            $headerParams['ev-api-key'] = ObjectSerializer::toHeaderValue($ev_api_key);
+        if ($evApiKey !== null) {
+            $headerParams['ev-api-key'] = ObjectSerializer::toHeaderValue($evApiKey);
         }
         // header params
-        if ($ev_access_token !== null) {
-            $headerParams['ev-access-token'] = ObjectSerializer::toHeaderValue($ev_access_token);
+        if ($evAccessToken !== null) {
+            $headerParams['ev-access-token'] = ObjectSerializer::toHeaderValue($evAccessToken);
         }
 
 
@@ -653,17 +653,17 @@ class ResourcesApi
      *
      * Copy resources
      *
-     * @param  string $ev_api_key API Key required to make the API call. (required)
-     * @param  string $ev_access_token Access token required to make the API call. (required)
-     * @param  \ExaVault\Model\Body12 $body body (optional)
+     * @param  string $evApiKey API Key required to make the API call. (required)
+     * @param  string $evAccessToken Access token required to make the API call. (required)
+     * @param  \ExaVault\Model\CopyResourcesRequestBody $body body (optional)
      *
      * @throws \ExaVault\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \ExaVault\Model\ResourceCopyMove
      */
-    public function copyResources($ev_api_key, $ev_access_token, $body = null)
+    public function copyResources($evApiKey, $evAccessToken, $body = null)
     {
-        list($response) = $this->copyResourcesWithHttpInfo($ev_api_key, $ev_access_token, $body);
+        list($response) = $this->copyResourcesWithHttpInfo($evApiKey, $evAccessToken, $body);
         return $response;
     }
 
@@ -672,18 +672,18 @@ class ResourcesApi
      *
      * Copy resources
      *
-     * @param  string $ev_api_key API Key required to make the API call. (required)
-     * @param  string $ev_access_token Access token required to make the API call. (required)
-     * @param  \ExaVault\Model\Body12 $body (optional)
+     * @param  string $evApiKey API Key required to make the API call. (required)
+     * @param  string $evAccessToken Access token required to make the API call. (required)
+     * @param  \ExaVault\Model\CopyResourcesRequestBody $body (optional)
      *
      * @throws \ExaVault\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \ExaVault\Model\ResourceCopyMove, HTTP status code, HTTP response headers (array of strings)
      */
-    public function copyResourcesWithHttpInfo($ev_api_key, $ev_access_token, $body = null)
+    public function copyResourcesWithHttpInfo($evApiKey, $evAccessToken, $body = null)
     {
         $returnType = '\ExaVault\Model\ResourceCopyMove';
-        $request = $this->copyResourcesRequest($ev_api_key, $ev_access_token, $body);
+        $request = $this->copyResourcesRequest($evApiKey, $evAccessToken, $body);
 
         try {
             $options = $this->createHttpClientOption();
@@ -757,16 +757,16 @@ class ResourcesApi
      *
      * Copy resources
      *
-     * @param  string $ev_api_key API Key required to make the API call. (required)
-     * @param  string $ev_access_token Access token required to make the API call. (required)
-     * @param  \ExaVault\Model\Body12 $body (optional)
+     * @param  string $evApiKey API Key required to make the API call. (required)
+     * @param  string $evAccessToken Access token required to make the API call. (required)
+     * @param  \ExaVault\Model\CopyResourcesRequestBody $body (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function copyResourcesAsync($ev_api_key, $ev_access_token, $body = null)
+    public function copyResourcesAsync($evApiKey, $evAccessToken, $body = null)
     {
-        return $this->copyResourcesAsyncWithHttpInfo($ev_api_key, $ev_access_token, $body)
+        return $this->copyResourcesAsyncWithHttpInfo($evApiKey, $evAccessToken, $body)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -779,17 +779,17 @@ class ResourcesApi
      *
      * Copy resources
      *
-     * @param  string $ev_api_key API Key required to make the API call. (required)
-     * @param  string $ev_access_token Access token required to make the API call. (required)
-     * @param  \ExaVault\Model\Body12 $body (optional)
+     * @param  string $evApiKey API Key required to make the API call. (required)
+     * @param  string $evAccessToken Access token required to make the API call. (required)
+     * @param  \ExaVault\Model\CopyResourcesRequestBody $body (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function copyResourcesAsyncWithHttpInfo($ev_api_key, $ev_access_token, $body = null)
+    public function copyResourcesAsyncWithHttpInfo($evApiKey, $evAccessToken, $body = null)
     {
         $returnType = '\ExaVault\Model\ResourceCopyMove';
-        $request = $this->copyResourcesRequest($ev_api_key, $ev_access_token, $body);
+        $request = $this->copyResourcesRequest($evApiKey, $evAccessToken, $body);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -831,25 +831,25 @@ class ResourcesApi
     /**
      * Create request for operation 'copyResources'
      *
-     * @param  string $ev_api_key API Key required to make the API call. (required)
-     * @param  string $ev_access_token Access token required to make the API call. (required)
-     * @param  \ExaVault\Model\Body12 $body (optional)
+     * @param  string $evApiKey API Key required to make the API call. (required)
+     * @param  string $evAccessToken Access token required to make the API call. (required)
+     * @param  \ExaVault\Model\CopyResourcesRequestBody $body (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function copyResourcesRequest($ev_api_key, $ev_access_token, $body = null)
+    protected function copyResourcesRequest($evApiKey, $evAccessToken, $body = null)
     {
-        // verify the required parameter 'ev_api_key' is set
-        if ($ev_api_key === null || (is_array($ev_api_key) && count($ev_api_key) === 0)) {
+        // verify the required parameter 'evApiKey' is set
+        if ($evApiKey === null || (is_array($evApiKey) && count($evApiKey) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $ev_api_key when calling copyResources'
+                'Missing the required parameter $evApiKey when calling copyResources'
             );
         }
-        // verify the required parameter 'ev_access_token' is set
-        if ($ev_access_token === null || (is_array($ev_access_token) && count($ev_access_token) === 0)) {
+        // verify the required parameter 'evAccessToken' is set
+        if ($evAccessToken === null || (is_array($evAccessToken) && count($evAccessToken) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $ev_access_token when calling copyResources'
+                'Missing the required parameter $evAccessToken when calling copyResources'
             );
         }
 
@@ -861,12 +861,12 @@ class ResourcesApi
         $multipart = false;
 
         // header params
-        if ($ev_api_key !== null) {
-            $headerParams['ev-api-key'] = ObjectSerializer::toHeaderValue($ev_api_key);
+        if ($evApiKey !== null) {
+            $headerParams['ev-api-key'] = ObjectSerializer::toHeaderValue($evApiKey);
         }
         // header params
-        if ($ev_access_token !== null) {
-            $headerParams['ev-access-token'] = ObjectSerializer::toHeaderValue($ev_access_token);
+        if ($evAccessToken !== null) {
+            $headerParams['ev-access-token'] = ObjectSerializer::toHeaderValue($evAccessToken);
         }
 
 
@@ -943,16 +943,16 @@ class ResourcesApi
      * Delete a Resource
      *
      * @param  int $id ID number of the resource (required)
-     * @param  string $ev_api_key API Key required to make the API call. (required)
-     * @param  string $ev_access_token Access token required to make the API call. (required)
+     * @param  string $evApiKey API Key required to make the API call. (required)
+     * @param  string $evAccessToken Access token required to make the API call. (required)
      *
      * @throws \ExaVault\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \ExaVault\Model\EmptyResponse
      */
-    public function deleteResourceById($id, $ev_api_key, $ev_access_token)
+    public function deleteResourceById($id, $evApiKey, $evAccessToken)
     {
-        list($response) = $this->deleteResourceByIdWithHttpInfo($id, $ev_api_key, $ev_access_token);
+        list($response) = $this->deleteResourceByIdWithHttpInfo($id, $evApiKey, $evAccessToken);
         return $response;
     }
 
@@ -962,17 +962,17 @@ class ResourcesApi
      * Delete a Resource
      *
      * @param  int $id ID number of the resource (required)
-     * @param  string $ev_api_key API Key required to make the API call. (required)
-     * @param  string $ev_access_token Access token required to make the API call. (required)
+     * @param  string $evApiKey API Key required to make the API call. (required)
+     * @param  string $evAccessToken Access token required to make the API call. (required)
      *
      * @throws \ExaVault\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \ExaVault\Model\EmptyResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function deleteResourceByIdWithHttpInfo($id, $ev_api_key, $ev_access_token)
+    public function deleteResourceByIdWithHttpInfo($id, $evApiKey, $evAccessToken)
     {
         $returnType = '\ExaVault\Model\EmptyResponse';
-        $request = $this->deleteResourceByIdRequest($id, $ev_api_key, $ev_access_token);
+        $request = $this->deleteResourceByIdRequest($id, $evApiKey, $evAccessToken);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1039,15 +1039,15 @@ class ResourcesApi
      * Delete a Resource
      *
      * @param  int $id ID number of the resource (required)
-     * @param  string $ev_api_key API Key required to make the API call. (required)
-     * @param  string $ev_access_token Access token required to make the API call. (required)
+     * @param  string $evApiKey API Key required to make the API call. (required)
+     * @param  string $evAccessToken Access token required to make the API call. (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteResourceByIdAsync($id, $ev_api_key, $ev_access_token)
+    public function deleteResourceByIdAsync($id, $evApiKey, $evAccessToken)
     {
-        return $this->deleteResourceByIdAsyncWithHttpInfo($id, $ev_api_key, $ev_access_token)
+        return $this->deleteResourceByIdAsyncWithHttpInfo($id, $evApiKey, $evAccessToken)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1061,16 +1061,16 @@ class ResourcesApi
      * Delete a Resource
      *
      * @param  int $id ID number of the resource (required)
-     * @param  string $ev_api_key API Key required to make the API call. (required)
-     * @param  string $ev_access_token Access token required to make the API call. (required)
+     * @param  string $evApiKey API Key required to make the API call. (required)
+     * @param  string $evAccessToken Access token required to make the API call. (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteResourceByIdAsyncWithHttpInfo($id, $ev_api_key, $ev_access_token)
+    public function deleteResourceByIdAsyncWithHttpInfo($id, $evApiKey, $evAccessToken)
     {
         $returnType = '\ExaVault\Model\EmptyResponse';
-        $request = $this->deleteResourceByIdRequest($id, $ev_api_key, $ev_access_token);
+        $request = $this->deleteResourceByIdRequest($id, $evApiKey, $evAccessToken);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1113,13 +1113,13 @@ class ResourcesApi
      * Create request for operation 'deleteResourceById'
      *
      * @param  int $id ID number of the resource (required)
-     * @param  string $ev_api_key API Key required to make the API call. (required)
-     * @param  string $ev_access_token Access token required to make the API call. (required)
+     * @param  string $evApiKey API Key required to make the API call. (required)
+     * @param  string $evAccessToken Access token required to make the API call. (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function deleteResourceByIdRequest($id, $ev_api_key, $ev_access_token)
+    protected function deleteResourceByIdRequest($id, $evApiKey, $evAccessToken)
     {
         // verify the required parameter 'id' is set
         if ($id === null || (is_array($id) && count($id) === 0)) {
@@ -1127,16 +1127,16 @@ class ResourcesApi
                 'Missing the required parameter $id when calling deleteResourceById'
             );
         }
-        // verify the required parameter 'ev_api_key' is set
-        if ($ev_api_key === null || (is_array($ev_api_key) && count($ev_api_key) === 0)) {
+        // verify the required parameter 'evApiKey' is set
+        if ($evApiKey === null || (is_array($evApiKey) && count($evApiKey) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $ev_api_key when calling deleteResourceById'
+                'Missing the required parameter $evApiKey when calling deleteResourceById'
             );
         }
-        // verify the required parameter 'ev_access_token' is set
-        if ($ev_access_token === null || (is_array($ev_access_token) && count($ev_access_token) === 0)) {
+        // verify the required parameter 'evAccessToken' is set
+        if ($evAccessToken === null || (is_array($evAccessToken) && count($evAccessToken) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $ev_access_token when calling deleteResourceById'
+                'Missing the required parameter $evAccessToken when calling deleteResourceById'
             );
         }
 
@@ -1148,12 +1148,12 @@ class ResourcesApi
         $multipart = false;
 
         // header params
-        if ($ev_api_key !== null) {
-            $headerParams['ev-api-key'] = ObjectSerializer::toHeaderValue($ev_api_key);
+        if ($evApiKey !== null) {
+            $headerParams['ev-api-key'] = ObjectSerializer::toHeaderValue($evApiKey);
         }
         // header params
-        if ($ev_access_token !== null) {
-            $headerParams['ev-access-token'] = ObjectSerializer::toHeaderValue($ev_access_token);
+        if ($evAccessToken !== null) {
+            $headerParams['ev-access-token'] = ObjectSerializer::toHeaderValue($evAccessToken);
         }
 
         // path params
@@ -1234,17 +1234,17 @@ class ResourcesApi
      *
      * Delete Resources
      *
-     * @param  string $ev_api_key API Key (required)
-     * @param  string $ev_access_token Access Token (required)
-     * @param  \ExaVault\Model\Body9 $body body (optional)
+     * @param  string $evApiKey API Key (required)
+     * @param  string $evAccessToken Access Token (required)
+     * @param  \ExaVault\Model\DeleteResourcesRequestBody $body body (optional)
      *
      * @throws \ExaVault\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \ExaVault\Model\EmptyResponse
      */
-    public function deleteResources($ev_api_key, $ev_access_token, $body = null)
+    public function deleteResources($evApiKey, $evAccessToken, $body = null)
     {
-        list($response) = $this->deleteResourcesWithHttpInfo($ev_api_key, $ev_access_token, $body);
+        list($response) = $this->deleteResourcesWithHttpInfo($evApiKey, $evAccessToken, $body);
         return $response;
     }
 
@@ -1253,18 +1253,18 @@ class ResourcesApi
      *
      * Delete Resources
      *
-     * @param  string $ev_api_key API Key (required)
-     * @param  string $ev_access_token Access Token (required)
-     * @param  \ExaVault\Model\Body9 $body (optional)
+     * @param  string $evApiKey API Key (required)
+     * @param  string $evAccessToken Access Token (required)
+     * @param  \ExaVault\Model\DeleteResourcesRequestBody $body (optional)
      *
      * @throws \ExaVault\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \ExaVault\Model\EmptyResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function deleteResourcesWithHttpInfo($ev_api_key, $ev_access_token, $body = null)
+    public function deleteResourcesWithHttpInfo($evApiKey, $evAccessToken, $body = null)
     {
         $returnType = '\ExaVault\Model\EmptyResponse';
-        $request = $this->deleteResourcesRequest($ev_api_key, $ev_access_token, $body);
+        $request = $this->deleteResourcesRequest($evApiKey, $evAccessToken, $body);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1338,16 +1338,16 @@ class ResourcesApi
      *
      * Delete Resources
      *
-     * @param  string $ev_api_key API Key (required)
-     * @param  string $ev_access_token Access Token (required)
-     * @param  \ExaVault\Model\Body9 $body (optional)
+     * @param  string $evApiKey API Key (required)
+     * @param  string $evAccessToken Access Token (required)
+     * @param  \ExaVault\Model\DeleteResourcesRequestBody $body (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteResourcesAsync($ev_api_key, $ev_access_token, $body = null)
+    public function deleteResourcesAsync($evApiKey, $evAccessToken, $body = null)
     {
-        return $this->deleteResourcesAsyncWithHttpInfo($ev_api_key, $ev_access_token, $body)
+        return $this->deleteResourcesAsyncWithHttpInfo($evApiKey, $evAccessToken, $body)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1360,17 +1360,17 @@ class ResourcesApi
      *
      * Delete Resources
      *
-     * @param  string $ev_api_key API Key (required)
-     * @param  string $ev_access_token Access Token (required)
-     * @param  \ExaVault\Model\Body9 $body (optional)
+     * @param  string $evApiKey API Key (required)
+     * @param  string $evAccessToken Access Token (required)
+     * @param  \ExaVault\Model\DeleteResourcesRequestBody $body (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteResourcesAsyncWithHttpInfo($ev_api_key, $ev_access_token, $body = null)
+    public function deleteResourcesAsyncWithHttpInfo($evApiKey, $evAccessToken, $body = null)
     {
         $returnType = '\ExaVault\Model\EmptyResponse';
-        $request = $this->deleteResourcesRequest($ev_api_key, $ev_access_token, $body);
+        $request = $this->deleteResourcesRequest($evApiKey, $evAccessToken, $body);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1412,25 +1412,25 @@ class ResourcesApi
     /**
      * Create request for operation 'deleteResources'
      *
-     * @param  string $ev_api_key API Key (required)
-     * @param  string $ev_access_token Access Token (required)
-     * @param  \ExaVault\Model\Body9 $body (optional)
+     * @param  string $evApiKey API Key (required)
+     * @param  string $evAccessToken Access Token (required)
+     * @param  \ExaVault\Model\DeleteResourcesRequestBody $body (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function deleteResourcesRequest($ev_api_key, $ev_access_token, $body = null)
+    protected function deleteResourcesRequest($evApiKey, $evAccessToken, $body = null)
     {
-        // verify the required parameter 'ev_api_key' is set
-        if ($ev_api_key === null || (is_array($ev_api_key) && count($ev_api_key) === 0)) {
+        // verify the required parameter 'evApiKey' is set
+        if ($evApiKey === null || (is_array($evApiKey) && count($evApiKey) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $ev_api_key when calling deleteResources'
+                'Missing the required parameter $evApiKey when calling deleteResources'
             );
         }
-        // verify the required parameter 'ev_access_token' is set
-        if ($ev_access_token === null || (is_array($ev_access_token) && count($ev_access_token) === 0)) {
+        // verify the required parameter 'evAccessToken' is set
+        if ($evAccessToken === null || (is_array($evAccessToken) && count($evAccessToken) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $ev_access_token when calling deleteResources'
+                'Missing the required parameter $evAccessToken when calling deleteResources'
             );
         }
 
@@ -1442,12 +1442,12 @@ class ResourcesApi
         $multipart = false;
 
         // header params
-        if ($ev_api_key !== null) {
-            $headerParams['ev-api-key'] = ObjectSerializer::toHeaderValue($ev_api_key);
+        if ($evApiKey !== null) {
+            $headerParams['ev-api-key'] = ObjectSerializer::toHeaderValue($evApiKey);
         }
         // header params
-        if ($ev_access_token !== null) {
-            $headerParams['ev-access-token'] = ObjectSerializer::toHeaderValue($ev_access_token);
+        if ($evAccessToken !== null) {
+            $headerParams['ev-access-token'] = ObjectSerializer::toHeaderValue($evAccessToken);
         }
 
 
@@ -1523,20 +1523,20 @@ class ResourcesApi
      *
      * Download a file
      *
-     * @param  string $ev_api_key API Key required to make the API call. (required)
-     * @param  string $ev_access_token Access token required to make the API call. (required)
+     * @param  string $evApiKey API Key required to make the API call. (required)
+     * @param  string $evAccessToken Access token required to make the API call. (required)
      * @param  string[] $resources Path of file or folder to be downloaded, starting from the root. Can also be an array of paths. (required)
-     * @param  string $download_name If zipping multiple files, the name of the zip file to create and download. (optional)
+     * @param  string $downloadArchiveName If zipping multiple files, the name of the zip file to create and download. (optional)
      * @param  bool $polling Used when downloading multiple files so url will be polled till zip file is created. (optional)
-     * @param  string $polling_zip_name Reference to the previously created zip for polling operation. (optional)
+     * @param  string $pollingArchiveName Reference to the previously created zip for polling operation. (optional)
      *
      * @throws \ExaVault\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return string
      */
-    public function download($ev_api_key, $ev_access_token, $resources, $download_name = null, $polling = null, $polling_zip_name = null)
+    public function download($evApiKey, $evAccessToken, $resources, $downloadArchiveName = null, $polling = null, $pollingArchiveName = null)
     {
-        list($response) = $this->downloadWithHttpInfo($ev_api_key, $ev_access_token, $resources, $download_name, $polling, $polling_zip_name);
+        list($response) = $this->downloadWithHttpInfo($evApiKey, $evAccessToken, $resources, $downloadArchiveName, $polling, $pollingArchiveName);
         return $response;
     }
 
@@ -1545,21 +1545,21 @@ class ResourcesApi
      *
      * Download a file
      *
-     * @param  string $ev_api_key API Key required to make the API call. (required)
-     * @param  string $ev_access_token Access token required to make the API call. (required)
+     * @param  string $evApiKey API Key required to make the API call. (required)
+     * @param  string $evAccessToken Access token required to make the API call. (required)
      * @param  string[] $resources Path of file or folder to be downloaded, starting from the root. Can also be an array of paths. (required)
-     * @param  string $download_name If zipping multiple files, the name of the zip file to create and download. (optional)
+     * @param  string $downloadArchiveName If zipping multiple files, the name of the zip file to create and download. (optional)
      * @param  bool $polling Used when downloading multiple files so url will be polled till zip file is created. (optional)
-     * @param  string $polling_zip_name Reference to the previously created zip for polling operation. (optional)
+     * @param  string $pollingArchiveName Reference to the previously created zip for polling operation. (optional)
      *
      * @throws \ExaVault\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of string, HTTP status code, HTTP response headers (array of strings)
      */
-    public function downloadWithHttpInfo($ev_api_key, $ev_access_token, $resources, $download_name = null, $polling = null, $polling_zip_name = null)
+    public function downloadWithHttpInfo($evApiKey, $evAccessToken, $resources, $downloadArchiveName = null, $polling = null, $pollingArchiveName = null)
     {
         $returnType = 'string';
-        $request = $this->downloadRequest($ev_api_key, $ev_access_token, $resources, $download_name, $polling, $polling_zip_name);
+        $request = $this->downloadRequest($evApiKey, $evAccessToken, $resources, $downloadArchiveName, $polling, $pollingArchiveName);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1633,19 +1633,19 @@ class ResourcesApi
      *
      * Download a file
      *
-     * @param  string $ev_api_key API Key required to make the API call. (required)
-     * @param  string $ev_access_token Access token required to make the API call. (required)
+     * @param  string $evApiKey API Key required to make the API call. (required)
+     * @param  string $evAccessToken Access token required to make the API call. (required)
      * @param  string[] $resources Path of file or folder to be downloaded, starting from the root. Can also be an array of paths. (required)
-     * @param  string $download_name If zipping multiple files, the name of the zip file to create and download. (optional)
+     * @param  string $downloadArchiveName If zipping multiple files, the name of the zip file to create and download. (optional)
      * @param  bool $polling Used when downloading multiple files so url will be polled till zip file is created. (optional)
-     * @param  string $polling_zip_name Reference to the previously created zip for polling operation. (optional)
+     * @param  string $pollingArchiveName Reference to the previously created zip for polling operation. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function downloadAsync($ev_api_key, $ev_access_token, $resources, $download_name = null, $polling = null, $polling_zip_name = null)
+    public function downloadAsync($evApiKey, $evAccessToken, $resources, $downloadArchiveName = null, $polling = null, $pollingArchiveName = null)
     {
-        return $this->downloadAsyncWithHttpInfo($ev_api_key, $ev_access_token, $resources, $download_name, $polling, $polling_zip_name)
+        return $this->downloadAsyncWithHttpInfo($evApiKey, $evAccessToken, $resources, $downloadArchiveName, $polling, $pollingArchiveName)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1658,20 +1658,20 @@ class ResourcesApi
      *
      * Download a file
      *
-     * @param  string $ev_api_key API Key required to make the API call. (required)
-     * @param  string $ev_access_token Access token required to make the API call. (required)
+     * @param  string $evApiKey API Key required to make the API call. (required)
+     * @param  string $evAccessToken Access token required to make the API call. (required)
      * @param  string[] $resources Path of file or folder to be downloaded, starting from the root. Can also be an array of paths. (required)
-     * @param  string $download_name If zipping multiple files, the name of the zip file to create and download. (optional)
+     * @param  string $downloadArchiveName If zipping multiple files, the name of the zip file to create and download. (optional)
      * @param  bool $polling Used when downloading multiple files so url will be polled till zip file is created. (optional)
-     * @param  string $polling_zip_name Reference to the previously created zip for polling operation. (optional)
+     * @param  string $pollingArchiveName Reference to the previously created zip for polling operation. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function downloadAsyncWithHttpInfo($ev_api_key, $ev_access_token, $resources, $download_name = null, $polling = null, $polling_zip_name = null)
+    public function downloadAsyncWithHttpInfo($evApiKey, $evAccessToken, $resources, $downloadArchiveName = null, $polling = null, $pollingArchiveName = null)
     {
         $returnType = 'string';
-        $request = $this->downloadRequest($ev_api_key, $ev_access_token, $resources, $download_name, $polling, $polling_zip_name);
+        $request = $this->downloadRequest($evApiKey, $evAccessToken, $resources, $downloadArchiveName, $polling, $pollingArchiveName);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1713,28 +1713,28 @@ class ResourcesApi
     /**
      * Create request for operation 'download'
      *
-     * @param  string $ev_api_key API Key required to make the API call. (required)
-     * @param  string $ev_access_token Access token required to make the API call. (required)
+     * @param  string $evApiKey API Key required to make the API call. (required)
+     * @param  string $evAccessToken Access token required to make the API call. (required)
      * @param  string[] $resources Path of file or folder to be downloaded, starting from the root. Can also be an array of paths. (required)
-     * @param  string $download_name If zipping multiple files, the name of the zip file to create and download. (optional)
+     * @param  string $downloadArchiveName If zipping multiple files, the name of the zip file to create and download. (optional)
      * @param  bool $polling Used when downloading multiple files so url will be polled till zip file is created. (optional)
-     * @param  string $polling_zip_name Reference to the previously created zip for polling operation. (optional)
+     * @param  string $pollingArchiveName Reference to the previously created zip for polling operation. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function downloadRequest($ev_api_key, $ev_access_token, $resources, $download_name = null, $polling = null, $polling_zip_name = null)
+    protected function downloadRequest($evApiKey, $evAccessToken, $resources, $downloadArchiveName = null, $polling = null, $pollingArchiveName = null)
     {
-        // verify the required parameter 'ev_api_key' is set
-        if ($ev_api_key === null || (is_array($ev_api_key) && count($ev_api_key) === 0)) {
+        // verify the required parameter 'evApiKey' is set
+        if ($evApiKey === null || (is_array($evApiKey) && count($evApiKey) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $ev_api_key when calling download'
+                'Missing the required parameter $evApiKey when calling download'
             );
         }
-        // verify the required parameter 'ev_access_token' is set
-        if ($ev_access_token === null || (is_array($ev_access_token) && count($ev_access_token) === 0)) {
+        // verify the required parameter 'evAccessToken' is set
+        if ($evAccessToken === null || (is_array($evAccessToken) && count($evAccessToken) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $ev_access_token when calling download'
+                'Missing the required parameter $evAccessToken when calling download'
             );
         }
         // verify the required parameter 'resources' is set
@@ -1759,24 +1759,24 @@ class ResourcesApi
             $queryParams['resources[]'] = ObjectSerializer::toQueryValue($resources, null);
         }
         // query params
-        if ($download_name !== null) {
-            $queryParams['downloadName'] = ObjectSerializer::toQueryValue($download_name, null);
+        if ($downloadArchiveName !== null) {
+            $queryParams['downloadArchiveName'] = ObjectSerializer::toQueryValue($downloadArchiveName, null);
         }
         // query params
         if ($polling !== null) {
             $queryParams['polling'] = ObjectSerializer::toQueryValue($polling, null);
         }
         // query params
-        if ($polling_zip_name !== null) {
-            $queryParams['pollingZipName'] = ObjectSerializer::toQueryValue($polling_zip_name, null);
+        if ($pollingArchiveName !== null) {
+            $queryParams['pollingArchiveName'] = ObjectSerializer::toQueryValue($pollingArchiveName, null);
         }
         // header params
-        if ($ev_api_key !== null) {
-            $headerParams['ev-api-key'] = ObjectSerializer::toHeaderValue($ev_api_key);
+        if ($evApiKey !== null) {
+            $headerParams['ev-api-key'] = ObjectSerializer::toHeaderValue($evApiKey);
         }
         // header params
-        if ($ev_access_token !== null) {
-            $headerParams['ev-access-token'] = ObjectSerializer::toHeaderValue($ev_access_token);
+        if ($evAccessToken !== null) {
+            $headerParams['ev-access-token'] = ObjectSerializer::toHeaderValue($evAccessToken);
         }
 
 
@@ -1849,17 +1849,17 @@ class ResourcesApi
      *
      * Extract resources
      *
-     * @param  string $ev_api_key API Key required to make the API call. (required)
-     * @param  string $ev_access_token Access token required to make the API call. (required)
-     * @param  \ExaVault\Model\Body11 $body body (optional)
+     * @param  string $evApiKey API Key required to make the API call. (required)
+     * @param  string $evAccessToken Access token required to make the API call. (required)
+     * @param  \ExaVault\Model\ExtractFilesRequestBody $body body (optional)
      *
      * @throws \ExaVault\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \ExaVault\Model\ResourceCollectionResponse
      */
-    public function extractFiles($ev_api_key, $ev_access_token, $body = null)
+    public function extractFiles($evApiKey, $evAccessToken, $body = null)
     {
-        list($response) = $this->extractFilesWithHttpInfo($ev_api_key, $ev_access_token, $body);
+        list($response) = $this->extractFilesWithHttpInfo($evApiKey, $evAccessToken, $body);
         return $response;
     }
 
@@ -1868,18 +1868,18 @@ class ResourcesApi
      *
      * Extract resources
      *
-     * @param  string $ev_api_key API Key required to make the API call. (required)
-     * @param  string $ev_access_token Access token required to make the API call. (required)
-     * @param  \ExaVault\Model\Body11 $body (optional)
+     * @param  string $evApiKey API Key required to make the API call. (required)
+     * @param  string $evAccessToken Access token required to make the API call. (required)
+     * @param  \ExaVault\Model\ExtractFilesRequestBody $body (optional)
      *
      * @throws \ExaVault\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \ExaVault\Model\ResourceCollectionResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function extractFilesWithHttpInfo($ev_api_key, $ev_access_token, $body = null)
+    public function extractFilesWithHttpInfo($evApiKey, $evAccessToken, $body = null)
     {
         $returnType = '\ExaVault\Model\ResourceCollectionResponse';
-        $request = $this->extractFilesRequest($ev_api_key, $ev_access_token, $body);
+        $request = $this->extractFilesRequest($evApiKey, $evAccessToken, $body);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1945,16 +1945,16 @@ class ResourcesApi
      *
      * Extract resources
      *
-     * @param  string $ev_api_key API Key required to make the API call. (required)
-     * @param  string $ev_access_token Access token required to make the API call. (required)
-     * @param  \ExaVault\Model\Body11 $body (optional)
+     * @param  string $evApiKey API Key required to make the API call. (required)
+     * @param  string $evAccessToken Access token required to make the API call. (required)
+     * @param  \ExaVault\Model\ExtractFilesRequestBody $body (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function extractFilesAsync($ev_api_key, $ev_access_token, $body = null)
+    public function extractFilesAsync($evApiKey, $evAccessToken, $body = null)
     {
-        return $this->extractFilesAsyncWithHttpInfo($ev_api_key, $ev_access_token, $body)
+        return $this->extractFilesAsyncWithHttpInfo($evApiKey, $evAccessToken, $body)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1967,17 +1967,17 @@ class ResourcesApi
      *
      * Extract resources
      *
-     * @param  string $ev_api_key API Key required to make the API call. (required)
-     * @param  string $ev_access_token Access token required to make the API call. (required)
-     * @param  \ExaVault\Model\Body11 $body (optional)
+     * @param  string $evApiKey API Key required to make the API call. (required)
+     * @param  string $evAccessToken Access token required to make the API call. (required)
+     * @param  \ExaVault\Model\ExtractFilesRequestBody $body (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function extractFilesAsyncWithHttpInfo($ev_api_key, $ev_access_token, $body = null)
+    public function extractFilesAsyncWithHttpInfo($evApiKey, $evAccessToken, $body = null)
     {
         $returnType = '\ExaVault\Model\ResourceCollectionResponse';
-        $request = $this->extractFilesRequest($ev_api_key, $ev_access_token, $body);
+        $request = $this->extractFilesRequest($evApiKey, $evAccessToken, $body);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2019,25 +2019,25 @@ class ResourcesApi
     /**
      * Create request for operation 'extractFiles'
      *
-     * @param  string $ev_api_key API Key required to make the API call. (required)
-     * @param  string $ev_access_token Access token required to make the API call. (required)
-     * @param  \ExaVault\Model\Body11 $body (optional)
+     * @param  string $evApiKey API Key required to make the API call. (required)
+     * @param  string $evAccessToken Access token required to make the API call. (required)
+     * @param  \ExaVault\Model\ExtractFilesRequestBody $body (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function extractFilesRequest($ev_api_key, $ev_access_token, $body = null)
+    protected function extractFilesRequest($evApiKey, $evAccessToken, $body = null)
     {
-        // verify the required parameter 'ev_api_key' is set
-        if ($ev_api_key === null || (is_array($ev_api_key) && count($ev_api_key) === 0)) {
+        // verify the required parameter 'evApiKey' is set
+        if ($evApiKey === null || (is_array($evApiKey) && count($evApiKey) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $ev_api_key when calling extractFiles'
+                'Missing the required parameter $evApiKey when calling extractFiles'
             );
         }
-        // verify the required parameter 'ev_access_token' is set
-        if ($ev_access_token === null || (is_array($ev_access_token) && count($ev_access_token) === 0)) {
+        // verify the required parameter 'evAccessToken' is set
+        if ($evAccessToken === null || (is_array($evAccessToken) && count($evAccessToken) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $ev_access_token when calling extractFiles'
+                'Missing the required parameter $evAccessToken when calling extractFiles'
             );
         }
 
@@ -2049,12 +2049,12 @@ class ResourcesApi
         $multipart = false;
 
         // header params
-        if ($ev_api_key !== null) {
-            $headerParams['ev-api-key'] = ObjectSerializer::toHeaderValue($ev_api_key);
+        if ($evApiKey !== null) {
+            $headerParams['ev-api-key'] = ObjectSerializer::toHeaderValue($evApiKey);
         }
         // header params
-        if ($ev_access_token !== null) {
-            $headerParams['ev-access-token'] = ObjectSerializer::toHeaderValue($ev_access_token);
+        if ($evAccessToken !== null) {
+            $headerParams['ev-access-token'] = ObjectSerializer::toHeaderValue($evAccessToken);
         }
 
 
@@ -2130,8 +2130,8 @@ class ResourcesApi
      *
      * Preview a file
      *
-     * @param  string $ev_api_key API Key (required)
-     * @param  string $ev_access_token Access Token (required)
+     * @param  string $evApiKey API Key (required)
+     * @param  string $evAccessToken Access Token (required)
      * @param  string $resource Resource identifier for the image file. (required)
      * @param  string $size The size of the image. (required)
      * @param  int $width Overrides sizes. Sets to a specific width. (optional)
@@ -2142,9 +2142,9 @@ class ResourcesApi
      * @throws \InvalidArgumentException
      * @return \ExaVault\Model\PreviewFileResponse
      */
-    public function getPreviewImage($ev_api_key, $ev_access_token, $resource, $size, $width = null, $height = null, $page = '0')
+    public function getPreviewImage($evApiKey, $evAccessToken, $resource, $size, $width = null, $height = null, $page = '0')
     {
-        list($response) = $this->getPreviewImageWithHttpInfo($ev_api_key, $ev_access_token, $resource, $size, $width, $height, $page);
+        list($response) = $this->getPreviewImageWithHttpInfo($evApiKey, $evAccessToken, $resource, $size, $width, $height, $page);
         return $response;
     }
 
@@ -2153,8 +2153,8 @@ class ResourcesApi
      *
      * Preview a file
      *
-     * @param  string $ev_api_key API Key (required)
-     * @param  string $ev_access_token Access Token (required)
+     * @param  string $evApiKey API Key (required)
+     * @param  string $evAccessToken Access Token (required)
      * @param  string $resource Resource identifier for the image file. (required)
      * @param  string $size The size of the image. (required)
      * @param  int $width Overrides sizes. Sets to a specific width. (optional)
@@ -2165,10 +2165,10 @@ class ResourcesApi
      * @throws \InvalidArgumentException
      * @return array of \ExaVault\Model\PreviewFileResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getPreviewImageWithHttpInfo($ev_api_key, $ev_access_token, $resource, $size, $width = null, $height = null, $page = '0')
+    public function getPreviewImageWithHttpInfo($evApiKey, $evAccessToken, $resource, $size, $width = null, $height = null, $page = '0')
     {
         $returnType = '\ExaVault\Model\PreviewFileResponse';
-        $request = $this->getPreviewImageRequest($ev_api_key, $ev_access_token, $resource, $size, $width, $height, $page);
+        $request = $this->getPreviewImageRequest($evApiKey, $evAccessToken, $resource, $size, $width, $height, $page);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2234,8 +2234,8 @@ class ResourcesApi
      *
      * Preview a file
      *
-     * @param  string $ev_api_key API Key (required)
-     * @param  string $ev_access_token Access Token (required)
+     * @param  string $evApiKey API Key (required)
+     * @param  string $evAccessToken Access Token (required)
      * @param  string $resource Resource identifier for the image file. (required)
      * @param  string $size The size of the image. (required)
      * @param  int $width Overrides sizes. Sets to a specific width. (optional)
@@ -2245,9 +2245,9 @@ class ResourcesApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getPreviewImageAsync($ev_api_key, $ev_access_token, $resource, $size, $width = null, $height = null, $page = '0')
+    public function getPreviewImageAsync($evApiKey, $evAccessToken, $resource, $size, $width = null, $height = null, $page = '0')
     {
-        return $this->getPreviewImageAsyncWithHttpInfo($ev_api_key, $ev_access_token, $resource, $size, $width, $height, $page)
+        return $this->getPreviewImageAsyncWithHttpInfo($evApiKey, $evAccessToken, $resource, $size, $width, $height, $page)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2260,8 +2260,8 @@ class ResourcesApi
      *
      * Preview a file
      *
-     * @param  string $ev_api_key API Key (required)
-     * @param  string $ev_access_token Access Token (required)
+     * @param  string $evApiKey API Key (required)
+     * @param  string $evAccessToken Access Token (required)
      * @param  string $resource Resource identifier for the image file. (required)
      * @param  string $size The size of the image. (required)
      * @param  int $width Overrides sizes. Sets to a specific width. (optional)
@@ -2271,10 +2271,10 @@ class ResourcesApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getPreviewImageAsyncWithHttpInfo($ev_api_key, $ev_access_token, $resource, $size, $width = null, $height = null, $page = '0')
+    public function getPreviewImageAsyncWithHttpInfo($evApiKey, $evAccessToken, $resource, $size, $width = null, $height = null, $page = '0')
     {
         $returnType = '\ExaVault\Model\PreviewFileResponse';
-        $request = $this->getPreviewImageRequest($ev_api_key, $ev_access_token, $resource, $size, $width, $height, $page);
+        $request = $this->getPreviewImageRequest($evApiKey, $evAccessToken, $resource, $size, $width, $height, $page);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2316,8 +2316,8 @@ class ResourcesApi
     /**
      * Create request for operation 'getPreviewImage'
      *
-     * @param  string $ev_api_key API Key (required)
-     * @param  string $ev_access_token Access Token (required)
+     * @param  string $evApiKey API Key (required)
+     * @param  string $evAccessToken Access Token (required)
      * @param  string $resource Resource identifier for the image file. (required)
      * @param  string $size The size of the image. (required)
      * @param  int $width Overrides sizes. Sets to a specific width. (optional)
@@ -2327,18 +2327,18 @@ class ResourcesApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function getPreviewImageRequest($ev_api_key, $ev_access_token, $resource, $size, $width = null, $height = null, $page = '0')
+    protected function getPreviewImageRequest($evApiKey, $evAccessToken, $resource, $size, $width = null, $height = null, $page = '0')
     {
-        // verify the required parameter 'ev_api_key' is set
-        if ($ev_api_key === null || (is_array($ev_api_key) && count($ev_api_key) === 0)) {
+        // verify the required parameter 'evApiKey' is set
+        if ($evApiKey === null || (is_array($evApiKey) && count($evApiKey) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $ev_api_key when calling getPreviewImage'
+                'Missing the required parameter $evApiKey when calling getPreviewImage'
             );
         }
-        // verify the required parameter 'ev_access_token' is set
-        if ($ev_access_token === null || (is_array($ev_access_token) && count($ev_access_token) === 0)) {
+        // verify the required parameter 'evAccessToken' is set
+        if ($evAccessToken === null || (is_array($evAccessToken) && count($evAccessToken) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $ev_access_token when calling getPreviewImage'
+                'Missing the required parameter $evAccessToken when calling getPreviewImage'
             );
         }
         // verify the required parameter 'resource' is set
@@ -2382,12 +2382,12 @@ class ResourcesApi
             $queryParams['page'] = ObjectSerializer::toQueryValue($page, 'int32');
         }
         // header params
-        if ($ev_api_key !== null) {
-            $headerParams['ev-api-key'] = ObjectSerializer::toHeaderValue($ev_api_key);
+        if ($evApiKey !== null) {
+            $headerParams['ev-api-key'] = ObjectSerializer::toHeaderValue($evApiKey);
         }
         // header params
-        if ($ev_access_token !== null) {
-            $headerParams['ev-access-token'] = ObjectSerializer::toHeaderValue($ev_access_token);
+        if ($evAccessToken !== null) {
+            $headerParams['ev-access-token'] = ObjectSerializer::toHeaderValue($evAccessToken);
         }
 
 
@@ -2460,8 +2460,8 @@ class ResourcesApi
      *
      * Get Resource Properties
      *
-     * @param  string $ev_api_key API Key required to make the API call. (required)
-     * @param  string $ev_access_token Access token required to make the API call. (required)
+     * @param  string $evApiKey API Key required to make the API call. (required)
+     * @param  string $evAccessToken Access token required to make the API call. (required)
      * @param  string $resource Resource identifier of the file or folder to get metadata for. (required)
      * @param  string $include Comma separated list of relationships to include in response. Possible values are **share**, **notifications**, **directFile**, **parentResource**, **ownerUser**, **ownerUser**. (optional)
      *
@@ -2469,9 +2469,9 @@ class ResourcesApi
      * @throws \InvalidArgumentException
      * @return \ExaVault\Model\ResourceResponse
      */
-    public function getResourceInfo($ev_api_key, $ev_access_token, $resource, $include = null)
+    public function getResourceInfo($evApiKey, $evAccessToken, $resource, $include = null)
     {
-        list($response) = $this->getResourceInfoWithHttpInfo($ev_api_key, $ev_access_token, $resource, $include);
+        list($response) = $this->getResourceInfoWithHttpInfo($evApiKey, $evAccessToken, $resource, $include);
         return $response;
     }
 
@@ -2480,8 +2480,8 @@ class ResourcesApi
      *
      * Get Resource Properties
      *
-     * @param  string $ev_api_key API Key required to make the API call. (required)
-     * @param  string $ev_access_token Access token required to make the API call. (required)
+     * @param  string $evApiKey API Key required to make the API call. (required)
+     * @param  string $evAccessToken Access token required to make the API call. (required)
      * @param  string $resource Resource identifier of the file or folder to get metadata for. (required)
      * @param  string $include Comma separated list of relationships to include in response. Possible values are **share**, **notifications**, **directFile**, **parentResource**, **ownerUser**, **ownerUser**. (optional)
      *
@@ -2489,10 +2489,10 @@ class ResourcesApi
      * @throws \InvalidArgumentException
      * @return array of \ExaVault\Model\ResourceResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getResourceInfoWithHttpInfo($ev_api_key, $ev_access_token, $resource, $include = null)
+    public function getResourceInfoWithHttpInfo($evApiKey, $evAccessToken, $resource, $include = null)
     {
         $returnType = '\ExaVault\Model\ResourceResponse';
-        $request = $this->getResourceInfoRequest($ev_api_key, $ev_access_token, $resource, $include);
+        $request = $this->getResourceInfoRequest($evApiKey, $evAccessToken, $resource, $include);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2558,17 +2558,17 @@ class ResourcesApi
      *
      * Get Resource Properties
      *
-     * @param  string $ev_api_key API Key required to make the API call. (required)
-     * @param  string $ev_access_token Access token required to make the API call. (required)
+     * @param  string $evApiKey API Key required to make the API call. (required)
+     * @param  string $evAccessToken Access token required to make the API call. (required)
      * @param  string $resource Resource identifier of the file or folder to get metadata for. (required)
      * @param  string $include Comma separated list of relationships to include in response. Possible values are **share**, **notifications**, **directFile**, **parentResource**, **ownerUser**, **ownerUser**. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getResourceInfoAsync($ev_api_key, $ev_access_token, $resource, $include = null)
+    public function getResourceInfoAsync($evApiKey, $evAccessToken, $resource, $include = null)
     {
-        return $this->getResourceInfoAsyncWithHttpInfo($ev_api_key, $ev_access_token, $resource, $include)
+        return $this->getResourceInfoAsyncWithHttpInfo($evApiKey, $evAccessToken, $resource, $include)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2581,18 +2581,18 @@ class ResourcesApi
      *
      * Get Resource Properties
      *
-     * @param  string $ev_api_key API Key required to make the API call. (required)
-     * @param  string $ev_access_token Access token required to make the API call. (required)
+     * @param  string $evApiKey API Key required to make the API call. (required)
+     * @param  string $evAccessToken Access token required to make the API call. (required)
      * @param  string $resource Resource identifier of the file or folder to get metadata for. (required)
      * @param  string $include Comma separated list of relationships to include in response. Possible values are **share**, **notifications**, **directFile**, **parentResource**, **ownerUser**, **ownerUser**. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getResourceInfoAsyncWithHttpInfo($ev_api_key, $ev_access_token, $resource, $include = null)
+    public function getResourceInfoAsyncWithHttpInfo($evApiKey, $evAccessToken, $resource, $include = null)
     {
         $returnType = '\ExaVault\Model\ResourceResponse';
-        $request = $this->getResourceInfoRequest($ev_api_key, $ev_access_token, $resource, $include);
+        $request = $this->getResourceInfoRequest($evApiKey, $evAccessToken, $resource, $include);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2634,26 +2634,26 @@ class ResourcesApi
     /**
      * Create request for operation 'getResourceInfo'
      *
-     * @param  string $ev_api_key API Key required to make the API call. (required)
-     * @param  string $ev_access_token Access token required to make the API call. (required)
+     * @param  string $evApiKey API Key required to make the API call. (required)
+     * @param  string $evAccessToken Access token required to make the API call. (required)
      * @param  string $resource Resource identifier of the file or folder to get metadata for. (required)
      * @param  string $include Comma separated list of relationships to include in response. Possible values are **share**, **notifications**, **directFile**, **parentResource**, **ownerUser**, **ownerUser**. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function getResourceInfoRequest($ev_api_key, $ev_access_token, $resource, $include = null)
+    protected function getResourceInfoRequest($evApiKey, $evAccessToken, $resource, $include = null)
     {
-        // verify the required parameter 'ev_api_key' is set
-        if ($ev_api_key === null || (is_array($ev_api_key) && count($ev_api_key) === 0)) {
+        // verify the required parameter 'evApiKey' is set
+        if ($evApiKey === null || (is_array($evApiKey) && count($evApiKey) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $ev_api_key when calling getResourceInfo'
+                'Missing the required parameter $evApiKey when calling getResourceInfo'
             );
         }
-        // verify the required parameter 'ev_access_token' is set
-        if ($ev_access_token === null || (is_array($ev_access_token) && count($ev_access_token) === 0)) {
+        // verify the required parameter 'evAccessToken' is set
+        if ($evAccessToken === null || (is_array($evAccessToken) && count($evAccessToken) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $ev_access_token when calling getResourceInfo'
+                'Missing the required parameter $evAccessToken when calling getResourceInfo'
             );
         }
         // verify the required parameter 'resource' is set
@@ -2679,12 +2679,12 @@ class ResourcesApi
             $queryParams['include'] = ObjectSerializer::toQueryValue($include, null);
         }
         // header params
-        if ($ev_api_key !== null) {
-            $headerParams['ev-api-key'] = ObjectSerializer::toHeaderValue($ev_api_key);
+        if ($evApiKey !== null) {
+            $headerParams['ev-api-key'] = ObjectSerializer::toHeaderValue($evApiKey);
         }
         // header params
-        if ($ev_access_token !== null) {
-            $headerParams['ev-access-token'] = ObjectSerializer::toHeaderValue($ev_access_token);
+        if ($evAccessToken !== null) {
+            $headerParams['ev-access-token'] = ObjectSerializer::toHeaderValue($evAccessToken);
         }
 
 
@@ -2758,17 +2758,17 @@ class ResourcesApi
      * Get resource metadata
      *
      * @param  int $id ID number of the resource (required)
-     * @param  string $ev_api_key API Key required to make the API call. (required)
-     * @param  string $ev_access_token Access token required to make the API call. (required)
+     * @param  string $evApiKey API Key required to make the API call. (required)
+     * @param  string $evAccessToken Access token required to make the API call. (required)
      * @param  string $include Comma separated list of relationships to include in response. Possible values are **share**, **notifications**, **directFile**, **parentResource**, **ownerUser**, **ownerAccount**. (optional)
      *
      * @throws \ExaVault\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \ExaVault\Model\ResourceResponse
      */
-    public function getResourceInfoById($id, $ev_api_key, $ev_access_token, $include = null)
+    public function getResourceInfoById($id, $evApiKey, $evAccessToken, $include = null)
     {
-        list($response) = $this->getResourceInfoByIdWithHttpInfo($id, $ev_api_key, $ev_access_token, $include);
+        list($response) = $this->getResourceInfoByIdWithHttpInfo($id, $evApiKey, $evAccessToken, $include);
         return $response;
     }
 
@@ -2778,18 +2778,18 @@ class ResourcesApi
      * Get resource metadata
      *
      * @param  int $id ID number of the resource (required)
-     * @param  string $ev_api_key API Key required to make the API call. (required)
-     * @param  string $ev_access_token Access token required to make the API call. (required)
+     * @param  string $evApiKey API Key required to make the API call. (required)
+     * @param  string $evAccessToken Access token required to make the API call. (required)
      * @param  string $include Comma separated list of relationships to include in response. Possible values are **share**, **notifications**, **directFile**, **parentResource**, **ownerUser**, **ownerAccount**. (optional)
      *
      * @throws \ExaVault\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \ExaVault\Model\ResourceResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getResourceInfoByIdWithHttpInfo($id, $ev_api_key, $ev_access_token, $include = null)
+    public function getResourceInfoByIdWithHttpInfo($id, $evApiKey, $evAccessToken, $include = null)
     {
         $returnType = '\ExaVault\Model\ResourceResponse';
-        $request = $this->getResourceInfoByIdRequest($id, $ev_api_key, $ev_access_token, $include);
+        $request = $this->getResourceInfoByIdRequest($id, $evApiKey, $evAccessToken, $include);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2856,16 +2856,16 @@ class ResourcesApi
      * Get resource metadata
      *
      * @param  int $id ID number of the resource (required)
-     * @param  string $ev_api_key API Key required to make the API call. (required)
-     * @param  string $ev_access_token Access token required to make the API call. (required)
+     * @param  string $evApiKey API Key required to make the API call. (required)
+     * @param  string $evAccessToken Access token required to make the API call. (required)
      * @param  string $include Comma separated list of relationships to include in response. Possible values are **share**, **notifications**, **directFile**, **parentResource**, **ownerUser**, **ownerAccount**. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getResourceInfoByIdAsync($id, $ev_api_key, $ev_access_token, $include = null)
+    public function getResourceInfoByIdAsync($id, $evApiKey, $evAccessToken, $include = null)
     {
-        return $this->getResourceInfoByIdAsyncWithHttpInfo($id, $ev_api_key, $ev_access_token, $include)
+        return $this->getResourceInfoByIdAsyncWithHttpInfo($id, $evApiKey, $evAccessToken, $include)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2879,17 +2879,17 @@ class ResourcesApi
      * Get resource metadata
      *
      * @param  int $id ID number of the resource (required)
-     * @param  string $ev_api_key API Key required to make the API call. (required)
-     * @param  string $ev_access_token Access token required to make the API call. (required)
+     * @param  string $evApiKey API Key required to make the API call. (required)
+     * @param  string $evAccessToken Access token required to make the API call. (required)
      * @param  string $include Comma separated list of relationships to include in response. Possible values are **share**, **notifications**, **directFile**, **parentResource**, **ownerUser**, **ownerAccount**. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getResourceInfoByIdAsyncWithHttpInfo($id, $ev_api_key, $ev_access_token, $include = null)
+    public function getResourceInfoByIdAsyncWithHttpInfo($id, $evApiKey, $evAccessToken, $include = null)
     {
         $returnType = '\ExaVault\Model\ResourceResponse';
-        $request = $this->getResourceInfoByIdRequest($id, $ev_api_key, $ev_access_token, $include);
+        $request = $this->getResourceInfoByIdRequest($id, $evApiKey, $evAccessToken, $include);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2932,14 +2932,14 @@ class ResourcesApi
      * Create request for operation 'getResourceInfoById'
      *
      * @param  int $id ID number of the resource (required)
-     * @param  string $ev_api_key API Key required to make the API call. (required)
-     * @param  string $ev_access_token Access token required to make the API call. (required)
+     * @param  string $evApiKey API Key required to make the API call. (required)
+     * @param  string $evAccessToken Access token required to make the API call. (required)
      * @param  string $include Comma separated list of relationships to include in response. Possible values are **share**, **notifications**, **directFile**, **parentResource**, **ownerUser**, **ownerAccount**. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function getResourceInfoByIdRequest($id, $ev_api_key, $ev_access_token, $include = null)
+    protected function getResourceInfoByIdRequest($id, $evApiKey, $evAccessToken, $include = null)
     {
         // verify the required parameter 'id' is set
         if ($id === null || (is_array($id) && count($id) === 0)) {
@@ -2947,16 +2947,16 @@ class ResourcesApi
                 'Missing the required parameter $id when calling getResourceInfoById'
             );
         }
-        // verify the required parameter 'ev_api_key' is set
-        if ($ev_api_key === null || (is_array($ev_api_key) && count($ev_api_key) === 0)) {
+        // verify the required parameter 'evApiKey' is set
+        if ($evApiKey === null || (is_array($evApiKey) && count($evApiKey) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $ev_api_key when calling getResourceInfoById'
+                'Missing the required parameter $evApiKey when calling getResourceInfoById'
             );
         }
-        // verify the required parameter 'ev_access_token' is set
-        if ($ev_access_token === null || (is_array($ev_access_token) && count($ev_access_token) === 0)) {
+        // verify the required parameter 'evAccessToken' is set
+        if ($evAccessToken === null || (is_array($evAccessToken) && count($evAccessToken) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $ev_access_token when calling getResourceInfoById'
+                'Missing the required parameter $evAccessToken when calling getResourceInfoById'
             );
         }
 
@@ -2972,12 +2972,12 @@ class ResourcesApi
             $queryParams['include'] = ObjectSerializer::toQueryValue($include, null);
         }
         // header params
-        if ($ev_api_key !== null) {
-            $headerParams['ev-api-key'] = ObjectSerializer::toHeaderValue($ev_api_key);
+        if ($evApiKey !== null) {
+            $headerParams['ev-api-key'] = ObjectSerializer::toHeaderValue($evApiKey);
         }
         // header params
-        if ($ev_access_token !== null) {
-            $headerParams['ev-access-token'] = ObjectSerializer::toHeaderValue($ev_access_token);
+        if ($evAccessToken !== null) {
+            $headerParams['ev-access-token'] = ObjectSerializer::toHeaderValue($evAccessToken);
         }
 
         // path params
@@ -3058,8 +3058,8 @@ class ResourcesApi
      *
      * List contents of folder
      *
-     * @param  string $ev_api_key API Key required to make the API call. (required)
-     * @param  string $ev_access_token Access token required to make the API call. (required)
+     * @param  string $evApiKey API Key required to make the API call. (required)
+     * @param  string $evAccessToken Access token required to make the API call. (required)
      * @param  int $id ID of the parent resource to get a list of resources for. (required)
      * @param  string $sort Endpoint support multiple sort fields by allowing array of sort params. Sort fields should be applied in the order specified. The sort order for each sort field is ascending unless it is prefixed with a minus (“-“), in which case it will be descending. (optional)
      * @param  int $offset Determines which item to start on for pagination. Use zero (0) to start at the beginning of the list. (optional, default to 0)
@@ -3071,9 +3071,9 @@ class ResourcesApi
      * @throws \InvalidArgumentException
      * @return \ExaVault\Model\ResourceCollectionResponse
      */
-    public function listResourceContents($ev_api_key, $ev_access_token, $id, $sort = null, $offset = '0', $limit = null, $type = null, $include = null)
+    public function listResourceContents($evApiKey, $evAccessToken, $id, $sort = null, $offset = '0', $limit = null, $type = null, $include = null)
     {
-        list($response) = $this->listResourceContentsWithHttpInfo($ev_api_key, $ev_access_token, $id, $sort, $offset, $limit, $type, $include);
+        list($response) = $this->listResourceContentsWithHttpInfo($evApiKey, $evAccessToken, $id, $sort, $offset, $limit, $type, $include);
         return $response;
     }
 
@@ -3082,8 +3082,8 @@ class ResourcesApi
      *
      * List contents of folder
      *
-     * @param  string $ev_api_key API Key required to make the API call. (required)
-     * @param  string $ev_access_token Access token required to make the API call. (required)
+     * @param  string $evApiKey API Key required to make the API call. (required)
+     * @param  string $evAccessToken Access token required to make the API call. (required)
      * @param  int $id ID of the parent resource to get a list of resources for. (required)
      * @param  string $sort Endpoint support multiple sort fields by allowing array of sort params. Sort fields should be applied in the order specified. The sort order for each sort field is ascending unless it is prefixed with a minus (“-“), in which case it will be descending. (optional)
      * @param  int $offset Determines which item to start on for pagination. Use zero (0) to start at the beginning of the list. (optional, default to 0)
@@ -3095,10 +3095,10 @@ class ResourcesApi
      * @throws \InvalidArgumentException
      * @return array of \ExaVault\Model\ResourceCollectionResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function listResourceContentsWithHttpInfo($ev_api_key, $ev_access_token, $id, $sort = null, $offset = '0', $limit = null, $type = null, $include = null)
+    public function listResourceContentsWithHttpInfo($evApiKey, $evAccessToken, $id, $sort = null, $offset = '0', $limit = null, $type = null, $include = null)
     {
         $returnType = '\ExaVault\Model\ResourceCollectionResponse';
-        $request = $this->listResourceContentsRequest($ev_api_key, $ev_access_token, $id, $sort, $offset, $limit, $type, $include);
+        $request = $this->listResourceContentsRequest($evApiKey, $evAccessToken, $id, $sort, $offset, $limit, $type, $include);
 
         try {
             $options = $this->createHttpClientOption();
@@ -3164,8 +3164,8 @@ class ResourcesApi
      *
      * List contents of folder
      *
-     * @param  string $ev_api_key API Key required to make the API call. (required)
-     * @param  string $ev_access_token Access token required to make the API call. (required)
+     * @param  string $evApiKey API Key required to make the API call. (required)
+     * @param  string $evAccessToken Access token required to make the API call. (required)
      * @param  int $id ID of the parent resource to get a list of resources for. (required)
      * @param  string $sort Endpoint support multiple sort fields by allowing array of sort params. Sort fields should be applied in the order specified. The sort order for each sort field is ascending unless it is prefixed with a minus (“-“), in which case it will be descending. (optional)
      * @param  int $offset Determines which item to start on for pagination. Use zero (0) to start at the beginning of the list. (optional, default to 0)
@@ -3176,9 +3176,9 @@ class ResourcesApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function listResourceContentsAsync($ev_api_key, $ev_access_token, $id, $sort = null, $offset = '0', $limit = null, $type = null, $include = null)
+    public function listResourceContentsAsync($evApiKey, $evAccessToken, $id, $sort = null, $offset = '0', $limit = null, $type = null, $include = null)
     {
-        return $this->listResourceContentsAsyncWithHttpInfo($ev_api_key, $ev_access_token, $id, $sort, $offset, $limit, $type, $include)
+        return $this->listResourceContentsAsyncWithHttpInfo($evApiKey, $evAccessToken, $id, $sort, $offset, $limit, $type, $include)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -3191,8 +3191,8 @@ class ResourcesApi
      *
      * List contents of folder
      *
-     * @param  string $ev_api_key API Key required to make the API call. (required)
-     * @param  string $ev_access_token Access token required to make the API call. (required)
+     * @param  string $evApiKey API Key required to make the API call. (required)
+     * @param  string $evAccessToken Access token required to make the API call. (required)
      * @param  int $id ID of the parent resource to get a list of resources for. (required)
      * @param  string $sort Endpoint support multiple sort fields by allowing array of sort params. Sort fields should be applied in the order specified. The sort order for each sort field is ascending unless it is prefixed with a minus (“-“), in which case it will be descending. (optional)
      * @param  int $offset Determines which item to start on for pagination. Use zero (0) to start at the beginning of the list. (optional, default to 0)
@@ -3203,10 +3203,10 @@ class ResourcesApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function listResourceContentsAsyncWithHttpInfo($ev_api_key, $ev_access_token, $id, $sort = null, $offset = '0', $limit = null, $type = null, $include = null)
+    public function listResourceContentsAsyncWithHttpInfo($evApiKey, $evAccessToken, $id, $sort = null, $offset = '0', $limit = null, $type = null, $include = null)
     {
         $returnType = '\ExaVault\Model\ResourceCollectionResponse';
-        $request = $this->listResourceContentsRequest($ev_api_key, $ev_access_token, $id, $sort, $offset, $limit, $type, $include);
+        $request = $this->listResourceContentsRequest($evApiKey, $evAccessToken, $id, $sort, $offset, $limit, $type, $include);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -3248,8 +3248,8 @@ class ResourcesApi
     /**
      * Create request for operation 'listResourceContents'
      *
-     * @param  string $ev_api_key API Key required to make the API call. (required)
-     * @param  string $ev_access_token Access token required to make the API call. (required)
+     * @param  string $evApiKey API Key required to make the API call. (required)
+     * @param  string $evAccessToken Access token required to make the API call. (required)
      * @param  int $id ID of the parent resource to get a list of resources for. (required)
      * @param  string $sort Endpoint support multiple sort fields by allowing array of sort params. Sort fields should be applied in the order specified. The sort order for each sort field is ascending unless it is prefixed with a minus (“-“), in which case it will be descending. (optional)
      * @param  int $offset Determines which item to start on for pagination. Use zero (0) to start at the beginning of the list. (optional, default to 0)
@@ -3260,18 +3260,18 @@ class ResourcesApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function listResourceContentsRequest($ev_api_key, $ev_access_token, $id, $sort = null, $offset = '0', $limit = null, $type = null, $include = null)
+    protected function listResourceContentsRequest($evApiKey, $evAccessToken, $id, $sort = null, $offset = '0', $limit = null, $type = null, $include = null)
     {
-        // verify the required parameter 'ev_api_key' is set
-        if ($ev_api_key === null || (is_array($ev_api_key) && count($ev_api_key) === 0)) {
+        // verify the required parameter 'evApiKey' is set
+        if ($evApiKey === null || (is_array($evApiKey) && count($evApiKey) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $ev_api_key when calling listResourceContents'
+                'Missing the required parameter $evApiKey when calling listResourceContents'
             );
         }
-        // verify the required parameter 'ev_access_token' is set
-        if ($ev_access_token === null || (is_array($ev_access_token) && count($ev_access_token) === 0)) {
+        // verify the required parameter 'evAccessToken' is set
+        if ($evAccessToken === null || (is_array($evAccessToken) && count($evAccessToken) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $ev_access_token when calling listResourceContents'
+                'Missing the required parameter $evAccessToken when calling listResourceContents'
             );
         }
         // verify the required parameter 'id' is set
@@ -3309,12 +3309,12 @@ class ResourcesApi
             $queryParams['include'] = ObjectSerializer::toQueryValue($include, null);
         }
         // header params
-        if ($ev_api_key !== null) {
-            $headerParams['ev-api-key'] = ObjectSerializer::toHeaderValue($ev_api_key);
+        if ($evApiKey !== null) {
+            $headerParams['ev-api-key'] = ObjectSerializer::toHeaderValue($evApiKey);
         }
         // header params
-        if ($ev_access_token !== null) {
-            $headerParams['ev-access-token'] = ObjectSerializer::toHeaderValue($ev_access_token);
+        if ($evAccessToken !== null) {
+            $headerParams['ev-access-token'] = ObjectSerializer::toHeaderValue($evAccessToken);
         }
 
         // path params
@@ -3395,8 +3395,8 @@ class ResourcesApi
      *
      * Get a list of all resources
      *
-     * @param  string $ev_api_key API Key required to make the API call. (required)
-     * @param  string $ev_access_token Access token required to make the API call. (required)
+     * @param  string $evApiKey API Key required to make the API call. (required)
+     * @param  string $evAccessToken Access token required to make the API call. (required)
      * @param  string $resource Resource identifier to get resources for. Can be path/id/name. (required)
      * @param  string $sort Endpoint support multiple sort fields by allowing array of sort params. Sort fields should be applied in the order specified. The sort order for each sort field is ascending unless it is prefixed with a minus (“-“), in which case it will be descending. (optional)
      * @param  int $offset Determines which item to start on for pagination. Use zero (0) to start at the beginning of the list. (optional, default to 0)
@@ -3409,9 +3409,9 @@ class ResourcesApi
      * @throws \InvalidArgumentException
      * @return \ExaVault\Model\ResourceCollectionResponse
      */
-    public function listResources($ev_api_key, $ev_access_token, $resource, $sort = null, $offset = '0', $limit = null, $type = null, $name = null, $include = null)
+    public function listResources($evApiKey, $evAccessToken, $resource, $sort = null, $offset = '0', $limit = null, $type = null, $name = null, $include = null)
     {
-        list($response) = $this->listResourcesWithHttpInfo($ev_api_key, $ev_access_token, $resource, $sort, $offset, $limit, $type, $name, $include);
+        list($response) = $this->listResourcesWithHttpInfo($evApiKey, $evAccessToken, $resource, $sort, $offset, $limit, $type, $name, $include);
         return $response;
     }
 
@@ -3420,8 +3420,8 @@ class ResourcesApi
      *
      * Get a list of all resources
      *
-     * @param  string $ev_api_key API Key required to make the API call. (required)
-     * @param  string $ev_access_token Access token required to make the API call. (required)
+     * @param  string $evApiKey API Key required to make the API call. (required)
+     * @param  string $evAccessToken Access token required to make the API call. (required)
      * @param  string $resource Resource identifier to get resources for. Can be path/id/name. (required)
      * @param  string $sort Endpoint support multiple sort fields by allowing array of sort params. Sort fields should be applied in the order specified. The sort order for each sort field is ascending unless it is prefixed with a minus (“-“), in which case it will be descending. (optional)
      * @param  int $offset Determines which item to start on for pagination. Use zero (0) to start at the beginning of the list. (optional, default to 0)
@@ -3434,10 +3434,10 @@ class ResourcesApi
      * @throws \InvalidArgumentException
      * @return array of \ExaVault\Model\ResourceCollectionResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function listResourcesWithHttpInfo($ev_api_key, $ev_access_token, $resource, $sort = null, $offset = '0', $limit = null, $type = null, $name = null, $include = null)
+    public function listResourcesWithHttpInfo($evApiKey, $evAccessToken, $resource, $sort = null, $offset = '0', $limit = null, $type = null, $name = null, $include = null)
     {
         $returnType = '\ExaVault\Model\ResourceCollectionResponse';
-        $request = $this->listResourcesRequest($ev_api_key, $ev_access_token, $resource, $sort, $offset, $limit, $type, $name, $include);
+        $request = $this->listResourcesRequest($evApiKey, $evAccessToken, $resource, $sort, $offset, $limit, $type, $name, $include);
 
         try {
             $options = $this->createHttpClientOption();
@@ -3503,8 +3503,8 @@ class ResourcesApi
      *
      * Get a list of all resources
      *
-     * @param  string $ev_api_key API Key required to make the API call. (required)
-     * @param  string $ev_access_token Access token required to make the API call. (required)
+     * @param  string $evApiKey API Key required to make the API call. (required)
+     * @param  string $evAccessToken Access token required to make the API call. (required)
      * @param  string $resource Resource identifier to get resources for. Can be path/id/name. (required)
      * @param  string $sort Endpoint support multiple sort fields by allowing array of sort params. Sort fields should be applied in the order specified. The sort order for each sort field is ascending unless it is prefixed with a minus (“-“), in which case it will be descending. (optional)
      * @param  int $offset Determines which item to start on for pagination. Use zero (0) to start at the beginning of the list. (optional, default to 0)
@@ -3516,9 +3516,9 @@ class ResourcesApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function listResourcesAsync($ev_api_key, $ev_access_token, $resource, $sort = null, $offset = '0', $limit = null, $type = null, $name = null, $include = null)
+    public function listResourcesAsync($evApiKey, $evAccessToken, $resource, $sort = null, $offset = '0', $limit = null, $type = null, $name = null, $include = null)
     {
-        return $this->listResourcesAsyncWithHttpInfo($ev_api_key, $ev_access_token, $resource, $sort, $offset, $limit, $type, $name, $include)
+        return $this->listResourcesAsyncWithHttpInfo($evApiKey, $evAccessToken, $resource, $sort, $offset, $limit, $type, $name, $include)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -3531,8 +3531,8 @@ class ResourcesApi
      *
      * Get a list of all resources
      *
-     * @param  string $ev_api_key API Key required to make the API call. (required)
-     * @param  string $ev_access_token Access token required to make the API call. (required)
+     * @param  string $evApiKey API Key required to make the API call. (required)
+     * @param  string $evAccessToken Access token required to make the API call. (required)
      * @param  string $resource Resource identifier to get resources for. Can be path/id/name. (required)
      * @param  string $sort Endpoint support multiple sort fields by allowing array of sort params. Sort fields should be applied in the order specified. The sort order for each sort field is ascending unless it is prefixed with a minus (“-“), in which case it will be descending. (optional)
      * @param  int $offset Determines which item to start on for pagination. Use zero (0) to start at the beginning of the list. (optional, default to 0)
@@ -3544,10 +3544,10 @@ class ResourcesApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function listResourcesAsyncWithHttpInfo($ev_api_key, $ev_access_token, $resource, $sort = null, $offset = '0', $limit = null, $type = null, $name = null, $include = null)
+    public function listResourcesAsyncWithHttpInfo($evApiKey, $evAccessToken, $resource, $sort = null, $offset = '0', $limit = null, $type = null, $name = null, $include = null)
     {
         $returnType = '\ExaVault\Model\ResourceCollectionResponse';
-        $request = $this->listResourcesRequest($ev_api_key, $ev_access_token, $resource, $sort, $offset, $limit, $type, $name, $include);
+        $request = $this->listResourcesRequest($evApiKey, $evAccessToken, $resource, $sort, $offset, $limit, $type, $name, $include);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -3589,8 +3589,8 @@ class ResourcesApi
     /**
      * Create request for operation 'listResources'
      *
-     * @param  string $ev_api_key API Key required to make the API call. (required)
-     * @param  string $ev_access_token Access token required to make the API call. (required)
+     * @param  string $evApiKey API Key required to make the API call. (required)
+     * @param  string $evAccessToken Access token required to make the API call. (required)
      * @param  string $resource Resource identifier to get resources for. Can be path/id/name. (required)
      * @param  string $sort Endpoint support multiple sort fields by allowing array of sort params. Sort fields should be applied in the order specified. The sort order for each sort field is ascending unless it is prefixed with a minus (“-“), in which case it will be descending. (optional)
      * @param  int $offset Determines which item to start on for pagination. Use zero (0) to start at the beginning of the list. (optional, default to 0)
@@ -3602,18 +3602,18 @@ class ResourcesApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function listResourcesRequest($ev_api_key, $ev_access_token, $resource, $sort = null, $offset = '0', $limit = null, $type = null, $name = null, $include = null)
+    protected function listResourcesRequest($evApiKey, $evAccessToken, $resource, $sort = null, $offset = '0', $limit = null, $type = null, $name = null, $include = null)
     {
-        // verify the required parameter 'ev_api_key' is set
-        if ($ev_api_key === null || (is_array($ev_api_key) && count($ev_api_key) === 0)) {
+        // verify the required parameter 'evApiKey' is set
+        if ($evApiKey === null || (is_array($evApiKey) && count($evApiKey) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $ev_api_key when calling listResources'
+                'Missing the required parameter $evApiKey when calling listResources'
             );
         }
-        // verify the required parameter 'ev_access_token' is set
-        if ($ev_access_token === null || (is_array($ev_access_token) && count($ev_access_token) === 0)) {
+        // verify the required parameter 'evAccessToken' is set
+        if ($evAccessToken === null || (is_array($evAccessToken) && count($evAccessToken) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $ev_access_token when calling listResources'
+                'Missing the required parameter $evAccessToken when calling listResources'
             );
         }
         // verify the required parameter 'resource' is set
@@ -3659,12 +3659,12 @@ class ResourcesApi
             $queryParams['include'] = ObjectSerializer::toQueryValue($include, null);
         }
         // header params
-        if ($ev_api_key !== null) {
-            $headerParams['ev-api-key'] = ObjectSerializer::toHeaderValue($ev_api_key);
+        if ($evApiKey !== null) {
+            $headerParams['ev-api-key'] = ObjectSerializer::toHeaderValue($evApiKey);
         }
         // header params
-        if ($ev_access_token !== null) {
-            $headerParams['ev-access-token'] = ObjectSerializer::toHeaderValue($ev_access_token);
+        if ($evAccessToken !== null) {
+            $headerParams['ev-access-token'] = ObjectSerializer::toHeaderValue($evAccessToken);
         }
 
 
@@ -3737,17 +3737,17 @@ class ResourcesApi
      *
      * Move resources
      *
-     * @param  string $ev_api_key API Key required to make the API call. (required)
-     * @param  string $ev_access_token Access token required to make the API call. (required)
-     * @param  \ExaVault\Model\Body13 $body body (optional)
+     * @param  string $evApiKey API Key required to make the API call. (required)
+     * @param  string $evAccessToken Access token required to make the API call. (required)
+     * @param  \ExaVault\Model\MoveResourcesRequestBody $body body (optional)
      *
      * @throws \ExaVault\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \ExaVault\Model\ResourceCopyMove
      */
-    public function moveResources($ev_api_key, $ev_access_token, $body = null)
+    public function moveResources($evApiKey, $evAccessToken, $body = null)
     {
-        list($response) = $this->moveResourcesWithHttpInfo($ev_api_key, $ev_access_token, $body);
+        list($response) = $this->moveResourcesWithHttpInfo($evApiKey, $evAccessToken, $body);
         return $response;
     }
 
@@ -3756,18 +3756,18 @@ class ResourcesApi
      *
      * Move resources
      *
-     * @param  string $ev_api_key API Key required to make the API call. (required)
-     * @param  string $ev_access_token Access token required to make the API call. (required)
-     * @param  \ExaVault\Model\Body13 $body (optional)
+     * @param  string $evApiKey API Key required to make the API call. (required)
+     * @param  string $evAccessToken Access token required to make the API call. (required)
+     * @param  \ExaVault\Model\MoveResourcesRequestBody $body (optional)
      *
      * @throws \ExaVault\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \ExaVault\Model\ResourceCopyMove, HTTP status code, HTTP response headers (array of strings)
      */
-    public function moveResourcesWithHttpInfo($ev_api_key, $ev_access_token, $body = null)
+    public function moveResourcesWithHttpInfo($evApiKey, $evAccessToken, $body = null)
     {
         $returnType = '\ExaVault\Model\ResourceCopyMove';
-        $request = $this->moveResourcesRequest($ev_api_key, $ev_access_token, $body);
+        $request = $this->moveResourcesRequest($evApiKey, $evAccessToken, $body);
 
         try {
             $options = $this->createHttpClientOption();
@@ -3841,16 +3841,16 @@ class ResourcesApi
      *
      * Move resources
      *
-     * @param  string $ev_api_key API Key required to make the API call. (required)
-     * @param  string $ev_access_token Access token required to make the API call. (required)
-     * @param  \ExaVault\Model\Body13 $body (optional)
+     * @param  string $evApiKey API Key required to make the API call. (required)
+     * @param  string $evAccessToken Access token required to make the API call. (required)
+     * @param  \ExaVault\Model\MoveResourcesRequestBody $body (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function moveResourcesAsync($ev_api_key, $ev_access_token, $body = null)
+    public function moveResourcesAsync($evApiKey, $evAccessToken, $body = null)
     {
-        return $this->moveResourcesAsyncWithHttpInfo($ev_api_key, $ev_access_token, $body)
+        return $this->moveResourcesAsyncWithHttpInfo($evApiKey, $evAccessToken, $body)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -3863,17 +3863,17 @@ class ResourcesApi
      *
      * Move resources
      *
-     * @param  string $ev_api_key API Key required to make the API call. (required)
-     * @param  string $ev_access_token Access token required to make the API call. (required)
-     * @param  \ExaVault\Model\Body13 $body (optional)
+     * @param  string $evApiKey API Key required to make the API call. (required)
+     * @param  string $evAccessToken Access token required to make the API call. (required)
+     * @param  \ExaVault\Model\MoveResourcesRequestBody $body (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function moveResourcesAsyncWithHttpInfo($ev_api_key, $ev_access_token, $body = null)
+    public function moveResourcesAsyncWithHttpInfo($evApiKey, $evAccessToken, $body = null)
     {
         $returnType = '\ExaVault\Model\ResourceCopyMove';
-        $request = $this->moveResourcesRequest($ev_api_key, $ev_access_token, $body);
+        $request = $this->moveResourcesRequest($evApiKey, $evAccessToken, $body);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -3915,25 +3915,25 @@ class ResourcesApi
     /**
      * Create request for operation 'moveResources'
      *
-     * @param  string $ev_api_key API Key required to make the API call. (required)
-     * @param  string $ev_access_token Access token required to make the API call. (required)
-     * @param  \ExaVault\Model\Body13 $body (optional)
+     * @param  string $evApiKey API Key required to make the API call. (required)
+     * @param  string $evAccessToken Access token required to make the API call. (required)
+     * @param  \ExaVault\Model\MoveResourcesRequestBody $body (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function moveResourcesRequest($ev_api_key, $ev_access_token, $body = null)
+    protected function moveResourcesRequest($evApiKey, $evAccessToken, $body = null)
     {
-        // verify the required parameter 'ev_api_key' is set
-        if ($ev_api_key === null || (is_array($ev_api_key) && count($ev_api_key) === 0)) {
+        // verify the required parameter 'evApiKey' is set
+        if ($evApiKey === null || (is_array($evApiKey) && count($evApiKey) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $ev_api_key when calling moveResources'
+                'Missing the required parameter $evApiKey when calling moveResources'
             );
         }
-        // verify the required parameter 'ev_access_token' is set
-        if ($ev_access_token === null || (is_array($ev_access_token) && count($ev_access_token) === 0)) {
+        // verify the required parameter 'evAccessToken' is set
+        if ($evAccessToken === null || (is_array($evAccessToken) && count($evAccessToken) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $ev_access_token when calling moveResources'
+                'Missing the required parameter $evAccessToken when calling moveResources'
             );
         }
 
@@ -3945,12 +3945,12 @@ class ResourcesApi
         $multipart = false;
 
         // header params
-        if ($ev_api_key !== null) {
-            $headerParams['ev-api-key'] = ObjectSerializer::toHeaderValue($ev_api_key);
+        if ($evApiKey !== null) {
+            $headerParams['ev-api-key'] = ObjectSerializer::toHeaderValue($evApiKey);
         }
         // header params
-        if ($ev_access_token !== null) {
-            $headerParams['ev-access-token'] = ObjectSerializer::toHeaderValue($ev_access_token);
+        if ($evAccessToken !== null) {
+            $headerParams['ev-access-token'] = ObjectSerializer::toHeaderValue($evAccessToken);
         }
 
 
@@ -4026,18 +4026,18 @@ class ResourcesApi
      *
      * Rename a resource.
      *
-     * @param  string $ev_access_token Access token required to make the API call. (required)
-     * @param  string $ev_api_key API key required to make the API call. (required)
+     * @param  string $evAccessToken Access token required to make the API call. (required)
+     * @param  string $evApiKey API key required to make the API call. (required)
      * @param  int $id ID number of the resource (required)
-     * @param  \ExaVault\Model\Body7 $body body (optional)
+     * @param  \ExaVault\Model\UpdateResourceByIdRequestBody $body body (optional)
      *
      * @throws \ExaVault\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \ExaVault\Model\ResourceResponse
      */
-    public function updateResourceById($ev_access_token, $ev_api_key, $id, $body = null)
+    public function updateResourceById($evAccessToken, $evApiKey, $id, $body = null)
     {
-        list($response) = $this->updateResourceByIdWithHttpInfo($ev_access_token, $ev_api_key, $id, $body);
+        list($response) = $this->updateResourceByIdWithHttpInfo($evAccessToken, $evApiKey, $id, $body);
         return $response;
     }
 
@@ -4046,19 +4046,19 @@ class ResourcesApi
      *
      * Rename a resource.
      *
-     * @param  string $ev_access_token Access token required to make the API call. (required)
-     * @param  string $ev_api_key API key required to make the API call. (required)
+     * @param  string $evAccessToken Access token required to make the API call. (required)
+     * @param  string $evApiKey API key required to make the API call. (required)
      * @param  int $id ID number of the resource (required)
-     * @param  \ExaVault\Model\Body7 $body (optional)
+     * @param  \ExaVault\Model\UpdateResourceByIdRequestBody $body (optional)
      *
      * @throws \ExaVault\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \ExaVault\Model\ResourceResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function updateResourceByIdWithHttpInfo($ev_access_token, $ev_api_key, $id, $body = null)
+    public function updateResourceByIdWithHttpInfo($evAccessToken, $evApiKey, $id, $body = null)
     {
         $returnType = '\ExaVault\Model\ResourceResponse';
-        $request = $this->updateResourceByIdRequest($ev_access_token, $ev_api_key, $id, $body);
+        $request = $this->updateResourceByIdRequest($evAccessToken, $evApiKey, $id, $body);
 
         try {
             $options = $this->createHttpClientOption();
@@ -4124,17 +4124,17 @@ class ResourcesApi
      *
      * Rename a resource.
      *
-     * @param  string $ev_access_token Access token required to make the API call. (required)
-     * @param  string $ev_api_key API key required to make the API call. (required)
+     * @param  string $evAccessToken Access token required to make the API call. (required)
+     * @param  string $evApiKey API key required to make the API call. (required)
      * @param  int $id ID number of the resource (required)
-     * @param  \ExaVault\Model\Body7 $body (optional)
+     * @param  \ExaVault\Model\UpdateResourceByIdRequestBody $body (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateResourceByIdAsync($ev_access_token, $ev_api_key, $id, $body = null)
+    public function updateResourceByIdAsync($evAccessToken, $evApiKey, $id, $body = null)
     {
-        return $this->updateResourceByIdAsyncWithHttpInfo($ev_access_token, $ev_api_key, $id, $body)
+        return $this->updateResourceByIdAsyncWithHttpInfo($evAccessToken, $evApiKey, $id, $body)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -4147,18 +4147,18 @@ class ResourcesApi
      *
      * Rename a resource.
      *
-     * @param  string $ev_access_token Access token required to make the API call. (required)
-     * @param  string $ev_api_key API key required to make the API call. (required)
+     * @param  string $evAccessToken Access token required to make the API call. (required)
+     * @param  string $evApiKey API key required to make the API call. (required)
      * @param  int $id ID number of the resource (required)
-     * @param  \ExaVault\Model\Body7 $body (optional)
+     * @param  \ExaVault\Model\UpdateResourceByIdRequestBody $body (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateResourceByIdAsyncWithHttpInfo($ev_access_token, $ev_api_key, $id, $body = null)
+    public function updateResourceByIdAsyncWithHttpInfo($evAccessToken, $evApiKey, $id, $body = null)
     {
         $returnType = '\ExaVault\Model\ResourceResponse';
-        $request = $this->updateResourceByIdRequest($ev_access_token, $ev_api_key, $id, $body);
+        $request = $this->updateResourceByIdRequest($evAccessToken, $evApiKey, $id, $body);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -4200,26 +4200,26 @@ class ResourcesApi
     /**
      * Create request for operation 'updateResourceById'
      *
-     * @param  string $ev_access_token Access token required to make the API call. (required)
-     * @param  string $ev_api_key API key required to make the API call. (required)
+     * @param  string $evAccessToken Access token required to make the API call. (required)
+     * @param  string $evApiKey API key required to make the API call. (required)
      * @param  int $id ID number of the resource (required)
-     * @param  \ExaVault\Model\Body7 $body (optional)
+     * @param  \ExaVault\Model\UpdateResourceByIdRequestBody $body (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function updateResourceByIdRequest($ev_access_token, $ev_api_key, $id, $body = null)
+    protected function updateResourceByIdRequest($evAccessToken, $evApiKey, $id, $body = null)
     {
-        // verify the required parameter 'ev_access_token' is set
-        if ($ev_access_token === null || (is_array($ev_access_token) && count($ev_access_token) === 0)) {
+        // verify the required parameter 'evAccessToken' is set
+        if ($evAccessToken === null || (is_array($evAccessToken) && count($evAccessToken) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $ev_access_token when calling updateResourceById'
+                'Missing the required parameter $evAccessToken when calling updateResourceById'
             );
         }
-        // verify the required parameter 'ev_api_key' is set
-        if ($ev_api_key === null || (is_array($ev_api_key) && count($ev_api_key) === 0)) {
+        // verify the required parameter 'evApiKey' is set
+        if ($evApiKey === null || (is_array($evApiKey) && count($evApiKey) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $ev_api_key when calling updateResourceById'
+                'Missing the required parameter $evApiKey when calling updateResourceById'
             );
         }
         // verify the required parameter 'id' is set
@@ -4237,12 +4237,12 @@ class ResourcesApi
         $multipart = false;
 
         // header params
-        if ($ev_access_token !== null) {
-            $headerParams['ev-access-token'] = ObjectSerializer::toHeaderValue($ev_access_token);
+        if ($evAccessToken !== null) {
+            $headerParams['ev-access-token'] = ObjectSerializer::toHeaderValue($evAccessToken);
         }
         // header params
-        if ($ev_api_key !== null) {
-            $headerParams['ev-api-key'] = ObjectSerializer::toHeaderValue($ev_api_key);
+        if ($evApiKey !== null) {
+            $headerParams['ev-api-key'] = ObjectSerializer::toHeaderValue($evApiKey);
         }
 
         // path params
@@ -4326,22 +4326,22 @@ class ResourcesApi
      *
      * Upload a file
      *
-     * @param  string $ev_api_key API Key required to make the API call. (required)
-     * @param  string $ev_access_token Access token required to make the API call. (required)
+     * @param  string $evApiKey API Key required to make the API call. (required)
+     * @param  string $evAccessToken Access token required to make the API call. (required)
      * @param  string $path Destination path for the file being uploaded, including the file name. (required)
-     * @param  int $file_size File size, in bits, of the file being uploaded. (required)
+     * @param  int $fileSize File size, in bits, of the file being uploaded. (required)
      * @param  string $file file (optional)
-     * @param  int $offset_bytes Allows a file upload to resume at a certain number of bytes. (optional)
+     * @param  int $offsetBytes Allows a file upload to resume at a certain number of bytes. (optional)
      * @param  bool $resume True if upload resume is supported, false if it isn&#x27;t. (optional, default to true)
-     * @param  bool $allow_overwrite True if a file with the same name is found in the designated path, should be overwritten. False if different file names should be generated. (optional, default to false)
+     * @param  bool $allowOverwrite True if a file with the same name is found in the designated path, should be overwritten. False if different file names should be generated. (optional, default to false)
      *
      * @throws \ExaVault\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \ExaVault\Model\ResourceResponse
      */
-    public function uploadFile($ev_api_key, $ev_access_token, $path, $file_size, $file = null, $offset_bytes = null, $resume = 'true', $allow_overwrite = 'false')
+    public function uploadFile($evApiKey, $evAccessToken, $path, $fileSize, $file = null, $offsetBytes = null, $resume = 'true', $allowOverwrite = 'false')
     {
-        list($response) = $this->uploadFileWithHttpInfo($ev_api_key, $ev_access_token, $path, $file_size, $file, $offset_bytes, $resume, $allow_overwrite);
+        list($response) = $this->uploadFileWithHttpInfo($evApiKey, $evAccessToken, $path, $fileSize, $file, $offsetBytes, $resume, $allowOverwrite);
         return $response;
     }
 
@@ -4350,23 +4350,23 @@ class ResourcesApi
      *
      * Upload a file
      *
-     * @param  string $ev_api_key API Key required to make the API call. (required)
-     * @param  string $ev_access_token Access token required to make the API call. (required)
+     * @param  string $evApiKey API Key required to make the API call. (required)
+     * @param  string $evAccessToken Access token required to make the API call. (required)
      * @param  string $path Destination path for the file being uploaded, including the file name. (required)
-     * @param  int $file_size File size, in bits, of the file being uploaded. (required)
+     * @param  int $fileSize File size, in bits, of the file being uploaded. (required)
      * @param  string $file (optional)
-     * @param  int $offset_bytes Allows a file upload to resume at a certain number of bytes. (optional)
+     * @param  int $offsetBytes Allows a file upload to resume at a certain number of bytes. (optional)
      * @param  bool $resume True if upload resume is supported, false if it isn&#x27;t. (optional, default to true)
-     * @param  bool $allow_overwrite True if a file with the same name is found in the designated path, should be overwritten. False if different file names should be generated. (optional, default to false)
+     * @param  bool $allowOverwrite True if a file with the same name is found in the designated path, should be overwritten. False if different file names should be generated. (optional, default to false)
      *
      * @throws \ExaVault\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \ExaVault\Model\ResourceResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function uploadFileWithHttpInfo($ev_api_key, $ev_access_token, $path, $file_size, $file = null, $offset_bytes = null, $resume = 'true', $allow_overwrite = 'false')
+    public function uploadFileWithHttpInfo($evApiKey, $evAccessToken, $path, $fileSize, $file = null, $offsetBytes = null, $resume = 'true', $allowOverwrite = 'false')
     {
         $returnType = '\ExaVault\Model\ResourceResponse';
-        $request = $this->uploadFileRequest($ev_api_key, $ev_access_token, $path, $file_size, $file, $offset_bytes, $resume, $allow_overwrite);
+        $request = $this->uploadFileRequest($evApiKey, $evAccessToken, $path, $fileSize, $file, $offsetBytes, $resume, $allowOverwrite);
 
         try {
             $options = $this->createHttpClientOption();
@@ -4432,21 +4432,21 @@ class ResourcesApi
      *
      * Upload a file
      *
-     * @param  string $ev_api_key API Key required to make the API call. (required)
-     * @param  string $ev_access_token Access token required to make the API call. (required)
+     * @param  string $evApiKey API Key required to make the API call. (required)
+     * @param  string $evAccessToken Access token required to make the API call. (required)
      * @param  string $path Destination path for the file being uploaded, including the file name. (required)
-     * @param  int $file_size File size, in bits, of the file being uploaded. (required)
+     * @param  int $fileSize File size, in bits, of the file being uploaded. (required)
      * @param  string $file (optional)
-     * @param  int $offset_bytes Allows a file upload to resume at a certain number of bytes. (optional)
+     * @param  int $offsetBytes Allows a file upload to resume at a certain number of bytes. (optional)
      * @param  bool $resume True if upload resume is supported, false if it isn&#x27;t. (optional, default to true)
-     * @param  bool $allow_overwrite True if a file with the same name is found in the designated path, should be overwritten. False if different file names should be generated. (optional, default to false)
+     * @param  bool $allowOverwrite True if a file with the same name is found in the designated path, should be overwritten. False if different file names should be generated. (optional, default to false)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function uploadFileAsync($ev_api_key, $ev_access_token, $path, $file_size, $file = null, $offset_bytes = null, $resume = 'true', $allow_overwrite = 'false')
+    public function uploadFileAsync($evApiKey, $evAccessToken, $path, $fileSize, $file = null, $offsetBytes = null, $resume = 'true', $allowOverwrite = 'false')
     {
-        return $this->uploadFileAsyncWithHttpInfo($ev_api_key, $ev_access_token, $path, $file_size, $file, $offset_bytes, $resume, $allow_overwrite)
+        return $this->uploadFileAsyncWithHttpInfo($evApiKey, $evAccessToken, $path, $fileSize, $file, $offsetBytes, $resume, $allowOverwrite)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -4459,22 +4459,22 @@ class ResourcesApi
      *
      * Upload a file
      *
-     * @param  string $ev_api_key API Key required to make the API call. (required)
-     * @param  string $ev_access_token Access token required to make the API call. (required)
+     * @param  string $evApiKey API Key required to make the API call. (required)
+     * @param  string $evAccessToken Access token required to make the API call. (required)
      * @param  string $path Destination path for the file being uploaded, including the file name. (required)
-     * @param  int $file_size File size, in bits, of the file being uploaded. (required)
+     * @param  int $fileSize File size, in bits, of the file being uploaded. (required)
      * @param  string $file (optional)
-     * @param  int $offset_bytes Allows a file upload to resume at a certain number of bytes. (optional)
+     * @param  int $offsetBytes Allows a file upload to resume at a certain number of bytes. (optional)
      * @param  bool $resume True if upload resume is supported, false if it isn&#x27;t. (optional, default to true)
-     * @param  bool $allow_overwrite True if a file with the same name is found in the designated path, should be overwritten. False if different file names should be generated. (optional, default to false)
+     * @param  bool $allowOverwrite True if a file with the same name is found in the designated path, should be overwritten. False if different file names should be generated. (optional, default to false)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function uploadFileAsyncWithHttpInfo($ev_api_key, $ev_access_token, $path, $file_size, $file = null, $offset_bytes = null, $resume = 'true', $allow_overwrite = 'false')
+    public function uploadFileAsyncWithHttpInfo($evApiKey, $evAccessToken, $path, $fileSize, $file = null, $offsetBytes = null, $resume = 'true', $allowOverwrite = 'false')
     {
         $returnType = '\ExaVault\Model\ResourceResponse';
-        $request = $this->uploadFileRequest($ev_api_key, $ev_access_token, $path, $file_size, $file, $offset_bytes, $resume, $allow_overwrite);
+        $request = $this->uploadFileRequest($evApiKey, $evAccessToken, $path, $fileSize, $file, $offsetBytes, $resume, $allowOverwrite);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -4516,30 +4516,30 @@ class ResourcesApi
     /**
      * Create request for operation 'uploadFile'
      *
-     * @param  string $ev_api_key API Key required to make the API call. (required)
-     * @param  string $ev_access_token Access token required to make the API call. (required)
+     * @param  string $evApiKey API Key required to make the API call. (required)
+     * @param  string $evAccessToken Access token required to make the API call. (required)
      * @param  string $path Destination path for the file being uploaded, including the file name. (required)
-     * @param  int $file_size File size, in bits, of the file being uploaded. (required)
+     * @param  int $fileSize File size, in bits, of the file being uploaded. (required)
      * @param  string $file (optional)
-     * @param  int $offset_bytes Allows a file upload to resume at a certain number of bytes. (optional)
+     * @param  int $offsetBytes Allows a file upload to resume at a certain number of bytes. (optional)
      * @param  bool $resume True if upload resume is supported, false if it isn&#x27;t. (optional, default to true)
-     * @param  bool $allow_overwrite True if a file with the same name is found in the designated path, should be overwritten. False if different file names should be generated. (optional, default to false)
+     * @param  bool $allowOverwrite True if a file with the same name is found in the designated path, should be overwritten. False if different file names should be generated. (optional, default to false)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function uploadFileRequest($ev_api_key, $ev_access_token, $path, $file_size, $file = null, $offset_bytes = null, $resume = 'true', $allow_overwrite = 'false')
+    protected function uploadFileRequest($evApiKey, $evAccessToken, $path, $fileSize, $file = null, $offsetBytes = null, $resume = 'true', $allowOverwrite = 'false')
     {
-        // verify the required parameter 'ev_api_key' is set
-        if ($ev_api_key === null || (is_array($ev_api_key) && count($ev_api_key) === 0)) {
+        // verify the required parameter 'evApiKey' is set
+        if ($evApiKey === null || (is_array($evApiKey) && count($evApiKey) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $ev_api_key when calling uploadFile'
+                'Missing the required parameter $evApiKey when calling uploadFile'
             );
         }
-        // verify the required parameter 'ev_access_token' is set
-        if ($ev_access_token === null || (is_array($ev_access_token) && count($ev_access_token) === 0)) {
+        // verify the required parameter 'evAccessToken' is set
+        if ($evAccessToken === null || (is_array($evAccessToken) && count($evAccessToken) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $ev_access_token when calling uploadFile'
+                'Missing the required parameter $evAccessToken when calling uploadFile'
             );
         }
         // verify the required parameter 'path' is set
@@ -4548,10 +4548,10 @@ class ResourcesApi
                 'Missing the required parameter $path when calling uploadFile'
             );
         }
-        // verify the required parameter 'file_size' is set
-        if ($file_size === null || (is_array($file_size) && count($file_size) === 0)) {
+        // verify the required parameter 'fileSize' is set
+        if ($fileSize === null || (is_array($fileSize) && count($fileSize) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $file_size when calling uploadFile'
+                'Missing the required parameter $fileSize when calling uploadFile'
             );
         }
 
@@ -4567,28 +4567,28 @@ class ResourcesApi
             $queryParams['path'] = ObjectSerializer::toQueryValue($path, null);
         }
         // query params
-        if ($file_size !== null) {
-            $queryParams['fileSize'] = ObjectSerializer::toQueryValue($file_size, null);
+        if ($fileSize !== null) {
+            $queryParams['fileSize'] = ObjectSerializer::toQueryValue($fileSize, null);
         }
         // query params
         if ($resume !== null) {
             $queryParams['resume'] = ObjectSerializer::toQueryValue($resume, null);
         }
         // query params
-        if ($allow_overwrite !== null) {
-            $queryParams['allowOverwrite'] = ObjectSerializer::toQueryValue($allow_overwrite, null);
+        if ($allowOverwrite !== null) {
+            $queryParams['allowOverwrite'] = ObjectSerializer::toQueryValue($allowOverwrite, null);
         }
         // header params
-        if ($ev_api_key !== null) {
-            $headerParams['ev-api-key'] = ObjectSerializer::toHeaderValue($ev_api_key);
+        if ($evApiKey !== null) {
+            $headerParams['ev-api-key'] = ObjectSerializer::toHeaderValue($evApiKey);
         }
         // header params
-        if ($ev_access_token !== null) {
-            $headerParams['ev-access-token'] = ObjectSerializer::toHeaderValue($ev_access_token);
+        if ($evAccessToken !== null) {
+            $headerParams['ev-access-token'] = ObjectSerializer::toHeaderValue($evAccessToken);
         }
         // header params
-        if ($offset_bytes !== null) {
-            $headerParams['offsetBytes'] = ObjectSerializer::toHeaderValue($offset_bytes);
+        if ($offsetBytes !== null) {
+            $headerParams['offsetBytes'] = ObjectSerializer::toHeaderValue($offsetBytes);
         }
 
 

@@ -91,18 +91,18 @@ class RecipientsApi
      *
      * Resend invitations to share recipients
      *
-     * @param  string $ev_api_key API Key required to make the API call. (required)
-     * @param  string $ev_access_token Access token required to make the API call. (required)
-     * @param  int $share_id ID of the share to resend invites for. (required)
-     * @param  \ExaVault\Model\Body18 $body body (optional)
+     * @param  string $evApiKey API Key required to make the API call. (required)
+     * @param  string $evAccessToken Access token required to make the API call. (required)
+     * @param  int $shareId ID of the share to resend invites for. (required)
+     * @param  \ExaVault\Model\ResendInvitationsRequestBody $body body (optional)
      *
      * @throws \ExaVault\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \ExaVault\Model\ShareRecipientsResponse
      */
-    public function resendInvitationsForShare($ev_api_key, $ev_access_token, $share_id, $body = null)
+    public function resendInvitationsForShare($evApiKey, $evAccessToken, $shareId, $body = null)
     {
-        list($response) = $this->resendInvitationsForShareWithHttpInfo($ev_api_key, $ev_access_token, $share_id, $body);
+        list($response) = $this->resendInvitationsForShareWithHttpInfo($evApiKey, $evAccessToken, $shareId, $body);
         return $response;
     }
 
@@ -111,19 +111,19 @@ class RecipientsApi
      *
      * Resend invitations to share recipients
      *
-     * @param  string $ev_api_key API Key required to make the API call. (required)
-     * @param  string $ev_access_token Access token required to make the API call. (required)
-     * @param  int $share_id ID of the share to resend invites for. (required)
-     * @param  \ExaVault\Model\Body18 $body (optional)
+     * @param  string $evApiKey API Key required to make the API call. (required)
+     * @param  string $evAccessToken Access token required to make the API call. (required)
+     * @param  int $shareId ID of the share to resend invites for. (required)
+     * @param  \ExaVault\Model\ResendInvitationsRequestBody $body (optional)
      *
      * @throws \ExaVault\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \ExaVault\Model\ShareRecipientsResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function resendInvitationsForShareWithHttpInfo($ev_api_key, $ev_access_token, $share_id, $body = null)
+    public function resendInvitationsForShareWithHttpInfo($evApiKey, $evAccessToken, $shareId, $body = null)
     {
         $returnType = '\ExaVault\Model\ShareRecipientsResponse';
-        $request = $this->resendInvitationsForShareRequest($ev_api_key, $ev_access_token, $share_id, $body);
+        $request = $this->resendInvitationsForShareRequest($evApiKey, $evAccessToken, $shareId, $body);
 
         try {
             $options = $this->createHttpClientOption();
@@ -189,17 +189,17 @@ class RecipientsApi
      *
      * Resend invitations to share recipients
      *
-     * @param  string $ev_api_key API Key required to make the API call. (required)
-     * @param  string $ev_access_token Access token required to make the API call. (required)
-     * @param  int $share_id ID of the share to resend invites for. (required)
-     * @param  \ExaVault\Model\Body18 $body (optional)
+     * @param  string $evApiKey API Key required to make the API call. (required)
+     * @param  string $evAccessToken Access token required to make the API call. (required)
+     * @param  int $shareId ID of the share to resend invites for. (required)
+     * @param  \ExaVault\Model\ResendInvitationsRequestBody $body (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function resendInvitationsForShareAsync($ev_api_key, $ev_access_token, $share_id, $body = null)
+    public function resendInvitationsForShareAsync($evApiKey, $evAccessToken, $shareId, $body = null)
     {
-        return $this->resendInvitationsForShareAsyncWithHttpInfo($ev_api_key, $ev_access_token, $share_id, $body)
+        return $this->resendInvitationsForShareAsyncWithHttpInfo($evApiKey, $evAccessToken, $shareId, $body)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -212,18 +212,18 @@ class RecipientsApi
      *
      * Resend invitations to share recipients
      *
-     * @param  string $ev_api_key API Key required to make the API call. (required)
-     * @param  string $ev_access_token Access token required to make the API call. (required)
-     * @param  int $share_id ID of the share to resend invites for. (required)
-     * @param  \ExaVault\Model\Body18 $body (optional)
+     * @param  string $evApiKey API Key required to make the API call. (required)
+     * @param  string $evAccessToken Access token required to make the API call. (required)
+     * @param  int $shareId ID of the share to resend invites for. (required)
+     * @param  \ExaVault\Model\ResendInvitationsRequestBody $body (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function resendInvitationsForShareAsyncWithHttpInfo($ev_api_key, $ev_access_token, $share_id, $body = null)
+    public function resendInvitationsForShareAsyncWithHttpInfo($evApiKey, $evAccessToken, $shareId, $body = null)
     {
         $returnType = '\ExaVault\Model\ShareRecipientsResponse';
-        $request = $this->resendInvitationsForShareRequest($ev_api_key, $ev_access_token, $share_id, $body);
+        $request = $this->resendInvitationsForShareRequest($evApiKey, $evAccessToken, $shareId, $body);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -265,32 +265,32 @@ class RecipientsApi
     /**
      * Create request for operation 'resendInvitationsForShare'
      *
-     * @param  string $ev_api_key API Key required to make the API call. (required)
-     * @param  string $ev_access_token Access token required to make the API call. (required)
-     * @param  int $share_id ID of the share to resend invites for. (required)
-     * @param  \ExaVault\Model\Body18 $body (optional)
+     * @param  string $evApiKey API Key required to make the API call. (required)
+     * @param  string $evAccessToken Access token required to make the API call. (required)
+     * @param  int $shareId ID of the share to resend invites for. (required)
+     * @param  \ExaVault\Model\ResendInvitationsRequestBody $body (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function resendInvitationsForShareRequest($ev_api_key, $ev_access_token, $share_id, $body = null)
+    protected function resendInvitationsForShareRequest($evApiKey, $evAccessToken, $shareId, $body = null)
     {
-        // verify the required parameter 'ev_api_key' is set
-        if ($ev_api_key === null || (is_array($ev_api_key) && count($ev_api_key) === 0)) {
+        // verify the required parameter 'evApiKey' is set
+        if ($evApiKey === null || (is_array($evApiKey) && count($evApiKey) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $ev_api_key when calling resendInvitationsForShare'
+                'Missing the required parameter $evApiKey when calling resendInvitationsForShare'
             );
         }
-        // verify the required parameter 'ev_access_token' is set
-        if ($ev_access_token === null || (is_array($ev_access_token) && count($ev_access_token) === 0)) {
+        // verify the required parameter 'evAccessToken' is set
+        if ($evAccessToken === null || (is_array($evAccessToken) && count($evAccessToken) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $ev_access_token when calling resendInvitationsForShare'
+                'Missing the required parameter $evAccessToken when calling resendInvitationsForShare'
             );
         }
-        // verify the required parameter 'share_id' is set
-        if ($share_id === null || (is_array($share_id) && count($share_id) === 0)) {
+        // verify the required parameter 'shareId' is set
+        if ($shareId === null || (is_array($shareId) && count($shareId) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $share_id when calling resendInvitationsForShare'
+                'Missing the required parameter $shareId when calling resendInvitationsForShare'
             );
         }
 
@@ -302,19 +302,19 @@ class RecipientsApi
         $multipart = false;
 
         // header params
-        if ($ev_api_key !== null) {
-            $headerParams['ev-api-key'] = ObjectSerializer::toHeaderValue($ev_api_key);
+        if ($evApiKey !== null) {
+            $headerParams['ev-api-key'] = ObjectSerializer::toHeaderValue($evApiKey);
         }
         // header params
-        if ($ev_access_token !== null) {
-            $headerParams['ev-access-token'] = ObjectSerializer::toHeaderValue($ev_access_token);
+        if ($evAccessToken !== null) {
+            $headerParams['ev-access-token'] = ObjectSerializer::toHeaderValue($evAccessToken);
         }
 
         // path params
-        if ($share_id !== null) {
+        if ($shareId !== null) {
             $resourcePath = str_replace(
                 '{' . 'shareId' . '}',
-                ObjectSerializer::toPathValue($share_id),
+                ObjectSerializer::toPathValue($shareId),
                 $resourcePath
             );
         }

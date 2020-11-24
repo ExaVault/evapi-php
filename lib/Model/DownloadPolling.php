@@ -57,7 +57,7 @@ class DownloadPolling implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'zip' => 'string',
+        'pollingArchiveName' => 'string',
 'percent' => 'int'    ];
 
     /**
@@ -66,7 +66,7 @@ class DownloadPolling implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'zip' => null,
+        'pollingArchiveName' => null,
 'percent' => 'int32'    ];
 
     /**
@@ -96,7 +96,7 @@ class DownloadPolling implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'zip' => 'zip',
+        'pollingArchiveName' => 'pollingArchiveName',
 'percent' => 'percent'    ];
 
     /**
@@ -105,7 +105,7 @@ class DownloadPolling implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'zip' => 'setZip',
+        'pollingArchiveName' => 'setPollingArchiveName',
 'percent' => 'setPercent'    ];
 
     /**
@@ -114,7 +114,7 @@ class DownloadPolling implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'zip' => 'getZip',
+        'pollingArchiveName' => 'getPollingArchiveName',
 'percent' => 'getPercent'    ];
 
     /**
@@ -175,7 +175,7 @@ class DownloadPolling implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['zip'] = isset($data['zip']) ? $data['zip'] : null;
+        $this->container['pollingArchiveName'] = isset($data['pollingArchiveName']) ? $data['pollingArchiveName'] : null;
         $this->container['percent'] = isset($data['percent']) ? $data['percent'] : null;
     }
 
@@ -204,25 +204,25 @@ class DownloadPolling implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets zip
+     * Gets pollingArchiveName
      *
      * @return string
      */
-    public function getZip()
+    public function getPollingArchiveName()
     {
-        return $this->container['zip'];
+        return $this->container['pollingArchiveName'];
     }
 
     /**
-     * Sets zip
+     * Sets pollingArchiveName
      *
-     * @param string $zip Name of the zip file.
+     * @param string $pollingArchiveName Name of the zip file.
      *
      * @return $this
      */
-    public function setZip($zip)
+    public function setPollingArchiveName($pollingArchiveName)
     {
-        $this->container['zip'] = $zip;
+        $this->container['pollingArchiveName'] = $pollingArchiveName;
 
         return $this;
     }

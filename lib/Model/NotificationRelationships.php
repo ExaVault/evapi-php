@@ -58,7 +58,7 @@ class NotificationRelationships implements ModelInterface, ArrayAccess
     protected static $swaggerTypes = [
         'resource' => '\ExaVault\Model\NotificationRelationshipsResource',
 'share' => '\ExaVault\Model\NotificationRelationshipsShare',
-'owner_user' => '\ExaVault\Model\NotificationRelationshipsOwnerUser'    ];
+'ownerUser' => '\ExaVault\Model\NotificationRelationshipsOwnerUser'    ];
 
     /**
       * Array of property to format mappings. Used for (de)serialization
@@ -68,7 +68,7 @@ class NotificationRelationships implements ModelInterface, ArrayAccess
     protected static $swaggerFormats = [
         'resource' => null,
 'share' => null,
-'owner_user' => null    ];
+'ownerUser' => null    ];
 
     /**
      * Array of property to type mappings. Used for (de)serialization
@@ -99,7 +99,7 @@ class NotificationRelationships implements ModelInterface, ArrayAccess
     protected static $attributeMap = [
         'resource' => 'resource',
 'share' => 'share',
-'owner_user' => 'ownerUser'    ];
+'ownerUser' => 'ownerUser'    ];
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
@@ -109,7 +109,7 @@ class NotificationRelationships implements ModelInterface, ArrayAccess
     protected static $setters = [
         'resource' => 'setResource',
 'share' => 'setShare',
-'owner_user' => 'setOwnerUser'    ];
+'ownerUser' => 'setOwnerUser'    ];
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
@@ -119,7 +119,7 @@ class NotificationRelationships implements ModelInterface, ArrayAccess
     protected static $getters = [
         'resource' => 'getResource',
 'share' => 'getShare',
-'owner_user' => 'getOwnerUser'    ];
+'ownerUser' => 'getOwnerUser'    ];
 
     /**
      * Array of attributes where the key is the local name,
@@ -181,7 +181,7 @@ class NotificationRelationships implements ModelInterface, ArrayAccess
     {
         $this->container['resource'] = isset($data['resource']) ? $data['resource'] : null;
         $this->container['share'] = isset($data['share']) ? $data['share'] : null;
-        $this->container['owner_user'] = isset($data['owner_user']) ? $data['owner_user'] : null;
+        $this->container['ownerUser'] = isset($data['ownerUser']) ? $data['ownerUser'] : null;
     }
 
     /**
@@ -257,25 +257,25 @@ class NotificationRelationships implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets owner_user
+     * Gets ownerUser
      *
      * @return \ExaVault\Model\NotificationRelationshipsOwnerUser
      */
     public function getOwnerUser()
     {
-        return $this->container['owner_user'];
+        return $this->container['ownerUser'];
     }
 
     /**
-     * Sets owner_user
+     * Sets ownerUser
      *
-     * @param \ExaVault\Model\NotificationRelationshipsOwnerUser $owner_user owner_user
+     * @param \ExaVault\Model\NotificationRelationshipsOwnerUser $ownerUser ownerUser
      *
      * @return $this
      */
-    public function setOwnerUser($owner_user)
+    public function setOwnerUser($ownerUser)
     {
-        $this->container['owner_user'] = $owner_user;
+        $this->container['ownerUser'] = $ownerUser;
 
         return $this;
     }

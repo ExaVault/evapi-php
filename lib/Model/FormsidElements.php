@@ -308,7 +308,7 @@ self::TYPE_UPLOAD_AREA,        ];
     /**
      * Sets order
      *
-     * @param int $order The order the fields will be displayed to the receipient. Starts at 0.
+     * @param int $order The order the fields will be displayed to the recipient. Starts at 0.
      *
      * @return $this
      */

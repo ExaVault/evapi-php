@@ -58,7 +58,7 @@ class EmailListAttributes implements ModelInterface, ArrayAccess
       */
     protected static $swaggerTypes = [
         'name' => 'string',
-'members' => 'string[]',
+'emails' => 'string[]',
 'created' => '\DateTime',
 'modified' => '\DateTime'    ];
 
@@ -69,7 +69,7 @@ class EmailListAttributes implements ModelInterface, ArrayAccess
       */
     protected static $swaggerFormats = [
         'name' => null,
-'members' => null,
+'emails' => null,
 'created' => 'date-time',
 'modified' => 'date-time'    ];
 
@@ -101,7 +101,7 @@ class EmailListAttributes implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'name' => 'name',
-'members' => 'members',
+'emails' => 'emails',
 'created' => 'created',
 'modified' => 'modified'    ];
 
@@ -112,7 +112,7 @@ class EmailListAttributes implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'name' => 'setName',
-'members' => 'setMembers',
+'emails' => 'setEmails',
 'created' => 'setCreated',
 'modified' => 'setModified'    ];
 
@@ -123,7 +123,7 @@ class EmailListAttributes implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'name' => 'getName',
-'members' => 'getMembers',
+'emails' => 'getEmails',
 'created' => 'getCreated',
 'modified' => 'getModified'    ];
 
@@ -186,7 +186,7 @@ class EmailListAttributes implements ModelInterface, ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
-        $this->container['members'] = isset($data['members']) ? $data['members'] : null;
+        $this->container['emails'] = isset($data['emails']) ? $data['emails'] : null;
         $this->container['created'] = isset($data['created']) ? $data['created'] : null;
         $this->container['modified'] = isset($data['modified']) ? $data['modified'] : null;
     }
@@ -240,25 +240,25 @@ class EmailListAttributes implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets members
+     * Gets emails
      *
      * @return string[]
      */
-    public function getMembers()
+    public function getEmails()
     {
-        return $this->container['members'];
+        return $this->container['emails'];
     }
 
     /**
-     * Sets members
+     * Sets emails
      *
-     * @param string[] $members Recipient emails in the email list
+     * @param string[] $emails Recipient emails in the email list
      *
      * @return $this
      */
-    public function setMembers($members)
+    public function setEmails($emails)
     {
-        $this->container['members'] = $members;
+        $this->container['emails'] = $emails;
 
         return $this;
     }

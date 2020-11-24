@@ -91,17 +91,17 @@ class UsersApi
      *
      * Create a user
      *
-     * @param  string $ev_api_key API key required to make the API call (required)
-     * @param  string $ev_access_token Access token required to make the API call. (required)
-     * @param  \ExaVault\Model\Body5 $body body (optional)
+     * @param  string $evApiKey API key required to make the API call (required)
+     * @param  string $evAccessToken Access token required to make the API call. (required)
+     * @param  \ExaVault\Model\AddUserRequestBody $body body (optional)
      *
      * @throws \ExaVault\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \ExaVault\Model\UserResponse
      */
-    public function addUser($ev_api_key, $ev_access_token, $body = null)
+    public function addUser($evApiKey, $evAccessToken, $body = null)
     {
-        list($response) = $this->addUserWithHttpInfo($ev_api_key, $ev_access_token, $body);
+        list($response) = $this->addUserWithHttpInfo($evApiKey, $evAccessToken, $body);
         return $response;
     }
 
@@ -110,18 +110,18 @@ class UsersApi
      *
      * Create a user
      *
-     * @param  string $ev_api_key API key required to make the API call (required)
-     * @param  string $ev_access_token Access token required to make the API call. (required)
-     * @param  \ExaVault\Model\Body5 $body (optional)
+     * @param  string $evApiKey API key required to make the API call (required)
+     * @param  string $evAccessToken Access token required to make the API call. (required)
+     * @param  \ExaVault\Model\AddUserRequestBody $body (optional)
      *
      * @throws \ExaVault\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \ExaVault\Model\UserResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function addUserWithHttpInfo($ev_api_key, $ev_access_token, $body = null)
+    public function addUserWithHttpInfo($evApiKey, $evAccessToken, $body = null)
     {
         $returnType = '\ExaVault\Model\UserResponse';
-        $request = $this->addUserRequest($ev_api_key, $ev_access_token, $body);
+        $request = $this->addUserRequest($evApiKey, $evAccessToken, $body);
 
         try {
             $options = $this->createHttpClientOption();
@@ -187,16 +187,16 @@ class UsersApi
      *
      * Create a user
      *
-     * @param  string $ev_api_key API key required to make the API call (required)
-     * @param  string $ev_access_token Access token required to make the API call. (required)
-     * @param  \ExaVault\Model\Body5 $body (optional)
+     * @param  string $evApiKey API key required to make the API call (required)
+     * @param  string $evAccessToken Access token required to make the API call. (required)
+     * @param  \ExaVault\Model\AddUserRequestBody $body (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function addUserAsync($ev_api_key, $ev_access_token, $body = null)
+    public function addUserAsync($evApiKey, $evAccessToken, $body = null)
     {
-        return $this->addUserAsyncWithHttpInfo($ev_api_key, $ev_access_token, $body)
+        return $this->addUserAsyncWithHttpInfo($evApiKey, $evAccessToken, $body)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -209,17 +209,17 @@ class UsersApi
      *
      * Create a user
      *
-     * @param  string $ev_api_key API key required to make the API call (required)
-     * @param  string $ev_access_token Access token required to make the API call. (required)
-     * @param  \ExaVault\Model\Body5 $body (optional)
+     * @param  string $evApiKey API key required to make the API call (required)
+     * @param  string $evAccessToken Access token required to make the API call. (required)
+     * @param  \ExaVault\Model\AddUserRequestBody $body (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function addUserAsyncWithHttpInfo($ev_api_key, $ev_access_token, $body = null)
+    public function addUserAsyncWithHttpInfo($evApiKey, $evAccessToken, $body = null)
     {
         $returnType = '\ExaVault\Model\UserResponse';
-        $request = $this->addUserRequest($ev_api_key, $ev_access_token, $body);
+        $request = $this->addUserRequest($evApiKey, $evAccessToken, $body);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -261,25 +261,25 @@ class UsersApi
     /**
      * Create request for operation 'addUser'
      *
-     * @param  string $ev_api_key API key required to make the API call (required)
-     * @param  string $ev_access_token Access token required to make the API call. (required)
-     * @param  \ExaVault\Model\Body5 $body (optional)
+     * @param  string $evApiKey API key required to make the API call (required)
+     * @param  string $evAccessToken Access token required to make the API call. (required)
+     * @param  \ExaVault\Model\AddUserRequestBody $body (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function addUserRequest($ev_api_key, $ev_access_token, $body = null)
+    protected function addUserRequest($evApiKey, $evAccessToken, $body = null)
     {
-        // verify the required parameter 'ev_api_key' is set
-        if ($ev_api_key === null || (is_array($ev_api_key) && count($ev_api_key) === 0)) {
+        // verify the required parameter 'evApiKey' is set
+        if ($evApiKey === null || (is_array($evApiKey) && count($evApiKey) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $ev_api_key when calling addUser'
+                'Missing the required parameter $evApiKey when calling addUser'
             );
         }
-        // verify the required parameter 'ev_access_token' is set
-        if ($ev_access_token === null || (is_array($ev_access_token) && count($ev_access_token) === 0)) {
+        // verify the required parameter 'evAccessToken' is set
+        if ($evAccessToken === null || (is_array($evAccessToken) && count($evAccessToken) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $ev_access_token when calling addUser'
+                'Missing the required parameter $evAccessToken when calling addUser'
             );
         }
 
@@ -291,12 +291,12 @@ class UsersApi
         $multipart = false;
 
         // header params
-        if ($ev_api_key !== null) {
-            $headerParams['ev-api-key'] = ObjectSerializer::toHeaderValue($ev_api_key);
+        if ($evApiKey !== null) {
+            $headerParams['ev-api-key'] = ObjectSerializer::toHeaderValue($evApiKey);
         }
         // header params
-        if ($ev_access_token !== null) {
-            $headerParams['ev-access-token'] = ObjectSerializer::toHeaderValue($ev_access_token);
+        if ($evAccessToken !== null) {
+            $headerParams['ev-access-token'] = ObjectSerializer::toHeaderValue($evAccessToken);
         }
 
 
@@ -373,16 +373,16 @@ class UsersApi
      * Delete a user
      *
      * @param  float $id The user&#x27;s ID. Note that this is our internal ID, and _not the username_. You can obtain it by calling the [GET /users](#operation/listUsers) method. (required)
-     * @param  string $ev_api_key API Key required to make the API call. (required)
-     * @param  string $ev_access_token Access token required to make the API call. (required)
+     * @param  string $evApiKey API Key required to make the API call. (required)
+     * @param  string $evAccessToken Access token required to make the API call. (required)
      *
      * @throws \ExaVault\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \ExaVault\Model\EmptyResponse
      */
-    public function deleteUser($id, $ev_api_key, $ev_access_token)
+    public function deleteUser($id, $evApiKey, $evAccessToken)
     {
-        list($response) = $this->deleteUserWithHttpInfo($id, $ev_api_key, $ev_access_token);
+        list($response) = $this->deleteUserWithHttpInfo($id, $evApiKey, $evAccessToken);
         return $response;
     }
 
@@ -392,17 +392,17 @@ class UsersApi
      * Delete a user
      *
      * @param  float $id The user&#x27;s ID. Note that this is our internal ID, and _not the username_. You can obtain it by calling the [GET /users](#operation/listUsers) method. (required)
-     * @param  string $ev_api_key API Key required to make the API call. (required)
-     * @param  string $ev_access_token Access token required to make the API call. (required)
+     * @param  string $evApiKey API Key required to make the API call. (required)
+     * @param  string $evAccessToken Access token required to make the API call. (required)
      *
      * @throws \ExaVault\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \ExaVault\Model\EmptyResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function deleteUserWithHttpInfo($id, $ev_api_key, $ev_access_token)
+    public function deleteUserWithHttpInfo($id, $evApiKey, $evAccessToken)
     {
         $returnType = '\ExaVault\Model\EmptyResponse';
-        $request = $this->deleteUserRequest($id, $ev_api_key, $ev_access_token);
+        $request = $this->deleteUserRequest($id, $evApiKey, $evAccessToken);
 
         try {
             $options = $this->createHttpClientOption();
@@ -469,15 +469,15 @@ class UsersApi
      * Delete a user
      *
      * @param  float $id The user&#x27;s ID. Note that this is our internal ID, and _not the username_. You can obtain it by calling the [GET /users](#operation/listUsers) method. (required)
-     * @param  string $ev_api_key API Key required to make the API call. (required)
-     * @param  string $ev_access_token Access token required to make the API call. (required)
+     * @param  string $evApiKey API Key required to make the API call. (required)
+     * @param  string $evAccessToken Access token required to make the API call. (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteUserAsync($id, $ev_api_key, $ev_access_token)
+    public function deleteUserAsync($id, $evApiKey, $evAccessToken)
     {
-        return $this->deleteUserAsyncWithHttpInfo($id, $ev_api_key, $ev_access_token)
+        return $this->deleteUserAsyncWithHttpInfo($id, $evApiKey, $evAccessToken)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -491,16 +491,16 @@ class UsersApi
      * Delete a user
      *
      * @param  float $id The user&#x27;s ID. Note that this is our internal ID, and _not the username_. You can obtain it by calling the [GET /users](#operation/listUsers) method. (required)
-     * @param  string $ev_api_key API Key required to make the API call. (required)
-     * @param  string $ev_access_token Access token required to make the API call. (required)
+     * @param  string $evApiKey API Key required to make the API call. (required)
+     * @param  string $evAccessToken Access token required to make the API call. (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteUserAsyncWithHttpInfo($id, $ev_api_key, $ev_access_token)
+    public function deleteUserAsyncWithHttpInfo($id, $evApiKey, $evAccessToken)
     {
         $returnType = '\ExaVault\Model\EmptyResponse';
-        $request = $this->deleteUserRequest($id, $ev_api_key, $ev_access_token);
+        $request = $this->deleteUserRequest($id, $evApiKey, $evAccessToken);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -543,13 +543,13 @@ class UsersApi
      * Create request for operation 'deleteUser'
      *
      * @param  float $id The user&#x27;s ID. Note that this is our internal ID, and _not the username_. You can obtain it by calling the [GET /users](#operation/listUsers) method. (required)
-     * @param  string $ev_api_key API Key required to make the API call. (required)
-     * @param  string $ev_access_token Access token required to make the API call. (required)
+     * @param  string $evApiKey API Key required to make the API call. (required)
+     * @param  string $evAccessToken Access token required to make the API call. (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function deleteUserRequest($id, $ev_api_key, $ev_access_token)
+    protected function deleteUserRequest($id, $evApiKey, $evAccessToken)
     {
         // verify the required parameter 'id' is set
         if ($id === null || (is_array($id) && count($id) === 0)) {
@@ -557,16 +557,16 @@ class UsersApi
                 'Missing the required parameter $id when calling deleteUser'
             );
         }
-        // verify the required parameter 'ev_api_key' is set
-        if ($ev_api_key === null || (is_array($ev_api_key) && count($ev_api_key) === 0)) {
+        // verify the required parameter 'evApiKey' is set
+        if ($evApiKey === null || (is_array($evApiKey) && count($evApiKey) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $ev_api_key when calling deleteUser'
+                'Missing the required parameter $evApiKey when calling deleteUser'
             );
         }
-        // verify the required parameter 'ev_access_token' is set
-        if ($ev_access_token === null || (is_array($ev_access_token) && count($ev_access_token) === 0)) {
+        // verify the required parameter 'evAccessToken' is set
+        if ($evAccessToken === null || (is_array($evAccessToken) && count($evAccessToken) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $ev_access_token when calling deleteUser'
+                'Missing the required parameter $evAccessToken when calling deleteUser'
             );
         }
 
@@ -578,12 +578,12 @@ class UsersApi
         $multipart = false;
 
         // header params
-        if ($ev_api_key !== null) {
-            $headerParams['ev-api-key'] = ObjectSerializer::toHeaderValue($ev_api_key);
+        if ($evApiKey !== null) {
+            $headerParams['ev-api-key'] = ObjectSerializer::toHeaderValue($evApiKey);
         }
         // header params
-        if ($ev_access_token !== null) {
-            $headerParams['ev-access-token'] = ObjectSerializer::toHeaderValue($ev_access_token);
+        if ($evAccessToken !== null) {
+            $headerParams['ev-access-token'] = ObjectSerializer::toHeaderValue($evAccessToken);
         }
 
         // path params
@@ -665,17 +665,17 @@ class UsersApi
      * Get info for a user
      *
      * @param  float $id The user&#x27;s ID. Note that this is our internal ID, and _not the username_. You can obtain it by calling the [GET /users](#operation/listUsers) method. (required)
-     * @param  string $ev_api_key API Key (required)
-     * @param  string $ev_access_token Access token required to make the API call. (required)
+     * @param  string $evApiKey API Key (required)
+     * @param  string $evAccessToken Access token required to make the API call. (required)
      * @param  string $include Comma-separated list of relationships to include in response. Possible values include **homeResource** and **ownerAccount**. (optional)
      *
      * @throws \ExaVault\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \ExaVault\Model\UserResponse
      */
-    public function getUserById($id, $ev_api_key, $ev_access_token, $include = null)
+    public function getUserById($id, $evApiKey, $evAccessToken, $include = null)
     {
-        list($response) = $this->getUserByIdWithHttpInfo($id, $ev_api_key, $ev_access_token, $include);
+        list($response) = $this->getUserByIdWithHttpInfo($id, $evApiKey, $evAccessToken, $include);
         return $response;
     }
 
@@ -685,18 +685,18 @@ class UsersApi
      * Get info for a user
      *
      * @param  float $id The user&#x27;s ID. Note that this is our internal ID, and _not the username_. You can obtain it by calling the [GET /users](#operation/listUsers) method. (required)
-     * @param  string $ev_api_key API Key (required)
-     * @param  string $ev_access_token Access token required to make the API call. (required)
+     * @param  string $evApiKey API Key (required)
+     * @param  string $evAccessToken Access token required to make the API call. (required)
      * @param  string $include Comma-separated list of relationships to include in response. Possible values include **homeResource** and **ownerAccount**. (optional)
      *
      * @throws \ExaVault\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \ExaVault\Model\UserResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getUserByIdWithHttpInfo($id, $ev_api_key, $ev_access_token, $include = null)
+    public function getUserByIdWithHttpInfo($id, $evApiKey, $evAccessToken, $include = null)
     {
         $returnType = '\ExaVault\Model\UserResponse';
-        $request = $this->getUserByIdRequest($id, $ev_api_key, $ev_access_token, $include);
+        $request = $this->getUserByIdRequest($id, $evApiKey, $evAccessToken, $include);
 
         try {
             $options = $this->createHttpClientOption();
@@ -763,16 +763,16 @@ class UsersApi
      * Get info for a user
      *
      * @param  float $id The user&#x27;s ID. Note that this is our internal ID, and _not the username_. You can obtain it by calling the [GET /users](#operation/listUsers) method. (required)
-     * @param  string $ev_api_key API Key (required)
-     * @param  string $ev_access_token Access token required to make the API call. (required)
+     * @param  string $evApiKey API Key (required)
+     * @param  string $evAccessToken Access token required to make the API call. (required)
      * @param  string $include Comma-separated list of relationships to include in response. Possible values include **homeResource** and **ownerAccount**. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getUserByIdAsync($id, $ev_api_key, $ev_access_token, $include = null)
+    public function getUserByIdAsync($id, $evApiKey, $evAccessToken, $include = null)
     {
-        return $this->getUserByIdAsyncWithHttpInfo($id, $ev_api_key, $ev_access_token, $include)
+        return $this->getUserByIdAsyncWithHttpInfo($id, $evApiKey, $evAccessToken, $include)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -786,17 +786,17 @@ class UsersApi
      * Get info for a user
      *
      * @param  float $id The user&#x27;s ID. Note that this is our internal ID, and _not the username_. You can obtain it by calling the [GET /users](#operation/listUsers) method. (required)
-     * @param  string $ev_api_key API Key (required)
-     * @param  string $ev_access_token Access token required to make the API call. (required)
+     * @param  string $evApiKey API Key (required)
+     * @param  string $evAccessToken Access token required to make the API call. (required)
      * @param  string $include Comma-separated list of relationships to include in response. Possible values include **homeResource** and **ownerAccount**. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getUserByIdAsyncWithHttpInfo($id, $ev_api_key, $ev_access_token, $include = null)
+    public function getUserByIdAsyncWithHttpInfo($id, $evApiKey, $evAccessToken, $include = null)
     {
         $returnType = '\ExaVault\Model\UserResponse';
-        $request = $this->getUserByIdRequest($id, $ev_api_key, $ev_access_token, $include);
+        $request = $this->getUserByIdRequest($id, $evApiKey, $evAccessToken, $include);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -839,14 +839,14 @@ class UsersApi
      * Create request for operation 'getUserById'
      *
      * @param  float $id The user&#x27;s ID. Note that this is our internal ID, and _not the username_. You can obtain it by calling the [GET /users](#operation/listUsers) method. (required)
-     * @param  string $ev_api_key API Key (required)
-     * @param  string $ev_access_token Access token required to make the API call. (required)
+     * @param  string $evApiKey API Key (required)
+     * @param  string $evAccessToken Access token required to make the API call. (required)
      * @param  string $include Comma-separated list of relationships to include in response. Possible values include **homeResource** and **ownerAccount**. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function getUserByIdRequest($id, $ev_api_key, $ev_access_token, $include = null)
+    protected function getUserByIdRequest($id, $evApiKey, $evAccessToken, $include = null)
     {
         // verify the required parameter 'id' is set
         if ($id === null || (is_array($id) && count($id) === 0)) {
@@ -854,16 +854,16 @@ class UsersApi
                 'Missing the required parameter $id when calling getUserById'
             );
         }
-        // verify the required parameter 'ev_api_key' is set
-        if ($ev_api_key === null || (is_array($ev_api_key) && count($ev_api_key) === 0)) {
+        // verify the required parameter 'evApiKey' is set
+        if ($evApiKey === null || (is_array($evApiKey) && count($evApiKey) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $ev_api_key when calling getUserById'
+                'Missing the required parameter $evApiKey when calling getUserById'
             );
         }
-        // verify the required parameter 'ev_access_token' is set
-        if ($ev_access_token === null || (is_array($ev_access_token) && count($ev_access_token) === 0)) {
+        // verify the required parameter 'evAccessToken' is set
+        if ($evAccessToken === null || (is_array($evAccessToken) && count($evAccessToken) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $ev_access_token when calling getUserById'
+                'Missing the required parameter $evAccessToken when calling getUserById'
             );
         }
 
@@ -879,12 +879,12 @@ class UsersApi
             $queryParams['include'] = ObjectSerializer::toQueryValue($include, null);
         }
         // header params
-        if ($ev_api_key !== null) {
-            $headerParams['ev-api-key'] = ObjectSerializer::toHeaderValue($ev_api_key);
+        if ($evApiKey !== null) {
+            $headerParams['ev-api-key'] = ObjectSerializer::toHeaderValue($evApiKey);
         }
         // header params
-        if ($ev_access_token !== null) {
-            $headerParams['ev-access-token'] = ObjectSerializer::toHeaderValue($ev_access_token);
+        if ($evAccessToken !== null) {
+            $headerParams['ev-access-token'] = ObjectSerializer::toHeaderValue($evAccessToken);
         }
 
         // path params
@@ -965,14 +965,14 @@ class UsersApi
      *
      * Get a list of users
      *
-     * @param  string $ev_api_key API key required to make the API call. (required)
-     * @param  string $ev_access_token Access token required to make the API call. (required)
+     * @param  string $evApiKey API key required to make the API call. (required)
+     * @param  string $evAccessToken Access token required to make the API call. (required)
      * @param  string $username The username of the user you are looking for. Only entries with the same username as this will be in the list of results. Does not support wildcard searches. (optional)
      * @param  string $nickname Nickname to search for. Ignored if &#x60;username&#x60; is provided. Supports wildcard searches. (optional)
      * @param  string $email Email to search for. Ignored if &#x60;username&#x60; is provided. Supports wildcard searches (optional)
      * @param  string $role Types of users to include the list. Ignored if &#x60;username&#x60; is provided. Valid options are **admin**, **master** and **user** (optional)
      * @param  int $status Whether a user is locked. Ignored if &#x60;username&#x60; is provided. **0** means user is locked, **1** means user is not locked. (optional)
-     * @param  string $home_dir Path for user&#x27;s home directory. Ignored if &#x60;username&#x60; is provided. Supports wildcard searches. (optional)
+     * @param  string $homeDir Path for user&#x27;s home directory. Ignored if &#x60;username&#x60; is provided. Supports wildcard searches. (optional)
      * @param  string $search Searches the nickname, email, role and homeDir fields for the provided value. Ignored if &#x60;username&#x60; is provided. Supports wildcard searches. (optional)
      * @param  int $offset Starting user record in the result set. Can be used for pagination. (optional)
      * @param  string $sort Sort order or matching users. You can sort by multiple columns by separating sort options with a comma; the sort will be applied in the order specified. The sort order for each sort field is ascending unless it is prefixed with a minus (“-“), in which case it will be descending.  Valid sort fields are: **nickname**, **username**, **email**, **homeDir** and **modified** (optional)
@@ -983,9 +983,9 @@ class UsersApi
      * @throws \InvalidArgumentException
      * @return \ExaVault\Model\UserCollectionResponse
      */
-    public function listUsers($ev_api_key, $ev_access_token, $username = null, $nickname = null, $email = null, $role = null, $status = null, $home_dir = null, $search = null, $offset = null, $sort = null, $limit = null, $include = null)
+    public function listUsers($evApiKey, $evAccessToken, $username = null, $nickname = null, $email = null, $role = null, $status = null, $homeDir = null, $search = null, $offset = null, $sort = null, $limit = null, $include = null)
     {
-        list($response) = $this->listUsersWithHttpInfo($ev_api_key, $ev_access_token, $username, $nickname, $email, $role, $status, $home_dir, $search, $offset, $sort, $limit, $include);
+        list($response) = $this->listUsersWithHttpInfo($evApiKey, $evAccessToken, $username, $nickname, $email, $role, $status, $homeDir, $search, $offset, $sort, $limit, $include);
         return $response;
     }
 
@@ -994,14 +994,14 @@ class UsersApi
      *
      * Get a list of users
      *
-     * @param  string $ev_api_key API key required to make the API call. (required)
-     * @param  string $ev_access_token Access token required to make the API call. (required)
+     * @param  string $evApiKey API key required to make the API call. (required)
+     * @param  string $evAccessToken Access token required to make the API call. (required)
      * @param  string $username The username of the user you are looking for. Only entries with the same username as this will be in the list of results. Does not support wildcard searches. (optional)
      * @param  string $nickname Nickname to search for. Ignored if &#x60;username&#x60; is provided. Supports wildcard searches. (optional)
      * @param  string $email Email to search for. Ignored if &#x60;username&#x60; is provided. Supports wildcard searches (optional)
      * @param  string $role Types of users to include the list. Ignored if &#x60;username&#x60; is provided. Valid options are **admin**, **master** and **user** (optional)
      * @param  int $status Whether a user is locked. Ignored if &#x60;username&#x60; is provided. **0** means user is locked, **1** means user is not locked. (optional)
-     * @param  string $home_dir Path for user&#x27;s home directory. Ignored if &#x60;username&#x60; is provided. Supports wildcard searches. (optional)
+     * @param  string $homeDir Path for user&#x27;s home directory. Ignored if &#x60;username&#x60; is provided. Supports wildcard searches. (optional)
      * @param  string $search Searches the nickname, email, role and homeDir fields for the provided value. Ignored if &#x60;username&#x60; is provided. Supports wildcard searches. (optional)
      * @param  int $offset Starting user record in the result set. Can be used for pagination. (optional)
      * @param  string $sort Sort order or matching users. You can sort by multiple columns by separating sort options with a comma; the sort will be applied in the order specified. The sort order for each sort field is ascending unless it is prefixed with a minus (“-“), in which case it will be descending.  Valid sort fields are: **nickname**, **username**, **email**, **homeDir** and **modified** (optional)
@@ -1012,10 +1012,10 @@ class UsersApi
      * @throws \InvalidArgumentException
      * @return array of \ExaVault\Model\UserCollectionResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function listUsersWithHttpInfo($ev_api_key, $ev_access_token, $username = null, $nickname = null, $email = null, $role = null, $status = null, $home_dir = null, $search = null, $offset = null, $sort = null, $limit = null, $include = null)
+    public function listUsersWithHttpInfo($evApiKey, $evAccessToken, $username = null, $nickname = null, $email = null, $role = null, $status = null, $homeDir = null, $search = null, $offset = null, $sort = null, $limit = null, $include = null)
     {
         $returnType = '\ExaVault\Model\UserCollectionResponse';
-        $request = $this->listUsersRequest($ev_api_key, $ev_access_token, $username, $nickname, $email, $role, $status, $home_dir, $search, $offset, $sort, $limit, $include);
+        $request = $this->listUsersRequest($evApiKey, $evAccessToken, $username, $nickname, $email, $role, $status, $homeDir, $search, $offset, $sort, $limit, $include);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1081,14 +1081,14 @@ class UsersApi
      *
      * Get a list of users
      *
-     * @param  string $ev_api_key API key required to make the API call. (required)
-     * @param  string $ev_access_token Access token required to make the API call. (required)
+     * @param  string $evApiKey API key required to make the API call. (required)
+     * @param  string $evAccessToken Access token required to make the API call. (required)
      * @param  string $username The username of the user you are looking for. Only entries with the same username as this will be in the list of results. Does not support wildcard searches. (optional)
      * @param  string $nickname Nickname to search for. Ignored if &#x60;username&#x60; is provided. Supports wildcard searches. (optional)
      * @param  string $email Email to search for. Ignored if &#x60;username&#x60; is provided. Supports wildcard searches (optional)
      * @param  string $role Types of users to include the list. Ignored if &#x60;username&#x60; is provided. Valid options are **admin**, **master** and **user** (optional)
      * @param  int $status Whether a user is locked. Ignored if &#x60;username&#x60; is provided. **0** means user is locked, **1** means user is not locked. (optional)
-     * @param  string $home_dir Path for user&#x27;s home directory. Ignored if &#x60;username&#x60; is provided. Supports wildcard searches. (optional)
+     * @param  string $homeDir Path for user&#x27;s home directory. Ignored if &#x60;username&#x60; is provided. Supports wildcard searches. (optional)
      * @param  string $search Searches the nickname, email, role and homeDir fields for the provided value. Ignored if &#x60;username&#x60; is provided. Supports wildcard searches. (optional)
      * @param  int $offset Starting user record in the result set. Can be used for pagination. (optional)
      * @param  string $sort Sort order or matching users. You can sort by multiple columns by separating sort options with a comma; the sort will be applied in the order specified. The sort order for each sort field is ascending unless it is prefixed with a minus (“-“), in which case it will be descending.  Valid sort fields are: **nickname**, **username**, **email**, **homeDir** and **modified** (optional)
@@ -1098,9 +1098,9 @@ class UsersApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function listUsersAsync($ev_api_key, $ev_access_token, $username = null, $nickname = null, $email = null, $role = null, $status = null, $home_dir = null, $search = null, $offset = null, $sort = null, $limit = null, $include = null)
+    public function listUsersAsync($evApiKey, $evAccessToken, $username = null, $nickname = null, $email = null, $role = null, $status = null, $homeDir = null, $search = null, $offset = null, $sort = null, $limit = null, $include = null)
     {
-        return $this->listUsersAsyncWithHttpInfo($ev_api_key, $ev_access_token, $username, $nickname, $email, $role, $status, $home_dir, $search, $offset, $sort, $limit, $include)
+        return $this->listUsersAsyncWithHttpInfo($evApiKey, $evAccessToken, $username, $nickname, $email, $role, $status, $homeDir, $search, $offset, $sort, $limit, $include)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1113,14 +1113,14 @@ class UsersApi
      *
      * Get a list of users
      *
-     * @param  string $ev_api_key API key required to make the API call. (required)
-     * @param  string $ev_access_token Access token required to make the API call. (required)
+     * @param  string $evApiKey API key required to make the API call. (required)
+     * @param  string $evAccessToken Access token required to make the API call. (required)
      * @param  string $username The username of the user you are looking for. Only entries with the same username as this will be in the list of results. Does not support wildcard searches. (optional)
      * @param  string $nickname Nickname to search for. Ignored if &#x60;username&#x60; is provided. Supports wildcard searches. (optional)
      * @param  string $email Email to search for. Ignored if &#x60;username&#x60; is provided. Supports wildcard searches (optional)
      * @param  string $role Types of users to include the list. Ignored if &#x60;username&#x60; is provided. Valid options are **admin**, **master** and **user** (optional)
      * @param  int $status Whether a user is locked. Ignored if &#x60;username&#x60; is provided. **0** means user is locked, **1** means user is not locked. (optional)
-     * @param  string $home_dir Path for user&#x27;s home directory. Ignored if &#x60;username&#x60; is provided. Supports wildcard searches. (optional)
+     * @param  string $homeDir Path for user&#x27;s home directory. Ignored if &#x60;username&#x60; is provided. Supports wildcard searches. (optional)
      * @param  string $search Searches the nickname, email, role and homeDir fields for the provided value. Ignored if &#x60;username&#x60; is provided. Supports wildcard searches. (optional)
      * @param  int $offset Starting user record in the result set. Can be used for pagination. (optional)
      * @param  string $sort Sort order or matching users. You can sort by multiple columns by separating sort options with a comma; the sort will be applied in the order specified. The sort order for each sort field is ascending unless it is prefixed with a minus (“-“), in which case it will be descending.  Valid sort fields are: **nickname**, **username**, **email**, **homeDir** and **modified** (optional)
@@ -1130,10 +1130,10 @@ class UsersApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function listUsersAsyncWithHttpInfo($ev_api_key, $ev_access_token, $username = null, $nickname = null, $email = null, $role = null, $status = null, $home_dir = null, $search = null, $offset = null, $sort = null, $limit = null, $include = null)
+    public function listUsersAsyncWithHttpInfo($evApiKey, $evAccessToken, $username = null, $nickname = null, $email = null, $role = null, $status = null, $homeDir = null, $search = null, $offset = null, $sort = null, $limit = null, $include = null)
     {
         $returnType = '\ExaVault\Model\UserCollectionResponse';
-        $request = $this->listUsersRequest($ev_api_key, $ev_access_token, $username, $nickname, $email, $role, $status, $home_dir, $search, $offset, $sort, $limit, $include);
+        $request = $this->listUsersRequest($evApiKey, $evAccessToken, $username, $nickname, $email, $role, $status, $homeDir, $search, $offset, $sort, $limit, $include);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1175,14 +1175,14 @@ class UsersApi
     /**
      * Create request for operation 'listUsers'
      *
-     * @param  string $ev_api_key API key required to make the API call. (required)
-     * @param  string $ev_access_token Access token required to make the API call. (required)
+     * @param  string $evApiKey API key required to make the API call. (required)
+     * @param  string $evAccessToken Access token required to make the API call. (required)
      * @param  string $username The username of the user you are looking for. Only entries with the same username as this will be in the list of results. Does not support wildcard searches. (optional)
      * @param  string $nickname Nickname to search for. Ignored if &#x60;username&#x60; is provided. Supports wildcard searches. (optional)
      * @param  string $email Email to search for. Ignored if &#x60;username&#x60; is provided. Supports wildcard searches (optional)
      * @param  string $role Types of users to include the list. Ignored if &#x60;username&#x60; is provided. Valid options are **admin**, **master** and **user** (optional)
      * @param  int $status Whether a user is locked. Ignored if &#x60;username&#x60; is provided. **0** means user is locked, **1** means user is not locked. (optional)
-     * @param  string $home_dir Path for user&#x27;s home directory. Ignored if &#x60;username&#x60; is provided. Supports wildcard searches. (optional)
+     * @param  string $homeDir Path for user&#x27;s home directory. Ignored if &#x60;username&#x60; is provided. Supports wildcard searches. (optional)
      * @param  string $search Searches the nickname, email, role and homeDir fields for the provided value. Ignored if &#x60;username&#x60; is provided. Supports wildcard searches. (optional)
      * @param  int $offset Starting user record in the result set. Can be used for pagination. (optional)
      * @param  string $sort Sort order or matching users. You can sort by multiple columns by separating sort options with a comma; the sort will be applied in the order specified. The sort order for each sort field is ascending unless it is prefixed with a minus (“-“), in which case it will be descending.  Valid sort fields are: **nickname**, **username**, **email**, **homeDir** and **modified** (optional)
@@ -1192,18 +1192,18 @@ class UsersApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function listUsersRequest($ev_api_key, $ev_access_token, $username = null, $nickname = null, $email = null, $role = null, $status = null, $home_dir = null, $search = null, $offset = null, $sort = null, $limit = null, $include = null)
+    protected function listUsersRequest($evApiKey, $evAccessToken, $username = null, $nickname = null, $email = null, $role = null, $status = null, $homeDir = null, $search = null, $offset = null, $sort = null, $limit = null, $include = null)
     {
-        // verify the required parameter 'ev_api_key' is set
-        if ($ev_api_key === null || (is_array($ev_api_key) && count($ev_api_key) === 0)) {
+        // verify the required parameter 'evApiKey' is set
+        if ($evApiKey === null || (is_array($evApiKey) && count($evApiKey) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $ev_api_key when calling listUsers'
+                'Missing the required parameter $evApiKey when calling listUsers'
             );
         }
-        // verify the required parameter 'ev_access_token' is set
-        if ($ev_access_token === null || (is_array($ev_access_token) && count($ev_access_token) === 0)) {
+        // verify the required parameter 'evAccessToken' is set
+        if ($evAccessToken === null || (is_array($evAccessToken) && count($evAccessToken) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $ev_access_token when calling listUsers'
+                'Missing the required parameter $evAccessToken when calling listUsers'
             );
         }
 
@@ -1235,8 +1235,8 @@ class UsersApi
             $queryParams['status'] = ObjectSerializer::toQueryValue($status, null);
         }
         // query params
-        if ($home_dir !== null) {
-            $queryParams['homeDir'] = ObjectSerializer::toQueryValue($home_dir, null);
+        if ($homeDir !== null) {
+            $queryParams['homeDir'] = ObjectSerializer::toQueryValue($homeDir, null);
         }
         // query params
         if ($search !== null) {
@@ -1259,12 +1259,12 @@ class UsersApi
             $queryParams['include'] = ObjectSerializer::toQueryValue($include, null);
         }
         // header params
-        if ($ev_api_key !== null) {
-            $headerParams['ev-api-key'] = ObjectSerializer::toHeaderValue($ev_api_key);
+        if ($evApiKey !== null) {
+            $headerParams['ev-api-key'] = ObjectSerializer::toHeaderValue($evApiKey);
         }
         // header params
-        if ($ev_access_token !== null) {
-            $headerParams['ev-access-token'] = ObjectSerializer::toHeaderValue($ev_access_token);
+        if ($evAccessToken !== null) {
+            $headerParams['ev-access-token'] = ObjectSerializer::toHeaderValue($evAccessToken);
         }
 
 
@@ -1337,18 +1337,18 @@ class UsersApi
      *
      * Update a user
      *
-     * @param  string $ev_api_key API key required to make the API call. (required)
-     * @param  string $ev_access_token Access token required to make the API call. (required)
+     * @param  string $evApiKey API key required to make the API call. (required)
+     * @param  string $evAccessToken Access token required to make the API call. (required)
      * @param  float $id The user&#x27;s ID. Note that this is our internal ID, and _not the username_. You can obtain it by calling the [GET /users](#operation/listUsers) method. (required)
-     * @param  \ExaVault\Model\Body6 $body body (optional)
+     * @param  \ExaVault\Model\UpdateUserRequestBody $body body (optional)
      *
      * @throws \ExaVault\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \ExaVault\Model\UserResponse
      */
-    public function updateUser($ev_api_key, $ev_access_token, $id, $body = null)
+    public function updateUser($evApiKey, $evAccessToken, $id, $body = null)
     {
-        list($response) = $this->updateUserWithHttpInfo($ev_api_key, $ev_access_token, $id, $body);
+        list($response) = $this->updateUserWithHttpInfo($evApiKey, $evAccessToken, $id, $body);
         return $response;
     }
 
@@ -1357,19 +1357,19 @@ class UsersApi
      *
      * Update a user
      *
-     * @param  string $ev_api_key API key required to make the API call. (required)
-     * @param  string $ev_access_token Access token required to make the API call. (required)
+     * @param  string $evApiKey API key required to make the API call. (required)
+     * @param  string $evAccessToken Access token required to make the API call. (required)
      * @param  float $id The user&#x27;s ID. Note that this is our internal ID, and _not the username_. You can obtain it by calling the [GET /users](#operation/listUsers) method. (required)
-     * @param  \ExaVault\Model\Body6 $body (optional)
+     * @param  \ExaVault\Model\UpdateUserRequestBody $body (optional)
      *
      * @throws \ExaVault\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \ExaVault\Model\UserResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function updateUserWithHttpInfo($ev_api_key, $ev_access_token, $id, $body = null)
+    public function updateUserWithHttpInfo($evApiKey, $evAccessToken, $id, $body = null)
     {
         $returnType = '\ExaVault\Model\UserResponse';
-        $request = $this->updateUserRequest($ev_api_key, $ev_access_token, $id, $body);
+        $request = $this->updateUserRequest($evApiKey, $evAccessToken, $id, $body);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1435,17 +1435,17 @@ class UsersApi
      *
      * Update a user
      *
-     * @param  string $ev_api_key API key required to make the API call. (required)
-     * @param  string $ev_access_token Access token required to make the API call. (required)
+     * @param  string $evApiKey API key required to make the API call. (required)
+     * @param  string $evAccessToken Access token required to make the API call. (required)
      * @param  float $id The user&#x27;s ID. Note that this is our internal ID, and _not the username_. You can obtain it by calling the [GET /users](#operation/listUsers) method. (required)
-     * @param  \ExaVault\Model\Body6 $body (optional)
+     * @param  \ExaVault\Model\UpdateUserRequestBody $body (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateUserAsync($ev_api_key, $ev_access_token, $id, $body = null)
+    public function updateUserAsync($evApiKey, $evAccessToken, $id, $body = null)
     {
-        return $this->updateUserAsyncWithHttpInfo($ev_api_key, $ev_access_token, $id, $body)
+        return $this->updateUserAsyncWithHttpInfo($evApiKey, $evAccessToken, $id, $body)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1458,18 +1458,18 @@ class UsersApi
      *
      * Update a user
      *
-     * @param  string $ev_api_key API key required to make the API call. (required)
-     * @param  string $ev_access_token Access token required to make the API call. (required)
+     * @param  string $evApiKey API key required to make the API call. (required)
+     * @param  string $evAccessToken Access token required to make the API call. (required)
      * @param  float $id The user&#x27;s ID. Note that this is our internal ID, and _not the username_. You can obtain it by calling the [GET /users](#operation/listUsers) method. (required)
-     * @param  \ExaVault\Model\Body6 $body (optional)
+     * @param  \ExaVault\Model\UpdateUserRequestBody $body (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateUserAsyncWithHttpInfo($ev_api_key, $ev_access_token, $id, $body = null)
+    public function updateUserAsyncWithHttpInfo($evApiKey, $evAccessToken, $id, $body = null)
     {
         $returnType = '\ExaVault\Model\UserResponse';
-        $request = $this->updateUserRequest($ev_api_key, $ev_access_token, $id, $body);
+        $request = $this->updateUserRequest($evApiKey, $evAccessToken, $id, $body);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1511,26 +1511,26 @@ class UsersApi
     /**
      * Create request for operation 'updateUser'
      *
-     * @param  string $ev_api_key API key required to make the API call. (required)
-     * @param  string $ev_access_token Access token required to make the API call. (required)
+     * @param  string $evApiKey API key required to make the API call. (required)
+     * @param  string $evAccessToken Access token required to make the API call. (required)
      * @param  float $id The user&#x27;s ID. Note that this is our internal ID, and _not the username_. You can obtain it by calling the [GET /users](#operation/listUsers) method. (required)
-     * @param  \ExaVault\Model\Body6 $body (optional)
+     * @param  \ExaVault\Model\UpdateUserRequestBody $body (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function updateUserRequest($ev_api_key, $ev_access_token, $id, $body = null)
+    protected function updateUserRequest($evApiKey, $evAccessToken, $id, $body = null)
     {
-        // verify the required parameter 'ev_api_key' is set
-        if ($ev_api_key === null || (is_array($ev_api_key) && count($ev_api_key) === 0)) {
+        // verify the required parameter 'evApiKey' is set
+        if ($evApiKey === null || (is_array($evApiKey) && count($evApiKey) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $ev_api_key when calling updateUser'
+                'Missing the required parameter $evApiKey when calling updateUser'
             );
         }
-        // verify the required parameter 'ev_access_token' is set
-        if ($ev_access_token === null || (is_array($ev_access_token) && count($ev_access_token) === 0)) {
+        // verify the required parameter 'evAccessToken' is set
+        if ($evAccessToken === null || (is_array($evAccessToken) && count($evAccessToken) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $ev_access_token when calling updateUser'
+                'Missing the required parameter $evAccessToken when calling updateUser'
             );
         }
         // verify the required parameter 'id' is set
@@ -1548,12 +1548,12 @@ class UsersApi
         $multipart = false;
 
         // header params
-        if ($ev_api_key !== null) {
-            $headerParams['ev-api-key'] = ObjectSerializer::toHeaderValue($ev_api_key);
+        if ($evApiKey !== null) {
+            $headerParams['ev-api-key'] = ObjectSerializer::toHeaderValue($evApiKey);
         }
         // header params
-        if ($ev_access_token !== null) {
-            $headerParams['ev-access-token'] = ObjectSerializer::toHeaderValue($ev_access_token);
+        if ($evAccessToken !== null) {
+            $headerParams['ev-access-token'] = ObjectSerializer::toHeaderValue($evAccessToken);
         }
 
         // path params

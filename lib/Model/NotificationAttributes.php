@@ -57,17 +57,17 @@ class NotificationAttributes implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'user_id' => 'string',
+        'userId' => 'string',
 'type' => 'string',
 'path' => 'string',
 'name' => 'string',
 'action' => 'string',
 'usernames' => 'string[]',
 'recipients' => '\ExaVault\Model\NotificationRecipient[]',
-'send_email' => 'bool',
-'readable_description' => 'string',
-'readable_description_without_path' => 'string',
-'share_id' => 'string',
+'sendEmail' => 'bool',
+'readableDescription' => 'string',
+'readableDescriptionWithoutPath' => 'string',
+'shareId' => 'string',
 'message' => 'string',
 'created' => '\DateTime',
 'modified' => '\DateTime'    ];
@@ -78,17 +78,17 @@ class NotificationAttributes implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'user_id' => null,
+        'userId' => null,
 'type' => null,
 'path' => null,
 'name' => null,
 'action' => null,
 'usernames' => null,
 'recipients' => null,
-'send_email' => null,
-'readable_description' => null,
-'readable_description_without_path' => null,
-'share_id' => null,
+'sendEmail' => null,
+'readableDescription' => null,
+'readableDescriptionWithoutPath' => null,
+'shareId' => null,
 'message' => null,
 'created' => 'date-time',
 'modified' => 'date-time'    ];
@@ -120,17 +120,17 @@ class NotificationAttributes implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'user_id' => 'userId',
+        'userId' => 'userId',
 'type' => 'type',
 'path' => 'path',
 'name' => 'name',
 'action' => 'action',
 'usernames' => 'usernames',
 'recipients' => 'recipients',
-'send_email' => 'sendEmail',
-'readable_description' => 'readableDescription',
-'readable_description_without_path' => 'readableDescriptionWithoutPath',
-'share_id' => 'shareId',
+'sendEmail' => 'sendEmail',
+'readableDescription' => 'readableDescription',
+'readableDescriptionWithoutPath' => 'readableDescriptionWithoutPath',
+'shareId' => 'shareId',
 'message' => 'message',
 'created' => 'created',
 'modified' => 'modified'    ];
@@ -141,17 +141,17 @@ class NotificationAttributes implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'user_id' => 'setUserId',
+        'userId' => 'setUserId',
 'type' => 'setType',
 'path' => 'setPath',
 'name' => 'setName',
 'action' => 'setAction',
 'usernames' => 'setUsernames',
 'recipients' => 'setRecipients',
-'send_email' => 'setSendEmail',
-'readable_description' => 'setReadableDescription',
-'readable_description_without_path' => 'setReadableDescriptionWithoutPath',
-'share_id' => 'setShareId',
+'sendEmail' => 'setSendEmail',
+'readableDescription' => 'setReadableDescription',
+'readableDescriptionWithoutPath' => 'setReadableDescriptionWithoutPath',
+'shareId' => 'setShareId',
 'message' => 'setMessage',
 'created' => 'setCreated',
 'modified' => 'setModified'    ];
@@ -162,17 +162,17 @@ class NotificationAttributes implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'user_id' => 'getUserId',
+        'userId' => 'getUserId',
 'type' => 'getType',
 'path' => 'getPath',
 'name' => 'getName',
 'action' => 'getAction',
 'usernames' => 'getUsernames',
 'recipients' => 'getRecipients',
-'send_email' => 'getSendEmail',
-'readable_description' => 'getReadableDescription',
-'readable_description_without_path' => 'getReadableDescriptionWithoutPath',
-'share_id' => 'getShareId',
+'sendEmail' => 'getSendEmail',
+'readableDescription' => 'getReadableDescription',
+'readableDescriptionWithoutPath' => 'getReadableDescriptionWithoutPath',
+'shareId' => 'getShareId',
 'message' => 'getMessage',
 'created' => 'getCreated',
 'modified' => 'getModified'    ];
@@ -273,17 +273,17 @@ self::ACTION_ALL,        ];
      */
     public function __construct(array $data = null)
     {
-        $this->container['user_id'] = isset($data['user_id']) ? $data['user_id'] : null;
+        $this->container['userId'] = isset($data['userId']) ? $data['userId'] : null;
         $this->container['type'] = isset($data['type']) ? $data['type'] : null;
         $this->container['path'] = isset($data['path']) ? $data['path'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
         $this->container['action'] = isset($data['action']) ? $data['action'] : null;
         $this->container['usernames'] = isset($data['usernames']) ? $data['usernames'] : null;
         $this->container['recipients'] = isset($data['recipients']) ? $data['recipients'] : null;
-        $this->container['send_email'] = isset($data['send_email']) ? $data['send_email'] : null;
-        $this->container['readable_description'] = isset($data['readable_description']) ? $data['readable_description'] : null;
-        $this->container['readable_description_without_path'] = isset($data['readable_description_without_path']) ? $data['readable_description_without_path'] : null;
-        $this->container['share_id'] = isset($data['share_id']) ? $data['share_id'] : null;
+        $this->container['sendEmail'] = isset($data['sendEmail']) ? $data['sendEmail'] : null;
+        $this->container['readableDescription'] = isset($data['readableDescription']) ? $data['readableDescription'] : null;
+        $this->container['readableDescriptionWithoutPath'] = isset($data['readableDescriptionWithoutPath']) ? $data['readableDescriptionWithoutPath'] : null;
+        $this->container['shareId'] = isset($data['shareId']) ? $data['shareId'] : null;
         $this->container['message'] = isset($data['message']) ? $data['message'] : null;
         $this->container['created'] = isset($data['created']) ? $data['created'] : null;
         $this->container['modified'] = isset($data['modified']) ? $data['modified'] : null;
@@ -330,25 +330,25 @@ self::ACTION_ALL,        ];
 
 
     /**
-     * Gets user_id
+     * Gets userId
      *
      * @return string
      */
     public function getUserId()
     {
-        return $this->container['user_id'];
+        return $this->container['userId'];
     }
 
     /**
-     * Sets user_id
+     * Sets userId
      *
-     * @param string $user_id ID of the user that the notification belongs to.
+     * @param string $userId ID of the user that the notification belongs to.
      *
      * @return $this
      */
-    public function setUserId($user_id)
+    public function setUserId($userId)
     {
-        $this->container['user_id'] = $user_id;
+        $this->container['userId'] = $userId;
 
         return $this;
     }
@@ -366,7 +366,7 @@ self::ACTION_ALL,        ];
     /**
      * Sets type
      *
-     * @param string $type Type of the resoucre the notification is attached to.
+     * @param string $type Type of the resource the notification is attached to.
      *
      * @return $this
      */
@@ -516,97 +516,97 @@ self::ACTION_ALL,        ];
     }
 
     /**
-     * Gets send_email
+     * Gets sendEmail
      *
      * @return bool
      */
     public function getSendEmail()
     {
-        return $this->container['send_email'];
+        return $this->container['sendEmail'];
     }
 
     /**
-     * Sets send_email
+     * Sets sendEmail
      *
-     * @param bool $send_email Whether or not an email will send when the notification is triggered.
+     * @param bool $sendEmail Whether or not an email will send when the notification is triggered.
      *
      * @return $this
      */
-    public function setSendEmail($send_email)
+    public function setSendEmail($sendEmail)
     {
-        $this->container['send_email'] = $send_email;
+        $this->container['sendEmail'] = $sendEmail;
 
         return $this;
     }
 
     /**
-     * Gets readable_description
+     * Gets readableDescription
      *
      * @return string
      */
     public function getReadableDescription()
     {
-        return $this->container['readable_description'];
+        return $this->container['readableDescription'];
     }
 
     /**
-     * Sets readable_description
+     * Sets readableDescription
      *
-     * @param string $readable_description Human readable description of the notification.
+     * @param string $readableDescription Human readable description of the notification.
      *
      * @return $this
      */
-    public function setReadableDescription($readable_description)
+    public function setReadableDescription($readableDescription)
     {
-        $this->container['readable_description'] = $readable_description;
+        $this->container['readableDescription'] = $readableDescription;
 
         return $this;
     }
 
     /**
-     * Gets readable_description_without_path
+     * Gets readableDescriptionWithoutPath
      *
      * @return string
      */
     public function getReadableDescriptionWithoutPath()
     {
-        return $this->container['readable_description_without_path'];
+        return $this->container['readableDescriptionWithoutPath'];
     }
 
     /**
-     * Sets readable_description_without_path
+     * Sets readableDescriptionWithoutPath
      *
-     * @param string $readable_description_without_path Human readable description of the notification without item path.
+     * @param string $readableDescriptionWithoutPath Human readable description of the notification without item path.
      *
      * @return $this
      */
-    public function setReadableDescriptionWithoutPath($readable_description_without_path)
+    public function setReadableDescriptionWithoutPath($readableDescriptionWithoutPath)
     {
-        $this->container['readable_description_without_path'] = $readable_description_without_path;
+        $this->container['readableDescriptionWithoutPath'] = $readableDescriptionWithoutPath;
 
         return $this;
     }
 
     /**
-     * Gets share_id
+     * Gets shareId
      *
      * @return string
      */
     public function getShareId()
     {
-        return $this->container['share_id'];
+        return $this->container['shareId'];
     }
 
     /**
-     * Sets share_id
+     * Sets shareId
      *
-     * @param string $share_id ID of the share that the notification belogns to.
+     * @param string $shareId ID of the share that the notification belogns to.
      *
      * @return $this
      */
-    public function setShareId($share_id)
+    public function setShareId($shareId)
     {
-        $this->container['share_id'] = $share_id;
+        $this->container['shareId'] = $shareId;
 
         return $this;
     }

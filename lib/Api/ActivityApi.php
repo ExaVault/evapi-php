@@ -91,12 +91,12 @@ class ActivityApi
      *
      * Get activity logs
      *
-     * @param  string $ev_api_key API Key (required)
-     * @param  string $ev_access_token Access Token (required)
-     * @param  \DateTime $start_date Start date of the filter data range (optional)
-     * @param  \DateTime $end_date End date of the filter data range (optional)
-     * @param  string $ip_address Used to filter session logs by ip address. (optional)
-     * @param  string $user_name Username used for filtering a list (optional)
+     * @param  string $evApiKey API Key (required)
+     * @param  string $evAccessToken Access Token (required)
+     * @param  \DateTime $startDate Start date of the filter data range (optional)
+     * @param  \DateTime $endDate End date of the filter data range (optional)
+     * @param  string $ipAddress Used to filter session logs by ip address. (optional)
+     * @param  string $userName Username used for filtering a list (optional)
      * @param  string $path Path used to filter records (optional)
      * @param  string $type Filter session logs for operation type (see table above for acceptable values) (optional)
      * @param  int $offset Offset of the records list (optional)
@@ -107,9 +107,9 @@ class ActivityApi
      * @throws \InvalidArgumentException
      * @return \ExaVault\Model\SessionActivityResponse
      */
-    public function getSessionLogs($ev_api_key, $ev_access_token, $start_date = null, $end_date = null, $ip_address = null, $user_name = null, $path = null, $type = null, $offset = null, $limit = null, $sort = null)
+    public function getSessionLogs($evApiKey, $evAccessToken, $startDate = null, $endDate = null, $ipAddress = null, $userName = null, $path = null, $type = null, $offset = null, $limit = null, $sort = null)
     {
-        list($response) = $this->getSessionLogsWithHttpInfo($ev_api_key, $ev_access_token, $start_date, $end_date, $ip_address, $user_name, $path, $type, $offset, $limit, $sort);
+        list($response) = $this->getSessionLogsWithHttpInfo($evApiKey, $evAccessToken, $startDate, $endDate, $ipAddress, $userName, $path, $type, $offset, $limit, $sort);
         return $response;
     }
 
@@ -118,12 +118,12 @@ class ActivityApi
      *
      * Get activity logs
      *
-     * @param  string $ev_api_key API Key (required)
-     * @param  string $ev_access_token Access Token (required)
-     * @param  \DateTime $start_date Start date of the filter data range (optional)
-     * @param  \DateTime $end_date End date of the filter data range (optional)
-     * @param  string $ip_address Used to filter session logs by ip address. (optional)
-     * @param  string $user_name Username used for filtering a list (optional)
+     * @param  string $evApiKey API Key (required)
+     * @param  string $evAccessToken Access Token (required)
+     * @param  \DateTime $startDate Start date of the filter data range (optional)
+     * @param  \DateTime $endDate End date of the filter data range (optional)
+     * @param  string $ipAddress Used to filter session logs by ip address. (optional)
+     * @param  string $userName Username used for filtering a list (optional)
      * @param  string $path Path used to filter records (optional)
      * @param  string $type Filter session logs for operation type (see table above for acceptable values) (optional)
      * @param  int $offset Offset of the records list (optional)
@@ -134,10 +134,10 @@ class ActivityApi
      * @throws \InvalidArgumentException
      * @return array of \ExaVault\Model\SessionActivityResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getSessionLogsWithHttpInfo($ev_api_key, $ev_access_token, $start_date = null, $end_date = null, $ip_address = null, $user_name = null, $path = null, $type = null, $offset = null, $limit = null, $sort = null)
+    public function getSessionLogsWithHttpInfo($evApiKey, $evAccessToken, $startDate = null, $endDate = null, $ipAddress = null, $userName = null, $path = null, $type = null, $offset = null, $limit = null, $sort = null)
     {
         $returnType = '\ExaVault\Model\SessionActivityResponse';
-        $request = $this->getSessionLogsRequest($ev_api_key, $ev_access_token, $start_date, $end_date, $ip_address, $user_name, $path, $type, $offset, $limit, $sort);
+        $request = $this->getSessionLogsRequest($evApiKey, $evAccessToken, $startDate, $endDate, $ipAddress, $userName, $path, $type, $offset, $limit, $sort);
 
         try {
             $options = $this->createHttpClientOption();
@@ -203,12 +203,12 @@ class ActivityApi
      *
      * Get activity logs
      *
-     * @param  string $ev_api_key API Key (required)
-     * @param  string $ev_access_token Access Token (required)
-     * @param  \DateTime $start_date Start date of the filter data range (optional)
-     * @param  \DateTime $end_date End date of the filter data range (optional)
-     * @param  string $ip_address Used to filter session logs by ip address. (optional)
-     * @param  string $user_name Username used for filtering a list (optional)
+     * @param  string $evApiKey API Key (required)
+     * @param  string $evAccessToken Access Token (required)
+     * @param  \DateTime $startDate Start date of the filter data range (optional)
+     * @param  \DateTime $endDate End date of the filter data range (optional)
+     * @param  string $ipAddress Used to filter session logs by ip address. (optional)
+     * @param  string $userName Username used for filtering a list (optional)
      * @param  string $path Path used to filter records (optional)
      * @param  string $type Filter session logs for operation type (see table above for acceptable values) (optional)
      * @param  int $offset Offset of the records list (optional)
@@ -218,9 +218,9 @@ class ActivityApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getSessionLogsAsync($ev_api_key, $ev_access_token, $start_date = null, $end_date = null, $ip_address = null, $user_name = null, $path = null, $type = null, $offset = null, $limit = null, $sort = null)
+    public function getSessionLogsAsync($evApiKey, $evAccessToken, $startDate = null, $endDate = null, $ipAddress = null, $userName = null, $path = null, $type = null, $offset = null, $limit = null, $sort = null)
     {
-        return $this->getSessionLogsAsyncWithHttpInfo($ev_api_key, $ev_access_token, $start_date, $end_date, $ip_address, $user_name, $path, $type, $offset, $limit, $sort)
+        return $this->getSessionLogsAsyncWithHttpInfo($evApiKey, $evAccessToken, $startDate, $endDate, $ipAddress, $userName, $path, $type, $offset, $limit, $sort)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -233,12 +233,12 @@ class ActivityApi
      *
      * Get activity logs
      *
-     * @param  string $ev_api_key API Key (required)
-     * @param  string $ev_access_token Access Token (required)
-     * @param  \DateTime $start_date Start date of the filter data range (optional)
-     * @param  \DateTime $end_date End date of the filter data range (optional)
-     * @param  string $ip_address Used to filter session logs by ip address. (optional)
-     * @param  string $user_name Username used for filtering a list (optional)
+     * @param  string $evApiKey API Key (required)
+     * @param  string $evAccessToken Access Token (required)
+     * @param  \DateTime $startDate Start date of the filter data range (optional)
+     * @param  \DateTime $endDate End date of the filter data range (optional)
+     * @param  string $ipAddress Used to filter session logs by ip address. (optional)
+     * @param  string $userName Username used for filtering a list (optional)
      * @param  string $path Path used to filter records (optional)
      * @param  string $type Filter session logs for operation type (see table above for acceptable values) (optional)
      * @param  int $offset Offset of the records list (optional)
@@ -248,10 +248,10 @@ class ActivityApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getSessionLogsAsyncWithHttpInfo($ev_api_key, $ev_access_token, $start_date = null, $end_date = null, $ip_address = null, $user_name = null, $path = null, $type = null, $offset = null, $limit = null, $sort = null)
+    public function getSessionLogsAsyncWithHttpInfo($evApiKey, $evAccessToken, $startDate = null, $endDate = null, $ipAddress = null, $userName = null, $path = null, $type = null, $offset = null, $limit = null, $sort = null)
     {
         $returnType = '\ExaVault\Model\SessionActivityResponse';
-        $request = $this->getSessionLogsRequest($ev_api_key, $ev_access_token, $start_date, $end_date, $ip_address, $user_name, $path, $type, $offset, $limit, $sort);
+        $request = $this->getSessionLogsRequest($evApiKey, $evAccessToken, $startDate, $endDate, $ipAddress, $userName, $path, $type, $offset, $limit, $sort);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -293,12 +293,12 @@ class ActivityApi
     /**
      * Create request for operation 'getSessionLogs'
      *
-     * @param  string $ev_api_key API Key (required)
-     * @param  string $ev_access_token Access Token (required)
-     * @param  \DateTime $start_date Start date of the filter data range (optional)
-     * @param  \DateTime $end_date End date of the filter data range (optional)
-     * @param  string $ip_address Used to filter session logs by ip address. (optional)
-     * @param  string $user_name Username used for filtering a list (optional)
+     * @param  string $evApiKey API Key (required)
+     * @param  string $evAccessToken Access Token (required)
+     * @param  \DateTime $startDate Start date of the filter data range (optional)
+     * @param  \DateTime $endDate End date of the filter data range (optional)
+     * @param  string $ipAddress Used to filter session logs by ip address. (optional)
+     * @param  string $userName Username used for filtering a list (optional)
      * @param  string $path Path used to filter records (optional)
      * @param  string $type Filter session logs for operation type (see table above for acceptable values) (optional)
      * @param  int $offset Offset of the records list (optional)
@@ -308,18 +308,18 @@ class ActivityApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function getSessionLogsRequest($ev_api_key, $ev_access_token, $start_date = null, $end_date = null, $ip_address = null, $user_name = null, $path = null, $type = null, $offset = null, $limit = null, $sort = null)
+    protected function getSessionLogsRequest($evApiKey, $evAccessToken, $startDate = null, $endDate = null, $ipAddress = null, $userName = null, $path = null, $type = null, $offset = null, $limit = null, $sort = null)
     {
-        // verify the required parameter 'ev_api_key' is set
-        if ($ev_api_key === null || (is_array($ev_api_key) && count($ev_api_key) === 0)) {
+        // verify the required parameter 'evApiKey' is set
+        if ($evApiKey === null || (is_array($evApiKey) && count($evApiKey) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $ev_api_key when calling getSessionLogs'
+                'Missing the required parameter $evApiKey when calling getSessionLogs'
             );
         }
-        // verify the required parameter 'ev_access_token' is set
-        if ($ev_access_token === null || (is_array($ev_access_token) && count($ev_access_token) === 0)) {
+        // verify the required parameter 'evAccessToken' is set
+        if ($evAccessToken === null || (is_array($evAccessToken) && count($evAccessToken) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $ev_access_token when calling getSessionLogs'
+                'Missing the required parameter $evAccessToken when calling getSessionLogs'
             );
         }
 
@@ -331,20 +331,20 @@ class ActivityApi
         $multipart = false;
 
         // query params
-        if ($start_date !== null) {
-            $queryParams['startDate'] = ObjectSerializer::toQueryValue($start_date, 'date-time');
+        if ($startDate !== null) {
+            $queryParams['startDate'] = ObjectSerializer::toQueryValue($startDate, 'date-time');
         }
         // query params
-        if ($end_date !== null) {
-            $queryParams['endDate'] = ObjectSerializer::toQueryValue($end_date, 'date-time');
+        if ($endDate !== null) {
+            $queryParams['endDate'] = ObjectSerializer::toQueryValue($endDate, 'date-time');
         }
         // query params
-        if ($ip_address !== null) {
-            $queryParams['ipAddress'] = ObjectSerializer::toQueryValue($ip_address, null);
+        if ($ipAddress !== null) {
+            $queryParams['ipAddress'] = ObjectSerializer::toQueryValue($ipAddress, null);
         }
         // query params
-        if ($user_name !== null) {
-            $queryParams['userName'] = ObjectSerializer::toQueryValue($user_name, null);
+        if ($userName !== null) {
+            $queryParams['userName'] = ObjectSerializer::toQueryValue($userName, null);
         }
         // query params
         if ($path !== null) {
@@ -367,12 +367,12 @@ class ActivityApi
             $queryParams['sort'] = ObjectSerializer::toQueryValue($sort, null);
         }
         // header params
-        if ($ev_api_key !== null) {
-            $headerParams['ev-api-key'] = ObjectSerializer::toHeaderValue($ev_api_key);
+        if ($evApiKey !== null) {
+            $headerParams['ev-api-key'] = ObjectSerializer::toHeaderValue($evApiKey);
         }
         // header params
-        if ($ev_access_token !== null) {
-            $headerParams['ev-access-token'] = ObjectSerializer::toHeaderValue($ev_access_token);
+        if ($evAccessToken !== null) {
+            $headerParams['ev-access-token'] = ObjectSerializer::toHeaderValue($evAccessToken);
         }
 
 
@@ -445,10 +445,10 @@ class ActivityApi
      *
      * Get webhook logs
      *
-     * @param  string $ev_api_key API Key (required)
-     * @param  string $ev_access_token Access Token (required)
+     * @param  string $evApiKey API Key (required)
+     * @param  string $evAccessToken Access Token (required)
      * @param  string $event Filter by triggered event (optional)
-     * @param  int $status_code Filter by webhook response status code (optional)
+     * @param  int $statusCode Filter by webhook response status code (optional)
      * @param  string $path Path used to filter records (optional)
      * @param  string $username Filter by triggering username. (optional)
      * @param  int $offset Records to skip before returning results (optional)
@@ -459,9 +459,9 @@ class ActivityApi
      * @throws \InvalidArgumentException
      * @return \ExaVault\Model\WebhooksActivityResponse
      */
-    public function getWebhookLogs($ev_api_key, $ev_access_token, $event = null, $status_code = null, $path = null, $username = null, $offset = null, $limit = null, $sort = null)
+    public function getWebhookLogs($evApiKey, $evAccessToken, $event = null, $statusCode = null, $path = null, $username = null, $offset = null, $limit = null, $sort = null)
     {
-        list($response) = $this->getWebhookLogsWithHttpInfo($ev_api_key, $ev_access_token, $event, $status_code, $path, $username, $offset, $limit, $sort);
+        list($response) = $this->getWebhookLogsWithHttpInfo($evApiKey, $evAccessToken, $event, $statusCode, $path, $username, $offset, $limit, $sort);
         return $response;
     }
 
@@ -470,10 +470,10 @@ class ActivityApi
      *
      * Get webhook logs
      *
-     * @param  string $ev_api_key API Key (required)
-     * @param  string $ev_access_token Access Token (required)
+     * @param  string $evApiKey API Key (required)
+     * @param  string $evAccessToken Access Token (required)
      * @param  string $event Filter by triggered event (optional)
-     * @param  int $status_code Filter by webhook response status code (optional)
+     * @param  int $statusCode Filter by webhook response status code (optional)
      * @param  string $path Path used to filter records (optional)
      * @param  string $username Filter by triggering username. (optional)
      * @param  int $offset Records to skip before returning results (optional)
@@ -484,10 +484,10 @@ class ActivityApi
      * @throws \InvalidArgumentException
      * @return array of \ExaVault\Model\WebhooksActivityResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getWebhookLogsWithHttpInfo($ev_api_key, $ev_access_token, $event = null, $status_code = null, $path = null, $username = null, $offset = null, $limit = null, $sort = null)
+    public function getWebhookLogsWithHttpInfo($evApiKey, $evAccessToken, $event = null, $statusCode = null, $path = null, $username = null, $offset = null, $limit = null, $sort = null)
     {
         $returnType = '\ExaVault\Model\WebhooksActivityResponse';
-        $request = $this->getWebhookLogsRequest($ev_api_key, $ev_access_token, $event, $status_code, $path, $username, $offset, $limit, $sort);
+        $request = $this->getWebhookLogsRequest($evApiKey, $evAccessToken, $event, $statusCode, $path, $username, $offset, $limit, $sort);
 
         try {
             $options = $this->createHttpClientOption();
@@ -553,10 +553,10 @@ class ActivityApi
      *
      * Get webhook logs
      *
-     * @param  string $ev_api_key API Key (required)
-     * @param  string $ev_access_token Access Token (required)
+     * @param  string $evApiKey API Key (required)
+     * @param  string $evAccessToken Access Token (required)
      * @param  string $event Filter by triggered event (optional)
-     * @param  int $status_code Filter by webhook response status code (optional)
+     * @param  int $statusCode Filter by webhook response status code (optional)
      * @param  string $path Path used to filter records (optional)
      * @param  string $username Filter by triggering username. (optional)
      * @param  int $offset Records to skip before returning results (optional)
@@ -566,9 +566,9 @@ class ActivityApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getWebhookLogsAsync($ev_api_key, $ev_access_token, $event = null, $status_code = null, $path = null, $username = null, $offset = null, $limit = null, $sort = null)
+    public function getWebhookLogsAsync($evApiKey, $evAccessToken, $event = null, $statusCode = null, $path = null, $username = null, $offset = null, $limit = null, $sort = null)
     {
-        return $this->getWebhookLogsAsyncWithHttpInfo($ev_api_key, $ev_access_token, $event, $status_code, $path, $username, $offset, $limit, $sort)
+        return $this->getWebhookLogsAsyncWithHttpInfo($evApiKey, $evAccessToken, $event, $statusCode, $path, $username, $offset, $limit, $sort)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -581,10 +581,10 @@ class ActivityApi
      *
      * Get webhook logs
      *
-     * @param  string $ev_api_key API Key (required)
-     * @param  string $ev_access_token Access Token (required)
+     * @param  string $evApiKey API Key (required)
+     * @param  string $evAccessToken Access Token (required)
      * @param  string $event Filter by triggered event (optional)
-     * @param  int $status_code Filter by webhook response status code (optional)
+     * @param  int $statusCode Filter by webhook response status code (optional)
      * @param  string $path Path used to filter records (optional)
      * @param  string $username Filter by triggering username. (optional)
      * @param  int $offset Records to skip before returning results (optional)
@@ -594,10 +594,10 @@ class ActivityApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getWebhookLogsAsyncWithHttpInfo($ev_api_key, $ev_access_token, $event = null, $status_code = null, $path = null, $username = null, $offset = null, $limit = null, $sort = null)
+    public function getWebhookLogsAsyncWithHttpInfo($evApiKey, $evAccessToken, $event = null, $statusCode = null, $path = null, $username = null, $offset = null, $limit = null, $sort = null)
     {
         $returnType = '\ExaVault\Model\WebhooksActivityResponse';
-        $request = $this->getWebhookLogsRequest($ev_api_key, $ev_access_token, $event, $status_code, $path, $username, $offset, $limit, $sort);
+        $request = $this->getWebhookLogsRequest($evApiKey, $evAccessToken, $event, $statusCode, $path, $username, $offset, $limit, $sort);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -639,10 +639,10 @@ class ActivityApi
     /**
      * Create request for operation 'getWebhookLogs'
      *
-     * @param  string $ev_api_key API Key (required)
-     * @param  string $ev_access_token Access Token (required)
+     * @param  string $evApiKey API Key (required)
+     * @param  string $evAccessToken Access Token (required)
      * @param  string $event Filter by triggered event (optional)
-     * @param  int $status_code Filter by webhook response status code (optional)
+     * @param  int $statusCode Filter by webhook response status code (optional)
      * @param  string $path Path used to filter records (optional)
      * @param  string $username Filter by triggering username. (optional)
      * @param  int $offset Records to skip before returning results (optional)
@@ -652,18 +652,18 @@ class ActivityApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function getWebhookLogsRequest($ev_api_key, $ev_access_token, $event = null, $status_code = null, $path = null, $username = null, $offset = null, $limit = null, $sort = null)
+    protected function getWebhookLogsRequest($evApiKey, $evAccessToken, $event = null, $statusCode = null, $path = null, $username = null, $offset = null, $limit = null, $sort = null)
     {
-        // verify the required parameter 'ev_api_key' is set
-        if ($ev_api_key === null || (is_array($ev_api_key) && count($ev_api_key) === 0)) {
+        // verify the required parameter 'evApiKey' is set
+        if ($evApiKey === null || (is_array($evApiKey) && count($evApiKey) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $ev_api_key when calling getWebhookLogs'
+                'Missing the required parameter $evApiKey when calling getWebhookLogs'
             );
         }
-        // verify the required parameter 'ev_access_token' is set
-        if ($ev_access_token === null || (is_array($ev_access_token) && count($ev_access_token) === 0)) {
+        // verify the required parameter 'evAccessToken' is set
+        if ($evAccessToken === null || (is_array($evAccessToken) && count($evAccessToken) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $ev_access_token when calling getWebhookLogs'
+                'Missing the required parameter $evAccessToken when calling getWebhookLogs'
             );
         }
 
@@ -679,8 +679,8 @@ class ActivityApi
             $queryParams['event'] = ObjectSerializer::toQueryValue($event, null);
         }
         // query params
-        if ($status_code !== null) {
-            $queryParams['statusCode'] = ObjectSerializer::toQueryValue($status_code, null);
+        if ($statusCode !== null) {
+            $queryParams['statusCode'] = ObjectSerializer::toQueryValue($statusCode, null);
         }
         // query params
         if ($path !== null) {
@@ -703,12 +703,12 @@ class ActivityApi
             $queryParams['sort'] = ObjectSerializer::toQueryValue($sort, null);
         }
         // header params
-        if ($ev_api_key !== null) {
-            $headerParams['ev-api-key'] = ObjectSerializer::toHeaderValue($ev_api_key);
+        if ($evApiKey !== null) {
+            $headerParams['ev-api-key'] = ObjectSerializer::toHeaderValue($evApiKey);
         }
         // header params
-        if ($ev_access_token !== null) {
-            $headerParams['ev-access-token'] = ObjectSerializer::toHeaderValue($ev_access_token);
+        if ($evAccessToken !== null) {
+            $headerParams['ev-access-token'] = ObjectSerializer::toHeaderValue($evAccessToken);
         }
 
 

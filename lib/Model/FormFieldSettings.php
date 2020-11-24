@@ -59,9 +59,9 @@ class FormFieldSettings implements ModelInterface, ArrayAccess
     protected static $swaggerTypes = [
         'description' => 'string',
 'width' => 'float',
-'is_required' => 'bool',
-'use_as_folder_name' => 'bool',
-'sender_email' => 'bool'    ];
+'isRequired' => 'bool',
+'useAsFolderName' => 'bool',
+'senderEmail' => 'bool'    ];
 
     /**
       * Array of property to format mappings. Used for (de)serialization
@@ -71,9 +71,9 @@ class FormFieldSettings implements ModelInterface, ArrayAccess
     protected static $swaggerFormats = [
         'description' => null,
 'width' => 'float',
-'is_required' => null,
-'use_as_folder_name' => null,
-'sender_email' => null    ];
+'isRequired' => null,
+'useAsFolderName' => null,
+'senderEmail' => null    ];
 
     /**
      * Array of property to type mappings. Used for (de)serialization
@@ -104,9 +104,9 @@ class FormFieldSettings implements ModelInterface, ArrayAccess
     protected static $attributeMap = [
         'description' => 'description',
 'width' => 'width',
-'is_required' => 'isRequired',
-'use_as_folder_name' => 'useAsFolderName',
-'sender_email' => 'senderEmail'    ];
+'isRequired' => 'isRequired',
+'useAsFolderName' => 'useAsFolderName',
+'senderEmail' => 'senderEmail'    ];
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
@@ -116,9 +116,9 @@ class FormFieldSettings implements ModelInterface, ArrayAccess
     protected static $setters = [
         'description' => 'setDescription',
 'width' => 'setWidth',
-'is_required' => 'setIsRequired',
-'use_as_folder_name' => 'setUseAsFolderName',
-'sender_email' => 'setSenderEmail'    ];
+'isRequired' => 'setIsRequired',
+'useAsFolderName' => 'setUseAsFolderName',
+'senderEmail' => 'setSenderEmail'    ];
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
@@ -128,9 +128,9 @@ class FormFieldSettings implements ModelInterface, ArrayAccess
     protected static $getters = [
         'description' => 'getDescription',
 'width' => 'getWidth',
-'is_required' => 'getIsRequired',
-'use_as_folder_name' => 'getUseAsFolderName',
-'sender_email' => 'getSenderEmail'    ];
+'isRequired' => 'getIsRequired',
+'useAsFolderName' => 'getUseAsFolderName',
+'senderEmail' => 'getSenderEmail'    ];
 
     /**
      * Array of attributes where the key is the local name,
@@ -192,9 +192,9 @@ class FormFieldSettings implements ModelInterface, ArrayAccess
     {
         $this->container['description'] = isset($data['description']) ? $data['description'] : null;
         $this->container['width'] = isset($data['width']) ? $data['width'] : null;
-        $this->container['is_required'] = isset($data['is_required']) ? $data['is_required'] : null;
-        $this->container['use_as_folder_name'] = isset($data['use_as_folder_name']) ? $data['use_as_folder_name'] : null;
-        $this->container['sender_email'] = isset($data['sender_email']) ? $data['sender_email'] : null;
+        $this->container['isRequired'] = isset($data['isRequired']) ? $data['isRequired'] : null;
+        $this->container['useAsFolderName'] = isset($data['useAsFolderName']) ? $data['useAsFolderName'] : null;
+        $this->container['senderEmail'] = isset($data['senderEmail']) ? $data['senderEmail'] : null;
     }
 
     /**
@@ -270,73 +270,73 @@ class FormFieldSettings implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets is_required
+     * Gets isRequired
      *
      * @return bool
      */
     public function getIsRequired()
     {
-        return $this->container['is_required'];
+        return $this->container['isRequired'];
     }
 
     /**
-     * Sets is_required
+     * Sets isRequired
      *
-     * @param bool $is_required Whether this field must be completed before form can be submitted
+     * @param bool $isRequired Whether this field must be completed before form can be submitted
      *
      * @return $this
      */
-    public function setIsRequired($is_required)
+    public function setIsRequired($isRequired)
     {
-        $this->container['is_required'] = $is_required;
+        $this->container['isRequired'] = $isRequired;
 
         return $this;
     }
 
     /**
-     * Gets use_as_folder_name
+     * Gets useAsFolderName
      *
      * @return bool
      */
     public function getUseAsFolderName()
     {
-        return $this->container['use_as_folder_name'];
+        return $this->container['useAsFolderName'];
     }
 
     /**
-     * Sets use_as_folder_name
+     * Sets useAsFolderName
      *
-     * @param bool $use_as_folder_name Whether to place submitted files into a subfolder named the contents of this field. Only takes effect when the `fileDropCreateFolders` parameter on the receive folder is `true`. `isRequired` must be set to `true` if this setting is `true`.
+     * @param bool $useAsFolderName Whether to place submitted files into a subfolder named the contents of this field. Only takes effect when the `fileDropCreateFolders` parameter on the receive folder is `true`. `isRequired` must be set to `true` if this setting is `true`.
      *
      * @return $this
      */
-    public function setUseAsFolderName($use_as_folder_name)
+    public function setUseAsFolderName($useAsFolderName)
     {
-        $this->container['use_as_folder_name'] = $use_as_folder_name;
+        $this->container['useAsFolderName'] = $useAsFolderName;
 
         return $this;
     }
 
     /**
-     * Gets sender_email
+     * Gets senderEmail
      *
      * @return bool
      */
     public function getSenderEmail()
     {
-        return $this->container['sender_email'];
+        return $this->container['senderEmail'];
     }
 
     /**
-     * Sets sender_email
+     * Sets senderEmail
      *
-     * @param bool $sender_email sender_email
+     * @param bool $senderEmail senderEmail
      *
      * @return $this
      */
-    public function setSenderEmail($sender_email)
+    public function setSenderEmail($senderEmail)
     {
-        $this->container['sender_email'] = $sender_email;
+        $this->container['senderEmail'] = $senderEmail;
 
         return $this;
     }

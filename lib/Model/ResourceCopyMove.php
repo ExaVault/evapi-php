@@ -35,7 +35,7 @@ use \ExaVault\ObjectSerializer;
  * ResourceCopyMove Class Doc Comment
  *
  * @category Class
- * @description All properties of the resource delete object
+ * @description Resource which was successfully copied or moved.
  * @package  ExaVault
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
@@ -240,7 +240,7 @@ class ResourceCopyMove implements ModelInterface, ArrayAccess
     /**
      * Sets meta
      *
-     * @param object $meta Meta object containing non-standard meta-information about operation.
+     * @param object $meta Meta object containing non-standard meta-information about the operation.
      *
      * @return $this
      */

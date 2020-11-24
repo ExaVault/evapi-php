@@ -56,8 +56,8 @@ class CallbackSettings implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'account_id' => 'string',
-'endpoint_url' => 'string',
+        'accountId' => 'string',
+'endpointUrl' => 'string',
 'token' => 'string',
 'triggers' => '\ExaVault\Model\CallbackSettingsTriggers'    ];
 
@@ -67,8 +67,8 @@ class CallbackSettings implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'account_id' => null,
-'endpoint_url' => null,
+        'accountId' => null,
+'endpointUrl' => null,
 'token' => null,
 'triggers' => null    ];
 
@@ -99,8 +99,8 @@ class CallbackSettings implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'account_id' => 'accountId',
-'endpoint_url' => 'endpointUrl',
+        'accountId' => 'accountId',
+'endpointUrl' => 'endpointUrl',
 'token' => 'token',
 'triggers' => 'triggers'    ];
 
@@ -110,8 +110,8 @@ class CallbackSettings implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'account_id' => 'setAccountId',
-'endpoint_url' => 'setEndpointUrl',
+        'accountId' => 'setAccountId',
+'endpointUrl' => 'setEndpointUrl',
 'token' => 'setToken',
 'triggers' => 'setTriggers'    ];
 
@@ -121,8 +121,8 @@ class CallbackSettings implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'account_id' => 'getAccountId',
-'endpoint_url' => 'getEndpointUrl',
+        'accountId' => 'getAccountId',
+'endpointUrl' => 'getEndpointUrl',
 'token' => 'getToken',
 'triggers' => 'getTriggers'    ];
 
@@ -184,8 +184,8 @@ class CallbackSettings implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['account_id'] = isset($data['account_id']) ? $data['account_id'] : null;
-        $this->container['endpoint_url'] = isset($data['endpoint_url']) ? $data['endpoint_url'] : null;
+        $this->container['accountId'] = isset($data['accountId']) ? $data['accountId'] : null;
+        $this->container['endpointUrl'] = isset($data['endpointUrl']) ? $data['endpointUrl'] : null;
         $this->container['token'] = isset($data['token']) ? $data['token'] : null;
         $this->container['triggers'] = isset($data['triggers']) ? $data['triggers'] : null;
     }
@@ -215,49 +215,49 @@ class CallbackSettings implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets account_id
+     * Gets accountId
      *
      * @return string
      */
     public function getAccountId()
     {
-        return $this->container['account_id'];
+        return $this->container['accountId'];
     }
 
     /**
-     * Sets account_id
+     * Sets accountId
      *
-     * @param string $account_id ID of the account these settings belongs to.
+     * @param string $accountId ID of the account these settings belongs to.
      *
      * @return $this
      */
-    public function setAccountId($account_id)
+    public function setAccountId($accountId)
     {
-        $this->container['account_id'] = $account_id;
+        $this->container['accountId'] = $accountId;
 
         return $this;
     }
 
     /**
-     * Gets endpoint_url
+     * Gets endpointUrl
      *
      * @return string
      */
     public function getEndpointUrl()
     {
-        return $this->container['endpoint_url'];
+        return $this->container['endpointUrl'];
     }
 
     /**
-     * Sets endpoint_url
+     * Sets endpointUrl
      *
-     * @param string $endpoint_url Where callback settings object sent to.
+     * @param string $endpointUrl Where callback settings object sent to.
      *
      * @return $this
      */
-    public function setEndpointUrl($endpoint_url)
+    public function setEndpointUrl($endpointUrl)
     {
-        $this->container['endpoint_url'] = $endpoint_url;
+        $this->container['endpointUrl'] = $endpointUrl;
 
         return $this;
     }

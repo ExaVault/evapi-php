@@ -91,17 +91,17 @@ class NotificationsApi
      *
      * Create a new notification
      *
-     * @param  string $ev_api_key API Key required to make API call. (required)
-     * @param  string $ev_access_token Access token required to make the API call. (required)
-     * @param  \ExaVault\Model\Body4 $body body (optional)
+     * @param  string $evApiKey API Key required to make API call. (required)
+     * @param  string $evAccessToken Access token required to make the API call. (required)
+     * @param  \ExaVault\Model\AddNotificationRequestBody $body body (optional)
      *
      * @throws \ExaVault\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \ExaVault\Model\NotificationResponse
      */
-    public function addNotification($ev_api_key, $ev_access_token, $body = null)
+    public function addNotification($evApiKey, $evAccessToken, $body = null)
     {
-        list($response) = $this->addNotificationWithHttpInfo($ev_api_key, $ev_access_token, $body);
+        list($response) = $this->addNotificationWithHttpInfo($evApiKey, $evAccessToken, $body);
         return $response;
     }
 
@@ -110,18 +110,18 @@ class NotificationsApi
      *
      * Create a new notification
      *
-     * @param  string $ev_api_key API Key required to make API call. (required)
-     * @param  string $ev_access_token Access token required to make the API call. (required)
-     * @param  \ExaVault\Model\Body4 $body (optional)
+     * @param  string $evApiKey API Key required to make API call. (required)
+     * @param  string $evAccessToken Access token required to make the API call. (required)
+     * @param  \ExaVault\Model\AddNotificationRequestBody $body (optional)
      *
      * @throws \ExaVault\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \ExaVault\Model\NotificationResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function addNotificationWithHttpInfo($ev_api_key, $ev_access_token, $body = null)
+    public function addNotificationWithHttpInfo($evApiKey, $evAccessToken, $body = null)
     {
         $returnType = '\ExaVault\Model\NotificationResponse';
-        $request = $this->addNotificationRequest($ev_api_key, $ev_access_token, $body);
+        $request = $this->addNotificationRequest($evApiKey, $evAccessToken, $body);
 
         try {
             $options = $this->createHttpClientOption();
@@ -187,16 +187,16 @@ class NotificationsApi
      *
      * Create a new notification
      *
-     * @param  string $ev_api_key API Key required to make API call. (required)
-     * @param  string $ev_access_token Access token required to make the API call. (required)
-     * @param  \ExaVault\Model\Body4 $body (optional)
+     * @param  string $evApiKey API Key required to make API call. (required)
+     * @param  string $evAccessToken Access token required to make the API call. (required)
+     * @param  \ExaVault\Model\AddNotificationRequestBody $body (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function addNotificationAsync($ev_api_key, $ev_access_token, $body = null)
+    public function addNotificationAsync($evApiKey, $evAccessToken, $body = null)
     {
-        return $this->addNotificationAsyncWithHttpInfo($ev_api_key, $ev_access_token, $body)
+        return $this->addNotificationAsyncWithHttpInfo($evApiKey, $evAccessToken, $body)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -209,17 +209,17 @@ class NotificationsApi
      *
      * Create a new notification
      *
-     * @param  string $ev_api_key API Key required to make API call. (required)
-     * @param  string $ev_access_token Access token required to make the API call. (required)
-     * @param  \ExaVault\Model\Body4 $body (optional)
+     * @param  string $evApiKey API Key required to make API call. (required)
+     * @param  string $evAccessToken Access token required to make the API call. (required)
+     * @param  \ExaVault\Model\AddNotificationRequestBody $body (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function addNotificationAsyncWithHttpInfo($ev_api_key, $ev_access_token, $body = null)
+    public function addNotificationAsyncWithHttpInfo($evApiKey, $evAccessToken, $body = null)
     {
         $returnType = '\ExaVault\Model\NotificationResponse';
-        $request = $this->addNotificationRequest($ev_api_key, $ev_access_token, $body);
+        $request = $this->addNotificationRequest($evApiKey, $evAccessToken, $body);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -261,25 +261,25 @@ class NotificationsApi
     /**
      * Create request for operation 'addNotification'
      *
-     * @param  string $ev_api_key API Key required to make API call. (required)
-     * @param  string $ev_access_token Access token required to make the API call. (required)
-     * @param  \ExaVault\Model\Body4 $body (optional)
+     * @param  string $evApiKey API Key required to make API call. (required)
+     * @param  string $evAccessToken Access token required to make the API call. (required)
+     * @param  \ExaVault\Model\AddNotificationRequestBody $body (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function addNotificationRequest($ev_api_key, $ev_access_token, $body = null)
+    protected function addNotificationRequest($evApiKey, $evAccessToken, $body = null)
     {
-        // verify the required parameter 'ev_api_key' is set
-        if ($ev_api_key === null || (is_array($ev_api_key) && count($ev_api_key) === 0)) {
+        // verify the required parameter 'evApiKey' is set
+        if ($evApiKey === null || (is_array($evApiKey) && count($evApiKey) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $ev_api_key when calling addNotification'
+                'Missing the required parameter $evApiKey when calling addNotification'
             );
         }
-        // verify the required parameter 'ev_access_token' is set
-        if ($ev_access_token === null || (is_array($ev_access_token) && count($ev_access_token) === 0)) {
+        // verify the required parameter 'evAccessToken' is set
+        if ($evAccessToken === null || (is_array($evAccessToken) && count($evAccessToken) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $ev_access_token when calling addNotification'
+                'Missing the required parameter $evAccessToken when calling addNotification'
             );
         }
 
@@ -291,12 +291,12 @@ class NotificationsApi
         $multipart = false;
 
         // header params
-        if ($ev_api_key !== null) {
-            $headerParams['ev-api-key'] = ObjectSerializer::toHeaderValue($ev_api_key);
+        if ($evApiKey !== null) {
+            $headerParams['ev-api-key'] = ObjectSerializer::toHeaderValue($evApiKey);
         }
         // header params
-        if ($ev_access_token !== null) {
-            $headerParams['ev-access-token'] = ObjectSerializer::toHeaderValue($ev_access_token);
+        if ($evAccessToken !== null) {
+            $headerParams['ev-access-token'] = ObjectSerializer::toHeaderValue($evAccessToken);
         }
 
 
@@ -372,17 +372,17 @@ class NotificationsApi
      *
      * Delete a notification
      *
-     * @param  string $ev_api_key API Key required to make the API call. (required)
-     * @param  string $ev_access_token Access token required to make the API call. (required)
+     * @param  string $evApiKey API Key required to make the API call. (required)
+     * @param  string $evAccessToken Access token required to make the API call. (required)
      * @param  int $id ID of the notification. Use [GET /notifications](#operation/listNotifications) if you need to lookup an ID. (required)
      *
      * @throws \ExaVault\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \ExaVault\Model\EmptyResponse
      */
-    public function deleteNotificationById($ev_api_key, $ev_access_token, $id)
+    public function deleteNotificationById($evApiKey, $evAccessToken, $id)
     {
-        list($response) = $this->deleteNotificationByIdWithHttpInfo($ev_api_key, $ev_access_token, $id);
+        list($response) = $this->deleteNotificationByIdWithHttpInfo($evApiKey, $evAccessToken, $id);
         return $response;
     }
 
@@ -391,18 +391,18 @@ class NotificationsApi
      *
      * Delete a notification
      *
-     * @param  string $ev_api_key API Key required to make the API call. (required)
-     * @param  string $ev_access_token Access token required to make the API call. (required)
+     * @param  string $evApiKey API Key required to make the API call. (required)
+     * @param  string $evAccessToken Access token required to make the API call. (required)
      * @param  int $id ID of the notification. Use [GET /notifications](#operation/listNotifications) if you need to lookup an ID. (required)
      *
      * @throws \ExaVault\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \ExaVault\Model\EmptyResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function deleteNotificationByIdWithHttpInfo($ev_api_key, $ev_access_token, $id)
+    public function deleteNotificationByIdWithHttpInfo($evApiKey, $evAccessToken, $id)
     {
         $returnType = '\ExaVault\Model\EmptyResponse';
-        $request = $this->deleteNotificationByIdRequest($ev_api_key, $ev_access_token, $id);
+        $request = $this->deleteNotificationByIdRequest($evApiKey, $evAccessToken, $id);
 
         try {
             $options = $this->createHttpClientOption();
@@ -468,16 +468,16 @@ class NotificationsApi
      *
      * Delete a notification
      *
-     * @param  string $ev_api_key API Key required to make the API call. (required)
-     * @param  string $ev_access_token Access token required to make the API call. (required)
+     * @param  string $evApiKey API Key required to make the API call. (required)
+     * @param  string $evAccessToken Access token required to make the API call. (required)
      * @param  int $id ID of the notification. Use [GET /notifications](#operation/listNotifications) if you need to lookup an ID. (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteNotificationByIdAsync($ev_api_key, $ev_access_token, $id)
+    public function deleteNotificationByIdAsync($evApiKey, $evAccessToken, $id)
     {
-        return $this->deleteNotificationByIdAsyncWithHttpInfo($ev_api_key, $ev_access_token, $id)
+        return $this->deleteNotificationByIdAsyncWithHttpInfo($evApiKey, $evAccessToken, $id)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -490,17 +490,17 @@ class NotificationsApi
      *
      * Delete a notification
      *
-     * @param  string $ev_api_key API Key required to make the API call. (required)
-     * @param  string $ev_access_token Access token required to make the API call. (required)
+     * @param  string $evApiKey API Key required to make the API call. (required)
+     * @param  string $evAccessToken Access token required to make the API call. (required)
      * @param  int $id ID of the notification. Use [GET /notifications](#operation/listNotifications) if you need to lookup an ID. (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteNotificationByIdAsyncWithHttpInfo($ev_api_key, $ev_access_token, $id)
+    public function deleteNotificationByIdAsyncWithHttpInfo($evApiKey, $evAccessToken, $id)
     {
         $returnType = '\ExaVault\Model\EmptyResponse';
-        $request = $this->deleteNotificationByIdRequest($ev_api_key, $ev_access_token, $id);
+        $request = $this->deleteNotificationByIdRequest($evApiKey, $evAccessToken, $id);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -542,25 +542,25 @@ class NotificationsApi
     /**
      * Create request for operation 'deleteNotificationById'
      *
-     * @param  string $ev_api_key API Key required to make the API call. (required)
-     * @param  string $ev_access_token Access token required to make the API call. (required)
+     * @param  string $evApiKey API Key required to make the API call. (required)
+     * @param  string $evAccessToken Access token required to make the API call. (required)
      * @param  int $id ID of the notification. Use [GET /notifications](#operation/listNotifications) if you need to lookup an ID. (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function deleteNotificationByIdRequest($ev_api_key, $ev_access_token, $id)
+    protected function deleteNotificationByIdRequest($evApiKey, $evAccessToken, $id)
     {
-        // verify the required parameter 'ev_api_key' is set
-        if ($ev_api_key === null || (is_array($ev_api_key) && count($ev_api_key) === 0)) {
+        // verify the required parameter 'evApiKey' is set
+        if ($evApiKey === null || (is_array($evApiKey) && count($evApiKey) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $ev_api_key when calling deleteNotificationById'
+                'Missing the required parameter $evApiKey when calling deleteNotificationById'
             );
         }
-        // verify the required parameter 'ev_access_token' is set
-        if ($ev_access_token === null || (is_array($ev_access_token) && count($ev_access_token) === 0)) {
+        // verify the required parameter 'evAccessToken' is set
+        if ($evAccessToken === null || (is_array($evAccessToken) && count($evAccessToken) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $ev_access_token when calling deleteNotificationById'
+                'Missing the required parameter $evAccessToken when calling deleteNotificationById'
             );
         }
         // verify the required parameter 'id' is set
@@ -578,12 +578,12 @@ class NotificationsApi
         $multipart = false;
 
         // header params
-        if ($ev_api_key !== null) {
-            $headerParams['ev-api-key'] = ObjectSerializer::toHeaderValue($ev_api_key);
+        if ($evApiKey !== null) {
+            $headerParams['ev-api-key'] = ObjectSerializer::toHeaderValue($evApiKey);
         }
         // header params
-        if ($ev_access_token !== null) {
-            $headerParams['ev-access-token'] = ObjectSerializer::toHeaderValue($ev_access_token);
+        if ($evAccessToken !== null) {
+            $headerParams['ev-access-token'] = ObjectSerializer::toHeaderValue($evAccessToken);
         }
 
         // path params
@@ -664,8 +664,8 @@ class NotificationsApi
      *
      * Get notification details
      *
-     * @param  string $ev_api_key API Key required to make the API call. (required)
-     * @param  string $ev_access_token Access token required to make the API call. (required)
+     * @param  string $evApiKey API Key required to make the API call. (required)
+     * @param  string $evAccessToken Access token required to make the API call. (required)
      * @param  int $id ID of the notification. Use [GET /notifications](#operation/listNotifications) if you need to lookup an ID. (required)
      * @param  string $include Related record types to include in the response. You can include multiple types by separating them with commas. Valid options are **ownerUser**, **resource**, and **share**. (optional)
      *
@@ -673,9 +673,9 @@ class NotificationsApi
      * @throws \InvalidArgumentException
      * @return \ExaVault\Model\NotificationResponse
      */
-    public function getNotificationById($ev_api_key, $ev_access_token, $id, $include = null)
+    public function getNotificationById($evApiKey, $evAccessToken, $id, $include = null)
     {
-        list($response) = $this->getNotificationByIdWithHttpInfo($ev_api_key, $ev_access_token, $id, $include);
+        list($response) = $this->getNotificationByIdWithHttpInfo($evApiKey, $evAccessToken, $id, $include);
         return $response;
     }
 
@@ -684,8 +684,8 @@ class NotificationsApi
      *
      * Get notification details
      *
-     * @param  string $ev_api_key API Key required to make the API call. (required)
-     * @param  string $ev_access_token Access token required to make the API call. (required)
+     * @param  string $evApiKey API Key required to make the API call. (required)
+     * @param  string $evAccessToken Access token required to make the API call. (required)
      * @param  int $id ID of the notification. Use [GET /notifications](#operation/listNotifications) if you need to lookup an ID. (required)
      * @param  string $include Related record types to include in the response. You can include multiple types by separating them with commas. Valid options are **ownerUser**, **resource**, and **share**. (optional)
      *
@@ -693,10 +693,10 @@ class NotificationsApi
      * @throws \InvalidArgumentException
      * @return array of \ExaVault\Model\NotificationResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getNotificationByIdWithHttpInfo($ev_api_key, $ev_access_token, $id, $include = null)
+    public function getNotificationByIdWithHttpInfo($evApiKey, $evAccessToken, $id, $include = null)
     {
         $returnType = '\ExaVault\Model\NotificationResponse';
-        $request = $this->getNotificationByIdRequest($ev_api_key, $ev_access_token, $id, $include);
+        $request = $this->getNotificationByIdRequest($evApiKey, $evAccessToken, $id, $include);
 
         try {
             $options = $this->createHttpClientOption();
@@ -762,17 +762,17 @@ class NotificationsApi
      *
      * Get notification details
      *
-     * @param  string $ev_api_key API Key required to make the API call. (required)
-     * @param  string $ev_access_token Access token required to make the API call. (required)
+     * @param  string $evApiKey API Key required to make the API call. (required)
+     * @param  string $evAccessToken Access token required to make the API call. (required)
      * @param  int $id ID of the notification. Use [GET /notifications](#operation/listNotifications) if you need to lookup an ID. (required)
      * @param  string $include Related record types to include in the response. You can include multiple types by separating them with commas. Valid options are **ownerUser**, **resource**, and **share**. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getNotificationByIdAsync($ev_api_key, $ev_access_token, $id, $include = null)
+    public function getNotificationByIdAsync($evApiKey, $evAccessToken, $id, $include = null)
     {
-        return $this->getNotificationByIdAsyncWithHttpInfo($ev_api_key, $ev_access_token, $id, $include)
+        return $this->getNotificationByIdAsyncWithHttpInfo($evApiKey, $evAccessToken, $id, $include)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -785,18 +785,18 @@ class NotificationsApi
      *
      * Get notification details
      *
-     * @param  string $ev_api_key API Key required to make the API call. (required)
-     * @param  string $ev_access_token Access token required to make the API call. (required)
+     * @param  string $evApiKey API Key required to make the API call. (required)
+     * @param  string $evAccessToken Access token required to make the API call. (required)
      * @param  int $id ID of the notification. Use [GET /notifications](#operation/listNotifications) if you need to lookup an ID. (required)
      * @param  string $include Related record types to include in the response. You can include multiple types by separating them with commas. Valid options are **ownerUser**, **resource**, and **share**. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getNotificationByIdAsyncWithHttpInfo($ev_api_key, $ev_access_token, $id, $include = null)
+    public function getNotificationByIdAsyncWithHttpInfo($evApiKey, $evAccessToken, $id, $include = null)
     {
         $returnType = '\ExaVault\Model\NotificationResponse';
-        $request = $this->getNotificationByIdRequest($ev_api_key, $ev_access_token, $id, $include);
+        $request = $this->getNotificationByIdRequest($evApiKey, $evAccessToken, $id, $include);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -838,26 +838,26 @@ class NotificationsApi
     /**
      * Create request for operation 'getNotificationById'
      *
-     * @param  string $ev_api_key API Key required to make the API call. (required)
-     * @param  string $ev_access_token Access token required to make the API call. (required)
+     * @param  string $evApiKey API Key required to make the API call. (required)
+     * @param  string $evAccessToken Access token required to make the API call. (required)
      * @param  int $id ID of the notification. Use [GET /notifications](#operation/listNotifications) if you need to lookup an ID. (required)
      * @param  string $include Related record types to include in the response. You can include multiple types by separating them with commas. Valid options are **ownerUser**, **resource**, and **share**. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function getNotificationByIdRequest($ev_api_key, $ev_access_token, $id, $include = null)
+    protected function getNotificationByIdRequest($evApiKey, $evAccessToken, $id, $include = null)
     {
-        // verify the required parameter 'ev_api_key' is set
-        if ($ev_api_key === null || (is_array($ev_api_key) && count($ev_api_key) === 0)) {
+        // verify the required parameter 'evApiKey' is set
+        if ($evApiKey === null || (is_array($evApiKey) && count($evApiKey) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $ev_api_key when calling getNotificationById'
+                'Missing the required parameter $evApiKey when calling getNotificationById'
             );
         }
-        // verify the required parameter 'ev_access_token' is set
-        if ($ev_access_token === null || (is_array($ev_access_token) && count($ev_access_token) === 0)) {
+        // verify the required parameter 'evAccessToken' is set
+        if ($evAccessToken === null || (is_array($evAccessToken) && count($evAccessToken) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $ev_access_token when calling getNotificationById'
+                'Missing the required parameter $evAccessToken when calling getNotificationById'
             );
         }
         // verify the required parameter 'id' is set
@@ -879,12 +879,12 @@ class NotificationsApi
             $queryParams['include'] = ObjectSerializer::toQueryValue($include, null);
         }
         // header params
-        if ($ev_api_key !== null) {
-            $headerParams['ev-api-key'] = ObjectSerializer::toHeaderValue($ev_api_key);
+        if ($evApiKey !== null) {
+            $headerParams['ev-api-key'] = ObjectSerializer::toHeaderValue($evApiKey);
         }
         // header params
-        if ($ev_access_token !== null) {
-            $headerParams['ev-access-token'] = ObjectSerializer::toHeaderValue($ev_access_token);
+        if ($evAccessToken !== null) {
+            $headerParams['ev-access-token'] = ObjectSerializer::toHeaderValue($evAccessToken);
         }
 
         // path params
@@ -965,8 +965,8 @@ class NotificationsApi
      *
      * Get a list of notifications
      *
-     * @param  string $ev_api_key API Key required to make the API call. (required)
-     * @param  string $ev_access_token Access token required to make the API call. (required)
+     * @param  string $evApiKey API Key required to make the API call. (required)
+     * @param  string $evAccessToken Access token required to make the API call. (required)
      * @param  string $type Type of notification include in the list. Valid options are **file**, **folder**, **send_receipt**, **share_receipt**, **file_drop**  If this parameter is not used, only **file** and **folder** type notifications are included in the list. (optional)
      * @param  int $offset Starting notification record in the result set. Can be used for pagination. (optional, default to 0)
      * @param  string $sort What order the list of matches should be in. Valid sort fields are **resourcename**, **date**, **action** and **type**. The sort order for each sort field is ascending unless it is prefixed with a minus (“-“), in which case it will be descending.  You can chose multiple options for the sort by separating them with commmas, such as \&quot;type,-date\&quot; to sort by type, then most recent. (optional)
@@ -978,9 +978,9 @@ class NotificationsApi
      * @throws \InvalidArgumentException
      * @return \ExaVault\Model\NotificationCollectionResponse
      */
-    public function listNotifications($ev_api_key, $ev_access_token, $type = null, $offset = '0', $sort = null, $limit = '25', $include = null, $action = null)
+    public function listNotifications($evApiKey, $evAccessToken, $type = null, $offset = '0', $sort = null, $limit = '25', $include = null, $action = null)
     {
-        list($response) = $this->listNotificationsWithHttpInfo($ev_api_key, $ev_access_token, $type, $offset, $sort, $limit, $include, $action);
+        list($response) = $this->listNotificationsWithHttpInfo($evApiKey, $evAccessToken, $type, $offset, $sort, $limit, $include, $action);
         return $response;
     }
 
@@ -989,8 +989,8 @@ class NotificationsApi
      *
      * Get a list of notifications
      *
-     * @param  string $ev_api_key API Key required to make the API call. (required)
-     * @param  string $ev_access_token Access token required to make the API call. (required)
+     * @param  string $evApiKey API Key required to make the API call. (required)
+     * @param  string $evAccessToken Access token required to make the API call. (required)
      * @param  string $type Type of notification include in the list. Valid options are **file**, **folder**, **send_receipt**, **share_receipt**, **file_drop**  If this parameter is not used, only **file** and **folder** type notifications are included in the list. (optional)
      * @param  int $offset Starting notification record in the result set. Can be used for pagination. (optional, default to 0)
      * @param  string $sort What order the list of matches should be in. Valid sort fields are **resourcename**, **date**, **action** and **type**. The sort order for each sort field is ascending unless it is prefixed with a minus (“-“), in which case it will be descending.  You can chose multiple options for the sort by separating them with commmas, such as \&quot;type,-date\&quot; to sort by type, then most recent. (optional)
@@ -1002,10 +1002,10 @@ class NotificationsApi
      * @throws \InvalidArgumentException
      * @return array of \ExaVault\Model\NotificationCollectionResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function listNotificationsWithHttpInfo($ev_api_key, $ev_access_token, $type = null, $offset = '0', $sort = null, $limit = '25', $include = null, $action = null)
+    public function listNotificationsWithHttpInfo($evApiKey, $evAccessToken, $type = null, $offset = '0', $sort = null, $limit = '25', $include = null, $action = null)
     {
         $returnType = '\ExaVault\Model\NotificationCollectionResponse';
-        $request = $this->listNotificationsRequest($ev_api_key, $ev_access_token, $type, $offset, $sort, $limit, $include, $action);
+        $request = $this->listNotificationsRequest($evApiKey, $evAccessToken, $type, $offset, $sort, $limit, $include, $action);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1071,8 +1071,8 @@ class NotificationsApi
      *
      * Get a list of notifications
      *
-     * @param  string $ev_api_key API Key required to make the API call. (required)
-     * @param  string $ev_access_token Access token required to make the API call. (required)
+     * @param  string $evApiKey API Key required to make the API call. (required)
+     * @param  string $evAccessToken Access token required to make the API call. (required)
      * @param  string $type Type of notification include in the list. Valid options are **file**, **folder**, **send_receipt**, **share_receipt**, **file_drop**  If this parameter is not used, only **file** and **folder** type notifications are included in the list. (optional)
      * @param  int $offset Starting notification record in the result set. Can be used for pagination. (optional, default to 0)
      * @param  string $sort What order the list of matches should be in. Valid sort fields are **resourcename**, **date**, **action** and **type**. The sort order for each sort field is ascending unless it is prefixed with a minus (“-“), in which case it will be descending.  You can chose multiple options for the sort by separating them with commmas, such as \&quot;type,-date\&quot; to sort by type, then most recent. (optional)
@@ -1083,9 +1083,9 @@ class NotificationsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function listNotificationsAsync($ev_api_key, $ev_access_token, $type = null, $offset = '0', $sort = null, $limit = '25', $include = null, $action = null)
+    public function listNotificationsAsync($evApiKey, $evAccessToken, $type = null, $offset = '0', $sort = null, $limit = '25', $include = null, $action = null)
     {
-        return $this->listNotificationsAsyncWithHttpInfo($ev_api_key, $ev_access_token, $type, $offset, $sort, $limit, $include, $action)
+        return $this->listNotificationsAsyncWithHttpInfo($evApiKey, $evAccessToken, $type, $offset, $sort, $limit, $include, $action)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1098,8 +1098,8 @@ class NotificationsApi
      *
      * Get a list of notifications
      *
-     * @param  string $ev_api_key API Key required to make the API call. (required)
-     * @param  string $ev_access_token Access token required to make the API call. (required)
+     * @param  string $evApiKey API Key required to make the API call. (required)
+     * @param  string $evAccessToken Access token required to make the API call. (required)
      * @param  string $type Type of notification include in the list. Valid options are **file**, **folder**, **send_receipt**, **share_receipt**, **file_drop**  If this parameter is not used, only **file** and **folder** type notifications are included in the list. (optional)
      * @param  int $offset Starting notification record in the result set. Can be used for pagination. (optional, default to 0)
      * @param  string $sort What order the list of matches should be in. Valid sort fields are **resourcename**, **date**, **action** and **type**. The sort order for each sort field is ascending unless it is prefixed with a minus (“-“), in which case it will be descending.  You can chose multiple options for the sort by separating them with commmas, such as \&quot;type,-date\&quot; to sort by type, then most recent. (optional)
@@ -1110,10 +1110,10 @@ class NotificationsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function listNotificationsAsyncWithHttpInfo($ev_api_key, $ev_access_token, $type = null, $offset = '0', $sort = null, $limit = '25', $include = null, $action = null)
+    public function listNotificationsAsyncWithHttpInfo($evApiKey, $evAccessToken, $type = null, $offset = '0', $sort = null, $limit = '25', $include = null, $action = null)
     {
         $returnType = '\ExaVault\Model\NotificationCollectionResponse';
-        $request = $this->listNotificationsRequest($ev_api_key, $ev_access_token, $type, $offset, $sort, $limit, $include, $action);
+        $request = $this->listNotificationsRequest($evApiKey, $evAccessToken, $type, $offset, $sort, $limit, $include, $action);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1155,8 +1155,8 @@ class NotificationsApi
     /**
      * Create request for operation 'listNotifications'
      *
-     * @param  string $ev_api_key API Key required to make the API call. (required)
-     * @param  string $ev_access_token Access token required to make the API call. (required)
+     * @param  string $evApiKey API Key required to make the API call. (required)
+     * @param  string $evAccessToken Access token required to make the API call. (required)
      * @param  string $type Type of notification include in the list. Valid options are **file**, **folder**, **send_receipt**, **share_receipt**, **file_drop**  If this parameter is not used, only **file** and **folder** type notifications are included in the list. (optional)
      * @param  int $offset Starting notification record in the result set. Can be used for pagination. (optional, default to 0)
      * @param  string $sort What order the list of matches should be in. Valid sort fields are **resourcename**, **date**, **action** and **type**. The sort order for each sort field is ascending unless it is prefixed with a minus (“-“), in which case it will be descending.  You can chose multiple options for the sort by separating them with commmas, such as \&quot;type,-date\&quot; to sort by type, then most recent. (optional)
@@ -1167,18 +1167,18 @@ class NotificationsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function listNotificationsRequest($ev_api_key, $ev_access_token, $type = null, $offset = '0', $sort = null, $limit = '25', $include = null, $action = null)
+    protected function listNotificationsRequest($evApiKey, $evAccessToken, $type = null, $offset = '0', $sort = null, $limit = '25', $include = null, $action = null)
     {
-        // verify the required parameter 'ev_api_key' is set
-        if ($ev_api_key === null || (is_array($ev_api_key) && count($ev_api_key) === 0)) {
+        // verify the required parameter 'evApiKey' is set
+        if ($evApiKey === null || (is_array($evApiKey) && count($evApiKey) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $ev_api_key when calling listNotifications'
+                'Missing the required parameter $evApiKey when calling listNotifications'
             );
         }
-        // verify the required parameter 'ev_access_token' is set
-        if ($ev_access_token === null || (is_array($ev_access_token) && count($ev_access_token) === 0)) {
+        // verify the required parameter 'evAccessToken' is set
+        if ($evAccessToken === null || (is_array($evAccessToken) && count($evAccessToken) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $ev_access_token when calling listNotifications'
+                'Missing the required parameter $evAccessToken when calling listNotifications'
             );
         }
 
@@ -1214,12 +1214,12 @@ class NotificationsApi
             $queryParams['action'] = ObjectSerializer::toQueryValue($action, null);
         }
         // header params
-        if ($ev_api_key !== null) {
-            $headerParams['ev-api-key'] = ObjectSerializer::toHeaderValue($ev_api_key);
+        if ($evApiKey !== null) {
+            $headerParams['ev-api-key'] = ObjectSerializer::toHeaderValue($evApiKey);
         }
         // header params
-        if ($ev_access_token !== null) {
-            $headerParams['ev-access-token'] = ObjectSerializer::toHeaderValue($ev_access_token);
+        if ($evAccessToken !== null) {
+            $headerParams['ev-access-token'] = ObjectSerializer::toHeaderValue($evAccessToken);
         }
 
 
@@ -1292,18 +1292,18 @@ class NotificationsApi
      *
      * Update a notification
      *
-     * @param  string $ev_api_key API Key required to make the API call. (required)
-     * @param  string $ev_access_token Access token required to make the API call. (required)
+     * @param  string $evApiKey API Key required to make the API call. (required)
+     * @param  string $evAccessToken Access token required to make the API call. (required)
      * @param  int $id ID of the notification. Use [GET /notifications](#operation/listNotifications) if you need to lookup an ID. (required)
-     * @param  \ExaVault\Model\Body3 $body body (optional)
+     * @param  \ExaVault\Model\UpdateNotificationByIdRequestBody $body body (optional)
      *
      * @throws \ExaVault\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \ExaVault\Model\NotificationResponse
      */
-    public function updateNotificationById($ev_api_key, $ev_access_token, $id, $body = null)
+    public function updateNotificationById($evApiKey, $evAccessToken, $id, $body = null)
     {
-        list($response) = $this->updateNotificationByIdWithHttpInfo($ev_api_key, $ev_access_token, $id, $body);
+        list($response) = $this->updateNotificationByIdWithHttpInfo($evApiKey, $evAccessToken, $id, $body);
         return $response;
     }
 
@@ -1312,19 +1312,19 @@ class NotificationsApi
      *
      * Update a notification
      *
-     * @param  string $ev_api_key API Key required to make the API call. (required)
-     * @param  string $ev_access_token Access token required to make the API call. (required)
+     * @param  string $evApiKey API Key required to make the API call. (required)
+     * @param  string $evAccessToken Access token required to make the API call. (required)
      * @param  int $id ID of the notification. Use [GET /notifications](#operation/listNotifications) if you need to lookup an ID. (required)
-     * @param  \ExaVault\Model\Body3 $body (optional)
+     * @param  \ExaVault\Model\UpdateNotificationByIdRequestBody $body (optional)
      *
      * @throws \ExaVault\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \ExaVault\Model\NotificationResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function updateNotificationByIdWithHttpInfo($ev_api_key, $ev_access_token, $id, $body = null)
+    public function updateNotificationByIdWithHttpInfo($evApiKey, $evAccessToken, $id, $body = null)
     {
         $returnType = '\ExaVault\Model\NotificationResponse';
-        $request = $this->updateNotificationByIdRequest($ev_api_key, $ev_access_token, $id, $body);
+        $request = $this->updateNotificationByIdRequest($evApiKey, $evAccessToken, $id, $body);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1390,17 +1390,17 @@ class NotificationsApi
      *
      * Update a notification
      *
-     * @param  string $ev_api_key API Key required to make the API call. (required)
-     * @param  string $ev_access_token Access token required to make the API call. (required)
+     * @param  string $evApiKey API Key required to make the API call. (required)
+     * @param  string $evAccessToken Access token required to make the API call. (required)
      * @param  int $id ID of the notification. Use [GET /notifications](#operation/listNotifications) if you need to lookup an ID. (required)
-     * @param  \ExaVault\Model\Body3 $body (optional)
+     * @param  \ExaVault\Model\UpdateNotificationByIdRequestBody $body (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateNotificationByIdAsync($ev_api_key, $ev_access_token, $id, $body = null)
+    public function updateNotificationByIdAsync($evApiKey, $evAccessToken, $id, $body = null)
     {
-        return $this->updateNotificationByIdAsyncWithHttpInfo($ev_api_key, $ev_access_token, $id, $body)
+        return $this->updateNotificationByIdAsyncWithHttpInfo($evApiKey, $evAccessToken, $id, $body)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1413,18 +1413,18 @@ class NotificationsApi
      *
      * Update a notification
      *
-     * @param  string $ev_api_key API Key required to make the API call. (required)
-     * @param  string $ev_access_token Access token required to make the API call. (required)
+     * @param  string $evApiKey API Key required to make the API call. (required)
+     * @param  string $evAccessToken Access token required to make the API call. (required)
      * @param  int $id ID of the notification. Use [GET /notifications](#operation/listNotifications) if you need to lookup an ID. (required)
-     * @param  \ExaVault\Model\Body3 $body (optional)
+     * @param  \ExaVault\Model\UpdateNotificationByIdRequestBody $body (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateNotificationByIdAsyncWithHttpInfo($ev_api_key, $ev_access_token, $id, $body = null)
+    public function updateNotificationByIdAsyncWithHttpInfo($evApiKey, $evAccessToken, $id, $body = null)
     {
         $returnType = '\ExaVault\Model\NotificationResponse';
-        $request = $this->updateNotificationByIdRequest($ev_api_key, $ev_access_token, $id, $body);
+        $request = $this->updateNotificationByIdRequest($evApiKey, $evAccessToken, $id, $body);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1466,26 +1466,26 @@ class NotificationsApi
     /**
      * Create request for operation 'updateNotificationById'
      *
-     * @param  string $ev_api_key API Key required to make the API call. (required)
-     * @param  string $ev_access_token Access token required to make the API call. (required)
+     * @param  string $evApiKey API Key required to make the API call. (required)
+     * @param  string $evAccessToken Access token required to make the API call. (required)
      * @param  int $id ID of the notification. Use [GET /notifications](#operation/listNotifications) if you need to lookup an ID. (required)
-     * @param  \ExaVault\Model\Body3 $body (optional)
+     * @param  \ExaVault\Model\UpdateNotificationByIdRequestBody $body (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function updateNotificationByIdRequest($ev_api_key, $ev_access_token, $id, $body = null)
+    protected function updateNotificationByIdRequest($evApiKey, $evAccessToken, $id, $body = null)
     {
-        // verify the required parameter 'ev_api_key' is set
-        if ($ev_api_key === null || (is_array($ev_api_key) && count($ev_api_key) === 0)) {
+        // verify the required parameter 'evApiKey' is set
+        if ($evApiKey === null || (is_array($evApiKey) && count($evApiKey) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $ev_api_key when calling updateNotificationById'
+                'Missing the required parameter $evApiKey when calling updateNotificationById'
             );
         }
-        // verify the required parameter 'ev_access_token' is set
-        if ($ev_access_token === null || (is_array($ev_access_token) && count($ev_access_token) === 0)) {
+        // verify the required parameter 'evAccessToken' is set
+        if ($evAccessToken === null || (is_array($evAccessToken) && count($evAccessToken) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $ev_access_token when calling updateNotificationById'
+                'Missing the required parameter $evAccessToken when calling updateNotificationById'
             );
         }
         // verify the required parameter 'id' is set
@@ -1503,12 +1503,12 @@ class NotificationsApi
         $multipart = false;
 
         // header params
-        if ($ev_api_key !== null) {
-            $headerParams['ev-api-key'] = ObjectSerializer::toHeaderValue($ev_api_key);
+        if ($evApiKey !== null) {
+            $headerParams['ev-api-key'] = ObjectSerializer::toHeaderValue($evApiKey);
         }
         // header params
-        if ($ev_access_token !== null) {
-            $headerParams['ev-access-token'] = ObjectSerializer::toHeaderValue($ev_access_token);
+        if ($evAccessToken !== null) {
+            $headerParams['ev-access-token'] = ObjectSerializer::toHeaderValue($evAccessToken);
         }
 
         // path params
