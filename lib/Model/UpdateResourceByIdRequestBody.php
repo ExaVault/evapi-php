@@ -1,6 +1,6 @@
 <?php
 /**
- * UpdateReourceByIdRequestBody
+ * UpdateResourceByIdRequestBody
  *
  * PHP version 5
  *
@@ -32,14 +32,14 @@ use \ArrayAccess;
 use \ExaVault\ObjectSerializer;
 
 /**
- * UpdateReourceByIdRequestBody Class Doc Comment
+ * UpdateResourceByIdRequestBody Class Doc Comment
  *
  * @category Class
  * @package  ExaVault
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class UpdateReourceByIdRequestBody implements ModelInterface, ArrayAccess
+class UpdateResourceByIdRequestBody implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -48,7 +48,7 @@ class UpdateReourceByIdRequestBody implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'UpdateReourceByIdRequestBody';
+    protected static $swaggerModelName = 'UpdateResourceByIdRequestBody';
 
     /**
       * Array of property to type mappings. Used for (de)serialization

@@ -57,7 +57,7 @@ class ShareRelationships implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'messages' => '\ExaVault\Model\ShareRelationshpsMessage[]',
+        'messages' => '\ExaVault\Model\ShareRelationshipsMessage[]',
 'owner' => '\ExaVault\Model\ShareRelationshipsOwner',
 'resources' => '\ExaVault\Model\ShareRelationshipsResource[]',
 'notifications' => '\ExaVault\Model\ShareRelationshipsNotification[]'    ];
@@ -218,7 +218,7 @@ class ShareRelationships implements ModelInterface, ArrayAccess
     /**
      * Gets messages
      *
-     * @return \ExaVault\Model\ShareRelationshpsMessage[]
+     * @return \ExaVault\Model\ShareRelationshipsMessage[]
      */
     public function getMessages()
     {
@@ -228,7 +228,7 @@ class ShareRelationships implements ModelInterface, ArrayAccess
     /**
      * Sets messages
      *
-     * @param \ExaVault\Model\ShareRelationshpsMessage[] $messages null
+     * @param \ExaVault\Model\ShareRelationshipsMessage[] $messages null
      *
      * @return $this
      */

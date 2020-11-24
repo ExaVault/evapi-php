@@ -4029,7 +4029,7 @@ class ResourcesApi
      * @param  string $evAccessToken Access token required to make the API call. (required)
      * @param  string $evApiKey API key required to make the API call. (required)
      * @param  int $id ID number of the resource (required)
-     * @param  \ExaVault\Model\UpdateReourceByIdRequestBody $body body (optional)
+     * @param  \ExaVault\Model\UpdateResourceByIdRequestBody $body body (optional)
      *
      * @throws \ExaVault\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -4049,7 +4049,7 @@ class ResourcesApi
      * @param  string $evAccessToken Access token required to make the API call. (required)
      * @param  string $evApiKey API key required to make the API call. (required)
      * @param  int $id ID number of the resource (required)
-     * @param  \ExaVault\Model\UpdateReourceByIdRequestBody $body (optional)
+     * @param  \ExaVault\Model\UpdateResourceByIdRequestBody $body (optional)
      *
      * @throws \ExaVault\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -4127,7 +4127,7 @@ class ResourcesApi
      * @param  string $evAccessToken Access token required to make the API call. (required)
      * @param  string $evApiKey API key required to make the API call. (required)
      * @param  int $id ID number of the resource (required)
-     * @param  \ExaVault\Model\UpdateReourceByIdRequestBody $body (optional)
+     * @param  \ExaVault\Model\UpdateResourceByIdRequestBody $body (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -4150,7 +4150,7 @@ class ResourcesApi
      * @param  string $evAccessToken Access token required to make the API call. (required)
      * @param  string $evApiKey API key required to make the API call. (required)
      * @param  int $id ID number of the resource (required)
-     * @param  \ExaVault\Model\UpdateReourceByIdRequestBody $body (optional)
+     * @param  \ExaVault\Model\UpdateResourceByIdRequestBody $body (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -4203,7 +4203,7 @@ class ResourcesApi
      * @param  string $evAccessToken Access token required to make the API call. (required)
      * @param  string $evApiKey API key required to make the API call. (required)
      * @param  int $id ID number of the resource (required)
-     * @param  \ExaVault\Model\UpdateReourceByIdRequestBody $body (optional)
+     * @param  \ExaVault\Model\UpdateResourceByIdRequestBody $body (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request

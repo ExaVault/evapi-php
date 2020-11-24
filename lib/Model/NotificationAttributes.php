@@ -366,7 +366,7 @@ self::ACTION_ALL,        ];
     /**
      * Sets type
      *
-     * @param string $type Type of the resoucre the notification is attached to.
+     * @param string $type Type of the resource the notification is attached to.
      *
      * @return $this
      */

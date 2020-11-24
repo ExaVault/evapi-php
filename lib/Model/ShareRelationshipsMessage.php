@@ -1,6 +1,6 @@
 <?php
 /**
- * ShareRelationshpsMessage
+ * ShareRelationshipsMessage
  *
  * PHP version 5
  *
@@ -32,14 +32,14 @@ use \ArrayAccess;
 use \ExaVault\ObjectSerializer;
 
 /**
- * ShareRelationshpsMessage Class Doc Comment
+ * ShareRelationshipsMessage Class Doc Comment
  *
  * @category Class
  * @package  ExaVault
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class ShareRelationshpsMessage implements ModelInterface, ArrayAccess
+class ShareRelationshipsMessage implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -48,7 +48,7 @@ class ShareRelationshpsMessage implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'ShareRelationshpsMessage';
+    protected static $swaggerModelName = 'ShareRelationshipsMessage';
 
     /**
       * Array of property to type mappings. Used for (de)serialization

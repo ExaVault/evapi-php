@@ -961,7 +961,7 @@ self::TRACKING_STATUS_PENDING,        ];
     /**
      * Sets trackingStatus
      *
-     * @param string $trackingStatus Checks recipient received status and returns whether it's been recevied (`complete`,) partial recevied (`incomplete`,) or not received yet (`pending`.)
+     * @param string $trackingStatus Checks recipient received status and returns whether it's been received (`complete`,) partial received (`incomplete`,) or not received yet (`pending`.)
      *
      * @return $this
      */
