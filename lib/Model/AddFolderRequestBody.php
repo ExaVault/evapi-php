@@ -221,7 +221,7 @@ class AddFolderRequestBody implements ModelInterface, ArrayAccess
     /**
      * Sets path
      *
-     * @param string $path Path to the newly created folder including new ame
+     * @param string $path Fully-qualified path to the new folder including folder's name
      *
      * @return $this
      */

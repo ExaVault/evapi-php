@@ -1526,17 +1526,15 @@ class ResourcesApi
      * @param  string $evApiKey API Key required to make the API call. (required)
      * @param  string $evAccessToken Access token required to make the API call. (required)
      * @param  string[] $resources Path of file or folder to be downloaded, starting from the root. Can also be an array of paths. (required)
-     * @param  string $downloadArchiveName If zipping multiple files, the name of the zip file to create and download. (optional)
-     * @param  bool $polling Used when downloading multiple files so url will be polled till zip file is created. (optional)
-     * @param  string $pollingArchiveName Reference to the previously created zip for polling operation. (optional)
+     * @param  string $downloadArchiveName When downloading multiple files, this will be used as the name of the zip file that is created. (optional)
      *
      * @throws \ExaVault\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return string
      */
-    public function download($evApiKey, $evAccessToken, $resources, $downloadArchiveName = null, $polling = null, $pollingArchiveName = null)
+    public function download($evApiKey, $evAccessToken, $resources, $downloadArchiveName = null)
     {
-        list($response) = $this->downloadWithHttpInfo($evApiKey, $evAccessToken, $resources, $downloadArchiveName, $polling, $pollingArchiveName);
+        list($response) = $this->downloadWithHttpInfo($evApiKey, $evAccessToken, $resources, $downloadArchiveName);
         return $response;
     }
 
@@ -1548,18 +1546,16 @@ class ResourcesApi
      * @param  string $evApiKey API Key required to make the API call. (required)
      * @param  string $evAccessToken Access token required to make the API call. (required)
      * @param  string[] $resources Path of file or folder to be downloaded, starting from the root. Can also be an array of paths. (required)
-     * @param  string $downloadArchiveName If zipping multiple files, the name of the zip file to create and download. (optional)
-     * @param  bool $polling Used when downloading multiple files so url will be polled till zip file is created. (optional)
-     * @param  string $pollingArchiveName Reference to the previously created zip for polling operation. (optional)
+     * @param  string $downloadArchiveName When downloading multiple files, this will be used as the name of the zip file that is created. (optional)
      *
      * @throws \ExaVault\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of string, HTTP status code, HTTP response headers (array of strings)
      */
-    public function downloadWithHttpInfo($evApiKey, $evAccessToken, $resources, $downloadArchiveName = null, $polling = null, $pollingArchiveName = null)
+    public function downloadWithHttpInfo($evApiKey, $evAccessToken, $resources, $downloadArchiveName = null)
     {
         $returnType = 'string';
-        $request = $this->downloadRequest($evApiKey, $evAccessToken, $resources, $downloadArchiveName, $polling, $pollingArchiveName);
+        $request = $this->downloadRequest($evApiKey, $evAccessToken, $resources, $downloadArchiveName);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1615,14 +1611,6 @@ class ResourcesApi
                     );
                     $e->setResponseObject($data);
                     break;
-                case 202:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\ExaVault\Model\DownloadPollingResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
             }
             throw $e;
         }
@@ -1636,16 +1624,14 @@ class ResourcesApi
      * @param  string $evApiKey API Key required to make the API call. (required)
      * @param  string $evAccessToken Access token required to make the API call. (required)
      * @param  string[] $resources Path of file or folder to be downloaded, starting from the root. Can also be an array of paths. (required)
-     * @param  string $downloadArchiveName If zipping multiple files, the name of the zip file to create and download. (optional)
-     * @param  bool $polling Used when downloading multiple files so url will be polled till zip file is created. (optional)
-     * @param  string $pollingArchiveName Reference to the previously created zip for polling operation. (optional)
+     * @param  string $downloadArchiveName When downloading multiple files, this will be used as the name of the zip file that is created. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function downloadAsync($evApiKey, $evAccessToken, $resources, $downloadArchiveName = null, $polling = null, $pollingArchiveName = null)
+    public function downloadAsync($evApiKey, $evAccessToken, $resources, $downloadArchiveName = null)
     {
-        return $this->downloadAsyncWithHttpInfo($evApiKey, $evAccessToken, $resources, $downloadArchiveName, $polling, $pollingArchiveName)
+        return $this->downloadAsyncWithHttpInfo($evApiKey, $evAccessToken, $resources, $downloadArchiveName)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1661,17 +1647,15 @@ class ResourcesApi
      * @param  string $evApiKey API Key required to make the API call. (required)
      * @param  string $evAccessToken Access token required to make the API call. (required)
      * @param  string[] $resources Path of file or folder to be downloaded, starting from the root. Can also be an array of paths. (required)
-     * @param  string $downloadArchiveName If zipping multiple files, the name of the zip file to create and download. (optional)
-     * @param  bool $polling Used when downloading multiple files so url will be polled till zip file is created. (optional)
-     * @param  string $pollingArchiveName Reference to the previously created zip for polling operation. (optional)
+     * @param  string $downloadArchiveName When downloading multiple files, this will be used as the name of the zip file that is created. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function downloadAsyncWithHttpInfo($evApiKey, $evAccessToken, $resources, $downloadArchiveName = null, $polling = null, $pollingArchiveName = null)
+    public function downloadAsyncWithHttpInfo($evApiKey, $evAccessToken, $resources, $downloadArchiveName = null)
     {
         $returnType = 'string';
-        $request = $this->downloadRequest($evApiKey, $evAccessToken, $resources, $downloadArchiveName, $polling, $pollingArchiveName);
+        $request = $this->downloadRequest($evApiKey, $evAccessToken, $resources, $downloadArchiveName);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1716,14 +1700,12 @@ class ResourcesApi
      * @param  string $evApiKey API Key required to make the API call. (required)
      * @param  string $evAccessToken Access token required to make the API call. (required)
      * @param  string[] $resources Path of file or folder to be downloaded, starting from the root. Can also be an array of paths. (required)
-     * @param  string $downloadArchiveName If zipping multiple files, the name of the zip file to create and download. (optional)
-     * @param  bool $polling Used when downloading multiple files so url will be polled till zip file is created. (optional)
-     * @param  string $pollingArchiveName Reference to the previously created zip for polling operation. (optional)
+     * @param  string $downloadArchiveName When downloading multiple files, this will be used as the name of the zip file that is created. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function downloadRequest($evApiKey, $evAccessToken, $resources, $downloadArchiveName = null, $polling = null, $pollingArchiveName = null)
+    protected function downloadRequest($evApiKey, $evAccessToken, $resources, $downloadArchiveName = null)
     {
         // verify the required parameter 'evApiKey' is set
         if ($evApiKey === null || (is_array($evApiKey) && count($evApiKey) === 0)) {
@@ -1762,14 +1744,6 @@ class ResourcesApi
         if ($downloadArchiveName !== null) {
             $queryParams['downloadArchiveName'] = ObjectSerializer::toQueryValue($downloadArchiveName, null);
         }
-        // query params
-        if ($polling !== null) {
-            $queryParams['polling'] = ObjectSerializer::toQueryValue($polling, null);
-        }
-        // query params
-        if ($pollingArchiveName !== null) {
-            $queryParams['pollingArchiveName'] = ObjectSerializer::toQueryValue($pollingArchiveName, null);
-        }
         // header params
         if ($evApiKey !== null) {
             $headerParams['ev-api-key'] = ObjectSerializer::toHeaderValue($evApiKey);
@@ -1785,11 +1759,11 @@ class ResourcesApi
 
         if ($multipart) {
             $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['application/octet-stream', 'application/zip', 'application/json']
+                ['application/octet-stream', 'application/zip']
             );
         } else {
             $headers = $this->headerSelector->selectHeaders(
-                ['application/octet-stream', 'application/zip', 'application/json'],
+                ['application/octet-stream', 'application/zip'],
                 []
             );
         }
@@ -3399,9 +3373,9 @@ class ResourcesApi
      * @param  string $evAccessToken Access token required to make the API call. (required)
      * @param  string $resource Resource identifier to get resources for. Can be path/id/name. (required)
      * @param  string $sort Endpoint support multiple sort fields by allowing array of sort params. Sort fields should be applied in the order specified. The sort order for each sort field is ascending unless it is prefixed with a minus (“-“), in which case it will be descending. (optional)
-     * @param  int $offset Determines which item to start on for pagination. Use zero (0) to start at the beginning of the list. (optional, default to 0)
-     * @param  int $limit The number of files to limit the result. Cannot be set higher than 100. If you have more than one hundred files in your directory, make multiple calls, incrementing the &#x60;offset&#x60; parameter, above. (optional)
-     * @param  string $type Limit types of resources returned to \&quot;file\&quot; or \&quot;dir\&quot; only. This is ignored if you are using the name parameter to trigger a search. (optional)
+     * @param  int $offset Determines which item to start on for pagination. Use zero (0) to start at the beginning of the list. e.g, setting &#x60;offset&#x3D;200&#x60; would trigger the server to skip the first 200 matching entries when returning the results. (optional, default to 0)
+     * @param  int $limit The number of files to limit the result. If you have more files in your directory than this limit, make multiple calls, incrementing the &#x60;offset&#x60; parameter, above. (optional)
+     * @param  string $type Limit types of resources returned to \&quot;file\&quot; or \&quot;dir\&quot; only. This is ignored if you are using the &#x60;name&#x60; parameter to trigger a search. (optional)
      * @param  string $name Text to match resource names. This allows you to filter the results returned. For example, to locate only zip archive files, you can enter &#x60;*zip&#x60; and only resources ending in \&quot;zip\&quot; will be included in the list of results. (optional)
      * @param  string $include Comma separated list of relationships to include in response. Possible values are **share**, **notifications**, **directFile**, **parentResource**, **ownerUser**, **ownerAccount**. (optional)
      *
@@ -3424,9 +3398,9 @@ class ResourcesApi
      * @param  string $evAccessToken Access token required to make the API call. (required)
      * @param  string $resource Resource identifier to get resources for. Can be path/id/name. (required)
      * @param  string $sort Endpoint support multiple sort fields by allowing array of sort params. Sort fields should be applied in the order specified. The sort order for each sort field is ascending unless it is prefixed with a minus (“-“), in which case it will be descending. (optional)
-     * @param  int $offset Determines which item to start on for pagination. Use zero (0) to start at the beginning of the list. (optional, default to 0)
-     * @param  int $limit The number of files to limit the result. Cannot be set higher than 100. If you have more than one hundred files in your directory, make multiple calls, incrementing the &#x60;offset&#x60; parameter, above. (optional)
-     * @param  string $type Limit types of resources returned to \&quot;file\&quot; or \&quot;dir\&quot; only. This is ignored if you are using the name parameter to trigger a search. (optional)
+     * @param  int $offset Determines which item to start on for pagination. Use zero (0) to start at the beginning of the list. e.g, setting &#x60;offset&#x3D;200&#x60; would trigger the server to skip the first 200 matching entries when returning the results. (optional, default to 0)
+     * @param  int $limit The number of files to limit the result. If you have more files in your directory than this limit, make multiple calls, incrementing the &#x60;offset&#x60; parameter, above. (optional)
+     * @param  string $type Limit types of resources returned to \&quot;file\&quot; or \&quot;dir\&quot; only. This is ignored if you are using the &#x60;name&#x60; parameter to trigger a search. (optional)
      * @param  string $name Text to match resource names. This allows you to filter the results returned. For example, to locate only zip archive files, you can enter &#x60;*zip&#x60; and only resources ending in \&quot;zip\&quot; will be included in the list of results. (optional)
      * @param  string $include Comma separated list of relationships to include in response. Possible values are **share**, **notifications**, **directFile**, **parentResource**, **ownerUser**, **ownerAccount**. (optional)
      *
@@ -3507,9 +3481,9 @@ class ResourcesApi
      * @param  string $evAccessToken Access token required to make the API call. (required)
      * @param  string $resource Resource identifier to get resources for. Can be path/id/name. (required)
      * @param  string $sort Endpoint support multiple sort fields by allowing array of sort params. Sort fields should be applied in the order specified. The sort order for each sort field is ascending unless it is prefixed with a minus (“-“), in which case it will be descending. (optional)
-     * @param  int $offset Determines which item to start on for pagination. Use zero (0) to start at the beginning of the list. (optional, default to 0)
-     * @param  int $limit The number of files to limit the result. Cannot be set higher than 100. If you have more than one hundred files in your directory, make multiple calls, incrementing the &#x60;offset&#x60; parameter, above. (optional)
-     * @param  string $type Limit types of resources returned to \&quot;file\&quot; or \&quot;dir\&quot; only. This is ignored if you are using the name parameter to trigger a search. (optional)
+     * @param  int $offset Determines which item to start on for pagination. Use zero (0) to start at the beginning of the list. e.g, setting &#x60;offset&#x3D;200&#x60; would trigger the server to skip the first 200 matching entries when returning the results. (optional, default to 0)
+     * @param  int $limit The number of files to limit the result. If you have more files in your directory than this limit, make multiple calls, incrementing the &#x60;offset&#x60; parameter, above. (optional)
+     * @param  string $type Limit types of resources returned to \&quot;file\&quot; or \&quot;dir\&quot; only. This is ignored if you are using the &#x60;name&#x60; parameter to trigger a search. (optional)
      * @param  string $name Text to match resource names. This allows you to filter the results returned. For example, to locate only zip archive files, you can enter &#x60;*zip&#x60; and only resources ending in \&quot;zip\&quot; will be included in the list of results. (optional)
      * @param  string $include Comma separated list of relationships to include in response. Possible values are **share**, **notifications**, **directFile**, **parentResource**, **ownerUser**, **ownerAccount**. (optional)
      *
@@ -3535,9 +3509,9 @@ class ResourcesApi
      * @param  string $evAccessToken Access token required to make the API call. (required)
      * @param  string $resource Resource identifier to get resources for. Can be path/id/name. (required)
      * @param  string $sort Endpoint support multiple sort fields by allowing array of sort params. Sort fields should be applied in the order specified. The sort order for each sort field is ascending unless it is prefixed with a minus (“-“), in which case it will be descending. (optional)
-     * @param  int $offset Determines which item to start on for pagination. Use zero (0) to start at the beginning of the list. (optional, default to 0)
-     * @param  int $limit The number of files to limit the result. Cannot be set higher than 100. If you have more than one hundred files in your directory, make multiple calls, incrementing the &#x60;offset&#x60; parameter, above. (optional)
-     * @param  string $type Limit types of resources returned to \&quot;file\&quot; or \&quot;dir\&quot; only. This is ignored if you are using the name parameter to trigger a search. (optional)
+     * @param  int $offset Determines which item to start on for pagination. Use zero (0) to start at the beginning of the list. e.g, setting &#x60;offset&#x3D;200&#x60; would trigger the server to skip the first 200 matching entries when returning the results. (optional, default to 0)
+     * @param  int $limit The number of files to limit the result. If you have more files in your directory than this limit, make multiple calls, incrementing the &#x60;offset&#x60; parameter, above. (optional)
+     * @param  string $type Limit types of resources returned to \&quot;file\&quot; or \&quot;dir\&quot; only. This is ignored if you are using the &#x60;name&#x60; parameter to trigger a search. (optional)
      * @param  string $name Text to match resource names. This allows you to filter the results returned. For example, to locate only zip archive files, you can enter &#x60;*zip&#x60; and only resources ending in \&quot;zip\&quot; will be included in the list of results. (optional)
      * @param  string $include Comma separated list of relationships to include in response. Possible values are **share**, **notifications**, **directFile**, **parentResource**, **ownerUser**, **ownerAccount**. (optional)
      *
@@ -3593,9 +3567,9 @@ class ResourcesApi
      * @param  string $evAccessToken Access token required to make the API call. (required)
      * @param  string $resource Resource identifier to get resources for. Can be path/id/name. (required)
      * @param  string $sort Endpoint support multiple sort fields by allowing array of sort params. Sort fields should be applied in the order specified. The sort order for each sort field is ascending unless it is prefixed with a minus (“-“), in which case it will be descending. (optional)
-     * @param  int $offset Determines which item to start on for pagination. Use zero (0) to start at the beginning of the list. (optional, default to 0)
-     * @param  int $limit The number of files to limit the result. Cannot be set higher than 100. If you have more than one hundred files in your directory, make multiple calls, incrementing the &#x60;offset&#x60; parameter, above. (optional)
-     * @param  string $type Limit types of resources returned to \&quot;file\&quot; or \&quot;dir\&quot; only. This is ignored if you are using the name parameter to trigger a search. (optional)
+     * @param  int $offset Determines which item to start on for pagination. Use zero (0) to start at the beginning of the list. e.g, setting &#x60;offset&#x3D;200&#x60; would trigger the server to skip the first 200 matching entries when returning the results. (optional, default to 0)
+     * @param  int $limit The number of files to limit the result. If you have more files in your directory than this limit, make multiple calls, incrementing the &#x60;offset&#x60; parameter, above. (optional)
+     * @param  string $type Limit types of resources returned to \&quot;file\&quot; or \&quot;dir\&quot; only. This is ignored if you are using the &#x60;name&#x60; parameter to trigger a search. (optional)
      * @param  string $name Text to match resource names. This allows you to filter the results returned. For example, to locate only zip archive files, you can enter &#x60;*zip&#x60; and only resources ending in \&quot;zip\&quot; will be included in the list of results. (optional)
      * @param  string $include Comma separated list of relationships to include in response. Possible values are **share**, **notifications**, **directFile**, **parentResource**, **ownerUser**, **ownerAccount**. (optional)
      *

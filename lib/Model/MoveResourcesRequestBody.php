@@ -245,7 +245,7 @@ class MoveResourcesRequestBody implements ModelInterface, ArrayAccess
     /**
      * Sets parentResource
      *
-     * @param string $parentResource Remote destination path to move files/folders to.
+     * @param string $parentResource Resource identifier of folder to move files/folders to.
      *
      * @return $this
      */
