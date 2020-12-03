@@ -248,7 +248,7 @@ class CompressFilesRequestBody implements ModelInterface, ArrayAccess
     /**
      * Sets parentResource
      *
-     * @param string $parentResource Full path to folder new archive will be created in. If left blank, \"/\" will be used.
+     * @param string $parentResource Resource identifier of the folder where zip archive should be created.
      *
      * @return $this
      */

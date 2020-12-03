@@ -95,8 +95,8 @@ class AccountAllowedIpRanges implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'ipStart' => 'ip_start',
-'ipEnd' => 'ip_end'    ];
+        'ipStart' => 'ipStart',
+'ipEnd' => 'ipEnd'    ];
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)

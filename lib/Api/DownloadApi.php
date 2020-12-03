@@ -87,27 +87,25 @@ class DownloadApi
      *
      * Download a file
      *
-     * @param  string $ev_api_key API Key required to make the API call. (required)
-     * @param  string $ev_access_token Access token required to make the API call. (required)
+     * @param  string $evApiKey API Key required to make the API call. (required)
+     * @param  string $evAccessToken Access token required to make the API call. (required)
      * @param  string[] $resources Path of file or folder to be downloaded, starting from the root. Can also be an array of paths. (required)
-     * @param  string $download_name If zipping multiple files, the name of the zip file to create and download. (optional)
-     * @param  bool $polling Used when downloading multiple files so url will be pulled till zip file is created. (optional)
-     * @param  string $polling_zip_name Reference to the previously created zip for polling operation. (optional)
+     * @param  string $downloadArchiveName If zipping multiple files, the name of the zip file to create and download. (optional)
      *
      * @throws \ExaVault\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return string
      */
-    public function download($ev_api_key, $ev_access_token, $resources, $download_name = null, $polling = null, $polling_zip_name = null)
+    public function download($evApiKey, $evAccessToken, $resources, $downloadArchiveName = null)
     {
         /** ExaVault Customization
          * If we aren't passing in an array of resources, use the Swagger-generated ResourcesApi::download method instead
          */
         if (!is_array($resources)) {
-            return $this->resourcesApi->download($ev_api_key, $ev_access_token, $resources, $download_name, $polling, $polling_zip_name);
+            return $this->resourcesApi->download($evApiKey, $evAccessToken, $resources, $downloadArchiveName);
         }
         /** End ExaVault Customization */
-        list($response) = $this->downloadWithHttpInfo($ev_api_key, $ev_access_token, $resources, $download_name, $polling, $polling_zip_name);
+        list($response) = $this->downloadWithHttpInfo($evApiKey, $evAccessToken, $resources, $downloadArchiveName);
         return $response;
     }
 
@@ -116,28 +114,26 @@ class DownloadApi
      *
      * Download a file
      *
-     * @param  string $ev_api_key API Key required to make the API call. (required)
-     * @param  string $ev_access_token Access token required to make the API call. (required)
+     * @param  string $evApiKey API Key required to make the API call. (required)
+     * @param  string $evAccessToken Access token required to make the API call. (required)
      * @param  string[] $resources Path of file or folder to be downloaded, starting from the root. Can also be an array of paths. (required)
-     * @param  string $download_name If zipping multiple files, the name of the zip file to create and download. (optional)
-     * @param  bool $polling Used when downloading multiple files so url will be pulled till zip file is created. (optional)
-     * @param  string $polling_zip_name Reference to the previously created zip for polling operation. (optional)
+     * @param  string $downloadArchiveName If zipping multiple files, the name of the zip file to create and download. (optional)
      *
      * @throws \ExaVault\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of string, HTTP status code, HTTP response headers (array of strings)
      */
-    public function downloadWithHttpInfo($ev_api_key, $ev_access_token, $resources, $download_name = null, $polling = null, $polling_zip_name = null)
+    public function downloadWithHttpInfo($evApiKey, $evAccessToken, $resources, $downloadArchiveName = null)
     {
         /** ExaVault Customization
          * If we aren't passing in an array of resources, use the Swagger-generated ResourcesApi::downloadWithHttpInfo method instead
          */
         if (!is_array($resources)) {
-            return $this->resourcesApi->downloadWithHttpInfo($ev_api_key, $ev_access_token, $resources, $download_name, $polling, $polling_zip_name);
+            return $this->resourcesApi->downloadWithHttpInfo($evApiKey, $evAccessToken, $resources, $downloadArchiveName);
         }
         /** End ExaVault Customization */
         $returnType = 'string';
-        $request = $this->downloadRequest($ev_api_key, $ev_access_token, $resources, $download_name, $polling, $polling_zip_name);
+        $request = $this->downloadRequest($evApiKey, $evAccessToken, $resources, $downloadArchiveName);
 
         try {
             $options = $this->createHttpClientOption();
@@ -193,14 +189,6 @@ class DownloadApi
                     );
                     $e->setResponseObject($data);
                     break;
-                case 202:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\ExaVault\Model\DownloadPollingResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
             }
             throw $e;
         }
@@ -211,26 +199,24 @@ class DownloadApi
      *
      * Download a file
      *
-     * @param  string $ev_api_key API Key required to make the API call. (required)
-     * @param  string $ev_access_token Access token required to make the API call. (required)
+     * @param  string $evApiKey API Key required to make the API call. (required)
+     * @param  string $evAccessToken Access token required to make the API call. (required)
      * @param  string[] $resources Path of file or folder to be downloaded, starting from the root. Can also be an array of paths. (required)
-     * @param  string $download_name If zipping multiple files, the name of the zip file to create and download. (optional)
-     * @param  bool $polling Used when downloading multiple files so url will be pulled till zip file is created. (optional)
-     * @param  string $polling_zip_name Reference to the previously created zip for polling operation. (optional)
+     * @param  string $downloadArchiveName If zipping multiple files, the name of the zip file to create and download. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function downloadAsync($ev_api_key, $ev_access_token, $resources, $download_name = null, $polling = null, $polling_zip_name = null)
+    public function downloadAsync($evApiKey, $evAccessToken, $resources, $downloadArchiveName = null)
     {
         /** ExaVault Customization
          * If we aren't passing in an array of resources, use the Swagger-generated ResourcesApi::downloadAsync method instead
          */
         if (!is_array($resources)) {
-            return $this->resourcesApi->downloadAsync($ev_api_key, $ev_access_token, $resources, $download_name, $polling, $polling_zip_name);
+            return $this->resourcesApi->downloadAsync($evApiKey, $evAccessToken, $resources, $downloadArchiveName);
         }
         /** End ExaVault Customization */
-        return $this->downloadAsyncWithHttpInfo($ev_api_key, $ev_access_token, $resources, $download_name, $polling, $polling_zip_name)
+        return $this->downloadAsyncWithHttpInfo($evApiKey, $evAccessToken, $resources, $downloadArchiveName)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -243,27 +229,25 @@ class DownloadApi
      *
      * Download a file
      *
-     * @param  string $ev_api_key API Key required to make the API call. (required)
-     * @param  string $ev_access_token Access token required to make the API call. (required)
+     * @param  string $evApiKey API Key required to make the API call. (required)
+     * @param  string $evAccessToken Access token required to make the API call. (required)
      * @param  string[] $resources Path of file or folder to be downloaded, starting from the root. Can also be an array of paths. (required)
-     * @param  string $download_name If zipping multiple files, the name of the zip file to create and download. (optional)
-     * @param  bool $polling Used when downloading multiple files so url will be pulled till zip file is created. (optional)
-     * @param  string $polling_zip_name Reference to the previously created zip for polling operation. (optional)
+     * @param  string $downloadArchiveName If zipping multiple files, the name of the zip file to create and download. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function downloadAsyncWithHttpInfo($ev_api_key, $ev_access_token, $resources, $download_name = null, $polling = null, $polling_zip_name = null)
+    public function downloadAsyncWithHttpInfo($evApiKey, $evAccessToken, $resources, $downloadArchiveName = null)
     {
         /** ExaVault Customization
          * If we aren't passing in an array of resources, use the Swagger-generated ResourcesApi::downloadAsyncWithHttpInfo method instead
          */
         if (!is_array($resources)) {
-            return $this->resourcesApi->downloadAsyncWithHttpInfo($ev_api_key, $ev_access_token, $resources, $download_name, $polling, $polling_zip_name);
+            return $this->resourcesApi->downloadAsyncWithHttpInfo($evApiKey, $evAccessToken, $resources, $downloadArchiveName);
         }
         /** End ExaVault Customization */        
         $returnType = 'string';
-        $request = $this->downloadRequest($ev_api_key, $ev_access_token, $resources, $download_name, $polling, $polling_zip_name);
+        $request = $this->downloadRequest($evApiKey, $evAccessToken, $resources, $downloadArchiveName);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -305,28 +289,26 @@ class DownloadApi
     /**
      * Create request for operation 'download'
      *
-     * @param  string $ev_api_key API Key required to make the API call. (required)
-     * @param  string $ev_access_token Access token required to make the API call. (required)
+     * @param  string $evApiKey API Key required to make the API call. (required)
+     * @param  string $evAccessToken Access token required to make the API call. (required)
      * @param  string[] $resources Path of file or folder to be downloaded, starting from the root. Can also be an array of paths. (required)
-     * @param  string $download_name If zipping multiple files, the name of the zip file to create and download. (optional)
-     * @param  bool $polling Used when downloading multiple files so url will be pulled till zip file is created. (optional)
-     * @param  string $polling_zip_name Reference to the previously created zip for polling operation. (optional)
+     * @param  string $downloadArchiveName If zipping multiple files, the name of the zip file to create and download. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function downloadRequest($ev_api_key, $ev_access_token, $resources, $download_name = null, $polling = null, $polling_zip_name = null)
+    protected function downloadRequest($evApiKey, $evAccessToken, $resources, $downloadArchiveName = null)
     {
-        // verify the required parameter 'ev_api_key' is set
-        if ($ev_api_key === null || (is_array($ev_api_key) && count($ev_api_key) === 0)) {
+        // verify the required parameter 'evApiKey' is set
+        if ($evApiKey === null || (is_array($evApiKey) && count($evApiKey) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $ev_api_key when calling download'
+                'Missing the required parameter $evApiKey when calling download'
             );
         }
-        // verify the required parameter 'ev_access_token' is set
-        if ($ev_access_token === null || (is_array($ev_access_token) && count($ev_access_token) === 0)) {
+        // verify the required parameter 'evAccessToken' is set
+        if ($evAccessToken === null || (is_array($evAccessToken) && count($evAccessToken) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $ev_access_token when calling download'
+                'Missing the required parameter $evAccessToken when calling download'
             );
         }
         // verify the required parameter 'resources' is set
@@ -360,24 +342,16 @@ class DownloadApi
             $resources = ObjectSerializer::serializeCollection($resources, 'multi', true);
         }
         // query params
-        if ($download_name !== null) {
-            $queryParams['downloadName'] = ObjectSerializer::toQueryValue($download_name);
-        }
-        // query params
-        if ($polling !== null) {
-            $queryParams['polling'] = ObjectSerializer::toQueryValue($polling);
-        }
-        // query params
-        if ($polling_zip_name !== null) {
-            $queryParams['pollingZipName'] = ObjectSerializer::toQueryValue($polling_zip_name);
+        if ($downloadArchiveName !== null) {
+            $queryParams['downloadArchiveName'] = ObjectSerializer::toQueryValue($downloadArchiveName);
         }
         // header params
-        if ($ev_api_key !== null) {
-            $headerParams['ev-api-key'] = ObjectSerializer::toHeaderValue($ev_api_key);
+        if ($evApiKey !== null) {
+            $headerParams['ev-api-key'] = ObjectSerializer::toHeaderValue($evApiKey);
         }
         // header params
-        if ($ev_access_token !== null) {
-            $headerParams['ev-access-token'] = ObjectSerializer::toHeaderValue($ev_access_token);
+        if ($evAccessToken !== null) {
+            $headerParams['ev-access-token'] = ObjectSerializer::toHeaderValue($evAccessToken);
         }
 
 
