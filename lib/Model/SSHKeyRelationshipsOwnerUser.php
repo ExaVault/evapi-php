@@ -1,6 +1,6 @@
 <?php
 /**
- * ShareMessageAttributes
+ * SSHKeyRelationshipsOwnerUser
  *
  * PHP version 5
  *
@@ -32,14 +32,14 @@ use \ArrayAccess;
 use \ExaVault\ObjectSerializer;
 
 /**
- * ShareMessageAttributes Class Doc Comment
+ * SSHKeyRelationshipsOwnerUser Class Doc Comment
  *
  * @category Class
  * @package  ExaVault
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class ShareMessageAttributes implements ModelInterface, ArrayAccess
+class SSHKeyRelationshipsOwnerUser implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -48,7 +48,7 @@ class ShareMessageAttributes implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'ShareMessage_attributes';
+    protected static $swaggerModelName = 'SSHKey_relationships_ownerUser';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -56,10 +56,7 @@ class ShareMessageAttributes implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'subject' => 'string',
-'body' => 'string',
-'created' => '\DateTime',
-'modified' => '\DateTime'    ];
+        'data' => '\ExaVault\Model\SSHKeyRelationshipsOwnerUserData'    ];
 
     /**
       * Array of property to format mappings. Used for (de)serialization
@@ -67,10 +64,7 @@ class ShareMessageAttributes implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'subject' => null,
-'body' => null,
-'created' => 'date-time',
-'modified' => 'date-time'    ];
+        'data' => null    ];
 
     /**
      * Array of property to type mappings. Used for (de)serialization
@@ -99,10 +93,7 @@ class ShareMessageAttributes implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'subject' => 'subject',
-'body' => 'body',
-'created' => 'created',
-'modified' => 'modified'    ];
+        'data' => 'data'    ];
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
@@ -110,10 +101,7 @@ class ShareMessageAttributes implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'subject' => 'setSubject',
-'body' => 'setBody',
-'created' => 'setCreated',
-'modified' => 'setModified'    ];
+        'data' => 'setData'    ];
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
@@ -121,10 +109,7 @@ class ShareMessageAttributes implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'subject' => 'getSubject',
-'body' => 'getBody',
-'created' => 'getCreated',
-'modified' => 'getModified'    ];
+        'data' => 'getData'    ];
 
     /**
      * Array of attributes where the key is the local name,
@@ -184,10 +169,7 @@ class ShareMessageAttributes implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['subject'] = isset($data['subject']) ? $data['subject'] : null;
-        $this->container['body'] = isset($data['body']) ? $data['body'] : null;
-        $this->container['created'] = isset($data['created']) ? $data['created'] : null;
-        $this->container['modified'] = isset($data['modified']) ? $data['modified'] : null;
+        $this->container['data'] = isset($data['data']) ? $data['data'] : null;
     }
 
     /**
@@ -215,97 +197,25 @@ class ShareMessageAttributes implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets subject
+     * Gets data
      *
-     * @return string
+     * @return \ExaVault\Model\SSHKeyRelationshipsOwnerUserData
      */
-    public function getSubject()
+    public function getData()
     {
-        return $this->container['subject'];
+        return $this->container['data'];
     }
 
     /**
-     * Sets subject
+     * Sets data
      *
-     * @param string $subject Message subject.
+     * @param \ExaVault\Model\SSHKeyRelationshipsOwnerUserData $data data
      *
      * @return $this
      */
-    public function setSubject($subject)
+    public function setData($data)
     {
-        $this->container['subject'] = $subject;
-
-        return $this;
-    }
-
-    /**
-     * Gets body
-     *
-     * @return string
-     */
-    public function getBody()
-    {
-        return $this->container['body'];
-    }
-
-    /**
-     * Sets body
-     *
-     * @param string $body Message text.
-     *
-     * @return $this
-     */
-    public function setBody($body)
-    {
-        $this->container['body'] = $body;
-
-        return $this;
-    }
-
-    /**
-     * Gets created
-     *
-     * @return \DateTime
-     */
-    public function getCreated()
-    {
-        return $this->container['created'];
-    }
-
-    /**
-     * Sets created
-     *
-     * @param \DateTime $created Timestamp of message creation.
-     *
-     * @return $this
-     */
-    public function setCreated($created)
-    {
-        $this->container['created'] = $created;
-
-        return $this;
-    }
-
-    /**
-     * Gets modified
-     *
-     * @return \DateTime
-     */
-    public function getModified()
-    {
-        return $this->container['modified'];
-    }
-
-    /**
-     * Sets modified
-     *
-     * @param \DateTime $modified Timestamp of message modification.
-     *
-     * @return $this
-     */
-    public function setModified($modified)
-    {
-        $this->container['modified'] = $modified;
+        $this->container['data'] = $data;
 
         return $this;
     }

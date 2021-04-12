@@ -302,6 +302,9 @@ class ObjectSerializer
             /**EV Customization - if the discriminator is "type" it's one we set manually so call the other class */
             if ($discriminator == "type") {
                 $class = "ExaVault\\Model\\" . ucfirst($data->type);
+            } 
+            if ($discriminator == "webhookFormat") {
+                $class = "ExaVault\\Model\\Webhook" . ucfirst($data->webhookFormat) . "Details";
             }
             /**EV End of customization */
             $instance = new $class();

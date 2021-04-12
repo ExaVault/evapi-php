@@ -57,8 +57,12 @@ class ShareMessage implements ModelInterface, ArrayAccess
       */
     protected static $swaggerTypes = [
         'id' => 'int',
-'type' => 'string',
-'attributes' => '\ExaVault\Model\ShareMessageAttributes'    ];
+'userId' => 'int',
+'shareId' => 'int',
+'subject' => 'string',
+'body' => 'string',
+'created' => '\DateTime',
+'modified' => '\DateTime'    ];
 
     /**
       * Array of property to format mappings. Used for (de)serialization
@@ -67,8 +71,12 @@ class ShareMessage implements ModelInterface, ArrayAccess
       */
     protected static $swaggerFormats = [
         'id' => 'int32',
-'type' => null,
-'attributes' => null    ];
+'userId' => 'int32',
+'shareId' => 'int32',
+'subject' => null,
+'body' => null,
+'created' => 'date-time',
+'modified' => 'date-time'    ];
 
     /**
      * Array of property to type mappings. Used for (de)serialization
@@ -98,8 +106,12 @@ class ShareMessage implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'id' => 'id',
-'type' => 'type',
-'attributes' => 'attributes'    ];
+'userId' => 'userId',
+'shareId' => 'shareId',
+'subject' => 'subject',
+'body' => 'body',
+'created' => 'created',
+'modified' => 'modified'    ];
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
@@ -108,8 +120,12 @@ class ShareMessage implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'id' => 'setId',
-'type' => 'setType',
-'attributes' => 'setAttributes'    ];
+'userId' => 'setUserId',
+'shareId' => 'setShareId',
+'subject' => 'setSubject',
+'body' => 'setBody',
+'created' => 'setCreated',
+'modified' => 'setModified'    ];
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
@@ -118,8 +134,12 @@ class ShareMessage implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'id' => 'getId',
-'type' => 'getType',
-'attributes' => 'getAttributes'    ];
+'userId' => 'getUserId',
+'shareId' => 'getShareId',
+'subject' => 'getSubject',
+'body' => 'getBody',
+'created' => 'getCreated',
+'modified' => 'getModified'    ];
 
     /**
      * Array of attributes where the key is the local name,
@@ -162,18 +182,7 @@ class ShareMessage implements ModelInterface, ArrayAccess
         return self::$swaggerModelName;
     }
 
-    const TYPE_MESSAGE = 'message';
-
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getTypeAllowableValues()
-    {
-        return [
-            self::TYPE_MESSAGE,        ];
-    }
+    
 
     /**
      * Associative array for storing property values
@@ -191,8 +200,12 @@ class ShareMessage implements ModelInterface, ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['id'] = isset($data['id']) ? $data['id'] : null;
-        $this->container['type'] = isset($data['type']) ? $data['type'] : null;
-        $this->container['attributes'] = isset($data['attributes']) ? $data['attributes'] : null;
+        $this->container['userId'] = isset($data['userId']) ? $data['userId'] : null;
+        $this->container['shareId'] = isset($data['shareId']) ? $data['shareId'] : null;
+        $this->container['subject'] = isset($data['subject']) ? $data['subject'] : null;
+        $this->container['body'] = isset($data['body']) ? $data['body'] : null;
+        $this->container['created'] = isset($data['created']) ? $data['created'] : null;
+        $this->container['modified'] = isset($data['modified']) ? $data['modified'] : null;
     }
 
     /**
@@ -203,14 +216,6 @@ class ShareMessage implements ModelInterface, ArrayAccess
     public function listInvalidProperties()
     {
         $invalidProperties = [];
-
-        $allowedValues = $this->getTypeAllowableValues();
-        if (!is_null($this->container['type']) && !in_array($this->container['type'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value for 'type', must be one of '%s'",
-                implode("', '", $allowedValues)
-            );
-        }
 
         return $invalidProperties;
     }
@@ -252,58 +257,145 @@ class ShareMessage implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets type
+     * Gets userId
      *
-     * @return string
+     * @return int
      */
-    public function getType()
+    public function getUserId()
     {
-        return $this->container['type'];
+        return $this->container['userId'];
     }
 
     /**
-     * Sets type
+     * Sets userId
      *
-     * @param string $type Resource type
+     * @param int $userId User ID who generated share invite
      *
      * @return $this
      */
-    public function setType($type)
+    public function setUserId($userId)
     {
-        $allowedValues = $this->getTypeAllowableValues();
-        if (!is_null($type) && !in_array($type, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value for 'type', must be one of '%s'",
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
-        $this->container['type'] = $type;
+        $this->container['userId'] = $userId;
 
         return $this;
     }
 
     /**
-     * Gets attributes
+     * Gets shareId
      *
-     * @return \ExaVault\Model\ShareMessageAttributes
+     * @return int
      */
-    public function getAttributes()
+    public function getShareId()
     {
-        return $this->container['attributes'];
+        return $this->container['shareId'];
     }
 
     /**
-     * Sets attributes
+     * Sets shareId
      *
-     * @param \ExaVault\Model\ShareMessageAttributes $attributes attributes
+     * @param int $shareId ID of associated share
      *
      * @return $this
      */
-    public function setAttributes($attributes)
+    public function setShareId($shareId)
     {
-        $this->container['attributes'] = $attributes;
+        $this->container['shareId'] = $shareId;
+
+        return $this;
+    }
+
+    /**
+     * Gets subject
+     *
+     * @return string
+     */
+    public function getSubject()
+    {
+        return $this->container['subject'];
+    }
+
+    /**
+     * Sets subject
+     *
+     * @param string $subject Share invitation message subject.
+     *
+     * @return $this
+     */
+    public function setSubject($subject)
+    {
+        $this->container['subject'] = $subject;
+
+        return $this;
+    }
+
+    /**
+     * Gets body
+     *
+     * @return string
+     */
+    public function getBody()
+    {
+        return $this->container['body'];
+    }
+
+    /**
+     * Sets body
+     *
+     * @param string $body Share invitation message text.
+     *
+     * @return $this
+     */
+    public function setBody($body)
+    {
+        $this->container['body'] = $body;
+
+        return $this;
+    }
+
+    /**
+     * Gets created
+     *
+     * @return \DateTime
+     */
+    public function getCreated()
+    {
+        return $this->container['created'];
+    }
+
+    /**
+     * Sets created
+     *
+     * @param \DateTime $created Timestamp of message creation.
+     *
+     * @return $this
+     */
+    public function setCreated($created)
+    {
+        $this->container['created'] = $created;
+
+        return $this;
+    }
+
+    /**
+     * Gets modified
+     *
+     * @return \DateTime
+     */
+    public function getModified()
+    {
+        return $this->container['modified'];
+    }
+
+    /**
+     * Sets modified
+     *
+     * @param \DateTime $modified Timestamp of message modification.
+     *
+     * @return $this
+     */
+    public function setModified($modified)
+    {
+        $this->container['modified'] = $modified;
 
         return $this;
     }

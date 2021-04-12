@@ -1,6 +1,6 @@
 <?php
 /**
- * UpdateNotificationByIdRequestBody
+ * WebhookRelationships
  *
  * PHP version 5
  *
@@ -32,14 +32,14 @@ use \ArrayAccess;
 use \ExaVault\ObjectSerializer;
 
 /**
- * UpdateNotificationByIdRequestBody Class Doc Comment
+ * WebhookRelationships Class Doc Comment
  *
  * @category Class
  * @package  ExaVault
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class UpdateNotificationByIdRequestBody implements ModelInterface, ArrayAccess
+class WebhookRelationships implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -48,7 +48,7 @@ class UpdateNotificationByIdRequestBody implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'UpdateNotificationByIdRequestBody';
+    protected static $swaggerModelName = 'Webhook_relationships';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -56,11 +56,8 @@ class UpdateNotificationByIdRequestBody implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'action' => 'string',
-'usernames' => 'string[]',
-'sendEmail' => 'bool',
-'recipients' => 'string[]',
-'message' => 'string'    ];
+        'ownerAccount' => '\ExaVault\Model\WebhookRelationshipsOwnerAccount',
+'resource' => '\ExaVault\Model\WebhookRelationshipsResource'    ];
 
     /**
       * Array of property to format mappings. Used for (de)serialization
@@ -68,11 +65,8 @@ class UpdateNotificationByIdRequestBody implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'action' => null,
-'usernames' => null,
-'sendEmail' => null,
-'recipients' => 'email',
-'message' => null    ];
+        'ownerAccount' => null,
+'resource' => null    ];
 
     /**
      * Array of property to type mappings. Used for (de)serialization
@@ -101,11 +95,8 @@ class UpdateNotificationByIdRequestBody implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'action' => 'action',
-'usernames' => 'usernames',
-'sendEmail' => 'sendEmail',
-'recipients' => 'recipients',
-'message' => 'message'    ];
+        'ownerAccount' => 'ownerAccount',
+'resource' => 'resource'    ];
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
@@ -113,11 +104,8 @@ class UpdateNotificationByIdRequestBody implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'action' => 'setAction',
-'usernames' => 'setUsernames',
-'sendEmail' => 'setSendEmail',
-'recipients' => 'setRecipients',
-'message' => 'setMessage'    ];
+        'ownerAccount' => 'setOwnerAccount',
+'resource' => 'setResource'    ];
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
@@ -125,11 +113,8 @@ class UpdateNotificationByIdRequestBody implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'action' => 'getAction',
-'usernames' => 'getUsernames',
-'sendEmail' => 'getSendEmail',
-'recipients' => 'getRecipients',
-'message' => 'getMessage'    ];
+        'ownerAccount' => 'getOwnerAccount',
+'resource' => 'getResource'    ];
 
     /**
      * Array of attributes where the key is the local name,
@@ -172,24 +157,7 @@ class UpdateNotificationByIdRequestBody implements ModelInterface, ArrayAccess
         return self::$swaggerModelName;
     }
 
-    const ACTION_UPLOAD = 'upload';
-const ACTION_DOWNLOAD = 'download';
-const ACTION_DELETE = 'delete';
-const ACTION_ALL = 'all';
-
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getActionAllowableValues()
-    {
-        return [
-            self::ACTION_UPLOAD,
-self::ACTION_DOWNLOAD,
-self::ACTION_DELETE,
-self::ACTION_ALL,        ];
-    }
+    
 
     /**
      * Associative array for storing property values
@@ -206,11 +174,8 @@ self::ACTION_ALL,        ];
      */
     public function __construct(array $data = null)
     {
-        $this->container['action'] = isset($data['action']) ? $data['action'] : null;
-        $this->container['usernames'] = isset($data['usernames']) ? $data['usernames'] : null;
-        $this->container['sendEmail'] = isset($data['sendEmail']) ? $data['sendEmail'] : null;
-        $this->container['recipients'] = isset($data['recipients']) ? $data['recipients'] : null;
-        $this->container['message'] = isset($data['message']) ? $data['message'] : null;
+        $this->container['ownerAccount'] = isset($data['ownerAccount']) ? $data['ownerAccount'] : null;
+        $this->container['resource'] = isset($data['resource']) ? $data['resource'] : null;
     }
 
     /**
@@ -221,14 +186,6 @@ self::ACTION_ALL,        ];
     public function listInvalidProperties()
     {
         $invalidProperties = [];
-
-        $allowedValues = $this->getActionAllowableValues();
-        if (!is_null($this->container['action']) && !in_array($this->container['action'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value for 'action', must be one of '%s'",
-                implode("', '", $allowedValues)
-            );
-        }
 
         return $invalidProperties;
     }
@@ -246,130 +203,49 @@ self::ACTION_ALL,        ];
 
 
     /**
-     * Gets action
+     * Gets ownerAccount
      *
-     * @return string
+     * @return \ExaVault\Model\WebhookRelationshipsOwnerAccount
      */
-    public function getAction()
+    public function getOwnerAccount()
     {
-        return $this->container['action'];
+        return $this->container['ownerAccount'];
     }
 
     /**
-     * Sets action
+     * Sets ownerAccount
      *
-     * @param string $action Type of action be notified about. Notifications will only be sent for the given type of action. Valid choices are **upload**, **download**, **delete** or **all** (upload/download/delete)
+     * @param \ExaVault\Model\WebhookRelationshipsOwnerAccount $ownerAccount ownerAccount
      *
      * @return $this
      */
-    public function setAction($action)
+    public function setOwnerAccount($ownerAccount)
     {
-        $allowedValues = $this->getActionAllowableValues();
-        if (!is_null($action) && !in_array($action, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value for 'action', must be one of '%s'",
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
-        $this->container['action'] = $action;
+        $this->container['ownerAccount'] = $ownerAccount;
 
         return $this;
     }
 
     /**
-     * Gets usernames
+     * Gets resource
      *
-     * @return string[]
+     * @return \ExaVault\Model\WebhookRelationshipsResource
      */
-    public function getUsernames()
+    public function getResource()
     {
-        return $this->container['usernames'];
+        return $this->container['resource'];
     }
 
     /**
-     * Sets usernames
+     * Sets resource
      *
-     * @param string[] $usernames Determines which users' actions should trigger the notification.   Rather than listing  individual users, you can also use 3 special options:  - **notice\\_user\\_all** for activity by any user or share recipient - **notice\\_user\\_all\\_users** for activity only by user accounts - **notice\\_user\\_all\\_recipients** for activity only by share recipients
+     * @param \ExaVault\Model\WebhookRelationshipsResource $resource resource
      *
      * @return $this
      */
-    public function setUsernames($usernames)
+    public function setResource($resource)
     {
-        $this->container['usernames'] = $usernames;
-
-        return $this;
-    }
-
-    /**
-     * Gets sendEmail
-     *
-     * @return bool
-     */
-    public function getSendEmail()
-    {
-        return $this->container['sendEmail'];
-    }
-
-    /**
-     * Sets sendEmail
-     *
-     * @param bool $sendEmail Whether an email should be sent to the recipients when matching activity happens.
-     *
-     * @return $this
-     */
-    public function setSendEmail($sendEmail)
-    {
-        $this->container['sendEmail'] = $sendEmail;
-
-        return $this;
-    }
-
-    /**
-     * Gets recipients
-     *
-     * @return string[]
-     */
-    public function getRecipients()
-    {
-        return $this->container['recipients'];
-    }
-
-    /**
-     * Sets recipients
-     *
-     * @param string[] $recipients Email addresses to send notification emails to. If empty, sends to the current user's email address.
-     *
-     * @return $this
-     */
-    public function setRecipients($recipients)
-    {
-        $this->container['recipients'] = $recipients;
-
-        return $this;
-    }
-
-    /**
-     * Gets message
-     *
-     * @return string
-     */
-    public function getMessage()
-    {
-        return $this->container['message'];
-    }
-
-    /**
-     * Sets message
-     *
-     * @param string $message Custom message to insert into the notification emails, along with the matching activity.
-     *
-     * @return $this
-     */
-    public function setMessage($message)
-    {
-        $this->container['message'] = $message;
+        $this->container['resource'] = $resource;
 
         return $this;
     }

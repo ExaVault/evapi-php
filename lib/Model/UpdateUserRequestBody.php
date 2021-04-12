@@ -62,12 +62,11 @@ class UpdateUserRequestBody implements ModelInterface, ArrayAccess
 'email' => 'string',
 'password' => 'string',
 'role' => 'string',
-'permissions' => '\ExaVault\Model\UsersPermissions',
+'permissions' => '\ExaVault\Model\UserPermissions',
 'timeZone' => 'string',
 'expiration' => 'string',
 'locked' => 'bool',
-'onboarding' => 'bool',
-'currentUserPassword' => 'string'    ];
+'onboarding' => 'bool'    ];
 
     /**
       * Array of property to format mappings. Used for (de)serialization
@@ -85,8 +84,7 @@ class UpdateUserRequestBody implements ModelInterface, ArrayAccess
 'timeZone' => null,
 'expiration' => null,
 'locked' => null,
-'onboarding' => null,
-'currentUserPassword' => null    ];
+'onboarding' => null    ];
 
     /**
      * Array of property to type mappings. Used for (de)serialization
@@ -125,8 +123,7 @@ class UpdateUserRequestBody implements ModelInterface, ArrayAccess
 'timeZone' => 'timeZone',
 'expiration' => 'expiration',
 'locked' => 'locked',
-'onboarding' => 'onboarding',
-'currentUserPassword' => 'currentUserPassword'    ];
+'onboarding' => 'onboarding'    ];
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
@@ -144,8 +141,7 @@ class UpdateUserRequestBody implements ModelInterface, ArrayAccess
 'timeZone' => 'setTimeZone',
 'expiration' => 'setExpiration',
 'locked' => 'setLocked',
-'onboarding' => 'setOnboarding',
-'currentUserPassword' => 'setCurrentUserPassword'    ];
+'onboarding' => 'setOnboarding'    ];
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
@@ -163,8 +159,7 @@ class UpdateUserRequestBody implements ModelInterface, ArrayAccess
 'timeZone' => 'getTimeZone',
 'expiration' => 'getExpiration',
 'locked' => 'getLocked',
-'onboarding' => 'getOnboarding',
-'currentUserPassword' => 'getCurrentUserPassword'    ];
+'onboarding' => 'getOnboarding'    ];
 
     /**
      * Array of attributes where the key is the local name,
@@ -248,7 +243,6 @@ self::ROLE_ADMIN,        ];
         $this->container['expiration'] = isset($data['expiration']) ? $data['expiration'] : null;
         $this->container['locked'] = isset($data['locked']) ? $data['locked'] : null;
         $this->container['onboarding'] = isset($data['onboarding']) ? $data['onboarding'] : null;
-        $this->container['currentUserPassword'] = isset($data['currentUserPassword']) ? $data['currentUserPassword'] : null;
     }
 
     /**
@@ -439,7 +433,7 @@ self::ROLE_ADMIN,        ];
     /**
      * Gets permissions
      *
-     * @return \ExaVault\Model\UsersPermissions
+     * @return \ExaVault\Model\UserPermissions
      */
     public function getPermissions()
     {
@@ -449,7 +443,7 @@ self::ROLE_ADMIN,        ];
     /**
      * Sets permissions
      *
-     * @param \ExaVault\Model\UsersPermissions $permissions permissions
+     * @param \ExaVault\Model\UserPermissions $permissions permissions
      *
      * @return $this
      */
@@ -552,30 +546,6 @@ self::ROLE_ADMIN,        ];
     public function setOnboarding($onboarding)
     {
         $this->container['onboarding'] = $onboarding;
-
-        return $this;
-    }
-
-    /**
-     * Gets currentUserPassword
-     *
-     * @return string
-     */
-    public function getCurrentUserPassword()
-    {
-        return $this->container['currentUserPassword'];
-    }
-
-    /**
-     * Sets currentUserPassword
-     *
-     * @param string $currentUserPassword The password of the currently authenticated user. Required when updating any user’s email, username or password.
-     *
-     * @return $this
-     */
-    public function setCurrentUserPassword($currentUserPassword)
-    {
-        $this->container['currentUserPassword'] = $currentUserPassword;
 
         return $this;
     }

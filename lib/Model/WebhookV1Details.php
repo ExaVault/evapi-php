@@ -1,6 +1,6 @@
 <?php
 /**
- * WebhooksActivityEntry
+ * WebhookV1Details
  *
  * PHP version 5
  *
@@ -32,14 +32,14 @@ use \ArrayAccess;
 use \ExaVault\ObjectSerializer;
 
 /**
- * WebhooksActivityEntry Class Doc Comment
+ * WebhookV1Details Class Doc Comment
  *
  * @category Class
  * @package  ExaVault
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class WebhooksActivityEntry implements ModelInterface, ArrayAccess
+class WebhookV1Details implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -48,7 +48,7 @@ class WebhooksActivityEntry implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'WebhooksActivityEntry';
+    protected static $swaggerModelName = 'WebhookV1Details';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -56,9 +56,12 @@ class WebhooksActivityEntry implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'id' => 'int',
-'type' => 'string',
-'attributes' => '\ExaVault\Model\WebhooksActivityEntryAttributes'    ];
+        'attemptId' => 'string',
+'accountName' => 'string',
+'protocol' => 'string',
+'username' => 'string',
+'event' => 'string',
+'attempt' => 'int'    ];
 
     /**
       * Array of property to format mappings. Used for (de)serialization
@@ -66,9 +69,12 @@ class WebhooksActivityEntry implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'id' => 'int64',
-'type' => null,
-'attributes' => null    ];
+        'attemptId' => null,
+'accountName' => null,
+'protocol' => null,
+'username' => null,
+'event' => null,
+'attempt' => null    ];
 
     /**
      * Array of property to type mappings. Used for (de)serialization
@@ -97,9 +103,12 @@ class WebhooksActivityEntry implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'id' => 'id',
-'type' => 'type',
-'attributes' => 'attributes'    ];
+        'attemptId' => 'attemptId',
+'accountName' => 'accountName',
+'protocol' => 'protocol',
+'username' => 'username',
+'event' => 'event',
+'attempt' => 'attempt'    ];
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
@@ -107,9 +116,12 @@ class WebhooksActivityEntry implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'id' => 'setId',
-'type' => 'setType',
-'attributes' => 'setAttributes'    ];
+        'attemptId' => 'setAttemptId',
+'accountName' => 'setAccountName',
+'protocol' => 'setProtocol',
+'username' => 'setUsername',
+'event' => 'setEvent',
+'attempt' => 'setAttempt'    ];
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
@@ -117,9 +129,12 @@ class WebhooksActivityEntry implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'id' => 'getId',
-'type' => 'getType',
-'attributes' => 'getAttributes'    ];
+        'attemptId' => 'getAttemptId',
+'accountName' => 'getAccountName',
+'protocol' => 'getProtocol',
+'username' => 'getUsername',
+'event' => 'getEvent',
+'attempt' => 'getAttempt'    ];
 
     /**
      * Array of attributes where the key is the local name,
@@ -162,18 +177,7 @@ class WebhooksActivityEntry implements ModelInterface, ArrayAccess
         return self::$swaggerModelName;
     }
 
-    const TYPE_WEBHOOK_ACTIVITY = 'webhookActivity';
-
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getTypeAllowableValues()
-    {
-        return [
-            self::TYPE_WEBHOOK_ACTIVITY,        ];
-    }
+    
 
     /**
      * Associative array for storing property values
@@ -190,9 +194,12 @@ class WebhooksActivityEntry implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['id'] = isset($data['id']) ? $data['id'] : null;
-        $this->container['type'] = isset($data['type']) ? $data['type'] : null;
-        $this->container['attributes'] = isset($data['attributes']) ? $data['attributes'] : null;
+        $this->container['attemptId'] = isset($data['attemptId']) ? $data['attemptId'] : null;
+        $this->container['accountName'] = isset($data['accountName']) ? $data['accountName'] : null;
+        $this->container['protocol'] = isset($data['protocol']) ? $data['protocol'] : null;
+        $this->container['username'] = isset($data['username']) ? $data['username'] : null;
+        $this->container['event'] = isset($data['event']) ? $data['event'] : null;
+        $this->container['attempt'] = isset($data['attempt']) ? $data['attempt'] : null;
     }
 
     /**
@@ -203,14 +210,6 @@ class WebhooksActivityEntry implements ModelInterface, ArrayAccess
     public function listInvalidProperties()
     {
         $invalidProperties = [];
-
-        $allowedValues = $this->getTypeAllowableValues();
-        if (!is_null($this->container['type']) && !in_array($this->container['type'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value for 'type', must be one of '%s'",
-                implode("', '", $allowedValues)
-            );
-        }
 
         return $invalidProperties;
     }
@@ -228,82 +227,145 @@ class WebhooksActivityEntry implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets id
-     *
-     * @return int
-     */
-    public function getId()
-    {
-        return $this->container['id'];
-    }
-
-    /**
-     * Sets id
-     *
-     * @param int $id id
-     *
-     * @return $this
-     */
-    public function setId($id)
-    {
-        $this->container['id'] = $id;
-
-        return $this;
-    }
-
-    /**
-     * Gets type
+     * Gets attemptId
      *
      * @return string
      */
-    public function getType()
+    public function getAttemptId()
     {
-        return $this->container['type'];
+        return $this->container['attemptId'];
     }
 
     /**
-     * Sets type
+     * Sets attemptId
      *
-     * @param string $type type
+     * @param string $attemptId Entry - retry identifier
      *
      * @return $this
      */
-    public function setType($type)
+    public function setAttemptId($attemptId)
     {
-        $allowedValues = $this->getTypeAllowableValues();
-        if (!is_null($type) && !in_array($type, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value for 'type', must be one of '%s'",
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
-        $this->container['type'] = $type;
+        $this->container['attemptId'] = $attemptId;
 
         return $this;
     }
 
     /**
-     * Gets attributes
+     * Gets accountName
      *
-     * @return \ExaVault\Model\WebhooksActivityEntryAttributes
+     * @return string
      */
-    public function getAttributes()
+    public function getAccountName()
     {
-        return $this->container['attributes'];
+        return $this->container['accountName'];
     }
 
     /**
-     * Sets attributes
+     * Sets accountName
      *
-     * @param \ExaVault\Model\WebhooksActivityEntryAttributes $attributes attributes
+     * @param string $accountName Account master username
      *
      * @return $this
      */
-    public function setAttributes($attributes)
+    public function setAccountName($accountName)
     {
-        $this->container['attributes'] = $attributes;
+        $this->container['accountName'] = $accountName;
+
+        return $this;
+    }
+
+    /**
+     * Gets protocol
+     *
+     * @return string
+     */
+    public function getProtocol()
+    {
+        return $this->container['protocol'];
+    }
+
+    /**
+     * Sets protocol
+     *
+     * @param string $protocol Type of connection used for related activity
+     *
+     * @return $this
+     */
+    public function setProtocol($protocol)
+    {
+        $this->container['protocol'] = $protocol;
+
+        return $this;
+    }
+
+    /**
+     * Gets username
+     *
+     * @return string
+     */
+    public function getUsername()
+    {
+        return $this->container['username'];
+    }
+
+    /**
+     * Sets username
+     *
+     * @param string $username Username logged for related activity. May refer to someone who is not a user of the account, such as a share recipient or \"publ
+     *
+     * @return $this
+     */
+    public function setUsername($username)
+    {
+        $this->container['username'] = $username;
+
+        return $this;
+    }
+
+    /**
+     * Gets event
+     *
+     * @return string
+     */
+    public function getEvent()
+    {
+        return $this->container['event'];
+    }
+
+    /**
+     * Sets event
+     *
+     * @param string $event Type of related activity
+     *
+     * @return $this
+     */
+    public function setEvent($event)
+    {
+        $this->container['event'] = $event;
+
+        return $this;
+    }
+
+    /**
+     * Gets attempt
+     *
+     * @return int
+     */
+    public function getAttempt()
+    {
+        return $this->container['attempt'];
+    }
+
+    /**
+     * Sets attempt
+     *
+     * @param int $attempt Number of times the system has attempted to send
+     *
+     * @return $this
+     */
+    public function setAttempt($attempt)
+    {
+        $this->container['attempt'] = $attempt;
 
         return $this;
     }

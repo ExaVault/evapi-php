@@ -1,6 +1,6 @@
 <?php
 /**
- * CallbackSettingsValues
+ * SSHKeyResponse
  *
  * PHP version 5
  *
@@ -32,14 +32,14 @@ use \ArrayAccess;
 use \ExaVault\ObjectSerializer;
 
 /**
- * CallbackSettingsValues Class Doc Comment
+ * SSHKeyResponse Class Doc Comment
  *
  * @category Class
  * @package  ExaVault
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class CallbackSettingsValues implements ModelInterface, ArrayAccess
+class SSHKeyResponse implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -48,7 +48,7 @@ class CallbackSettingsValues implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'CallbackSettingsValues';
+    protected static $swaggerModelName = 'SSHKeyResponse';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -56,8 +56,9 @@ class CallbackSettingsValues implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'endpointUrl' => 'string',
-'triggers' => '\ExaVault\Model\CallbackSettingsValuesTriggers'    ];
+        'responseStatus' => 'int',
+'data' => '\ExaVault\Model\SSHKey',
+'included' => '\ExaVault\Model\User[]'    ];
 
     /**
       * Array of property to format mappings. Used for (de)serialization
@@ -65,8 +66,9 @@ class CallbackSettingsValues implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'endpointUrl' => 'uri',
-'triggers' => null    ];
+        'responseStatus' => null,
+'data' => null,
+'included' => null    ];
 
     /**
      * Array of property to type mappings. Used for (de)serialization
@@ -95,8 +97,9 @@ class CallbackSettingsValues implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'endpointUrl' => 'endpointUrl',
-'triggers' => 'triggers'    ];
+        'responseStatus' => 'responseStatus',
+'data' => 'data',
+'included' => 'included'    ];
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
@@ -104,8 +107,9 @@ class CallbackSettingsValues implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'endpointUrl' => 'setEndpointUrl',
-'triggers' => 'setTriggers'    ];
+        'responseStatus' => 'setResponseStatus',
+'data' => 'setData',
+'included' => 'setIncluded'    ];
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
@@ -113,8 +117,9 @@ class CallbackSettingsValues implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'endpointUrl' => 'getEndpointUrl',
-'triggers' => 'getTriggers'    ];
+        'responseStatus' => 'getResponseStatus',
+'data' => 'getData',
+'included' => 'getIncluded'    ];
 
     /**
      * Array of attributes where the key is the local name,
@@ -174,8 +179,9 @@ class CallbackSettingsValues implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['endpointUrl'] = isset($data['endpointUrl']) ? $data['endpointUrl'] : null;
-        $this->container['triggers'] = isset($data['triggers']) ? $data['triggers'] : null;
+        $this->container['responseStatus'] = isset($data['responseStatus']) ? $data['responseStatus'] : null;
+        $this->container['data'] = isset($data['data']) ? $data['data'] : null;
+        $this->container['included'] = isset($data['included']) ? $data['included'] : null;
     }
 
     /**
@@ -203,49 +209,73 @@ class CallbackSettingsValues implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets endpointUrl
+     * Gets responseStatus
      *
-     * @return string
+     * @return int
      */
-    public function getEndpointUrl()
+    public function getResponseStatus()
     {
-        return $this->container['endpointUrl'];
+        return $this->container['responseStatus'];
     }
 
     /**
-     * Sets endpointUrl
+     * Sets responseStatus
      *
-     * @param string $endpointUrl endpointUrl
+     * @param int $responseStatus Http status code of the response.
      *
      * @return $this
      */
-    public function setEndpointUrl($endpointUrl)
+    public function setResponseStatus($responseStatus)
     {
-        $this->container['endpointUrl'] = $endpointUrl;
+        $this->container['responseStatus'] = $responseStatus;
 
         return $this;
     }
 
     /**
-     * Gets triggers
+     * Gets data
      *
-     * @return \ExaVault\Model\CallbackSettingsValuesTriggers
+     * @return \ExaVault\Model\SSHKey
      */
-    public function getTriggers()
+    public function getData()
     {
-        return $this->container['triggers'];
+        return $this->container['data'];
     }
 
     /**
-     * Sets triggers
+     * Sets data
      *
-     * @param \ExaVault\Model\CallbackSettingsValuesTriggers $triggers triggers
+     * @param \ExaVault\Model\SSHKey $data data
      *
      * @return $this
      */
-    public function setTriggers($triggers)
+    public function setData($data)
     {
-        $this->container['triggers'] = $triggers;
+        $this->container['data'] = $data;
+
+        return $this;
+    }
+
+    /**
+     * Gets included
+     *
+     * @return \ExaVault\Model\User[]
+     */
+    public function getIncluded()
+    {
+        return $this->container['included'];
+    }
+
+    /**
+     * Sets included
+     *
+     * @param \ExaVault\Model\User[] $included included
+     *
+     * @return $this
+     */
+    public function setIncluded($included)
+    {
+        $this->container['included'] = $included;
 
         return $this;
     }

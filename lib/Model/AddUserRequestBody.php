@@ -365,7 +365,7 @@ self::ROLE_ADMIN,        ];
     /**
      * Sets homeResource
      *
-     * @param string $homeResource Resource identifier for the user's home folder. See details on [how to specify resources](#section/Identifying-Resources) above.  The user will be locked to this directory and unable to move 'up' in the account. If the folder does not exist in the account, it will be created when the user is created.   This setting is ignored for users with the `role` **admin**.
+     * @param string $homeResource Resource identifier for the user's home folder. See details on [how to specify resources](#section/Identifying-Resources) above.  The user will be locked to this directory and unable to move 'up' in the account. If the folder does not exist in the account, it will be created when the user is created.   Users with the `role` **admin** should have their homeResource set to '/'
      *
      * @return $this
      */
@@ -437,7 +437,7 @@ self::ROLE_ADMIN,        ];
     /**
      * Sets role
      *
-     * @param string $role The type of user to create. Note that admin users cannot have a `homeResource` other than '/', and will have full permissions, but you must provide at least \"download,upload,list,delete\" in the `permissions` parameter.
+     * @param string $role The type of user to create, either **user** or **admin**.
      *
      * @return $this
      */

@@ -1,6 +1,6 @@
 <?php
 /**
- * Quota
+ * AccountQuotaValues
  *
  * PHP version 5
  *
@@ -32,14 +32,14 @@ use \ArrayAccess;
 use \ExaVault\ObjectSerializer;
 
 /**
- * Quota Class Doc Comment
+ * AccountQuotaValues Class Doc Comment
  *
  * @category Class
  * @package  ExaVault
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class Quota implements ModelInterface, ArrayAccess
+class AccountQuotaValues implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -48,7 +48,7 @@ class Quota implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'Quota';
+    protected static $swaggerModelName = 'AccountQuotaValues';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -56,13 +56,8 @@ class Quota implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'diskLimit' => 'int',
-'diskUsed' => 'int',
-'noticeEnabled' => 'bool',
+        'noticeEnabled' => 'bool',
 'noticeThreshold' => 'int',
-'bandwidthLimit' => 'int',
-'bandwidthUsed' => 'int',
-'transactionsLimit' => 'int',
 'transactionsNoticeEnabled' => 'bool',
 'transactionsNoticeThreshold' => 'int'    ];
 
@@ -72,15 +67,10 @@ class Quota implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'diskLimit' => 'int64',
-'diskUsed' => 'int64',
-'noticeEnabled' => null,
-'noticeThreshold' => 'int32',
-'bandwidthLimit' => 'int64',
-'bandwidthUsed' => 'int64',
-'transactionsLimit' => 'int32',
+        'noticeEnabled' => null,
+'noticeThreshold' => null,
 'transactionsNoticeEnabled' => null,
-'transactionsNoticeThreshold' => 'int32'    ];
+'transactionsNoticeThreshold' => null    ];
 
     /**
      * Array of property to type mappings. Used for (de)serialization
@@ -109,13 +99,8 @@ class Quota implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'diskLimit' => 'diskLimit',
-'diskUsed' => 'diskUsed',
-'noticeEnabled' => 'noticeEnabled',
+        'noticeEnabled' => 'noticeEnabled',
 'noticeThreshold' => 'noticeThreshold',
-'bandwidthLimit' => 'bandwidthLimit',
-'bandwidthUsed' => 'bandwidthUsed',
-'transactionsLimit' => 'transactionsLimit',
 'transactionsNoticeEnabled' => 'transactionsNoticeEnabled',
 'transactionsNoticeThreshold' => 'transactionsNoticeThreshold'    ];
 
@@ -125,13 +110,8 @@ class Quota implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'diskLimit' => 'setDiskLimit',
-'diskUsed' => 'setDiskUsed',
-'noticeEnabled' => 'setNoticeEnabled',
+        'noticeEnabled' => 'setNoticeEnabled',
 'noticeThreshold' => 'setNoticeThreshold',
-'bandwidthLimit' => 'setBandwidthLimit',
-'bandwidthUsed' => 'setBandwidthUsed',
-'transactionsLimit' => 'setTransactionsLimit',
 'transactionsNoticeEnabled' => 'setTransactionsNoticeEnabled',
 'transactionsNoticeThreshold' => 'setTransactionsNoticeThreshold'    ];
 
@@ -141,13 +121,8 @@ class Quota implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'diskLimit' => 'getDiskLimit',
-'diskUsed' => 'getDiskUsed',
-'noticeEnabled' => 'getNoticeEnabled',
+        'noticeEnabled' => 'getNoticeEnabled',
 'noticeThreshold' => 'getNoticeThreshold',
-'bandwidthLimit' => 'getBandwidthLimit',
-'bandwidthUsed' => 'getBandwidthUsed',
-'transactionsLimit' => 'getTransactionsLimit',
 'transactionsNoticeEnabled' => 'getTransactionsNoticeEnabled',
 'transactionsNoticeThreshold' => 'getTransactionsNoticeThreshold'    ];
 
@@ -209,13 +184,8 @@ class Quota implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['diskLimit'] = isset($data['diskLimit']) ? $data['diskLimit'] : null;
-        $this->container['diskUsed'] = isset($data['diskUsed']) ? $data['diskUsed'] : null;
         $this->container['noticeEnabled'] = isset($data['noticeEnabled']) ? $data['noticeEnabled'] : null;
         $this->container['noticeThreshold'] = isset($data['noticeThreshold']) ? $data['noticeThreshold'] : null;
-        $this->container['bandwidthLimit'] = isset($data['bandwidthLimit']) ? $data['bandwidthLimit'] : null;
-        $this->container['bandwidthUsed'] = isset($data['bandwidthUsed']) ? $data['bandwidthUsed'] : null;
-        $this->container['transactionsLimit'] = isset($data['transactionsLimit']) ? $data['transactionsLimit'] : null;
         $this->container['transactionsNoticeEnabled'] = isset($data['transactionsNoticeEnabled']) ? $data['transactionsNoticeEnabled'] : null;
         $this->container['transactionsNoticeThreshold'] = isset($data['transactionsNoticeThreshold']) ? $data['transactionsNoticeThreshold'] : null;
     }
@@ -245,54 +215,6 @@ class Quota implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets diskLimit
-     *
-     * @return int
-     */
-    public function getDiskLimit()
-    {
-        return $this->container['diskLimit'];
-    }
-
-    /**
-     * Sets diskLimit
-     *
-     * @param int $diskLimit Amount of disk space that the account has available to it. This may be increased by upgrading to a larger plan.
-     *
-     * @return $this
-     */
-    public function setDiskLimit($diskLimit)
-    {
-        $this->container['diskLimit'] = $diskLimit;
-
-        return $this;
-    }
-
-    /**
-     * Gets diskUsed
-     *
-     * @return int
-     */
-    public function getDiskUsed()
-    {
-        return $this->container['diskUsed'];
-    }
-
-    /**
-     * Sets diskUsed
-     *
-     * @param int $diskUsed Amount of disk space currently in use.
-     *
-     * @return $this
-     */
-    public function setDiskUsed($diskUsed)
-    {
-        $this->container['diskUsed'] = $diskUsed;
-
-        return $this;
-    }
-
-    /**
      * Gets noticeEnabled
      *
      * @return bool
@@ -305,7 +227,7 @@ class Quota implements ModelInterface, ArrayAccess
     /**
      * Sets noticeEnabled
      *
-     * @param bool $noticeEnabled Should a quota warning be sent to the account owner when a threshold level of space utilization is reached?
+     * @param bool $noticeEnabled Whether the system should email the account owner if the account storage exceeds the noticeThreshold value. Storage notice emails are sent no mo once per day.
      *
      * @return $this
      */
@@ -329,85 +251,13 @@ class Quota implements ModelInterface, ArrayAccess
     /**
      * Sets noticeThreshold
      *
-     * @param int $noticeThreshold Treshold that triggers a quota notification. This represents the \"percent full\" your account must be before the quota notification is generated.
+     * @param int $noticeThreshold Percent of account storage that would trigger a notice email. Must be a whole number between 70 and 100 (inclusive).
      *
      * @return $this
      */
     public function setNoticeThreshold($noticeThreshold)
     {
         $this->container['noticeThreshold'] = $noticeThreshold;
-
-        return $this;
-    }
-
-    /**
-     * Gets bandwidthLimit
-     *
-     * @return int
-     */
-    public function getBandwidthLimit()
-    {
-        return $this->container['bandwidthLimit'];
-    }
-
-    /**
-     * Sets bandwidthLimit
-     *
-     * @param int $bandwidthLimit Total number of bytes that can be transferred per month.
-     *
-     * @return $this
-     */
-    public function setBandwidthLimit($bandwidthLimit)
-    {
-        $this->container['bandwidthLimit'] = $bandwidthLimit;
-
-        return $this;
-    }
-
-    /**
-     * Gets bandwidthUsed
-     *
-     * @return int
-     */
-    public function getBandwidthUsed()
-    {
-        return $this->container['bandwidthUsed'];
-    }
-
-    /**
-     * Sets bandwidthUsed
-     *
-     * @param int $bandwidthUsed Number of bytes transferred this month.
-     *
-     * @return $this
-     */
-    public function setBandwidthUsed($bandwidthUsed)
-    {
-        $this->container['bandwidthUsed'] = $bandwidthUsed;
-
-        return $this;
-    }
-
-    /**
-     * Gets transactionsLimit
-     *
-     * @return int
-     */
-    public function getTransactionsLimit()
-    {
-        return $this->container['transactionsLimit'];
-    }
-
-    /**
-     * Sets transactionsLimit
-     *
-     * @param int $transactionsLimit Total number of transactions allowed in a 24-hour period.
-     *
-     * @return $this
-     */
-    public function setTransactionsLimit($transactionsLimit)
-    {
-        $this->container['transactionsLimit'] = $transactionsLimit;
 
         return $this;
     }
@@ -425,7 +275,7 @@ class Quota implements ModelInterface, ArrayAccess
     /**
      * Sets transactionsNoticeEnabled
      *
-     * @param bool $transactionsNoticeEnabled Whether an email should be sent to the account owner up to once per day if transaction usage exceeds `transactionsNoticeThreshold` value.
+     * @param bool $transactionsNoticeEnabled Whether the system should email the account owner if the daily transaction usage exceeds the transactionsNoticeThreshold value. Transaction notice emails are sent no more than once per day.
      *
      * @return $this
      */
@@ -449,7 +299,7 @@ class Quota implements ModelInterface, ArrayAccess
     /**
      * Sets transactionsNoticeThreshold
      *
-     * @param int $transactionsNoticeThreshold Percent of daily transactions limit that will trigger an email if activity exceeds it.
+     * @param int $transactionsNoticeThreshold Percent of daily transaction usage that would trigger a notice email. Must be a whole number between 70 and 100 (inclusive).
      *
      * @return $this
      */

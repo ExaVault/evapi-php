@@ -56,19 +56,17 @@ class UpdateAccountRequestBody implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'quotaNoticeEnabled' => 'bool',
-'quotaNoticeThreshold' => 'int',
-'secureOnly' => 'bool',
+        'secureOnly' => 'bool',
 'complexPasswords' => 'bool',
 'showReferralLinks' => 'bool',
 'externalDomain' => 'string',
 'emailContent' => 'string',
 'emailSubject' => 'string',
 'allowedIpRanges' => '\ExaVault\Model\AccountAllowedIpRanges[]',
-'callbackSettings' => '\ExaVault\Model\CallbackSettingsValues',
 'brandingSettings' => '\ExaVault\Model\BrandingSettingsValues',
 'accountOnboarding' => 'bool',
-'customSignature' => 'string'    ];
+'customSignature' => 'string',
+'quota' => '\ExaVault\Model\AccountQuotaValues'    ];
 
     /**
       * Array of property to format mappings. Used for (de)serialization
@@ -76,19 +74,17 @@ class UpdateAccountRequestBody implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'quotaNoticeEnabled' => null,
-'quotaNoticeThreshold' => null,
-'secureOnly' => null,
+        'secureOnly' => null,
 'complexPasswords' => null,
 'showReferralLinks' => null,
 'externalDomain' => null,
 'emailContent' => null,
 'emailSubject' => null,
 'allowedIpRanges' => null,
-'callbackSettings' => null,
 'brandingSettings' => null,
 'accountOnboarding' => null,
-'customSignature' => null    ];
+'customSignature' => null,
+'quota' => null    ];
 
     /**
      * Array of property to type mappings. Used for (de)serialization
@@ -117,19 +113,17 @@ class UpdateAccountRequestBody implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'quotaNoticeEnabled' => 'quotaNoticeEnabled',
-'quotaNoticeThreshold' => 'quotaNoticeThreshold',
-'secureOnly' => 'secureOnly',
+        'secureOnly' => 'secureOnly',
 'complexPasswords' => 'complexPasswords',
 'showReferralLinks' => 'showReferralLinks',
 'externalDomain' => 'externalDomain',
 'emailContent' => 'emailContent',
 'emailSubject' => 'emailSubject',
 'allowedIpRanges' => 'allowedIpRanges',
-'callbackSettings' => 'callbackSettings',
 'brandingSettings' => 'brandingSettings',
 'accountOnboarding' => 'accountOnboarding',
-'customSignature' => 'customSignature'    ];
+'customSignature' => 'customSignature',
+'quota' => 'quota'    ];
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
@@ -137,19 +131,17 @@ class UpdateAccountRequestBody implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'quotaNoticeEnabled' => 'setQuotaNoticeEnabled',
-'quotaNoticeThreshold' => 'setQuotaNoticeThreshold',
-'secureOnly' => 'setSecureOnly',
+        'secureOnly' => 'setSecureOnly',
 'complexPasswords' => 'setComplexPasswords',
 'showReferralLinks' => 'setShowReferralLinks',
 'externalDomain' => 'setExternalDomain',
 'emailContent' => 'setEmailContent',
 'emailSubject' => 'setEmailSubject',
 'allowedIpRanges' => 'setAllowedIpRanges',
-'callbackSettings' => 'setCallbackSettings',
 'brandingSettings' => 'setBrandingSettings',
 'accountOnboarding' => 'setAccountOnboarding',
-'customSignature' => 'setCustomSignature'    ];
+'customSignature' => 'setCustomSignature',
+'quota' => 'setQuota'    ];
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
@@ -157,19 +149,17 @@ class UpdateAccountRequestBody implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'quotaNoticeEnabled' => 'getQuotaNoticeEnabled',
-'quotaNoticeThreshold' => 'getQuotaNoticeThreshold',
-'secureOnly' => 'getSecureOnly',
+        'secureOnly' => 'getSecureOnly',
 'complexPasswords' => 'getComplexPasswords',
 'showReferralLinks' => 'getShowReferralLinks',
 'externalDomain' => 'getExternalDomain',
 'emailContent' => 'getEmailContent',
 'emailSubject' => 'getEmailSubject',
 'allowedIpRanges' => 'getAllowedIpRanges',
-'callbackSettings' => 'getCallbackSettings',
 'brandingSettings' => 'getBrandingSettings',
 'accountOnboarding' => 'getAccountOnboarding',
-'customSignature' => 'getCustomSignature'    ];
+'customSignature' => 'getCustomSignature',
+'quota' => 'getQuota'    ];
 
     /**
      * Array of attributes where the key is the local name,
@@ -229,8 +219,6 @@ class UpdateAccountRequestBody implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['quotaNoticeEnabled'] = isset($data['quotaNoticeEnabled']) ? $data['quotaNoticeEnabled'] : null;
-        $this->container['quotaNoticeThreshold'] = isset($data['quotaNoticeThreshold']) ? $data['quotaNoticeThreshold'] : null;
         $this->container['secureOnly'] = isset($data['secureOnly']) ? $data['secureOnly'] : null;
         $this->container['complexPasswords'] = isset($data['complexPasswords']) ? $data['complexPasswords'] : null;
         $this->container['showReferralLinks'] = isset($data['showReferralLinks']) ? $data['showReferralLinks'] : null;
@@ -238,10 +226,10 @@ class UpdateAccountRequestBody implements ModelInterface, ArrayAccess
         $this->container['emailContent'] = isset($data['emailContent']) ? $data['emailContent'] : null;
         $this->container['emailSubject'] = isset($data['emailSubject']) ? $data['emailSubject'] : null;
         $this->container['allowedIpRanges'] = isset($data['allowedIpRanges']) ? $data['allowedIpRanges'] : null;
-        $this->container['callbackSettings'] = isset($data['callbackSettings']) ? $data['callbackSettings'] : null;
         $this->container['brandingSettings'] = isset($data['brandingSettings']) ? $data['brandingSettings'] : null;
         $this->container['accountOnboarding'] = isset($data['accountOnboarding']) ? $data['accountOnboarding'] : null;
         $this->container['customSignature'] = isset($data['customSignature']) ? $data['customSignature'] : null;
+        $this->container['quota'] = isset($data['quota']) ? $data['quota'] : null;
     }
 
     /**
@@ -267,54 +255,6 @@ class UpdateAccountRequestBody implements ModelInterface, ArrayAccess
         return count($this->listInvalidProperties()) === 0;
     }
 
-
-    /**
-     * Gets quotaNoticeEnabled
-     *
-     * @return bool
-     */
-    public function getQuotaNoticeEnabled()
-    {
-        return $this->container['quotaNoticeEnabled'];
-    }
-
-    /**
-     * Sets quotaNoticeEnabled
-     *
-     * @param bool $quotaNoticeEnabled Whether the system should email the account owner when usage exceeds quotaNoticeThreshold value
-     *
-     * @return $this
-     */
-    public function setQuotaNoticeEnabled($quotaNoticeEnabled)
-    {
-        $this->container['quotaNoticeEnabled'] = $quotaNoticeEnabled;
-
-        return $this;
-    }
-
-    /**
-     * Gets quotaNoticeThreshold
-     *
-     * @return int
-     */
-    public function getQuotaNoticeThreshold()
-    {
-        return $this->container['quotaNoticeThreshold'];
-    }
-
-    /**
-     * Sets quotaNoticeThreshold
-     *
-     * @param int $quotaNoticeThreshold Percent of account usage to trigger quota notices for.
-     *
-     * @return $this
-     */
-    public function setQuotaNoticeThreshold($quotaNoticeThreshold)
-    {
-        $this->container['quotaNoticeThreshold'] = $quotaNoticeThreshold;
-
-        return $this;
-    }
 
     /**
      * Gets secureOnly
@@ -485,30 +425,6 @@ class UpdateAccountRequestBody implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets callbackSettings
-     *
-     * @return \ExaVault\Model\CallbackSettingsValues
-     */
-    public function getCallbackSettings()
-    {
-        return $this->container['callbackSettings'];
-    }
-
-    /**
-     * Sets callbackSettings
-     *
-     * @param \ExaVault\Model\CallbackSettingsValues $callbackSettings callbackSettings
-     *
-     * @return $this
-     */
-    public function setCallbackSettings($callbackSettings)
-    {
-        $this->container['callbackSettings'] = $callbackSettings;
-
-        return $this;
-    }
-
-    /**
      * Gets brandingSettings
      *
      * @return \ExaVault\Model\BrandingSettingsValues
@@ -576,6 +492,30 @@ class UpdateAccountRequestBody implements ModelInterface, ArrayAccess
     public function setCustomSignature($customSignature)
     {
         $this->container['customSignature'] = $customSignature;
+
+        return $this;
+    }
+
+    /**
+     * Gets quota
+     *
+     * @return \ExaVault\Model\AccountQuotaValues
+     */
+    public function getQuota()
+    {
+        return $this->container['quota'];
+    }
+
+    /**
+     * Sets quota
+     *
+     * @param \ExaVault\Model\AccountQuotaValues $quota quota
+     *
+     * @return $this
+     */
+    public function setQuota($quota)
+    {
+        $this->container['quota'] = $quota;
 
         return $this;
     }

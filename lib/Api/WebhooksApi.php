@@ -1,6 +1,6 @@
 <?php
 /**
- * UsersApi
+ * WebhooksApi
  * PHP version 5
  *
  * @category Class
@@ -39,14 +39,14 @@ use ExaVault\HeaderSelector;
 use ExaVault\ObjectSerializer;
 
 /**
- * UsersApi Class Doc Comment
+ * WebhooksApi Class Doc Comment
  *
  * @category Class
  * @package  ExaVault
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class UsersApi
+class WebhooksApi
 {
     /**
      * @var ClientInterface
@@ -87,41 +87,41 @@ class UsersApi
     }
 
     /**
-     * Operation addUser
+     * Operation addWebhook
      *
-     * Create a user
+     * Add A New Webhook
      *
-     * @param  string $evApiKey API key required to make the API call (required)
+     * @param  string $evApiKey API key required to make the API call. (required)
      * @param  string $evAccessToken Access token required to make the API call. (required)
-     * @param  \ExaVault\Model\AddUserRequestBody $body body (optional)
+     * @param  \ExaVault\Model\AddWebhookRequestBody $body body (optional)
      *
      * @throws \ExaVault\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \ExaVault\Model\UserResponse
+     * @return \ExaVault\Model\WebhookResponse
      */
-    public function addUser($evApiKey, $evAccessToken, $body = null)
+    public function addWebhook($evApiKey, $evAccessToken, $body = null)
     {
-        list($response) = $this->addUserWithHttpInfo($evApiKey, $evAccessToken, $body);
+        list($response) = $this->addWebhookWithHttpInfo($evApiKey, $evAccessToken, $body);
         return $response;
     }
 
     /**
-     * Operation addUserWithHttpInfo
+     * Operation addWebhookWithHttpInfo
      *
-     * Create a user
+     * Add A New Webhook
      *
-     * @param  string $evApiKey API key required to make the API call (required)
+     * @param  string $evApiKey API key required to make the API call. (required)
      * @param  string $evAccessToken Access token required to make the API call. (required)
-     * @param  \ExaVault\Model\AddUserRequestBody $body (optional)
+     * @param  \ExaVault\Model\AddWebhookRequestBody $body (optional)
      *
      * @throws \ExaVault\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \ExaVault\Model\UserResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \ExaVault\Model\WebhookResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function addUserWithHttpInfo($evApiKey, $evAccessToken, $body = null)
+    public function addWebhookWithHttpInfo($evApiKey, $evAccessToken, $body = null)
     {
-        $returnType = '\ExaVault\Model\UserResponse';
-        $request = $this->addUserRequest($evApiKey, $evAccessToken, $body);
+        $returnType = '\ExaVault\Model\WebhookResponse';
+        $request = $this->addWebhookRequest($evApiKey, $evAccessToken, $body);
 
         try {
             $options = $this->createHttpClientOption();
@@ -172,7 +172,7 @@ class UsersApi
                 case 201:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ExaVault\Model\UserResponse',
+                        '\ExaVault\Model\WebhookResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -183,20 +183,20 @@ class UsersApi
     }
 
     /**
-     * Operation addUserAsync
+     * Operation addWebhookAsync
      *
-     * Create a user
+     * Add A New Webhook
      *
-     * @param  string $evApiKey API key required to make the API call (required)
+     * @param  string $evApiKey API key required to make the API call. (required)
      * @param  string $evAccessToken Access token required to make the API call. (required)
-     * @param  \ExaVault\Model\AddUserRequestBody $body (optional)
+     * @param  \ExaVault\Model\AddWebhookRequestBody $body (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function addUserAsync($evApiKey, $evAccessToken, $body = null)
+    public function addWebhookAsync($evApiKey, $evAccessToken, $body = null)
     {
-        return $this->addUserAsyncWithHttpInfo($evApiKey, $evAccessToken, $body)
+        return $this->addWebhookAsyncWithHttpInfo($evApiKey, $evAccessToken, $body)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -205,21 +205,21 @@ class UsersApi
     }
 
     /**
-     * Operation addUserAsyncWithHttpInfo
+     * Operation addWebhookAsyncWithHttpInfo
      *
-     * Create a user
+     * Add A New Webhook
      *
-     * @param  string $evApiKey API key required to make the API call (required)
+     * @param  string $evApiKey API key required to make the API call. (required)
      * @param  string $evAccessToken Access token required to make the API call. (required)
-     * @param  \ExaVault\Model\AddUserRequestBody $body (optional)
+     * @param  \ExaVault\Model\AddWebhookRequestBody $body (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function addUserAsyncWithHttpInfo($evApiKey, $evAccessToken, $body = null)
+    public function addWebhookAsyncWithHttpInfo($evApiKey, $evAccessToken, $body = null)
     {
-        $returnType = '\ExaVault\Model\UserResponse';
-        $request = $this->addUserRequest($evApiKey, $evAccessToken, $body);
+        $returnType = '\ExaVault\Model\WebhookResponse';
+        $request = $this->addWebhookRequest($evApiKey, $evAccessToken, $body);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -259,31 +259,31 @@ class UsersApi
     }
 
     /**
-     * Create request for operation 'addUser'
+     * Create request for operation 'addWebhook'
      *
-     * @param  string $evApiKey API key required to make the API call (required)
+     * @param  string $evApiKey API key required to make the API call. (required)
      * @param  string $evAccessToken Access token required to make the API call. (required)
-     * @param  \ExaVault\Model\AddUserRequestBody $body (optional)
+     * @param  \ExaVault\Model\AddWebhookRequestBody $body (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function addUserRequest($evApiKey, $evAccessToken, $body = null)
+    protected function addWebhookRequest($evApiKey, $evAccessToken, $body = null)
     {
         // verify the required parameter 'evApiKey' is set
         if ($evApiKey === null || (is_array($evApiKey) && count($evApiKey) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $evApiKey when calling addUser'
+                'Missing the required parameter $evApiKey when calling addWebhook'
             );
         }
         // verify the required parameter 'evAccessToken' is set
         if ($evAccessToken === null || (is_array($evAccessToken) && count($evAccessToken) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $evAccessToken when calling addUser'
+                'Missing the required parameter $evAccessToken when calling addWebhook'
             );
         }
 
-        $resourcePath = '/users';
+        $resourcePath = '/webhooks';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -368,41 +368,41 @@ class UsersApi
     }
 
     /**
-     * Operation deleteUser
+     * Operation deleteWebhook
      *
-     * Delete a user
+     * Delete a webhook
      *
-     * @param  int $id The user&#x27;s ID. Note that this is our internal ID, and _not the username_. You can obtain it by calling the [GET /users](#operation/listUsers) method. (required)
-     * @param  string $evApiKey API Key required to make the API call. (required)
+     * @param  int $id Webhook endpoint ID (required)
+     * @param  string $evApiKey API key required to make the API call. (required)
      * @param  string $evAccessToken Access token required to make the API call. (required)
      *
      * @throws \ExaVault\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \ExaVault\Model\EmptyResponse
      */
-    public function deleteUser($id, $evApiKey, $evAccessToken)
+    public function deleteWebhook($id, $evApiKey, $evAccessToken)
     {
-        list($response) = $this->deleteUserWithHttpInfo($id, $evApiKey, $evAccessToken);
+        list($response) = $this->deleteWebhookWithHttpInfo($id, $evApiKey, $evAccessToken);
         return $response;
     }
 
     /**
-     * Operation deleteUserWithHttpInfo
+     * Operation deleteWebhookWithHttpInfo
      *
-     * Delete a user
+     * Delete a webhook
      *
-     * @param  int $id The user&#x27;s ID. Note that this is our internal ID, and _not the username_. You can obtain it by calling the [GET /users](#operation/listUsers) method. (required)
-     * @param  string $evApiKey API Key required to make the API call. (required)
+     * @param  int $id Webhook endpoint ID (required)
+     * @param  string $evApiKey API key required to make the API call. (required)
      * @param  string $evAccessToken Access token required to make the API call. (required)
      *
      * @throws \ExaVault\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \ExaVault\Model\EmptyResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function deleteUserWithHttpInfo($id, $evApiKey, $evAccessToken)
+    public function deleteWebhookWithHttpInfo($id, $evApiKey, $evAccessToken)
     {
         $returnType = '\ExaVault\Model\EmptyResponse';
-        $request = $this->deleteUserRequest($id, $evApiKey, $evAccessToken);
+        $request = $this->deleteWebhookRequest($id, $evApiKey, $evAccessToken);
 
         try {
             $options = $this->createHttpClientOption();
@@ -464,20 +464,20 @@ class UsersApi
     }
 
     /**
-     * Operation deleteUserAsync
+     * Operation deleteWebhookAsync
      *
-     * Delete a user
+     * Delete a webhook
      *
-     * @param  int $id The user&#x27;s ID. Note that this is our internal ID, and _not the username_. You can obtain it by calling the [GET /users](#operation/listUsers) method. (required)
-     * @param  string $evApiKey API Key required to make the API call. (required)
+     * @param  int $id Webhook endpoint ID (required)
+     * @param  string $evApiKey API key required to make the API call. (required)
      * @param  string $evAccessToken Access token required to make the API call. (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteUserAsync($id, $evApiKey, $evAccessToken)
+    public function deleteWebhookAsync($id, $evApiKey, $evAccessToken)
     {
-        return $this->deleteUserAsyncWithHttpInfo($id, $evApiKey, $evAccessToken)
+        return $this->deleteWebhookAsyncWithHttpInfo($id, $evApiKey, $evAccessToken)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -486,21 +486,21 @@ class UsersApi
     }
 
     /**
-     * Operation deleteUserAsyncWithHttpInfo
+     * Operation deleteWebhookAsyncWithHttpInfo
      *
-     * Delete a user
+     * Delete a webhook
      *
-     * @param  int $id The user&#x27;s ID. Note that this is our internal ID, and _not the username_. You can obtain it by calling the [GET /users](#operation/listUsers) method. (required)
-     * @param  string $evApiKey API Key required to make the API call. (required)
+     * @param  int $id Webhook endpoint ID (required)
+     * @param  string $evApiKey API key required to make the API call. (required)
      * @param  string $evAccessToken Access token required to make the API call. (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteUserAsyncWithHttpInfo($id, $evApiKey, $evAccessToken)
+    public function deleteWebhookAsyncWithHttpInfo($id, $evApiKey, $evAccessToken)
     {
         $returnType = '\ExaVault\Model\EmptyResponse';
-        $request = $this->deleteUserRequest($id, $evApiKey, $evAccessToken);
+        $request = $this->deleteWebhookRequest($id, $evApiKey, $evAccessToken);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -540,37 +540,37 @@ class UsersApi
     }
 
     /**
-     * Create request for operation 'deleteUser'
+     * Create request for operation 'deleteWebhook'
      *
-     * @param  int $id The user&#x27;s ID. Note that this is our internal ID, and _not the username_. You can obtain it by calling the [GET /users](#operation/listUsers) method. (required)
-     * @param  string $evApiKey API Key required to make the API call. (required)
+     * @param  int $id Webhook endpoint ID (required)
+     * @param  string $evApiKey API key required to make the API call. (required)
      * @param  string $evAccessToken Access token required to make the API call. (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function deleteUserRequest($id, $evApiKey, $evAccessToken)
+    protected function deleteWebhookRequest($id, $evApiKey, $evAccessToken)
     {
         // verify the required parameter 'id' is set
         if ($id === null || (is_array($id) && count($id) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $id when calling deleteUser'
+                'Missing the required parameter $id when calling deleteWebhook'
             );
         }
         // verify the required parameter 'evApiKey' is set
         if ($evApiKey === null || (is_array($evApiKey) && count($evApiKey) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $evApiKey when calling deleteUser'
+                'Missing the required parameter $evApiKey when calling deleteWebhook'
             );
         }
         // verify the required parameter 'evAccessToken' is set
         if ($evAccessToken === null || (is_array($evAccessToken) && count($evAccessToken) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $evAccessToken when calling deleteUser'
+                'Missing the required parameter $evAccessToken when calling deleteWebhook'
             );
         }
 
-        $resourcePath = '/users/{id}';
+        $resourcePath = '/webhooks/{id}';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -660,43 +660,43 @@ class UsersApi
     }
 
     /**
-     * Operation getUserById
+     * Operation getWebhookById
      *
-     * Get info for a user
+     * Get info for a webhook
      *
-     * @param  int $id The user&#x27;s ID. Note that this is our internal ID, and _not the username_. You can obtain it by calling the [GET /users](#operation/listUsers) method. (required)
-     * @param  string $evApiKey API Key (required)
+     * @param  int $id Webhook endpoint ID (required)
+     * @param  string $evApiKey API key required to make the API call. (required)
      * @param  string $evAccessToken Access token required to make the API call. (required)
-     * @param  string $include Comma-separated list of relationships to include in response. Possible values include **homeResource** and **ownerAccount**. (optional)
+     * @param  string $include Include metadata for related items; &#x60;ownerAccount&#x60; and/or &#x60;resource&#x60; (optional)
      *
      * @throws \ExaVault\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \ExaVault\Model\UserResponse
+     * @return \ExaVault\Model\WebhookResponse
      */
-    public function getUserById($id, $evApiKey, $evAccessToken, $include = null)
+    public function getWebhookById($id, $evApiKey, $evAccessToken, $include = null)
     {
-        list($response) = $this->getUserByIdWithHttpInfo($id, $evApiKey, $evAccessToken, $include);
+        list($response) = $this->getWebhookByIdWithHttpInfo($id, $evApiKey, $evAccessToken, $include);
         return $response;
     }
 
     /**
-     * Operation getUserByIdWithHttpInfo
+     * Operation getWebhookByIdWithHttpInfo
      *
-     * Get info for a user
+     * Get info for a webhook
      *
-     * @param  int $id The user&#x27;s ID. Note that this is our internal ID, and _not the username_. You can obtain it by calling the [GET /users](#operation/listUsers) method. (required)
-     * @param  string $evApiKey API Key (required)
+     * @param  int $id Webhook endpoint ID (required)
+     * @param  string $evApiKey API key required to make the API call. (required)
      * @param  string $evAccessToken Access token required to make the API call. (required)
-     * @param  string $include Comma-separated list of relationships to include in response. Possible values include **homeResource** and **ownerAccount**. (optional)
+     * @param  string $include Include metadata for related items; &#x60;ownerAccount&#x60; and/or &#x60;resource&#x60; (optional)
      *
      * @throws \ExaVault\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \ExaVault\Model\UserResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \ExaVault\Model\WebhookResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getUserByIdWithHttpInfo($id, $evApiKey, $evAccessToken, $include = null)
+    public function getWebhookByIdWithHttpInfo($id, $evApiKey, $evAccessToken, $include = null)
     {
-        $returnType = '\ExaVault\Model\UserResponse';
-        $request = $this->getUserByIdRequest($id, $evApiKey, $evAccessToken, $include);
+        $returnType = '\ExaVault\Model\WebhookResponse';
+        $request = $this->getWebhookByIdRequest($id, $evApiKey, $evAccessToken, $include);
 
         try {
             $options = $this->createHttpClientOption();
@@ -747,7 +747,7 @@ class UsersApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ExaVault\Model\UserResponse',
+                        '\ExaVault\Model\WebhookResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -758,21 +758,21 @@ class UsersApi
     }
 
     /**
-     * Operation getUserByIdAsync
+     * Operation getWebhookByIdAsync
      *
-     * Get info for a user
+     * Get info for a webhook
      *
-     * @param  int $id The user&#x27;s ID. Note that this is our internal ID, and _not the username_. You can obtain it by calling the [GET /users](#operation/listUsers) method. (required)
-     * @param  string $evApiKey API Key (required)
+     * @param  int $id Webhook endpoint ID (required)
+     * @param  string $evApiKey API key required to make the API call. (required)
      * @param  string $evAccessToken Access token required to make the API call. (required)
-     * @param  string $include Comma-separated list of relationships to include in response. Possible values include **homeResource** and **ownerAccount**. (optional)
+     * @param  string $include Include metadata for related items; &#x60;ownerAccount&#x60; and/or &#x60;resource&#x60; (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getUserByIdAsync($id, $evApiKey, $evAccessToken, $include = null)
+    public function getWebhookByIdAsync($id, $evApiKey, $evAccessToken, $include = null)
     {
-        return $this->getUserByIdAsyncWithHttpInfo($id, $evApiKey, $evAccessToken, $include)
+        return $this->getWebhookByIdAsyncWithHttpInfo($id, $evApiKey, $evAccessToken, $include)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -781,22 +781,22 @@ class UsersApi
     }
 
     /**
-     * Operation getUserByIdAsyncWithHttpInfo
+     * Operation getWebhookByIdAsyncWithHttpInfo
      *
-     * Get info for a user
+     * Get info for a webhook
      *
-     * @param  int $id The user&#x27;s ID. Note that this is our internal ID, and _not the username_. You can obtain it by calling the [GET /users](#operation/listUsers) method. (required)
-     * @param  string $evApiKey API Key (required)
+     * @param  int $id Webhook endpoint ID (required)
+     * @param  string $evApiKey API key required to make the API call. (required)
      * @param  string $evAccessToken Access token required to make the API call. (required)
-     * @param  string $include Comma-separated list of relationships to include in response. Possible values include **homeResource** and **ownerAccount**. (optional)
+     * @param  string $include Include metadata for related items; &#x60;ownerAccount&#x60; and/or &#x60;resource&#x60; (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getUserByIdAsyncWithHttpInfo($id, $evApiKey, $evAccessToken, $include = null)
+    public function getWebhookByIdAsyncWithHttpInfo($id, $evApiKey, $evAccessToken, $include = null)
     {
-        $returnType = '\ExaVault\Model\UserResponse';
-        $request = $this->getUserByIdRequest($id, $evApiKey, $evAccessToken, $include);
+        $returnType = '\ExaVault\Model\WebhookResponse';
+        $request = $this->getWebhookByIdRequest($id, $evApiKey, $evAccessToken, $include);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -836,38 +836,38 @@ class UsersApi
     }
 
     /**
-     * Create request for operation 'getUserById'
+     * Create request for operation 'getWebhookById'
      *
-     * @param  int $id The user&#x27;s ID. Note that this is our internal ID, and _not the username_. You can obtain it by calling the [GET /users](#operation/listUsers) method. (required)
-     * @param  string $evApiKey API Key (required)
+     * @param  int $id Webhook endpoint ID (required)
+     * @param  string $evApiKey API key required to make the API call. (required)
      * @param  string $evAccessToken Access token required to make the API call. (required)
-     * @param  string $include Comma-separated list of relationships to include in response. Possible values include **homeResource** and **ownerAccount**. (optional)
+     * @param  string $include Include metadata for related items; &#x60;ownerAccount&#x60; and/or &#x60;resource&#x60; (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function getUserByIdRequest($id, $evApiKey, $evAccessToken, $include = null)
+    protected function getWebhookByIdRequest($id, $evApiKey, $evAccessToken, $include = null)
     {
         // verify the required parameter 'id' is set
         if ($id === null || (is_array($id) && count($id) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $id when calling getUserById'
+                'Missing the required parameter $id when calling getWebhookById'
             );
         }
         // verify the required parameter 'evApiKey' is set
         if ($evApiKey === null || (is_array($evApiKey) && count($evApiKey) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $evApiKey when calling getUserById'
+                'Missing the required parameter $evApiKey when calling getWebhookById'
             );
         }
         // verify the required parameter 'evAccessToken' is set
         if ($evAccessToken === null || (is_array($evAccessToken) && count($evAccessToken) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $evAccessToken when calling getUserById'
+                'Missing the required parameter $evAccessToken when calling getWebhookById'
             );
         }
 
-        $resourcePath = '/users/{id}';
+        $resourcePath = '/webhooks/{id}';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -961,61 +961,45 @@ class UsersApi
     }
 
     /**
-     * Operation listUsers
+     * Operation getWehooksList
      *
-     * Get a list of users
+     * Get Webhooks List
      *
      * @param  string $evApiKey API key required to make the API call. (required)
      * @param  string $evAccessToken Access token required to make the API call. (required)
-     * @param  string $username The username of the user you are looking for. Only entries with the same username as this will be in the list of results. Does not support wildcard searches. (optional)
-     * @param  string $homeResource Resource identifier for user&#x27;s home directory. Does not support wildcard searches. (optional)
-     * @param  string $nickname Nickname to search for. Ignored if &#x60;username&#x60; is provided. Supports wildcard searches. (optional)
-     * @param  string $email Email to search for. Ignored if &#x60;username&#x60; is provided. Supports wildcard searches (optional)
-     * @param  string $role Types of users to include the list. Ignored if &#x60;username&#x60; is provided. Valid options are **admin**, **master** and **user** (optional)
-     * @param  int $status Whether a user is locked. Ignored if &#x60;username&#x60; is provided. **0** means user is locked, **1** means user is not locked. (optional)
-     * @param  string $search Searches the nickname, email, role and homeDir fields for the provided value. Ignored if &#x60;username&#x60; is provided. Supports wildcard searches. (optional)
-     * @param  int $offset Starting user record in the result set. Can be used for pagination. (optional)
-     * @param  string $sort Sort order or matching users. You can sort by multiple columns by separating sort options with a comma; the sort will be applied in the order specified. The sort order for each sort field is ascending unless it is prefixed with a minus (“-“), in which case it will be descending.  Valid sort fields are: **nickname**, **username**, **email**, **homeDir** and **modified** (optional)
-     * @param  int $limit Number of users to return. Can be used for pagination. (optional)
-     * @param  string $include Comma separated list of relationships to include in response. Valid options are **homeResource** and **ownerAccount**. (optional)
+     * @param  string $include List of related record types to include. Valid options are &#x60;owningAccount&#x60; and &#x60;resource&#x60; (optional)
+     * @param  int $offset Records to skip before returning results. (optional)
+     * @param  int $limit Limit of the records list (optional)
      *
      * @throws \ExaVault\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \ExaVault\Model\UserCollectionResponse
+     * @return \ExaVault\Model\WebhookCollectionResponse
      */
-    public function listUsers($evApiKey, $evAccessToken, $username = null, $homeResource = null, $nickname = null, $email = null, $role = null, $status = null, $search = null, $offset = null, $sort = null, $limit = null, $include = null)
+    public function getWehooksList($evApiKey, $evAccessToken, $include = null, $offset = null, $limit = null)
     {
-        list($response) = $this->listUsersWithHttpInfo($evApiKey, $evAccessToken, $username, $homeResource, $nickname, $email, $role, $status, $search, $offset, $sort, $limit, $include);
+        list($response) = $this->getWehooksListWithHttpInfo($evApiKey, $evAccessToken, $include, $offset, $limit);
         return $response;
     }
 
     /**
-     * Operation listUsersWithHttpInfo
+     * Operation getWehooksListWithHttpInfo
      *
-     * Get a list of users
+     * Get Webhooks List
      *
      * @param  string $evApiKey API key required to make the API call. (required)
      * @param  string $evAccessToken Access token required to make the API call. (required)
-     * @param  string $username The username of the user you are looking for. Only entries with the same username as this will be in the list of results. Does not support wildcard searches. (optional)
-     * @param  string $homeResource Resource identifier for user&#x27;s home directory. Does not support wildcard searches. (optional)
-     * @param  string $nickname Nickname to search for. Ignored if &#x60;username&#x60; is provided. Supports wildcard searches. (optional)
-     * @param  string $email Email to search for. Ignored if &#x60;username&#x60; is provided. Supports wildcard searches (optional)
-     * @param  string $role Types of users to include the list. Ignored if &#x60;username&#x60; is provided. Valid options are **admin**, **master** and **user** (optional)
-     * @param  int $status Whether a user is locked. Ignored if &#x60;username&#x60; is provided. **0** means user is locked, **1** means user is not locked. (optional)
-     * @param  string $search Searches the nickname, email, role and homeDir fields for the provided value. Ignored if &#x60;username&#x60; is provided. Supports wildcard searches. (optional)
-     * @param  int $offset Starting user record in the result set. Can be used for pagination. (optional)
-     * @param  string $sort Sort order or matching users. You can sort by multiple columns by separating sort options with a comma; the sort will be applied in the order specified. The sort order for each sort field is ascending unless it is prefixed with a minus (“-“), in which case it will be descending.  Valid sort fields are: **nickname**, **username**, **email**, **homeDir** and **modified** (optional)
-     * @param  int $limit Number of users to return. Can be used for pagination. (optional)
-     * @param  string $include Comma separated list of relationships to include in response. Valid options are **homeResource** and **ownerAccount**. (optional)
+     * @param  string $include List of related record types to include. Valid options are &#x60;owningAccount&#x60; and &#x60;resource&#x60; (optional)
+     * @param  int $offset Records to skip before returning results. (optional)
+     * @param  int $limit Limit of the records list (optional)
      *
      * @throws \ExaVault\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \ExaVault\Model\UserCollectionResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \ExaVault\Model\WebhookCollectionResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function listUsersWithHttpInfo($evApiKey, $evAccessToken, $username = null, $homeResource = null, $nickname = null, $email = null, $role = null, $status = null, $search = null, $offset = null, $sort = null, $limit = null, $include = null)
+    public function getWehooksListWithHttpInfo($evApiKey, $evAccessToken, $include = null, $offset = null, $limit = null)
     {
-        $returnType = '\ExaVault\Model\UserCollectionResponse';
-        $request = $this->listUsersRequest($evApiKey, $evAccessToken, $username, $homeResource, $nickname, $email, $role, $status, $search, $offset, $sort, $limit, $include);
+        $returnType = '\ExaVault\Model\WebhookCollectionResponse';
+        $request = $this->getWehooksListRequest($evApiKey, $evAccessToken, $include, $offset, $limit);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1066,7 +1050,7 @@ class UsersApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ExaVault\Model\UserCollectionResponse',
+                        '\ExaVault\Model\WebhookCollectionResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1077,30 +1061,22 @@ class UsersApi
     }
 
     /**
-     * Operation listUsersAsync
+     * Operation getWehooksListAsync
      *
-     * Get a list of users
+     * Get Webhooks List
      *
      * @param  string $evApiKey API key required to make the API call. (required)
      * @param  string $evAccessToken Access token required to make the API call. (required)
-     * @param  string $username The username of the user you are looking for. Only entries with the same username as this will be in the list of results. Does not support wildcard searches. (optional)
-     * @param  string $homeResource Resource identifier for user&#x27;s home directory. Does not support wildcard searches. (optional)
-     * @param  string $nickname Nickname to search for. Ignored if &#x60;username&#x60; is provided. Supports wildcard searches. (optional)
-     * @param  string $email Email to search for. Ignored if &#x60;username&#x60; is provided. Supports wildcard searches (optional)
-     * @param  string $role Types of users to include the list. Ignored if &#x60;username&#x60; is provided. Valid options are **admin**, **master** and **user** (optional)
-     * @param  int $status Whether a user is locked. Ignored if &#x60;username&#x60; is provided. **0** means user is locked, **1** means user is not locked. (optional)
-     * @param  string $search Searches the nickname, email, role and homeDir fields for the provided value. Ignored if &#x60;username&#x60; is provided. Supports wildcard searches. (optional)
-     * @param  int $offset Starting user record in the result set. Can be used for pagination. (optional)
-     * @param  string $sort Sort order or matching users. You can sort by multiple columns by separating sort options with a comma; the sort will be applied in the order specified. The sort order for each sort field is ascending unless it is prefixed with a minus (“-“), in which case it will be descending.  Valid sort fields are: **nickname**, **username**, **email**, **homeDir** and **modified** (optional)
-     * @param  int $limit Number of users to return. Can be used for pagination. (optional)
-     * @param  string $include Comma separated list of relationships to include in response. Valid options are **homeResource** and **ownerAccount**. (optional)
+     * @param  string $include List of related record types to include. Valid options are &#x60;owningAccount&#x60; and &#x60;resource&#x60; (optional)
+     * @param  int $offset Records to skip before returning results. (optional)
+     * @param  int $limit Limit of the records list (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function listUsersAsync($evApiKey, $evAccessToken, $username = null, $homeResource = null, $nickname = null, $email = null, $role = null, $status = null, $search = null, $offset = null, $sort = null, $limit = null, $include = null)
+    public function getWehooksListAsync($evApiKey, $evAccessToken, $include = null, $offset = null, $limit = null)
     {
-        return $this->listUsersAsyncWithHttpInfo($evApiKey, $evAccessToken, $username, $homeResource, $nickname, $email, $role, $status, $search, $offset, $sort, $limit, $include)
+        return $this->getWehooksListAsyncWithHttpInfo($evApiKey, $evAccessToken, $include, $offset, $limit)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1109,31 +1085,23 @@ class UsersApi
     }
 
     /**
-     * Operation listUsersAsyncWithHttpInfo
+     * Operation getWehooksListAsyncWithHttpInfo
      *
-     * Get a list of users
+     * Get Webhooks List
      *
      * @param  string $evApiKey API key required to make the API call. (required)
      * @param  string $evAccessToken Access token required to make the API call. (required)
-     * @param  string $username The username of the user you are looking for. Only entries with the same username as this will be in the list of results. Does not support wildcard searches. (optional)
-     * @param  string $homeResource Resource identifier for user&#x27;s home directory. Does not support wildcard searches. (optional)
-     * @param  string $nickname Nickname to search for. Ignored if &#x60;username&#x60; is provided. Supports wildcard searches. (optional)
-     * @param  string $email Email to search for. Ignored if &#x60;username&#x60; is provided. Supports wildcard searches (optional)
-     * @param  string $role Types of users to include the list. Ignored if &#x60;username&#x60; is provided. Valid options are **admin**, **master** and **user** (optional)
-     * @param  int $status Whether a user is locked. Ignored if &#x60;username&#x60; is provided. **0** means user is locked, **1** means user is not locked. (optional)
-     * @param  string $search Searches the nickname, email, role and homeDir fields for the provided value. Ignored if &#x60;username&#x60; is provided. Supports wildcard searches. (optional)
-     * @param  int $offset Starting user record in the result set. Can be used for pagination. (optional)
-     * @param  string $sort Sort order or matching users. You can sort by multiple columns by separating sort options with a comma; the sort will be applied in the order specified. The sort order for each sort field is ascending unless it is prefixed with a minus (“-“), in which case it will be descending.  Valid sort fields are: **nickname**, **username**, **email**, **homeDir** and **modified** (optional)
-     * @param  int $limit Number of users to return. Can be used for pagination. (optional)
-     * @param  string $include Comma separated list of relationships to include in response. Valid options are **homeResource** and **ownerAccount**. (optional)
+     * @param  string $include List of related record types to include. Valid options are &#x60;owningAccount&#x60; and &#x60;resource&#x60; (optional)
+     * @param  int $offset Records to skip before returning results. (optional)
+     * @param  int $limit Limit of the records list (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function listUsersAsyncWithHttpInfo($evApiKey, $evAccessToken, $username = null, $homeResource = null, $nickname = null, $email = null, $role = null, $status = null, $search = null, $offset = null, $sort = null, $limit = null, $include = null)
+    public function getWehooksListAsyncWithHttpInfo($evApiKey, $evAccessToken, $include = null, $offset = null, $limit = null)
     {
-        $returnType = '\ExaVault\Model\UserCollectionResponse';
-        $request = $this->listUsersRequest($evApiKey, $evAccessToken, $username, $homeResource, $nickname, $email, $role, $status, $search, $offset, $sort, $limit, $include);
+        $returnType = '\ExaVault\Model\WebhookCollectionResponse';
+        $request = $this->getWehooksListRequest($evApiKey, $evAccessToken, $include, $offset, $limit);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1173,41 +1141,33 @@ class UsersApi
     }
 
     /**
-     * Create request for operation 'listUsers'
+     * Create request for operation 'getWehooksList'
      *
      * @param  string $evApiKey API key required to make the API call. (required)
      * @param  string $evAccessToken Access token required to make the API call. (required)
-     * @param  string $username The username of the user you are looking for. Only entries with the same username as this will be in the list of results. Does not support wildcard searches. (optional)
-     * @param  string $homeResource Resource identifier for user&#x27;s home directory. Does not support wildcard searches. (optional)
-     * @param  string $nickname Nickname to search for. Ignored if &#x60;username&#x60; is provided. Supports wildcard searches. (optional)
-     * @param  string $email Email to search for. Ignored if &#x60;username&#x60; is provided. Supports wildcard searches (optional)
-     * @param  string $role Types of users to include the list. Ignored if &#x60;username&#x60; is provided. Valid options are **admin**, **master** and **user** (optional)
-     * @param  int $status Whether a user is locked. Ignored if &#x60;username&#x60; is provided. **0** means user is locked, **1** means user is not locked. (optional)
-     * @param  string $search Searches the nickname, email, role and homeDir fields for the provided value. Ignored if &#x60;username&#x60; is provided. Supports wildcard searches. (optional)
-     * @param  int $offset Starting user record in the result set. Can be used for pagination. (optional)
-     * @param  string $sort Sort order or matching users. You can sort by multiple columns by separating sort options with a comma; the sort will be applied in the order specified. The sort order for each sort field is ascending unless it is prefixed with a minus (“-“), in which case it will be descending.  Valid sort fields are: **nickname**, **username**, **email**, **homeDir** and **modified** (optional)
-     * @param  int $limit Number of users to return. Can be used for pagination. (optional)
-     * @param  string $include Comma separated list of relationships to include in response. Valid options are **homeResource** and **ownerAccount**. (optional)
+     * @param  string $include List of related record types to include. Valid options are &#x60;owningAccount&#x60; and &#x60;resource&#x60; (optional)
+     * @param  int $offset Records to skip before returning results. (optional)
+     * @param  int $limit Limit of the records list (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function listUsersRequest($evApiKey, $evAccessToken, $username = null, $homeResource = null, $nickname = null, $email = null, $role = null, $status = null, $search = null, $offset = null, $sort = null, $limit = null, $include = null)
+    protected function getWehooksListRequest($evApiKey, $evAccessToken, $include = null, $offset = null, $limit = null)
     {
         // verify the required parameter 'evApiKey' is set
         if ($evApiKey === null || (is_array($evApiKey) && count($evApiKey) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $evApiKey when calling listUsers'
+                'Missing the required parameter $evApiKey when calling getWehooksList'
             );
         }
         // verify the required parameter 'evAccessToken' is set
         if ($evAccessToken === null || (is_array($evAccessToken) && count($evAccessToken) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $evAccessToken when calling listUsers'
+                'Missing the required parameter $evAccessToken when calling getWehooksList'
             );
         }
 
-        $resourcePath = '/users';
+        $resourcePath = '/webhooks';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -1215,48 +1175,16 @@ class UsersApi
         $multipart = false;
 
         // query params
-        if ($username !== null) {
-            $queryParams['username'] = ObjectSerializer::toQueryValue($username, null);
-        }
-        // query params
-        if ($homeResource !== null) {
-            $queryParams['homeResource'] = ObjectSerializer::toQueryValue($homeResource, null);
-        }
-        // query params
-        if ($nickname !== null) {
-            $queryParams['nickname'] = ObjectSerializer::toQueryValue($nickname, null);
-        }
-        // query params
-        if ($email !== null) {
-            $queryParams['email'] = ObjectSerializer::toQueryValue($email, null);
-        }
-        // query params
-        if ($role !== null) {
-            $queryParams['role'] = ObjectSerializer::toQueryValue($role, null);
-        }
-        // query params
-        if ($status !== null) {
-            $queryParams['status'] = ObjectSerializer::toQueryValue($status, null);
-        }
-        // query params
-        if ($search !== null) {
-            $queryParams['search'] = ObjectSerializer::toQueryValue($search, null);
+        if ($include !== null) {
+            $queryParams['include'] = ObjectSerializer::toQueryValue($include, null);
         }
         // query params
         if ($offset !== null) {
-            $queryParams['offset'] = ObjectSerializer::toQueryValue($offset, 'int32');
-        }
-        // query params
-        if ($sort !== null) {
-            $queryParams['sort'] = ObjectSerializer::toQueryValue($sort, null);
+            $queryParams['offset'] = ObjectSerializer::toQueryValue($offset, null);
         }
         // query params
         if ($limit !== null) {
-            $queryParams['limit'] = ObjectSerializer::toQueryValue($limit, 'int32');
-        }
-        // query params
-        if ($include !== null) {
-            $queryParams['include'] = ObjectSerializer::toQueryValue($include, null);
+            $queryParams['limit'] = ObjectSerializer::toQueryValue($limit, null);
         }
         // header params
         if ($evApiKey !== null) {
@@ -1333,43 +1261,41 @@ class UsersApi
     }
 
     /**
-     * Operation updateUser
+     * Operation regenerateWebhookToken
      *
-     * Update a user
+     * Regenerate security token
      *
+     * @param  string $id Webhook ID (required)
      * @param  string $evApiKey API key required to make the API call. (required)
      * @param  string $evAccessToken Access token required to make the API call. (required)
-     * @param  int $id The user&#x27;s ID. Note that this is our internal ID, and _not the username_. You can obtain it by calling the [GET /users](#operation/listUsers) method. (required)
-     * @param  \ExaVault\Model\UpdateUserRequestBody $body body (optional)
      *
      * @throws \ExaVault\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \ExaVault\Model\UserResponse
+     * @return \ExaVault\Model\WebhookResponse
      */
-    public function updateUser($evApiKey, $evAccessToken, $id, $body = null)
+    public function regenerateWebhookToken($id, $evApiKey, $evAccessToken)
     {
-        list($response) = $this->updateUserWithHttpInfo($evApiKey, $evAccessToken, $id, $body);
+        list($response) = $this->regenerateWebhookTokenWithHttpInfo($id, $evApiKey, $evAccessToken);
         return $response;
     }
 
     /**
-     * Operation updateUserWithHttpInfo
+     * Operation regenerateWebhookTokenWithHttpInfo
      *
-     * Update a user
+     * Regenerate security token
      *
+     * @param  string $id Webhook ID (required)
      * @param  string $evApiKey API key required to make the API call. (required)
      * @param  string $evAccessToken Access token required to make the API call. (required)
-     * @param  int $id The user&#x27;s ID. Note that this is our internal ID, and _not the username_. You can obtain it by calling the [GET /users](#operation/listUsers) method. (required)
-     * @param  \ExaVault\Model\UpdateUserRequestBody $body (optional)
      *
      * @throws \ExaVault\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \ExaVault\Model\UserResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \ExaVault\Model\WebhookResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function updateUserWithHttpInfo($evApiKey, $evAccessToken, $id, $body = null)
+    public function regenerateWebhookTokenWithHttpInfo($id, $evApiKey, $evAccessToken)
     {
-        $returnType = '\ExaVault\Model\UserResponse';
-        $request = $this->updateUserRequest($evApiKey, $evAccessToken, $id, $body);
+        $returnType = '\ExaVault\Model\WebhookResponse';
+        $request = $this->regenerateWebhookTokenRequest($id, $evApiKey, $evAccessToken);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1420,7 +1346,7 @@ class UsersApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ExaVault\Model\UserResponse',
+                        '\ExaVault\Model\WebhookResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1431,21 +1357,20 @@ class UsersApi
     }
 
     /**
-     * Operation updateUserAsync
+     * Operation regenerateWebhookTokenAsync
      *
-     * Update a user
+     * Regenerate security token
      *
+     * @param  string $id Webhook ID (required)
      * @param  string $evApiKey API key required to make the API call. (required)
      * @param  string $evAccessToken Access token required to make the API call. (required)
-     * @param  int $id The user&#x27;s ID. Note that this is our internal ID, and _not the username_. You can obtain it by calling the [GET /users](#operation/listUsers) method. (required)
-     * @param  \ExaVault\Model\UpdateUserRequestBody $body (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateUserAsync($evApiKey, $evAccessToken, $id, $body = null)
+    public function regenerateWebhookTokenAsync($id, $evApiKey, $evAccessToken)
     {
-        return $this->updateUserAsyncWithHttpInfo($evApiKey, $evAccessToken, $id, $body)
+        return $this->regenerateWebhookTokenAsyncWithHttpInfo($id, $evApiKey, $evAccessToken)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1454,22 +1379,21 @@ class UsersApi
     }
 
     /**
-     * Operation updateUserAsyncWithHttpInfo
+     * Operation regenerateWebhookTokenAsyncWithHttpInfo
      *
-     * Update a user
+     * Regenerate security token
      *
+     * @param  string $id Webhook ID (required)
      * @param  string $evApiKey API key required to make the API call. (required)
      * @param  string $evAccessToken Access token required to make the API call. (required)
-     * @param  int $id The user&#x27;s ID. Note that this is our internal ID, and _not the username_. You can obtain it by calling the [GET /users](#operation/listUsers) method. (required)
-     * @param  \ExaVault\Model\UpdateUserRequestBody $body (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateUserAsyncWithHttpInfo($evApiKey, $evAccessToken, $id, $body = null)
+    public function regenerateWebhookTokenAsyncWithHttpInfo($id, $evApiKey, $evAccessToken)
     {
-        $returnType = '\ExaVault\Model\UserResponse';
-        $request = $this->updateUserRequest($evApiKey, $evAccessToken, $id, $body);
+        $returnType = '\ExaVault\Model\WebhookResponse';
+        $request = $this->regenerateWebhookTokenRequest($id, $evApiKey, $evAccessToken);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1509,38 +1433,626 @@ class UsersApi
     }
 
     /**
-     * Create request for operation 'updateUser'
+     * Create request for operation 'regenerateWebhookToken'
      *
+     * @param  string $id Webhook ID (required)
      * @param  string $evApiKey API key required to make the API call. (required)
      * @param  string $evAccessToken Access token required to make the API call. (required)
-     * @param  int $id The user&#x27;s ID. Note that this is our internal ID, and _not the username_. You can obtain it by calling the [GET /users](#operation/listUsers) method. (required)
-     * @param  \ExaVault\Model\UpdateUserRequestBody $body (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function updateUserRequest($evApiKey, $evAccessToken, $id, $body = null)
+    protected function regenerateWebhookTokenRequest($id, $evApiKey, $evAccessToken)
     {
+        // verify the required parameter 'id' is set
+        if ($id === null || (is_array($id) && count($id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $id when calling regenerateWebhookToken'
+            );
+        }
         // verify the required parameter 'evApiKey' is set
         if ($evApiKey === null || (is_array($evApiKey) && count($evApiKey) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $evApiKey when calling updateUser'
+                'Missing the required parameter $evApiKey when calling regenerateWebhookToken'
             );
         }
         // verify the required parameter 'evAccessToken' is set
         if ($evAccessToken === null || (is_array($evAccessToken) && count($evAccessToken) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $evAccessToken when calling updateUser'
+                'Missing the required parameter $evAccessToken when calling regenerateWebhookToken'
+            );
+        }
+
+        $resourcePath = '/webhooks/regenerate-token/{id}';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+        // header params
+        if ($evApiKey !== null) {
+            $headerParams['ev-api-key'] = ObjectSerializer::toHeaderValue($evApiKey);
+        }
+        // header params
+        if ($evAccessToken !== null) {
+            $headerParams['ev-access-token'] = ObjectSerializer::toHeaderValue($evAccessToken);
+        }
+
+        // path params
+        if ($id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'id' . '}',
+                ObjectSerializer::toPathValue($id),
+                $resourcePath
+            );
+        }
+
+        // body params
+        $_tempBody = null;
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                []
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            // $_tempBody is the method argument, if present
+            $httpBody = $_tempBody;
+            // \stdClass has no __toString(), so we should encode it manually
+            if ($httpBody instanceof \stdClass && $headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($httpBody);
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+            }
+        }
+
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        return new Request(
+            'POST',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation resendWebhookActivityEntry
+     *
+     * Resend a webhook message
+     *
+     * @param  string $activityId Webhooks activity entry ID (required)
+     * @param  string $evApiKey API key required to make the API call. (required)
+     * @param  string $evAccessToken Access token required to make the API call. (required)
+     *
+     * @throws \ExaVault\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \ExaVault\Model\EmptyResponse
+     */
+    public function resendWebhookActivityEntry($activityId, $evApiKey, $evAccessToken)
+    {
+        list($response) = $this->resendWebhookActivityEntryWithHttpInfo($activityId, $evApiKey, $evAccessToken);
+        return $response;
+    }
+
+    /**
+     * Operation resendWebhookActivityEntryWithHttpInfo
+     *
+     * Resend a webhook message
+     *
+     * @param  string $activityId Webhooks activity entry ID (required)
+     * @param  string $evApiKey API key required to make the API call. (required)
+     * @param  string $evAccessToken Access token required to make the API call. (required)
+     *
+     * @throws \ExaVault\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ExaVault\Model\EmptyResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function resendWebhookActivityEntryWithHttpInfo($activityId, $evApiKey, $evAccessToken)
+    {
+        $returnType = '\ExaVault\Model\EmptyResponse';
+        $request = $this->resendWebhookActivityEntryRequest($activityId, $evApiKey, $evAccessToken);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    $response->getBody()
+                );
+            }
+
+            $responseBody = $response->getBody();
+            if ($returnType === '\SplFileObject') {
+                $content = $responseBody; //stream goes to serializer
+            } else {
+                $content = $responseBody->getContents();
+                if (!in_array($returnType, ['string','integer','bool'])) {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ExaVault\Model\EmptyResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation resendWebhookActivityEntryAsync
+     *
+     * Resend a webhook message
+     *
+     * @param  string $activityId Webhooks activity entry ID (required)
+     * @param  string $evApiKey API key required to make the API call. (required)
+     * @param  string $evAccessToken Access token required to make the API call. (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function resendWebhookActivityEntryAsync($activityId, $evApiKey, $evAccessToken)
+    {
+        return $this->resendWebhookActivityEntryAsyncWithHttpInfo($activityId, $evApiKey, $evAccessToken)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation resendWebhookActivityEntryAsyncWithHttpInfo
+     *
+     * Resend a webhook message
+     *
+     * @param  string $activityId Webhooks activity entry ID (required)
+     * @param  string $evApiKey API key required to make the API call. (required)
+     * @param  string $evAccessToken Access token required to make the API call. (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function resendWebhookActivityEntryAsyncWithHttpInfo($activityId, $evApiKey, $evAccessToken)
+    {
+        $returnType = '\ExaVault\Model\EmptyResponse';
+        $request = $this->resendWebhookActivityEntryRequest($activityId, $evApiKey, $evAccessToken);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = $responseBody->getContents();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'resendWebhookActivityEntry'
+     *
+     * @param  string $activityId Webhooks activity entry ID (required)
+     * @param  string $evApiKey API key required to make the API call. (required)
+     * @param  string $evAccessToken Access token required to make the API call. (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function resendWebhookActivityEntryRequest($activityId, $evApiKey, $evAccessToken)
+    {
+        // verify the required parameter 'activityId' is set
+        if ($activityId === null || (is_array($activityId) && count($activityId) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $activityId when calling resendWebhookActivityEntry'
+            );
+        }
+        // verify the required parameter 'evApiKey' is set
+        if ($evApiKey === null || (is_array($evApiKey) && count($evApiKey) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $evApiKey when calling resendWebhookActivityEntry'
+            );
+        }
+        // verify the required parameter 'evAccessToken' is set
+        if ($evAccessToken === null || (is_array($evAccessToken) && count($evAccessToken) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $evAccessToken when calling resendWebhookActivityEntry'
+            );
+        }
+
+        $resourcePath = '/webhooks/resend/{activityId}';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+        // header params
+        if ($evApiKey !== null) {
+            $headerParams['ev-api-key'] = ObjectSerializer::toHeaderValue($evApiKey);
+        }
+        // header params
+        if ($evAccessToken !== null) {
+            $headerParams['ev-access-token'] = ObjectSerializer::toHeaderValue($evAccessToken);
+        }
+
+        // path params
+        if ($activityId !== null) {
+            $resourcePath = str_replace(
+                '{' . 'activityId' . '}',
+                ObjectSerializer::toPathValue($activityId),
+                $resourcePath
+            );
+        }
+
+        // body params
+        $_tempBody = null;
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                []
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            // $_tempBody is the method argument, if present
+            $httpBody = $_tempBody;
+            // \stdClass has no __toString(), so we should encode it manually
+            if ($httpBody instanceof \stdClass && $headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($httpBody);
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+            }
+        }
+
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        return new Request(
+            'POST',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation updateWebhook
+     *
+     * Update a webhook
+     *
+     * @param  string $evApiKey API key required to make the API call. (required)
+     * @param  string $evAccessToken Access token required to make the API call. (required)
+     * @param  int $id Webhook endpoint ID (required)
+     * @param  \ExaVault\Model\UpdateWebhookRequestBody $body body (optional)
+     *
+     * @throws \ExaVault\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \ExaVault\Model\WebhookResponse
+     */
+    public function updateWebhook($evApiKey, $evAccessToken, $id, $body = null)
+    {
+        list($response) = $this->updateWebhookWithHttpInfo($evApiKey, $evAccessToken, $id, $body);
+        return $response;
+    }
+
+    /**
+     * Operation updateWebhookWithHttpInfo
+     *
+     * Update a webhook
+     *
+     * @param  string $evApiKey API key required to make the API call. (required)
+     * @param  string $evAccessToken Access token required to make the API call. (required)
+     * @param  int $id Webhook endpoint ID (required)
+     * @param  \ExaVault\Model\UpdateWebhookRequestBody $body (optional)
+     *
+     * @throws \ExaVault\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ExaVault\Model\WebhookResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function updateWebhookWithHttpInfo($evApiKey, $evAccessToken, $id, $body = null)
+    {
+        $returnType = '\ExaVault\Model\WebhookResponse';
+        $request = $this->updateWebhookRequest($evApiKey, $evAccessToken, $id, $body);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    $response->getBody()
+                );
+            }
+
+            $responseBody = $response->getBody();
+            if ($returnType === '\SplFileObject') {
+                $content = $responseBody; //stream goes to serializer
+            } else {
+                $content = $responseBody->getContents();
+                if (!in_array($returnType, ['string','integer','bool'])) {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ExaVault\Model\WebhookResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation updateWebhookAsync
+     *
+     * Update a webhook
+     *
+     * @param  string $evApiKey API key required to make the API call. (required)
+     * @param  string $evAccessToken Access token required to make the API call. (required)
+     * @param  int $id Webhook endpoint ID (required)
+     * @param  \ExaVault\Model\UpdateWebhookRequestBody $body (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function updateWebhookAsync($evApiKey, $evAccessToken, $id, $body = null)
+    {
+        return $this->updateWebhookAsyncWithHttpInfo($evApiKey, $evAccessToken, $id, $body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation updateWebhookAsyncWithHttpInfo
+     *
+     * Update a webhook
+     *
+     * @param  string $evApiKey API key required to make the API call. (required)
+     * @param  string $evAccessToken Access token required to make the API call. (required)
+     * @param  int $id Webhook endpoint ID (required)
+     * @param  \ExaVault\Model\UpdateWebhookRequestBody $body (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function updateWebhookAsyncWithHttpInfo($evApiKey, $evAccessToken, $id, $body = null)
+    {
+        $returnType = '\ExaVault\Model\WebhookResponse';
+        $request = $this->updateWebhookRequest($evApiKey, $evAccessToken, $id, $body);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = $responseBody->getContents();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'updateWebhook'
+     *
+     * @param  string $evApiKey API key required to make the API call. (required)
+     * @param  string $evAccessToken Access token required to make the API call. (required)
+     * @param  int $id Webhook endpoint ID (required)
+     * @param  \ExaVault\Model\UpdateWebhookRequestBody $body (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function updateWebhookRequest($evApiKey, $evAccessToken, $id, $body = null)
+    {
+        // verify the required parameter 'evApiKey' is set
+        if ($evApiKey === null || (is_array($evApiKey) && count($evApiKey) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $evApiKey when calling updateWebhook'
+            );
+        }
+        // verify the required parameter 'evAccessToken' is set
+        if ($evAccessToken === null || (is_array($evAccessToken) && count($evAccessToken) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $evAccessToken when calling updateWebhook'
             );
         }
         // verify the required parameter 'id' is set
         if ($id === null || (is_array($id) && count($id) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $id when calling updateUser'
+                'Missing the required parameter $id when calling updateWebhook'
             );
         }
 
-        $resourcePath = '/users/{id}';
+        $resourcePath = '/webhooks/{id}';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];

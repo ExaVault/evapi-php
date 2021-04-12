@@ -60,7 +60,10 @@ class BrandingSettings implements ModelInterface, ArrayAccess
 'customEmail' => 'string',
 'logo' => 'string',
 'logoExt' => 'string',
-'theme' => 'string'    ];
+'theme' => 'string',
+'verifiedDomain' => 'string',
+'verifiedDomainId' => 'string',
+'verifiedDomainValid' => 'bool'    ];
 
     /**
       * Array of property to format mappings. Used for (de)serialization
@@ -72,7 +75,10 @@ class BrandingSettings implements ModelInterface, ArrayAccess
 'customEmail' => 'email',
 'logo' => null,
 'logoExt' => null,
-'theme' => null    ];
+'theme' => null,
+'verifiedDomain' => null,
+'verifiedDomainId' => null,
+'verifiedDomainValid' => null    ];
 
     /**
      * Array of property to type mappings. Used for (de)serialization
@@ -105,7 +111,10 @@ class BrandingSettings implements ModelInterface, ArrayAccess
 'customEmail' => 'customEmail',
 'logo' => 'logo',
 'logoExt' => 'logoExt',
-'theme' => 'theme'    ];
+'theme' => 'theme',
+'verifiedDomain' => 'verifiedDomain',
+'verifiedDomainId' => 'verifiedDomainId',
+'verifiedDomainValid' => 'verifiedDomainValid'    ];
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
@@ -117,7 +126,10 @@ class BrandingSettings implements ModelInterface, ArrayAccess
 'customEmail' => 'setCustomEmail',
 'logo' => 'setLogo',
 'logoExt' => 'setLogoExt',
-'theme' => 'setTheme'    ];
+'theme' => 'setTheme',
+'verifiedDomain' => 'setVerifiedDomain',
+'verifiedDomainId' => 'setVerifiedDomainId',
+'verifiedDomainValid' => 'setVerifiedDomainValid'    ];
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
@@ -129,7 +141,10 @@ class BrandingSettings implements ModelInterface, ArrayAccess
 'customEmail' => 'getCustomEmail',
 'logo' => 'getLogo',
 'logoExt' => 'getLogoExt',
-'theme' => 'getTheme'    ];
+'theme' => 'getTheme',
+'verifiedDomain' => 'getVerifiedDomain',
+'verifiedDomainId' => 'getVerifiedDomainId',
+'verifiedDomainValid' => 'getVerifiedDomainValid'    ];
 
     /**
      * Array of attributes where the key is the local name,
@@ -194,6 +209,9 @@ class BrandingSettings implements ModelInterface, ArrayAccess
         $this->container['logo'] = isset($data['logo']) ? $data['logo'] : null;
         $this->container['logoExt'] = isset($data['logoExt']) ? $data['logoExt'] : null;
         $this->container['theme'] = isset($data['theme']) ? $data['theme'] : null;
+        $this->container['verifiedDomain'] = isset($data['verifiedDomain']) ? $data['verifiedDomain'] : null;
+        $this->container['verifiedDomainId'] = isset($data['verifiedDomainId']) ? $data['verifiedDomainId'] : null;
+        $this->container['verifiedDomainValid'] = isset($data['verifiedDomainValid']) ? $data['verifiedDomainValid'] : null;
     }
 
     /**
@@ -336,6 +354,78 @@ class BrandingSettings implements ModelInterface, ArrayAccess
     public function setTheme($theme)
     {
         $this->container['theme'] = $theme;
+
+        return $this;
+    }
+
+    /**
+     * Gets verifiedDomain
+     *
+     * @return string
+     */
+    public function getVerifiedDomain()
+    {
+        return $this->container['verifiedDomain'];
+    }
+
+    /**
+     * Sets verifiedDomain
+     *
+     * @param string $verifiedDomain verifiedDomain
+     *
+     * @return $this
+     */
+    public function setVerifiedDomain($verifiedDomain)
+    {
+        $this->container['verifiedDomain'] = $verifiedDomain;
+
+        return $this;
+    }
+
+    /**
+     * Gets verifiedDomainId
+     *
+     * @return string
+     */
+    public function getVerifiedDomainId()
+    {
+        return $this->container['verifiedDomainId'];
+    }
+
+    /**
+     * Sets verifiedDomainId
+     *
+     * @param string $verifiedDomainId verifiedDomainId
+     *
+     * @return $this
+     */
+    public function setVerifiedDomainId($verifiedDomainId)
+    {
+        $this->container['verifiedDomainId'] = $verifiedDomainId;
+
+        return $this;
+    }
+
+    /**
+     * Gets verifiedDomainValid
+     *
+     * @return bool
+     */
+    public function getVerifiedDomainValid()
+    {
+        return $this->container['verifiedDomainValid'];
+    }
+
+    /**
+     * Sets verifiedDomainValid
+     *
+     * @param bool $verifiedDomainValid verifiedDomainValid
+     *
+     * @return $this
+     */
+    public function setVerifiedDomainValid($verifiedDomainValid)
+    {
+        $this->container['verifiedDomainValid'] = $verifiedDomainValid;
 
         return $this;
     }

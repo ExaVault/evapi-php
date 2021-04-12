@@ -96,7 +96,7 @@ class ActivityApi
      * @param  \DateTime $startDate Start date of the filter data range (optional)
      * @param  \DateTime $endDate End date of the filter data range (optional)
      * @param  string $ipAddress Used to filter session logs by ip address. (optional)
-     * @param  string $userName Username used for filtering a list (optional)
+     * @param  string $username Username used for filtering a list (optional)
      * @param  string $path Path used to filter records (optional)
      * @param  string $type Filter session logs for operation type (see table above for acceptable values) (optional)
      * @param  int $offset Offset of the records list (optional)
@@ -107,9 +107,9 @@ class ActivityApi
      * @throws \InvalidArgumentException
      * @return \ExaVault\Model\SessionActivityResponse
      */
-    public function getSessionLogs($evApiKey, $evAccessToken, $startDate = null, $endDate = null, $ipAddress = null, $userName = null, $path = null, $type = null, $offset = null, $limit = null, $sort = null)
+    public function getSessionLogs($evApiKey, $evAccessToken, $startDate = null, $endDate = null, $ipAddress = null, $username = null, $path = null, $type = null, $offset = null, $limit = null, $sort = null)
     {
-        list($response) = $this->getSessionLogsWithHttpInfo($evApiKey, $evAccessToken, $startDate, $endDate, $ipAddress, $userName, $path, $type, $offset, $limit, $sort);
+        list($response) = $this->getSessionLogsWithHttpInfo($evApiKey, $evAccessToken, $startDate, $endDate, $ipAddress, $username, $path, $type, $offset, $limit, $sort);
         return $response;
     }
 
@@ -123,7 +123,7 @@ class ActivityApi
      * @param  \DateTime $startDate Start date of the filter data range (optional)
      * @param  \DateTime $endDate End date of the filter data range (optional)
      * @param  string $ipAddress Used to filter session logs by ip address. (optional)
-     * @param  string $userName Username used for filtering a list (optional)
+     * @param  string $username Username used for filtering a list (optional)
      * @param  string $path Path used to filter records (optional)
      * @param  string $type Filter session logs for operation type (see table above for acceptable values) (optional)
      * @param  int $offset Offset of the records list (optional)
@@ -134,10 +134,10 @@ class ActivityApi
      * @throws \InvalidArgumentException
      * @return array of \ExaVault\Model\SessionActivityResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getSessionLogsWithHttpInfo($evApiKey, $evAccessToken, $startDate = null, $endDate = null, $ipAddress = null, $userName = null, $path = null, $type = null, $offset = null, $limit = null, $sort = null)
+    public function getSessionLogsWithHttpInfo($evApiKey, $evAccessToken, $startDate = null, $endDate = null, $ipAddress = null, $username = null, $path = null, $type = null, $offset = null, $limit = null, $sort = null)
     {
         $returnType = '\ExaVault\Model\SessionActivityResponse';
-        $request = $this->getSessionLogsRequest($evApiKey, $evAccessToken, $startDate, $endDate, $ipAddress, $userName, $path, $type, $offset, $limit, $sort);
+        $request = $this->getSessionLogsRequest($evApiKey, $evAccessToken, $startDate, $endDate, $ipAddress, $username, $path, $type, $offset, $limit, $sort);
 
         try {
             $options = $this->createHttpClientOption();
@@ -208,7 +208,7 @@ class ActivityApi
      * @param  \DateTime $startDate Start date of the filter data range (optional)
      * @param  \DateTime $endDate End date of the filter data range (optional)
      * @param  string $ipAddress Used to filter session logs by ip address. (optional)
-     * @param  string $userName Username used for filtering a list (optional)
+     * @param  string $username Username used for filtering a list (optional)
      * @param  string $path Path used to filter records (optional)
      * @param  string $type Filter session logs for operation type (see table above for acceptable values) (optional)
      * @param  int $offset Offset of the records list (optional)
@@ -218,9 +218,9 @@ class ActivityApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getSessionLogsAsync($evApiKey, $evAccessToken, $startDate = null, $endDate = null, $ipAddress = null, $userName = null, $path = null, $type = null, $offset = null, $limit = null, $sort = null)
+    public function getSessionLogsAsync($evApiKey, $evAccessToken, $startDate = null, $endDate = null, $ipAddress = null, $username = null, $path = null, $type = null, $offset = null, $limit = null, $sort = null)
     {
-        return $this->getSessionLogsAsyncWithHttpInfo($evApiKey, $evAccessToken, $startDate, $endDate, $ipAddress, $userName, $path, $type, $offset, $limit, $sort)
+        return $this->getSessionLogsAsyncWithHttpInfo($evApiKey, $evAccessToken, $startDate, $endDate, $ipAddress, $username, $path, $type, $offset, $limit, $sort)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -238,7 +238,7 @@ class ActivityApi
      * @param  \DateTime $startDate Start date of the filter data range (optional)
      * @param  \DateTime $endDate End date of the filter data range (optional)
      * @param  string $ipAddress Used to filter session logs by ip address. (optional)
-     * @param  string $userName Username used for filtering a list (optional)
+     * @param  string $username Username used for filtering a list (optional)
      * @param  string $path Path used to filter records (optional)
      * @param  string $type Filter session logs for operation type (see table above for acceptable values) (optional)
      * @param  int $offset Offset of the records list (optional)
@@ -248,10 +248,10 @@ class ActivityApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getSessionLogsAsyncWithHttpInfo($evApiKey, $evAccessToken, $startDate = null, $endDate = null, $ipAddress = null, $userName = null, $path = null, $type = null, $offset = null, $limit = null, $sort = null)
+    public function getSessionLogsAsyncWithHttpInfo($evApiKey, $evAccessToken, $startDate = null, $endDate = null, $ipAddress = null, $username = null, $path = null, $type = null, $offset = null, $limit = null, $sort = null)
     {
         $returnType = '\ExaVault\Model\SessionActivityResponse';
-        $request = $this->getSessionLogsRequest($evApiKey, $evAccessToken, $startDate, $endDate, $ipAddress, $userName, $path, $type, $offset, $limit, $sort);
+        $request = $this->getSessionLogsRequest($evApiKey, $evAccessToken, $startDate, $endDate, $ipAddress, $username, $path, $type, $offset, $limit, $sort);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -298,7 +298,7 @@ class ActivityApi
      * @param  \DateTime $startDate Start date of the filter data range (optional)
      * @param  \DateTime $endDate End date of the filter data range (optional)
      * @param  string $ipAddress Used to filter session logs by ip address. (optional)
-     * @param  string $userName Username used for filtering a list (optional)
+     * @param  string $username Username used for filtering a list (optional)
      * @param  string $path Path used to filter records (optional)
      * @param  string $type Filter session logs for operation type (see table above for acceptable values) (optional)
      * @param  int $offset Offset of the records list (optional)
@@ -308,7 +308,7 @@ class ActivityApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function getSessionLogsRequest($evApiKey, $evAccessToken, $startDate = null, $endDate = null, $ipAddress = null, $userName = null, $path = null, $type = null, $offset = null, $limit = null, $sort = null)
+    protected function getSessionLogsRequest($evApiKey, $evAccessToken, $startDate = null, $endDate = null, $ipAddress = null, $username = null, $path = null, $type = null, $offset = null, $limit = null, $sort = null)
     {
         // verify the required parameter 'evApiKey' is set
         if ($evApiKey === null || (is_array($evApiKey) && count($evApiKey) === 0)) {
@@ -343,8 +343,8 @@ class ActivityApi
             $queryParams['ipAddress'] = ObjectSerializer::toQueryValue($ipAddress, null);
         }
         // query params
-        if ($userName !== null) {
-            $queryParams['userName'] = ObjectSerializer::toQueryValue($userName, null);
+        if ($username !== null) {
+            $queryParams['username'] = ObjectSerializer::toQueryValue($username, null);
         }
         // query params
         if ($path !== null) {
@@ -447,21 +447,24 @@ class ActivityApi
      *
      * @param  string $evApiKey API Key (required)
      * @param  string $evAccessToken Access Token (required)
-     * @param  string $event Filter by triggered event (optional)
-     * @param  int $statusCode Filter by webhook response status code (optional)
-     * @param  string $path Path used to filter records (optional)
+     * @param  \DateTime $startDate Earliest date of entries to include in list (optional)
+     * @param  \DateTime $endDate Latest date of entries to include in list (optional)
+     * @param  string $endpointUrl Webhook listener endpoint (optional)
+     * @param  string $event Type of activity that triggered the webhook attempt (optional)
+     * @param  int $statusCode Response code from the webhook endpoint (optional)
+     * @param  string $resourcePath Path of the resource that triggered the webhook attempt (optional)
      * @param  string $username Filter by triggering username. (optional)
-     * @param  int $offset Records to skip before returning results (optional)
+     * @param  int $offset Records to skip before returning results. (optional)
      * @param  int $limit Limit of the records list (optional)
      * @param  string $sort Comma separated list sort params (optional)
      *
      * @throws \ExaVault\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \ExaVault\Model\WebhooksActivityResponse
+     * @return \ExaVault\Model\WebhookActivityResponse
      */
-    public function getWebhookLogs($evApiKey, $evAccessToken, $event = null, $statusCode = null, $path = null, $username = null, $offset = null, $limit = null, $sort = null)
+    public function getWebhookLogs($evApiKey, $evAccessToken, $startDate = null, $endDate = null, $endpointUrl = null, $event = null, $statusCode = null, $resourcePath = null, $username = null, $offset = null, $limit = null, $sort = null)
     {
-        list($response) = $this->getWebhookLogsWithHttpInfo($evApiKey, $evAccessToken, $event, $statusCode, $path, $username, $offset, $limit, $sort);
+        list($response) = $this->getWebhookLogsWithHttpInfo($evApiKey, $evAccessToken, $startDate, $endDate, $endpointUrl, $event, $statusCode, $resourcePath, $username, $offset, $limit, $sort);
         return $response;
     }
 
@@ -472,22 +475,25 @@ class ActivityApi
      *
      * @param  string $evApiKey API Key (required)
      * @param  string $evAccessToken Access Token (required)
-     * @param  string $event Filter by triggered event (optional)
-     * @param  int $statusCode Filter by webhook response status code (optional)
-     * @param  string $path Path used to filter records (optional)
+     * @param  \DateTime $startDate Earliest date of entries to include in list (optional)
+     * @param  \DateTime $endDate Latest date of entries to include in list (optional)
+     * @param  string $endpointUrl Webhook listener endpoint (optional)
+     * @param  string $event Type of activity that triggered the webhook attempt (optional)
+     * @param  int $statusCode Response code from the webhook endpoint (optional)
+     * @param  string $resourcePath Path of the resource that triggered the webhook attempt (optional)
      * @param  string $username Filter by triggering username. (optional)
-     * @param  int $offset Records to skip before returning results (optional)
+     * @param  int $offset Records to skip before returning results. (optional)
      * @param  int $limit Limit of the records list (optional)
      * @param  string $sort Comma separated list sort params (optional)
      *
      * @throws \ExaVault\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \ExaVault\Model\WebhooksActivityResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \ExaVault\Model\WebhookActivityResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getWebhookLogsWithHttpInfo($evApiKey, $evAccessToken, $event = null, $statusCode = null, $path = null, $username = null, $offset = null, $limit = null, $sort = null)
+    public function getWebhookLogsWithHttpInfo($evApiKey, $evAccessToken, $startDate = null, $endDate = null, $endpointUrl = null, $event = null, $statusCode = null, $resourcePath = null, $username = null, $offset = null, $limit = null, $sort = null)
     {
-        $returnType = '\ExaVault\Model\WebhooksActivityResponse';
-        $request = $this->getWebhookLogsRequest($evApiKey, $evAccessToken, $event, $statusCode, $path, $username, $offset, $limit, $sort);
+        $returnType = '\ExaVault\Model\WebhookActivityResponse';
+        $request = $this->getWebhookLogsRequest($evApiKey, $evAccessToken, $startDate, $endDate, $endpointUrl, $event, $statusCode, $resourcePath, $username, $offset, $limit, $sort);
 
         try {
             $options = $this->createHttpClientOption();
@@ -538,7 +544,7 @@ class ActivityApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ExaVault\Model\WebhooksActivityResponse',
+                        '\ExaVault\Model\WebhookActivityResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -555,20 +561,23 @@ class ActivityApi
      *
      * @param  string $evApiKey API Key (required)
      * @param  string $evAccessToken Access Token (required)
-     * @param  string $event Filter by triggered event (optional)
-     * @param  int $statusCode Filter by webhook response status code (optional)
-     * @param  string $path Path used to filter records (optional)
+     * @param  \DateTime $startDate Earliest date of entries to include in list (optional)
+     * @param  \DateTime $endDate Latest date of entries to include in list (optional)
+     * @param  string $endpointUrl Webhook listener endpoint (optional)
+     * @param  string $event Type of activity that triggered the webhook attempt (optional)
+     * @param  int $statusCode Response code from the webhook endpoint (optional)
+     * @param  string $resourcePath Path of the resource that triggered the webhook attempt (optional)
      * @param  string $username Filter by triggering username. (optional)
-     * @param  int $offset Records to skip before returning results (optional)
+     * @param  int $offset Records to skip before returning results. (optional)
      * @param  int $limit Limit of the records list (optional)
      * @param  string $sort Comma separated list sort params (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getWebhookLogsAsync($evApiKey, $evAccessToken, $event = null, $statusCode = null, $path = null, $username = null, $offset = null, $limit = null, $sort = null)
+    public function getWebhookLogsAsync($evApiKey, $evAccessToken, $startDate = null, $endDate = null, $endpointUrl = null, $event = null, $statusCode = null, $resourcePath = null, $username = null, $offset = null, $limit = null, $sort = null)
     {
-        return $this->getWebhookLogsAsyncWithHttpInfo($evApiKey, $evAccessToken, $event, $statusCode, $path, $username, $offset, $limit, $sort)
+        return $this->getWebhookLogsAsyncWithHttpInfo($evApiKey, $evAccessToken, $startDate, $endDate, $endpointUrl, $event, $statusCode, $resourcePath, $username, $offset, $limit, $sort)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -583,21 +592,24 @@ class ActivityApi
      *
      * @param  string $evApiKey API Key (required)
      * @param  string $evAccessToken Access Token (required)
-     * @param  string $event Filter by triggered event (optional)
-     * @param  int $statusCode Filter by webhook response status code (optional)
-     * @param  string $path Path used to filter records (optional)
+     * @param  \DateTime $startDate Earliest date of entries to include in list (optional)
+     * @param  \DateTime $endDate Latest date of entries to include in list (optional)
+     * @param  string $endpointUrl Webhook listener endpoint (optional)
+     * @param  string $event Type of activity that triggered the webhook attempt (optional)
+     * @param  int $statusCode Response code from the webhook endpoint (optional)
+     * @param  string $resourcePath Path of the resource that triggered the webhook attempt (optional)
      * @param  string $username Filter by triggering username. (optional)
-     * @param  int $offset Records to skip before returning results (optional)
+     * @param  int $offset Records to skip before returning results. (optional)
      * @param  int $limit Limit of the records list (optional)
      * @param  string $sort Comma separated list sort params (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getWebhookLogsAsyncWithHttpInfo($evApiKey, $evAccessToken, $event = null, $statusCode = null, $path = null, $username = null, $offset = null, $limit = null, $sort = null)
+    public function getWebhookLogsAsyncWithHttpInfo($evApiKey, $evAccessToken, $startDate = null, $endDate = null, $endpointUrl = null, $event = null, $statusCode = null, $resourcePath = null, $username = null, $offset = null, $limit = null, $sort = null)
     {
-        $returnType = '\ExaVault\Model\WebhooksActivityResponse';
-        $request = $this->getWebhookLogsRequest($evApiKey, $evAccessToken, $event, $statusCode, $path, $username, $offset, $limit, $sort);
+        $returnType = '\ExaVault\Model\WebhookActivityResponse';
+        $request = $this->getWebhookLogsRequest($evApiKey, $evAccessToken, $startDate, $endDate, $endpointUrl, $event, $statusCode, $resourcePath, $username, $offset, $limit, $sort);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -641,18 +653,21 @@ class ActivityApi
      *
      * @param  string $evApiKey API Key (required)
      * @param  string $evAccessToken Access Token (required)
-     * @param  string $event Filter by triggered event (optional)
-     * @param  int $statusCode Filter by webhook response status code (optional)
-     * @param  string $path Path used to filter records (optional)
+     * @param  \DateTime $startDate Earliest date of entries to include in list (optional)
+     * @param  \DateTime $endDate Latest date of entries to include in list (optional)
+     * @param  string $endpointUrl Webhook listener endpoint (optional)
+     * @param  string $event Type of activity that triggered the webhook attempt (optional)
+     * @param  int $statusCode Response code from the webhook endpoint (optional)
+     * @param  string $resourcePath Path of the resource that triggered the webhook attempt (optional)
      * @param  string $username Filter by triggering username. (optional)
-     * @param  int $offset Records to skip before returning results (optional)
+     * @param  int $offset Records to skip before returning results. (optional)
      * @param  int $limit Limit of the records list (optional)
      * @param  string $sort Comma separated list sort params (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function getWebhookLogsRequest($evApiKey, $evAccessToken, $event = null, $statusCode = null, $path = null, $username = null, $offset = null, $limit = null, $sort = null)
+    protected function getWebhookLogsRequest($evApiKey, $evAccessToken, $startDate = null, $endDate = null, $endpointUrl = null, $event = null, $statusCode = null, $resourcePath = null, $username = null, $offset = null, $limit = null, $sort = null)
     {
         // verify the required parameter 'evApiKey' is set
         if ($evApiKey === null || (is_array($evApiKey) && count($evApiKey) === 0)) {
@@ -675,6 +690,18 @@ class ActivityApi
         $multipart = false;
 
         // query params
+        if ($startDate !== null) {
+            $queryParams['startDate'] = ObjectSerializer::toQueryValue($startDate, 'date-time');
+        }
+        // query params
+        if ($endDate !== null) {
+            $queryParams['endDate'] = ObjectSerializer::toQueryValue($endDate, 'date-time');
+        }
+        // query params
+        if ($endpointUrl !== null) {
+            $queryParams['endpointUrl'] = ObjectSerializer::toQueryValue($endpointUrl, 'uri');
+        }
+        // query params
         if ($event !== null) {
             $queryParams['event'] = ObjectSerializer::toQueryValue($event, null);
         }
@@ -683,8 +710,8 @@ class ActivityApi
             $queryParams['statusCode'] = ObjectSerializer::toQueryValue($statusCode, null);
         }
         // query params
-        if ($path !== null) {
-            $queryParams['path'] = ObjectSerializer::toQueryValue($path, null);
+        if ($resourcePath !== null) {
+            $queryParams['resourcePath'] = ObjectSerializer::toQueryValue($resourcePath, null);
         }
         // query params
         if ($username !== null) {

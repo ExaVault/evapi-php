@@ -252,7 +252,7 @@ class EmailList implements ModelInterface, ArrayAccess
     /**
      * Sets type
      *
-     * @param string $type Type of record. \"EmailList\"
+     * @param string $type Type of record. \"emailList\"
      *
      * @return $this
      */

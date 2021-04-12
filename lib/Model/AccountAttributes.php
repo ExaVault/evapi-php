@@ -57,7 +57,6 @@ class AccountAttributes implements ModelInterface, ArrayAccess
       */
     protected static $swaggerTypes = [
         'accountName' => 'string',
-'username' => 'string',
 'maxUsers' => 'int',
 'userCount' => 'int',
 'status' => 'int',
@@ -69,8 +68,8 @@ class AccountAttributes implements ModelInterface, ArrayAccess
 'showReferralLinks' => 'bool',
 'externalDomains' => 'string[]',
 'allowedIp' => '\ExaVault\Model\AccountAttributesAllowedIp[]',
-'callbackSettings' => '\ExaVault\Model\CallbackSettings',
 'brandingSettings' => '\ExaVault\Model\BrandingSettings',
+'planDetails' => '\ExaVault\Model\PlanDetails',
 'clientId' => 'int',
 'welcomeEmailContent' => 'string',
 'welcomeEmailSubject' => 'string',
@@ -86,7 +85,6 @@ class AccountAttributes implements ModelInterface, ArrayAccess
       */
     protected static $swaggerFormats = [
         'accountName' => null,
-'username' => null,
 'maxUsers' => 'int32',
 'userCount' => 'int32',
 'status' => 'int32',
@@ -98,8 +96,8 @@ class AccountAttributes implements ModelInterface, ArrayAccess
 'showReferralLinks' => null,
 'externalDomains' => null,
 'allowedIp' => null,
-'callbackSettings' => null,
 'brandingSettings' => null,
+'planDetails' => null,
 'clientId' => 'int32',
 'welcomeEmailContent' => null,
 'welcomeEmailSubject' => null,
@@ -136,7 +134,6 @@ class AccountAttributes implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'accountName' => 'accountName',
-'username' => 'username',
 'maxUsers' => 'maxUsers',
 'userCount' => 'userCount',
 'status' => 'status',
@@ -148,8 +145,8 @@ class AccountAttributes implements ModelInterface, ArrayAccess
 'showReferralLinks' => 'showReferralLinks',
 'externalDomains' => 'externalDomains',
 'allowedIp' => 'allowedIp',
-'callbackSettings' => 'callbackSettings',
 'brandingSettings' => 'brandingSettings',
+'planDetails' => 'planDetails',
 'clientId' => 'clientId',
 'welcomeEmailContent' => 'welcomeEmailContent',
 'welcomeEmailSubject' => 'welcomeEmailSubject',
@@ -165,7 +162,6 @@ class AccountAttributes implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'accountName' => 'setAccountName',
-'username' => 'setUsername',
 'maxUsers' => 'setMaxUsers',
 'userCount' => 'setUserCount',
 'status' => 'setStatus',
@@ -177,8 +173,8 @@ class AccountAttributes implements ModelInterface, ArrayAccess
 'showReferralLinks' => 'setShowReferralLinks',
 'externalDomains' => 'setExternalDomains',
 'allowedIp' => 'setAllowedIp',
-'callbackSettings' => 'setCallbackSettings',
 'brandingSettings' => 'setBrandingSettings',
+'planDetails' => 'setPlanDetails',
 'clientId' => 'setClientId',
 'welcomeEmailContent' => 'setWelcomeEmailContent',
 'welcomeEmailSubject' => 'setWelcomeEmailSubject',
@@ -194,7 +190,6 @@ class AccountAttributes implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'accountName' => 'getAccountName',
-'username' => 'getUsername',
 'maxUsers' => 'getMaxUsers',
 'userCount' => 'getUserCount',
 'status' => 'getStatus',
@@ -206,8 +201,8 @@ class AccountAttributes implements ModelInterface, ArrayAccess
 'showReferralLinks' => 'getShowReferralLinks',
 'externalDomains' => 'getExternalDomains',
 'allowedIp' => 'getAllowedIp',
-'callbackSettings' => 'getCallbackSettings',
 'brandingSettings' => 'getBrandingSettings',
+'planDetails' => 'getPlanDetails',
 'clientId' => 'getClientId',
 'welcomeEmailContent' => 'getWelcomeEmailContent',
 'welcomeEmailSubject' => 'getWelcomeEmailSubject',
@@ -288,7 +283,6 @@ self::STATUS_0,        ];
     public function __construct(array $data = null)
     {
         $this->container['accountName'] = isset($data['accountName']) ? $data['accountName'] : null;
-        $this->container['username'] = isset($data['username']) ? $data['username'] : null;
         $this->container['maxUsers'] = isset($data['maxUsers']) ? $data['maxUsers'] : null;
         $this->container['userCount'] = isset($data['userCount']) ? $data['userCount'] : null;
         $this->container['status'] = isset($data['status']) ? $data['status'] : null;
@@ -300,8 +294,8 @@ self::STATUS_0,        ];
         $this->container['showReferralLinks'] = isset($data['showReferralLinks']) ? $data['showReferralLinks'] : null;
         $this->container['externalDomains'] = isset($data['externalDomains']) ? $data['externalDomains'] : null;
         $this->container['allowedIp'] = isset($data['allowedIp']) ? $data['allowedIp'] : null;
-        $this->container['callbackSettings'] = isset($data['callbackSettings']) ? $data['callbackSettings'] : null;
         $this->container['brandingSettings'] = isset($data['brandingSettings']) ? $data['brandingSettings'] : null;
+        $this->container['planDetails'] = isset($data['planDetails']) ? $data['planDetails'] : null;
         $this->container['clientId'] = isset($data['clientId']) ? $data['clientId'] : null;
         $this->container['welcomeEmailContent'] = isset($data['welcomeEmailContent']) ? $data['welcomeEmailContent'] : null;
         $this->container['welcomeEmailSubject'] = isset($data['welcomeEmailSubject']) ? $data['welcomeEmailSubject'] : null;
@@ -363,30 +357,6 @@ self::STATUS_0,        ];
     public function setAccountName($accountName)
     {
         $this->container['accountName'] = $accountName;
-
-        return $this;
-    }
-
-    /**
-     * Gets username
-     *
-     * @return string
-     */
-    public function getUsername()
-    {
-        return $this->container['username'];
-    }
-
-    /**
-     * Sets username
-     *
-     * @param string $username Name of account's master user
-     *
-     * @return $this
-     */
-    public function setUsername($username)
-    {
-        $this->container['username'] = $username;
 
         return $this;
     }
@@ -665,30 +635,6 @@ self::STATUS_0,        ];
     }
 
     /**
-     * Gets callbackSettings
-     *
-     * @return \ExaVault\Model\CallbackSettings
-     */
-    public function getCallbackSettings()
-    {
-        return $this->container['callbackSettings'];
-    }
-
-    /**
-     * Sets callbackSettings
-     *
-     * @param \ExaVault\Model\CallbackSettings $callbackSettings callbackSettings
-     *
-     * @return $this
-     */
-    public function setCallbackSettings($callbackSettings)
-    {
-        $this->container['callbackSettings'] = $callbackSettings;
-
-        return $this;
-    }
-
-    /**
      * Gets brandingSettings
      *
      * @return \ExaVault\Model\BrandingSettings
@@ -708,6 +654,30 @@ self::STATUS_0,        ];
     public function setBrandingSettings($brandingSettings)
     {
         $this->container['brandingSettings'] = $brandingSettings;
+
+        return $this;
+    }
+
+    /**
+     * Gets planDetails
+     *
+     * @return \ExaVault\Model\PlanDetails
+     */
+    public function getPlanDetails()
+    {
+        return $this->container['planDetails'];
+    }
+
+    /**
+     * Sets planDetails
+     *
+     * @param \ExaVault\Model\PlanDetails $planDetails planDetails
+     *
+     * @return $this
+     */
+    public function setPlanDetails($planDetails)
+    {
+        $this->container['planDetails'] = $planDetails;
 
         return $this;
     }

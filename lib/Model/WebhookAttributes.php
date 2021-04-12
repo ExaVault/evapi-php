@@ -1,6 +1,6 @@
 <?php
 /**
- * UpdateNotificationByIdRequestBody
+ * WebhookAttributes
  *
  * PHP version 5
  *
@@ -32,14 +32,14 @@ use \ArrayAccess;
 use \ExaVault\ObjectSerializer;
 
 /**
- * UpdateNotificationByIdRequestBody Class Doc Comment
+ * WebhookAttributes Class Doc Comment
  *
  * @category Class
  * @package  ExaVault
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class UpdateNotificationByIdRequestBody implements ModelInterface, ArrayAccess
+class WebhookAttributes implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -48,7 +48,7 @@ class UpdateNotificationByIdRequestBody implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'UpdateNotificationByIdRequestBody';
+    protected static $swaggerModelName = 'WebhookAttributes';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -56,11 +56,13 @@ class UpdateNotificationByIdRequestBody implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'action' => 'string',
-'usernames' => 'string[]',
-'sendEmail' => 'bool',
-'recipients' => 'string[]',
-'message' => 'string'    ];
+        'endpointUrl' => 'string',
+'failed' => 'bool',
+'verificationToken' => 'string',
+'responseVersion' => 'string',
+'triggers' => '\ExaVault\Model\WebhookTriggers',
+'created' => '\DateTime',
+'modified' => '\DateTime'    ];
 
     /**
       * Array of property to format mappings. Used for (de)serialization
@@ -68,11 +70,13 @@ class UpdateNotificationByIdRequestBody implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'action' => null,
-'usernames' => null,
-'sendEmail' => null,
-'recipients' => 'email',
-'message' => null    ];
+        'endpointUrl' => 'uri',
+'failed' => null,
+'verificationToken' => null,
+'responseVersion' => null,
+'triggers' => null,
+'created' => 'date-time',
+'modified' => 'date-time'    ];
 
     /**
      * Array of property to type mappings. Used for (de)serialization
@@ -101,11 +105,13 @@ class UpdateNotificationByIdRequestBody implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'action' => 'action',
-'usernames' => 'usernames',
-'sendEmail' => 'sendEmail',
-'recipients' => 'recipients',
-'message' => 'message'    ];
+        'endpointUrl' => 'endpointUrl',
+'failed' => 'failed',
+'verificationToken' => 'verificationToken',
+'responseVersion' => 'responseVersion',
+'triggers' => 'triggers',
+'created' => 'created',
+'modified' => 'modified'    ];
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
@@ -113,11 +119,13 @@ class UpdateNotificationByIdRequestBody implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'action' => 'setAction',
-'usernames' => 'setUsernames',
-'sendEmail' => 'setSendEmail',
-'recipients' => 'setRecipients',
-'message' => 'setMessage'    ];
+        'endpointUrl' => 'setEndpointUrl',
+'failed' => 'setFailed',
+'verificationToken' => 'setVerificationToken',
+'responseVersion' => 'setResponseVersion',
+'triggers' => 'setTriggers',
+'created' => 'setCreated',
+'modified' => 'setModified'    ];
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
@@ -125,11 +133,13 @@ class UpdateNotificationByIdRequestBody implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'action' => 'getAction',
-'usernames' => 'getUsernames',
-'sendEmail' => 'getSendEmail',
-'recipients' => 'getRecipients',
-'message' => 'getMessage'    ];
+        'endpointUrl' => 'getEndpointUrl',
+'failed' => 'getFailed',
+'verificationToken' => 'getVerificationToken',
+'responseVersion' => 'getResponseVersion',
+'triggers' => 'getTriggers',
+'created' => 'getCreated',
+'modified' => 'getModified'    ];
 
     /**
      * Array of attributes where the key is the local name,
@@ -172,23 +182,19 @@ class UpdateNotificationByIdRequestBody implements ModelInterface, ArrayAccess
         return self::$swaggerModelName;
     }
 
-    const ACTION_UPLOAD = 'upload';
-const ACTION_DOWNLOAD = 'download';
-const ACTION_DELETE = 'delete';
-const ACTION_ALL = 'all';
+    const RESPONSE_VERSION_V1 = 'v1';
+const RESPONSE_VERSION_V2 = 'v2';
 
     /**
      * Gets allowable values of the enum
      *
      * @return string[]
      */
-    public function getActionAllowableValues()
+    public function getResponseVersionAllowableValues()
     {
         return [
-            self::ACTION_UPLOAD,
-self::ACTION_DOWNLOAD,
-self::ACTION_DELETE,
-self::ACTION_ALL,        ];
+            self::RESPONSE_VERSION_V1,
+self::RESPONSE_VERSION_V2,        ];
     }
 
     /**
@@ -206,11 +212,13 @@ self::ACTION_ALL,        ];
      */
     public function __construct(array $data = null)
     {
-        $this->container['action'] = isset($data['action']) ? $data['action'] : null;
-        $this->container['usernames'] = isset($data['usernames']) ? $data['usernames'] : null;
-        $this->container['sendEmail'] = isset($data['sendEmail']) ? $data['sendEmail'] : null;
-        $this->container['recipients'] = isset($data['recipients']) ? $data['recipients'] : null;
-        $this->container['message'] = isset($data['message']) ? $data['message'] : null;
+        $this->container['endpointUrl'] = isset($data['endpointUrl']) ? $data['endpointUrl'] : null;
+        $this->container['failed'] = isset($data['failed']) ? $data['failed'] : null;
+        $this->container['verificationToken'] = isset($data['verificationToken']) ? $data['verificationToken'] : null;
+        $this->container['responseVersion'] = isset($data['responseVersion']) ? $data['responseVersion'] : null;
+        $this->container['triggers'] = isset($data['triggers']) ? $data['triggers'] : null;
+        $this->container['created'] = isset($data['created']) ? $data['created'] : null;
+        $this->container['modified'] = isset($data['modified']) ? $data['modified'] : null;
     }
 
     /**
@@ -222,10 +230,10 @@ self::ACTION_ALL,        ];
     {
         $invalidProperties = [];
 
-        $allowedValues = $this->getActionAllowableValues();
-        if (!is_null($this->container['action']) && !in_array($this->container['action'], $allowedValues, true)) {
+        $allowedValues = $this->getResponseVersionAllowableValues();
+        if (!is_null($this->container['responseVersion']) && !in_array($this->container['responseVersion'], $allowedValues, true)) {
             $invalidProperties[] = sprintf(
-                "invalid value for 'action', must be one of '%s'",
+                "invalid value for 'responseVersion', must be one of '%s'",
                 implode("', '", $allowedValues)
             );
         }
@@ -246,130 +254,178 @@ self::ACTION_ALL,        ];
 
 
     /**
-     * Gets action
+     * Gets endpointUrl
      *
      * @return string
      */
-    public function getAction()
+    public function getEndpointUrl()
     {
-        return $this->container['action'];
+        return $this->container['endpointUrl'];
     }
 
     /**
-     * Sets action
+     * Sets endpointUrl
      *
-     * @param string $action Type of action be notified about. Notifications will only be sent for the given type of action. Valid choices are **upload**, **download**, **delete** or **all** (upload/download/delete)
+     * @param string $endpointUrl The endpoint is where the webhook request will be sent.
      *
      * @return $this
      */
-    public function setAction($action)
+    public function setEndpointUrl($endpointUrl)
     {
-        $allowedValues = $this->getActionAllowableValues();
-        if (!is_null($action) && !in_array($action, $allowedValues, true)) {
+        $this->container['endpointUrl'] = $endpointUrl;
+
+        return $this;
+    }
+
+    /**
+     * Gets failed
+     *
+     * @return bool
+     */
+    public function getFailed()
+    {
+        return $this->container['failed'];
+    }
+
+    /**
+     * Sets failed
+     *
+     * @param bool $failed Whether webhook has been disabled for too many consecutive failures
+     *
+     * @return $this
+     */
+    public function setFailed($failed)
+    {
+        $this->container['failed'] = $failed;
+
+        return $this;
+    }
+
+    /**
+     * Gets verificationToken
+     *
+     * @return string
+     */
+    public function getVerificationToken()
+    {
+        return $this->container['verificationToken'];
+    }
+
+    /**
+     * Sets verificationToken
+     *
+     * @param string $verificationToken Token for verifying sender is ExaVault
+     *
+     * @return $this
+     */
+    public function setVerificationToken($verificationToken)
+    {
+        $this->container['verificationToken'] = $verificationToken;
+
+        return $this;
+    }
+
+    /**
+     * Gets responseVersion
+     *
+     * @return string
+     */
+    public function getResponseVersion()
+    {
+        return $this->container['responseVersion'];
+    }
+
+    /**
+     * Sets responseVersion
+     *
+     * @param string $responseVersion The version of webhook request to send to the endpoint URL
+     *
+     * @return $this
+     */
+    public function setResponseVersion($responseVersion)
+    {
+        $allowedValues = $this->getResponseVersionAllowableValues();
+        if (!is_null($responseVersion) && !in_array($responseVersion, $allowedValues, true)) {
             throw new \InvalidArgumentException(
                 sprintf(
-                    "Invalid value for 'action', must be one of '%s'",
+                    "Invalid value for 'responseVersion', must be one of '%s'",
                     implode("', '", $allowedValues)
                 )
             );
         }
-        $this->container['action'] = $action;
+        $this->container['responseVersion'] = $responseVersion;
 
         return $this;
     }
 
     /**
-     * Gets usernames
+     * Gets triggers
      *
-     * @return string[]
+     * @return \ExaVault\Model\WebhookTriggers
      */
-    public function getUsernames()
+    public function getTriggers()
     {
-        return $this->container['usernames'];
+        return $this->container['triggers'];
     }
 
     /**
-     * Sets usernames
+     * Sets triggers
      *
-     * @param string[] $usernames Determines which users' actions should trigger the notification.   Rather than listing  individual users, you can also use 3 special options:  - **notice\\_user\\_all** for activity by any user or share recipient - **notice\\_user\\_all\\_users** for activity only by user accounts - **notice\\_user\\_all\\_recipients** for activity only by share recipients
+     * @param \ExaVault\Model\WebhookTriggers $triggers triggers
      *
      * @return $this
      */
-    public function setUsernames($usernames)
+    public function setTriggers($triggers)
     {
-        $this->container['usernames'] = $usernames;
+        $this->container['triggers'] = $triggers;
 
         return $this;
     }
 
     /**
-     * Gets sendEmail
+     * Gets created
      *
-     * @return bool
+     * @return \DateTime
      */
-    public function getSendEmail()
+    public function getCreated()
     {
-        return $this->container['sendEmail'];
+        return $this->container['created'];
     }
 
     /**
-     * Sets sendEmail
+     * Sets created
      *
-     * @param bool $sendEmail Whether an email should be sent to the recipients when matching activity happens.
+     * @param \DateTime $created Timestamp when webhook configuration was added to system.
      *
      * @return $this
      */
-    public function setSendEmail($sendEmail)
+    public function setCreated($created)
     {
-        $this->container['sendEmail'] = $sendEmail;
+        $this->container['created'] = $created;
 
         return $this;
     }
 
     /**
-     * Gets recipients
+     * Gets modified
      *
-     * @return string[]
+     * @return \DateTime
      */
-    public function getRecipients()
+    public function getModified()
     {
-        return $this->container['recipients'];
+        return $this->container['modified'];
     }
 
     /**
-     * Sets recipients
+     * Sets modified
      *
-     * @param string[] $recipients Email addresses to send notification emails to. If empty, sends to the current user's email address.
+     * @param \DateTime $modified Timestamp when webhook configuration was last modified
      *
      * @return $this
      */
-    public function setRecipients($recipients)
+    public function setModified($modified)
     {
-        $this->container['recipients'] = $recipients;
-
-        return $this;
-    }
-
-    /**
-     * Gets message
-     *
-     * @return string
-     */
-    public function getMessage()
-    {
-        return $this->container['message'];
-    }
-
-    /**
-     * Sets message
-     *
-     * @param string $message Custom message to insert into the notification emails, along with the matching activity.
-     *
-     * @return $this
-     */
-    public function setMessage($message)
-    {
-        $this->container['message'] = $message;
+        $this->container['modified'] = $modified;
 
         return $this;
     }

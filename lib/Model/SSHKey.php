@@ -1,6 +1,6 @@
 <?php
 /**
- * UpdateNotificationByIdRequestBody
+ * SSHKey
  *
  * PHP version 5
  *
@@ -32,14 +32,15 @@ use \ArrayAccess;
 use \ExaVault\ObjectSerializer;
 
 /**
- * UpdateNotificationByIdRequestBody Class Doc Comment
+ * SSHKey Class Doc Comment
  *
  * @category Class
+ * @description Object representing an SSH Key associated with a user.
  * @package  ExaVault
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class UpdateNotificationByIdRequestBody implements ModelInterface, ArrayAccess
+class SSHKey implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -48,7 +49,7 @@ class UpdateNotificationByIdRequestBody implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'UpdateNotificationByIdRequestBody';
+    protected static $swaggerModelName = 'SSHKey';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -56,11 +57,10 @@ class UpdateNotificationByIdRequestBody implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'action' => 'string',
-'usernames' => 'string[]',
-'sendEmail' => 'bool',
-'recipients' => 'string[]',
-'message' => 'string'    ];
+        'id' => 'int',
+'type' => 'string',
+'attributes' => '\ExaVault\Model\SSHKeyAttributes',
+'relationships' => '\ExaVault\Model\SSHKeyRelationships'    ];
 
     /**
       * Array of property to format mappings. Used for (de)serialization
@@ -68,11 +68,10 @@ class UpdateNotificationByIdRequestBody implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'action' => null,
-'usernames' => null,
-'sendEmail' => null,
-'recipients' => 'email',
-'message' => null    ];
+        'id' => 'int32',
+'type' => null,
+'attributes' => null,
+'relationships' => null    ];
 
     /**
      * Array of property to type mappings. Used for (de)serialization
@@ -101,11 +100,10 @@ class UpdateNotificationByIdRequestBody implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'action' => 'action',
-'usernames' => 'usernames',
-'sendEmail' => 'sendEmail',
-'recipients' => 'recipients',
-'message' => 'message'    ];
+        'id' => 'id',
+'type' => 'type',
+'attributes' => 'attributes',
+'relationships' => 'relationships'    ];
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
@@ -113,11 +111,10 @@ class UpdateNotificationByIdRequestBody implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'action' => 'setAction',
-'usernames' => 'setUsernames',
-'sendEmail' => 'setSendEmail',
-'recipients' => 'setRecipients',
-'message' => 'setMessage'    ];
+        'id' => 'setId',
+'type' => 'setType',
+'attributes' => 'setAttributes',
+'relationships' => 'setRelationships'    ];
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
@@ -125,11 +122,10 @@ class UpdateNotificationByIdRequestBody implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'action' => 'getAction',
-'usernames' => 'getUsernames',
-'sendEmail' => 'getSendEmail',
-'recipients' => 'getRecipients',
-'message' => 'getMessage'    ];
+        'id' => 'getId',
+'type' => 'getType',
+'attributes' => 'getAttributes',
+'relationships' => 'getRelationships'    ];
 
     /**
      * Array of attributes where the key is the local name,
@@ -172,23 +168,17 @@ class UpdateNotificationByIdRequestBody implements ModelInterface, ArrayAccess
         return self::$swaggerModelName;
     }
 
-    const ACTION_UPLOAD = 'upload';
-const ACTION_DOWNLOAD = 'download';
-const ACTION_DELETE = 'delete';
-const ACTION_ALL = 'all';
+    const TYPE_SSH_KEY = 'sshKey';
 
     /**
      * Gets allowable values of the enum
      *
      * @return string[]
      */
-    public function getActionAllowableValues()
+    public function getTypeAllowableValues()
     {
         return [
-            self::ACTION_UPLOAD,
-self::ACTION_DOWNLOAD,
-self::ACTION_DELETE,
-self::ACTION_ALL,        ];
+            self::TYPE_SSH_KEY,        ];
     }
 
     /**
@@ -206,11 +196,10 @@ self::ACTION_ALL,        ];
      */
     public function __construct(array $data = null)
     {
-        $this->container['action'] = isset($data['action']) ? $data['action'] : null;
-        $this->container['usernames'] = isset($data['usernames']) ? $data['usernames'] : null;
-        $this->container['sendEmail'] = isset($data['sendEmail']) ? $data['sendEmail'] : null;
-        $this->container['recipients'] = isset($data['recipients']) ? $data['recipients'] : null;
-        $this->container['message'] = isset($data['message']) ? $data['message'] : null;
+        $this->container['id'] = isset($data['id']) ? $data['id'] : null;
+        $this->container['type'] = isset($data['type']) ? $data['type'] : null;
+        $this->container['attributes'] = isset($data['attributes']) ? $data['attributes'] : null;
+        $this->container['relationships'] = isset($data['relationships']) ? $data['relationships'] : null;
     }
 
     /**
@@ -222,10 +211,10 @@ self::ACTION_ALL,        ];
     {
         $invalidProperties = [];
 
-        $allowedValues = $this->getActionAllowableValues();
-        if (!is_null($this->container['action']) && !in_array($this->container['action'], $allowedValues, true)) {
+        $allowedValues = $this->getTypeAllowableValues();
+        if (!is_null($this->container['type']) && !in_array($this->container['type'], $allowedValues, true)) {
             $invalidProperties[] = sprintf(
-                "invalid value for 'action', must be one of '%s'",
+                "invalid value for 'type', must be one of '%s'",
                 implode("', '", $allowedValues)
             );
         }
@@ -246,130 +235,106 @@ self::ACTION_ALL,        ];
 
 
     /**
-     * Gets action
+     * Gets id
      *
-     * @return string
+     * @return int
      */
-    public function getAction()
+    public function getId()
     {
-        return $this->container['action'];
+        return $this->container['id'];
     }
 
     /**
-     * Sets action
+     * Sets id
      *
-     * @param string $action Type of action be notified about. Notifications will only be sent for the given type of action. Valid choices are **upload**, **download**, **delete** or **all** (upload/download/delete)
+     * @param int $id ID of the key.
      *
      * @return $this
      */
-    public function setAction($action)
+    public function setId($id)
     {
-        $allowedValues = $this->getActionAllowableValues();
-        if (!is_null($action) && !in_array($action, $allowedValues, true)) {
+        $this->container['id'] = $id;
+
+        return $this;
+    }
+
+    /**
+     * Gets type
+     *
+     * @return string
+     */
+    public function getType()
+    {
+        return $this->container['type'];
+    }
+
+    /**
+     * Sets type
+     *
+     * @param string $type Type of the object.
+     *
+     * @return $this
+     */
+    public function setType($type)
+    {
+        $allowedValues = $this->getTypeAllowableValues();
+        if (!is_null($type) && !in_array($type, $allowedValues, true)) {
             throw new \InvalidArgumentException(
                 sprintf(
-                    "Invalid value for 'action', must be one of '%s'",
+                    "Invalid value for 'type', must be one of '%s'",
                     implode("', '", $allowedValues)
                 )
             );
         }
-        $this->container['action'] = $action;
+        $this->container['type'] = $type;
 
         return $this;
     }
 
     /**
-     * Gets usernames
+     * Gets attributes
      *
-     * @return string[]
+     * @return \ExaVault\Model\SSHKeyAttributes
      */
-    public function getUsernames()
+    public function getAttributes()
     {
-        return $this->container['usernames'];
+        return $this->container['attributes'];
     }
 
     /**
-     * Sets usernames
+     * Sets attributes
      *
-     * @param string[] $usernames Determines which users' actions should trigger the notification.   Rather than listing  individual users, you can also use 3 special options:  - **notice\\_user\\_all** for activity by any user or share recipient - **notice\\_user\\_all\\_users** for activity only by user accounts - **notice\\_user\\_all\\_recipients** for activity only by share recipients
+     * @param \ExaVault\Model\SSHKeyAttributes $attributes attributes
      *
      * @return $this
      */
-    public function setUsernames($usernames)
+    public function setAttributes($attributes)
     {
-        $this->container['usernames'] = $usernames;
+        $this->container['attributes'] = $attributes;
 
         return $this;
     }
 
     /**
-     * Gets sendEmail
+     * Gets relationships
      *
-     * @return bool
+     * @return \ExaVault\Model\SSHKeyRelationships
      */
-    public function getSendEmail()
+    public function getRelationships()
     {
-        return $this->container['sendEmail'];
+        return $this->container['relationships'];
     }
 
     /**
-     * Sets sendEmail
+     * Sets relationships
      *
-     * @param bool $sendEmail Whether an email should be sent to the recipients when matching activity happens.
+     * @param \ExaVault\Model\SSHKeyRelationships $relationships relationships
      *
      * @return $this
      */
-    public function setSendEmail($sendEmail)
+    public function setRelationships($relationships)
     {
-        $this->container['sendEmail'] = $sendEmail;
-
-        return $this;
-    }
-
-    /**
-     * Gets recipients
-     *
-     * @return string[]
-     */
-    public function getRecipients()
-    {
-        return $this->container['recipients'];
-    }
-
-    /**
-     * Sets recipients
-     *
-     * @param string[] $recipients Email addresses to send notification emails to. If empty, sends to the current user's email address.
-     *
-     * @return $this
-     */
-    public function setRecipients($recipients)
-    {
-        $this->container['recipients'] = $recipients;
-
-        return $this;
-    }
-
-    /**
-     * Gets message
-     *
-     * @return string
-     */
-    public function getMessage()
-    {
-        return $this->container['message'];
-    }
-
-    /**
-     * Sets message
-     *
-     * @param string $message Custom message to insert into the notification emails, along with the matching activity.
-     *
-     * @return $this
-     */
-    public function setMessage($message)
-    {
-        $this->container['message'] = $message;
+        $this->container['relationships'] = $relationships;
 
         return $this;
     }

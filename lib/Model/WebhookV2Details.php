@@ -1,6 +1,6 @@
 <?php
 /**
- * WebhooksActivityEntryAttributes
+ * WebhookV2Details
  *
  * PHP version 5
  *
@@ -32,14 +32,14 @@ use \ArrayAccess;
 use \ExaVault\ObjectSerializer;
 
 /**
- * WebhooksActivityEntryAttributes Class Doc Comment
+ * WebhookV2Details Class Doc Comment
  *
  * @category Class
  * @package  ExaVault
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class WebhooksActivityEntryAttributes implements ModelInterface, ArrayAccess
+class WebhookV2Details implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -48,7 +48,7 @@ class WebhooksActivityEntryAttributes implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'WebhooksActivityEntry_attributes';
+    protected static $swaggerModelName = 'WebhookV2Details';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -56,13 +56,14 @@ class WebhooksActivityEntryAttributes implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'attempt' => 'int',
-'created' => 'string',
-'endpointUrl' => 'string',
+        'attemptId' => 'string',
+'accountName' => 'string',
+'eventTimestamp' => '\DateTime',
+'ipAddress' => 'string',
+'protocol' => 'string',
+'username' => 'string',
 'event' => 'string',
-'response' => 'string',
-'responseSize' => 'int',
-'status' => 'int'    ];
+'eventData' => '\ExaVault\Model\WebhookV2EventData'    ];
 
     /**
       * Array of property to format mappings. Used for (de)serialization
@@ -70,13 +71,14 @@ class WebhooksActivityEntryAttributes implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'attempt' => null,
-'created' => null,
-'endpointUrl' => null,
+        'attemptId' => null,
+'accountName' => null,
+'eventTimestamp' => 'date-time',
+'ipAddress' => null,
+'protocol' => null,
+'username' => null,
 'event' => null,
-'response' => null,
-'responseSize' => null,
-'status' => null    ];
+'eventData' => null    ];
 
     /**
      * Array of property to type mappings. Used for (de)serialization
@@ -105,13 +107,14 @@ class WebhooksActivityEntryAttributes implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'attempt' => 'attempt',
-'created' => 'created',
-'endpointUrl' => 'endpointUrl',
+        'attemptId' => 'attemptId',
+'accountName' => 'accountName',
+'eventTimestamp' => 'eventTimestamp',
+'ipAddress' => 'ipAddress',
+'protocol' => 'protocol',
+'username' => 'username',
 'event' => 'event',
-'response' => 'response',
-'responseSize' => 'responseSize',
-'status' => 'status'    ];
+'eventData' => 'eventData'    ];
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
@@ -119,13 +122,14 @@ class WebhooksActivityEntryAttributes implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'attempt' => 'setAttempt',
-'created' => 'setCreated',
-'endpointUrl' => 'setEndpointUrl',
+        'attemptId' => 'setAttemptId',
+'accountName' => 'setAccountName',
+'eventTimestamp' => 'setEventTimestamp',
+'ipAddress' => 'setIpAddress',
+'protocol' => 'setProtocol',
+'username' => 'setUsername',
 'event' => 'setEvent',
-'response' => 'setResponse',
-'responseSize' => 'setResponseSize',
-'status' => 'setStatus'    ];
+'eventData' => 'setEventData'    ];
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
@@ -133,13 +137,14 @@ class WebhooksActivityEntryAttributes implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'attempt' => 'getAttempt',
-'created' => 'getCreated',
-'endpointUrl' => 'getEndpointUrl',
+        'attemptId' => 'getAttemptId',
+'accountName' => 'getAccountName',
+'eventTimestamp' => 'getEventTimestamp',
+'ipAddress' => 'getIpAddress',
+'protocol' => 'getProtocol',
+'username' => 'getUsername',
 'event' => 'getEvent',
-'response' => 'getResponse',
-'responseSize' => 'getResponseSize',
-'status' => 'getStatus'    ];
+'eventData' => 'getEventData'    ];
 
     /**
      * Array of attributes where the key is the local name,
@@ -199,13 +204,14 @@ class WebhooksActivityEntryAttributes implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['attempt'] = isset($data['attempt']) ? $data['attempt'] : null;
-        $this->container['created'] = isset($data['created']) ? $data['created'] : null;
-        $this->container['endpointUrl'] = isset($data['endpointUrl']) ? $data['endpointUrl'] : null;
+        $this->container['attemptId'] = isset($data['attemptId']) ? $data['attemptId'] : null;
+        $this->container['accountName'] = isset($data['accountName']) ? $data['accountName'] : null;
+        $this->container['eventTimestamp'] = isset($data['eventTimestamp']) ? $data['eventTimestamp'] : null;
+        $this->container['ipAddress'] = isset($data['ipAddress']) ? $data['ipAddress'] : null;
+        $this->container['protocol'] = isset($data['protocol']) ? $data['protocol'] : null;
+        $this->container['username'] = isset($data['username']) ? $data['username'] : null;
         $this->container['event'] = isset($data['event']) ? $data['event'] : null;
-        $this->container['response'] = isset($data['response']) ? $data['response'] : null;
-        $this->container['responseSize'] = isset($data['responseSize']) ? $data['responseSize'] : null;
-        $this->container['status'] = isset($data['status']) ? $data['status'] : null;
+        $this->container['eventData'] = isset($data['eventData']) ? $data['eventData'] : null;
     }
 
     /**
@@ -233,73 +239,145 @@ class WebhooksActivityEntryAttributes implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets attempt
+     * Gets attemptId
      *
-     * @return int
+     * @return string
      */
-    public function getAttempt()
+    public function getAttemptId()
     {
-        return $this->container['attempt'];
+        return $this->container['attemptId'];
     }
 
     /**
-     * Sets attempt
+     * Sets attemptId
      *
-     * @param int $attempt attempt
+     * @param string $attemptId Entry - retry identifier
      *
      * @return $this
      */
-    public function setAttempt($attempt)
+    public function setAttemptId($attemptId)
     {
-        $this->container['attempt'] = $attempt;
+        $this->container['attemptId'] = $attemptId;
 
         return $this;
     }
 
     /**
-     * Gets created
+     * Gets accountName
      *
      * @return string
      */
-    public function getCreated()
+    public function getAccountName()
     {
-        return $this->container['created'];
+        return $this->container['accountName'];
     }
 
     /**
-     * Sets created
+     * Sets accountName
      *
-     * @param string $created created
+     * @param string $accountName Account master username
      *
      * @return $this
      */
-    public function setCreated($created)
+    public function setAccountName($accountName)
     {
-        $this->container['created'] = $created;
+        $this->container['accountName'] = $accountName;
 
         return $this;
     }
 
     /**
-     * Gets endpointUrl
+     * Gets eventTimestamp
      *
-     * @return string
+     * @return \DateTime
      */
-    public function getEndpointUrl()
+    public function getEventTimestamp()
     {
-        return $this->container['endpointUrl'];
+        return $this->container['eventTimestamp'];
     }
 
     /**
-     * Sets endpointUrl
+     * Sets eventTimestamp
      *
-     * @param string $endpointUrl endpointUrl
+     * @param \DateTime $eventTimestamp Date and time event originally took place
      *
      * @return $this
      */
-    public function setEndpointUrl($endpointUrl)
+    public function setEventTimestamp($eventTimestamp)
     {
-        $this->container['endpointUrl'] = $endpointUrl;
+        $this->container['eventTimestamp'] = $eventTimestamp;
+
+        return $this;
+    }
+
+    /**
+     * Gets ipAddress
+     *
+     * @return string
+     */
+    public function getIpAddress()
+    {
+        return $this->container['ipAddress'];
+    }
+
+    /**
+     * Sets ipAddress
+     *
+     * @param string $ipAddress IP address of related activity
+     *
+     * @return $this
+     */
+    public function setIpAddress($ipAddress)
+    {
+        $this->container['ipAddress'] = $ipAddress;
+
+        return $this;
+    }
+
+    /**
+     * Gets protocol
+     *
+     * @return string
+     */
+    public function getProtocol()
+    {
+        return $this->container['protocol'];
+    }
+
+    /**
+     * Sets protocol
+     *
+     * @param string $protocol Type of connection used for related activity
+     *
+     * @return $this
+     */
+    public function setProtocol($protocol)
+    {
+        $this->container['protocol'] = $protocol;
+
+        return $this;
+    }
+
+    /**
+     * Gets username
+     *
+     * @return string
+     */
+    public function getUsername()
+    {
+        return $this->container['username'];
+    }
+
+    /**
+     * Sets username
+     *
+     * @param string $username Username logged for related activity. May refer to someone who is not a user of the account, such as a share recipient or \"publ
+     *
+     * @return $this
+     */
+    public function setUsername($username)
+    {
+        $this->container['username'] = $username;
 
         return $this;
     }
@@ -317,7 +395,7 @@ class WebhooksActivityEntryAttributes implements ModelInterface, ArrayAccess
     /**
      * Sets event
      *
-     * @param string $event event
+     * @param string $event Type of related activity
      *
      * @return $this
      */
@@ -329,73 +407,25 @@ class WebhooksActivityEntryAttributes implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets response
+     * Gets eventData
      *
-     * @return string
+     * @return \ExaVault\Model\WebhookV2EventData
      */
-    public function getResponse()
+    public function getEventData()
     {
-        return $this->container['response'];
+        return $this->container['eventData'];
     }
 
     /**
-     * Sets response
+     * Sets eventData
      *
-     * @param string $response response
+     * @param \ExaVault\Model\WebhookV2EventData $eventData eventData
      *
      * @return $this
      */
-    public function setResponse($response)
+    public function setEventData($eventData)
     {
-        $this->container['response'] = $response;
-
-        return $this;
-    }
-
-    /**
-     * Gets responseSize
-     *
-     * @return int
-     */
-    public function getResponseSize()
-    {
-        return $this->container['responseSize'];
-    }
-
-    /**
-     * Sets responseSize
-     *
-     * @param int $responseSize responseSize
-     *
-     * @return $this
-     */
-    public function setResponseSize($responseSize)
-    {
-        $this->container['responseSize'] = $responseSize;
-
-        return $this;
-    }
-
-    /**
-     * Gets status
-     *
-     * @return int
-     */
-    public function getStatus()
-    {
-        return $this->container['status'];
-    }
-
-    /**
-     * Sets status
-     *
-     * @param int $status status
-     *
-     * @return $this
-     */
-    public function setStatus($status)
-    {
-        $this->container['status'] = $status;
+        $this->container['eventData'] = $eventData;
 
         return $this;
     }

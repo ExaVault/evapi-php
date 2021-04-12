@@ -1,6 +1,6 @@
 <?php
 /**
- * WebhooksActivityResponse
+ * WebhookActivityEntry
  *
  * PHP version 5
  *
@@ -32,15 +32,14 @@ use \ArrayAccess;
 use \ExaVault\ObjectSerializer;
 
 /**
- * WebhooksActivityResponse Class Doc Comment
+ * WebhookActivityEntry Class Doc Comment
  *
  * @category Class
- * @description Session activity list response
  * @package  ExaVault
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class WebhooksActivityResponse implements ModelInterface, ArrayAccess
+class WebhookActivityEntry implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -49,7 +48,7 @@ class WebhooksActivityResponse implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'WebhooksActivityResponse';
+    protected static $swaggerModelName = 'WebhookActivityEntry';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -57,10 +56,9 @@ class WebhooksActivityResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'responseStatus' => 'int',
-'totalResults' => 'int',
-'returnedResults' => 'int',
-'data' => '\ExaVault\Model\WebhooksActivityEntry[]'    ];
+        'id' => 'int',
+'type' => 'string',
+'attributes' => 'OneOfWebhookActivityEntryAttributes'    ];
 
     /**
       * Array of property to format mappings. Used for (de)serialization
@@ -68,10 +66,9 @@ class WebhooksActivityResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'responseStatus' => null,
-'totalResults' => null,
-'returnedResults' => null,
-'data' => null    ];
+        'id' => 'int64',
+'type' => null,
+'attributes' => null    ];
 
     /**
      * Array of property to type mappings. Used for (de)serialization
@@ -100,10 +97,9 @@ class WebhooksActivityResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'responseStatus' => 'responseStatus',
-'totalResults' => 'totalResults',
-'returnedResults' => 'returnedResults',
-'data' => 'data'    ];
+        'id' => 'id',
+'type' => 'type',
+'attributes' => 'attributes'    ];
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
@@ -111,10 +107,9 @@ class WebhooksActivityResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'responseStatus' => 'setResponseStatus',
-'totalResults' => 'setTotalResults',
-'returnedResults' => 'setReturnedResults',
-'data' => 'setData'    ];
+        'id' => 'setId',
+'type' => 'setType',
+'attributes' => 'setAttributes'    ];
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
@@ -122,10 +117,9 @@ class WebhooksActivityResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'responseStatus' => 'getResponseStatus',
-'totalResults' => 'getTotalResults',
-'returnedResults' => 'getReturnedResults',
-'data' => 'getData'    ];
+        'id' => 'getId',
+'type' => 'getType',
+'attributes' => 'getAttributes'    ];
 
     /**
      * Array of attributes where the key is the local name,
@@ -168,7 +162,18 @@ class WebhooksActivityResponse implements ModelInterface, ArrayAccess
         return self::$swaggerModelName;
     }
 
-    
+    const TYPE_WEBHOOK_ACTIVITY = 'webhookActivity';
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getTypeAllowableValues()
+    {
+        return [
+            self::TYPE_WEBHOOK_ACTIVITY,        ];
+    }
 
     /**
      * Associative array for storing property values
@@ -185,10 +190,9 @@ class WebhooksActivityResponse implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['responseStatus'] = isset($data['responseStatus']) ? $data['responseStatus'] : null;
-        $this->container['totalResults'] = isset($data['totalResults']) ? $data['totalResults'] : null;
-        $this->container['returnedResults'] = isset($data['returnedResults']) ? $data['returnedResults'] : null;
-        $this->container['data'] = isset($data['data']) ? $data['data'] : null;
+        $this->container['id'] = isset($data['id']) ? $data['id'] : null;
+        $this->container['type'] = isset($data['type']) ? $data['type'] : null;
+        $this->container['attributes'] = isset($data['attributes']) ? $data['attributes'] : null;
     }
 
     /**
@@ -199,6 +203,14 @@ class WebhooksActivityResponse implements ModelInterface, ArrayAccess
     public function listInvalidProperties()
     {
         $invalidProperties = [];
+
+        $allowedValues = $this->getTypeAllowableValues();
+        if (!is_null($this->container['type']) && !in_array($this->container['type'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'type', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
 
         return $invalidProperties;
     }
@@ -216,97 +228,82 @@ class WebhooksActivityResponse implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets responseStatus
+     * Gets id
      *
      * @return int
      */
-    public function getResponseStatus()
+    public function getId()
     {
-        return $this->container['responseStatus'];
+        return $this->container['id'];
     }
 
     /**
-     * Sets responseStatus
+     * Sets id
      *
-     * @param int $responseStatus Http status code of the response.
+     * @param int $id id
      *
      * @return $this
      */
-    public function setResponseStatus($responseStatus)
+    public function setId($id)
     {
-        $this->container['responseStatus'] = $responseStatus;
+        $this->container['id'] = $id;
 
         return $this;
     }
 
     /**
-     * Gets totalResults
+     * Gets type
      *
-     * @return int
+     * @return string
      */
-    public function getTotalResults()
+    public function getType()
     {
-        return $this->container['totalResults'];
+        return $this->container['type'];
     }
 
     /**
-     * Sets totalResults
+     * Sets type
      *
-     * @param int $totalResults Total results found.
+     * @param string $type type
      *
      * @return $this
      */
-    public function setTotalResults($totalResults)
+    public function setType($type)
     {
-        $this->container['totalResults'] = $totalResults;
+        $allowedValues = $this->getTypeAllowableValues();
+        if (!is_null($type) && !in_array($type, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'type', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['type'] = $type;
 
         return $this;
     }
 
     /**
-     * Gets returnedResults
+     * Gets attributes
      *
-     * @return int
+     * @return OneOfWebhookActivityEntryAttributes
      */
-    public function getReturnedResults()
+    public function getAttributes()
     {
-        return $this->container['returnedResults'];
+        return $this->container['attributes'];
     }
 
     /**
-     * Sets returnedResults
+     * Sets attributes
      *
-     * @param int $returnedResults Number of results returned.
+     * @param OneOfWebhookActivityEntryAttributes $attributes attributes
      *
      * @return $this
      */
-    public function setReturnedResults($returnedResults)
+    public function setAttributes($attributes)
     {
-        $this->container['returnedResults'] = $returnedResults;
-
-        return $this;
-    }
-
-    /**
-     * Gets data
-     *
-     * @return \ExaVault\Model\WebhooksActivityEntry[]
-     */
-    public function getData()
-    {
-        return $this->container['data'];
-    }
-
-    /**
-     * Sets data
-     *
-     * @param \ExaVault\Model\WebhooksActivityEntry[] $data data
-     *
-     * @return $this
-     */
-    public function setData($data)
-    {
-        $this->container['data'] = $data;
+        $this->container['attributes'] = $attributes;
 
         return $this;
     }

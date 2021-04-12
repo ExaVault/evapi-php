@@ -1,6 +1,6 @@
 <?php
 /**
- * CallbackSettings
+ * WebhookTriggersResources
  *
  * PHP version 5
  *
@@ -32,14 +32,14 @@ use \ArrayAccess;
 use \ExaVault\ObjectSerializer;
 
 /**
- * CallbackSettings Class Doc Comment
+ * WebhookTriggersResources Class Doc Comment
  *
  * @category Class
  * @package  ExaVault
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class CallbackSettings implements ModelInterface, ArrayAccess
+class WebhookTriggersResources implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -48,7 +48,7 @@ class CallbackSettings implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'CallbackSettings';
+    protected static $swaggerModelName = 'WebhookTriggers_resources';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -56,10 +56,15 @@ class CallbackSettings implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'accountId' => 'string',
-'endpointUrl' => 'string',
-'token' => 'string',
-'triggers' => '\ExaVault\Model\CallbackSettingsTriggers'    ];
+        'upload' => 'bool',
+'download' => 'bool',
+'delete' => 'bool',
+'rename' => 'bool',
+'copy' => 'bool',
+'move' => 'bool',
+'compress' => 'bool',
+'extract' => 'bool',
+'createFolder' => 'bool'    ];
 
     /**
       * Array of property to format mappings. Used for (de)serialization
@@ -67,10 +72,15 @@ class CallbackSettings implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'accountId' => null,
-'endpointUrl' => null,
-'token' => null,
-'triggers' => null    ];
+        'upload' => null,
+'download' => null,
+'delete' => null,
+'rename' => null,
+'copy' => null,
+'move' => null,
+'compress' => null,
+'extract' => null,
+'createFolder' => null    ];
 
     /**
      * Array of property to type mappings. Used for (de)serialization
@@ -99,10 +109,15 @@ class CallbackSettings implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'accountId' => 'accountId',
-'endpointUrl' => 'endpointUrl',
-'token' => 'token',
-'triggers' => 'triggers'    ];
+        'upload' => 'upload',
+'download' => 'download',
+'delete' => 'delete',
+'rename' => 'rename',
+'copy' => 'copy',
+'move' => 'move',
+'compress' => 'compress',
+'extract' => 'extract',
+'createFolder' => 'createFolder'    ];
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
@@ -110,10 +125,15 @@ class CallbackSettings implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'accountId' => 'setAccountId',
-'endpointUrl' => 'setEndpointUrl',
-'token' => 'setToken',
-'triggers' => 'setTriggers'    ];
+        'upload' => 'setUpload',
+'download' => 'setDownload',
+'delete' => 'setDelete',
+'rename' => 'setRename',
+'copy' => 'setCopy',
+'move' => 'setMove',
+'compress' => 'setCompress',
+'extract' => 'setExtract',
+'createFolder' => 'setCreateFolder'    ];
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
@@ -121,10 +141,15 @@ class CallbackSettings implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'accountId' => 'getAccountId',
-'endpointUrl' => 'getEndpointUrl',
-'token' => 'getToken',
-'triggers' => 'getTriggers'    ];
+        'upload' => 'getUpload',
+'download' => 'getDownload',
+'delete' => 'getDelete',
+'rename' => 'getRename',
+'copy' => 'getCopy',
+'move' => 'getMove',
+'compress' => 'getCompress',
+'extract' => 'getExtract',
+'createFolder' => 'getCreateFolder'    ];
 
     /**
      * Array of attributes where the key is the local name,
@@ -184,10 +209,15 @@ class CallbackSettings implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['accountId'] = isset($data['accountId']) ? $data['accountId'] : null;
-        $this->container['endpointUrl'] = isset($data['endpointUrl']) ? $data['endpointUrl'] : null;
-        $this->container['token'] = isset($data['token']) ? $data['token'] : null;
-        $this->container['triggers'] = isset($data['triggers']) ? $data['triggers'] : null;
+        $this->container['upload'] = isset($data['upload']) ? $data['upload'] : null;
+        $this->container['download'] = isset($data['download']) ? $data['download'] : null;
+        $this->container['delete'] = isset($data['delete']) ? $data['delete'] : null;
+        $this->container['rename'] = isset($data['rename']) ? $data['rename'] : null;
+        $this->container['copy'] = isset($data['copy']) ? $data['copy'] : null;
+        $this->container['move'] = isset($data['move']) ? $data['move'] : null;
+        $this->container['compress'] = isset($data['compress']) ? $data['compress'] : null;
+        $this->container['extract'] = isset($data['extract']) ? $data['extract'] : null;
+        $this->container['createFolder'] = isset($data['createFolder']) ? $data['createFolder'] : null;
     }
 
     /**
@@ -215,97 +245,217 @@ class CallbackSettings implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets accountId
+     * Gets upload
      *
-     * @return string
+     * @return bool
      */
-    public function getAccountId()
+    public function getUpload()
     {
-        return $this->container['accountId'];
+        return $this->container['upload'];
     }
 
     /**
-     * Sets accountId
+     * Sets upload
      *
-     * @param string $accountId ID of the account these settings belongs to.
+     * @param bool $upload Send webhook messages when resources are uploaded.
      *
      * @return $this
      */
-    public function setAccountId($accountId)
+    public function setUpload($upload)
     {
-        $this->container['accountId'] = $accountId;
+        $this->container['upload'] = $upload;
 
         return $this;
     }
 
     /**
-     * Gets endpointUrl
+     * Gets download
      *
-     * @return string
+     * @return bool
      */
-    public function getEndpointUrl()
+    public function getDownload()
     {
-        return $this->container['endpointUrl'];
+        return $this->container['download'];
     }
 
     /**
-     * Sets endpointUrl
+     * Sets download
      *
-     * @param string $endpointUrl Where callback settings object sent to.
+     * @param bool $download Send webhook messages when resources are downloaded.
      *
      * @return $this
      */
-    public function setEndpointUrl($endpointUrl)
+    public function setDownload($download)
     {
-        $this->container['endpointUrl'] = $endpointUrl;
+        $this->container['download'] = $download;
 
         return $this;
     }
 
     /**
-     * Gets token
+     * Gets delete
      *
-     * @return string
+     * @return bool
      */
-    public function getToken()
+    public function getDelete()
     {
-        return $this->container['token'];
+        return $this->container['delete'];
     }
 
     /**
-     * Sets token
+     * Sets delete
      *
-     * @param string $token Verification token for the request authentication.
+     * @param bool $delete Send webhook messages when resources are deleted
      *
      * @return $this
      */
-    public function setToken($token)
+    public function setDelete($delete)
     {
-        $this->container['token'] = $token;
+        $this->container['delete'] = $delete;
 
         return $this;
     }
 
     /**
-     * Gets triggers
+     * Gets rename
      *
-     * @return \ExaVault\Model\CallbackSettingsTriggers
+     * @return bool
      */
-    public function getTriggers()
+    public function getRename()
     {
-        return $this->container['triggers'];
+        return $this->container['rename'];
     }
 
     /**
-     * Sets triggers
+     * Sets rename
      *
-     * @param \ExaVault\Model\CallbackSettingsTriggers $triggers triggers
+     * @param bool $rename Send webhook messages when resources are renamed.
      *
      * @return $this
      */
-    public function setTriggers($triggers)
+    public function setRename($rename)
     {
-        $this->container['triggers'] = $triggers;
+        $this->container['rename'] = $rename;
+
+        return $this;
+    }
+
+    /**
+     * Gets copy
+     *
+     * @return bool
+     */
+    public function getCopy()
+    {
+        return $this->container['copy'];
+    }
+
+    /**
+     * Sets copy
+     *
+     * @param bool $copy Send webhook messages when resources are copied.
+     *
+     * @return $this
+     */
+    public function setCopy($copy)
+    {
+        $this->container['copy'] = $copy;
+
+        return $this;
+    }
+
+    /**
+     * Gets move
+     *
+     * @return bool
+     */
+    public function getMove()
+    {
+        return $this->container['move'];
+    }
+
+    /**
+     * Sets move
+     *
+     * @param bool $move Send webhook messages when resources are moved.
+     *
+     * @return $this
+     */
+    public function setMove($move)
+    {
+        $this->container['move'] = $move;
+
+        return $this;
+    }
+
+    /**
+     * Gets compress
+     *
+     * @return bool
+     */
+    public function getCompress()
+    {
+        return $this->container['compress'];
+    }
+
+    /**
+     * Sets compress
+     *
+     * @param bool $compress Send webhook messages when resources are compressed into an archive.
+     *
+     * @return $this
+     */
+    public function setCompress($compress)
+    {
+        $this->container['compress'] = $compress;
+
+        return $this;
+    }
+
+    /**
+     * Gets extract
+     *
+     * @return bool
+     */
+    public function getExtract()
+    {
+        return $this->container['extract'];
+    }
+
+    /**
+     * Sets extract
+     *
+     * @param bool $extract Send webhook messages when resources are extracted from an archive.
+     *
+     * @return $this
+     */
+    public function setExtract($extract)
+    {
+        $this->container['extract'] = $extract;
+
+        return $this;
+    }
+
+    /**
+     * Gets createFolder
+     *
+     * @return bool
+     */
+    public function getCreateFolder()
+    {
+        return $this->container['createFolder'];
+    }
+
+    /**
+     * Sets createFolder
+     *
+     * @param bool $createFolder Send webhook messages when a new folder is created.
+     *
+     * @return $this
+     */
+    public function setCreateFolder($createFolder)
+    {
+        $this->container['createFolder'] = $createFolder;
 
         return $this;
     }
