@@ -19,7 +19,7 @@
         "ext-json": "*",
         "ext-mbstring": "*",
         "guzzlehttp/guzzle": "^6.2",
-        "vlucas/phpdotenv": "^5.2"
+        "vlucas/phpdotenv": "^4.2"
     },
     "autoload": {
         "psr-4": { "ExaVault\\" : "lib/" }
